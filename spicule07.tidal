@@ -28,3 +28,11 @@ d5 $ loopAt 4 $ chop 32 $ sound "paper"
 d1 $ off 0.125 (# s "superzow")$ jux rev $ slow 4 $ off (1/16) (|+| up 12) $ off (0.125) (|+| n 12) $ degrade $ n "c4(3,8) e4(3,8,4) f4(3,8) g4*3"
   # sound "superpiano"
   # legato 0.5
+
+
+d1 $ off 0.25 ((struct "x(3,8)") . (# (s "superpiano" # gain 0.7))) $ jux rev $ slow 2 $ slow 2 $ off 0.125 (|+| n (-12)) $ off 0.25 (|+| n "7") $ n "c(3,8) e*3 f(3,8) g(3,8)" # sound "supermandolin"
+  # lpf (slow 4 $ sine * 3000 + 400)
+  # lpq 0.2
+  # room 0.2
+  # legato "<2 4>"
+  # gain 1.1

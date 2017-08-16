@@ -11,12 +11,10 @@ d2 $ (jux (rev) $ n "{e8 e6 e9 e6 e8}%1 e7 [g7 g6]" # s "rash")
   # resonance "0.2"
 
 d3 $ sometimes (slow 2) $ juxBy 0.5 rev $ runWith 3 (density 2 . (# speed "2")) $ n "{[1 4 ~] 5, 7*2}" # s "jvrave"
-  # gain "1"
+  # gain "1.5"
 
 d4 $ jux rev $ off (1/3) (|+| n "7") $ n "e7(4,6)" # sound "rash" |+| n "{0 5 7}%1"
   
-
-
 d5 $ runWith 4 (density 2) $ n "0*4" # s "jvrave"
   # shape (slow 8 $ scale 0.3 0.9 sine1)
 

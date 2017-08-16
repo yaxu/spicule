@@ -13,7 +13,6 @@ d2 $ jux rev $ jux' [id,rev,(0.25<~)] $ n (off 0.125 (+12) $ off 0.25 (+7) $ slo
   # room 0.3
   |+| pan (slow 8 saw)
   # orbit 2
-hush
 
 d3 $ jux ("<0.25 0.5>" <~) $ chunk 4 (hurry "<2 2 0.5>") $ iter 4 $ loopAt 2 $ chop 16 $ sound "breaks165"
 

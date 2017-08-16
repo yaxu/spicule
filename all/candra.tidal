@@ -1,5 +1,5 @@
 
-d1 $ degradeBy 0.3 $ off 0.25 ((struct "x(3,8)") . (# (s "superpiano" # gain 0.7))) $ jux rev $ slow 2 $ slow 2 $ off 0.125 (|+| n (-12)) $ off 0.25 (|+| n "7") $ n "c(3,8) e*3 f(3,8) g(3,8)" # sound "supermandolin"
+d1 $ off 0.25 ((struct "x(3,8)") . (# (s "superpiano" # gain 0.7))) $ jux rev $ slow 2 $ slow 2 $ off 0.125 (|+| n (-12)) $ off 0.25 (|+| n "7") $ n "c(3,8) e*3 f(3,8) g(3,8)" # sound "supermandolin"
   # lpf (slow 4 $ sine * 3000 + 400)
   # lpq 0.2
   # room 0.2
@@ -25,7 +25,7 @@ d4 $ jux rev $ weave 16 (palindrome $ n "0 1 2 3 4 5 6 7" # sound "arpy" )
    speed "1 [3 0.5] 0.5" # pan (slow 2 tri)
   ]
 
-d2 $ degradeBy 0.8 $ off 0.25 (# (s "pulse"))$ slow 2 $ (jux' [id, rev, (|*| speed 2), (|+| n 7)] $ off "<0.25 0.5 0.75>" (# crush 5) $  off 0.25 (|+| n 7)$ slow 2 $ n "c6(3,8) a7(3,8) f6(3,8) e5*3" # sound "rash")
+d2 $ off 0.25 (# (s "pulse"))$ slow 2 $ (jux' [id, rev, (|*| speed 2), (|+| n 7)] $ off "<0.25 0.5 0.75>" (# crush 5) $  off 0.25 (|+| n 7)$ slow 2 $ n "c6(3,8) a7(3,8) f6(3,8) e5*3" # sound "rash")
   # gain "0.8"
   |+| n (slow 4 "<0 7 12 2>")
   |+| pan (slow 7 saw)
@@ -41,7 +41,6 @@ d4 $ slow 2 $ every 2 (density 2) $ jux' [id, iter 4] $ chunk 4 (hurry "<0.5 2 0
   # orbit 1
   # room 0.2
   |*| speed 2
-
 
 d1 $ jux' [id, rev, (|*| speed 2), (|+| speed 4) . rev . (# crush 5)] $ (off 0.25 (|+| n "<0 7 12>")$ (off "<0.125 0.25>" (# s "pulse") $ slow 4 $ n "e6(3,8) [c6*2 g6]" # sound "jx"))
   # orbit 2

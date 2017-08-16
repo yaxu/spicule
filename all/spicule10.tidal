@@ -1,0 +1,23 @@
+d1 $ (jux' [slow 2, rev, iter 4] $ chunk 4 (hurry 2) $ off 0.25 (# (crush 3)) $ n "<c3 [d3 ~ e3 ~]>" # sound "supersiren")
+  # gain 0.7
+  # hpf (slow 4 $ sine * 2000 + 100)
+  # hpq 0.3
+  |+| pan (slow 4 saw)
+
+d1 silence
+
+d1 $ jux' [id,rev,(0.25<~)] $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 $ "d6(3,8) e7(3,8) f7(3,8) g7(3,8)" + "<0 7 12 2>") # sound "superzow"
+  # gain 0.7
+  |+| n "-48"
+  # hpf (slow 4 $ sine * 1000 + 100)
+  # hpq 0.3
+  # room 0.5
+  |+| pan (slow 8 saw)
+
+d3 $ chunk 4 (hurry 2) $ jux' [id, (# speed 4), (vowel "<a i*2 u*3 o*4>" #), (rev . chop 8), (off "<0.25 0.5>" (# crush "<5 5 5 3>") )] $ chunk 4 (hurry 0.5) $sound "<future(3,8) cp drum(5,8) sn:2>"
+
+d1 $ every 3 (hurry 2) $ sometimes (|*| speed 2) $ jux ((|+| speed 2) . (slow 2)) $ jux (rev) $ every 5 (0.125 <~) $ every 3 (0.25 <~) $ n "{0 [~ 4] 3*2 2, 0 4 1*2}" # sound "gretsch"
+
+
+d2 $ every 2 (hurry 2) $ sometimes (|*| speed 2) $ jux ((|+| speed 2) . (slow 2)) $ jux (rev) $ every 5 (0.125 <~) $ every 3 (0.25 <~) $ s "micron(3,8)"
+  # n (choose [0, 2])
