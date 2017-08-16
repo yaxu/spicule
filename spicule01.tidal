@@ -1,3 +1,4 @@
+cps 0.75
 
 x1 $ struct "[x _ x*2, ~ <x [~ x]> ~ x]" $ sound "bks:3"
   # legato 1
