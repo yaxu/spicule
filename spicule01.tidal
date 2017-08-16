@@ -1,16 +1,24 @@
 d1 $ jux (iter 4 . rev) $ chop 16 $ sound "{bd [rs8 sd8:3], cp8 ~ sd8:4}"
   # speed "2"
 
-d9 $ substruct "<x x/2 [x ~]>" $ slow 2 $ juxBy 0.25 rev $ (chop 8 $ sound "gabba")
+d9 $ (substruct "<x x/2 [x ~]>" $ slow 2 $ juxBy 0.25 rev $ (chop 8 $ sound "gabba"))
   # shape "0.3"
   # delay "0.9"
   # delayfeedback "0.25"
   # delaytime "0.25"
   # gain "0.7"
-  # lpf (scale 2000 1000 sine1)
-  # lpq 0.4
+  # hpf (slow 2 $ scale 2000 4000 sine1)
+  # hpq 0.4
   |*| speed "[2, 2.1]"
   # orbit 2
+
+d5 $ jux rev $ (chop 8 $ sound "jungbass:6")
+  # shape "0.3"
+  # delay "0"
+  # delayfeedback "0.8"
+  # delaytime (scale 0.01 0.02 $ slow 2 $ sine1)
+  # gain "0.8"
+  # orbit 3
 
 d3 $ off 0.125 (|*| speed 2) $ off 0.25 (# speed 2) $ every 4 (# speed "1.2") $ sound "[bd8:8(3,8), ~ feel:2]"
   # shape "0.7"
@@ -18,7 +26,5 @@ d3 $ off 0.125 (|*| speed 2) $ off 0.25 (# speed 2) $ every 4 (# speed "1.2") $ 
   # orbit 1
   # room 0.2
   # size 0.7
-
-
 
 d2 $ slowspread (\x -> off x (|*| speed "2")) [0.125,0.25,0.25,-(1/16)] $ (whenmod 8 4 (jux rev) $ (slow 2 $ n "0 [0 2] [2 0] 0 [2 0] 0 [2 1] [0 !?]" # s "drum")) # speed (slow 4 $ scale 0.9 1.5 sine1)
