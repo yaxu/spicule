@@ -1,0 +1,318 @@
+-- rise
+hush
+d1 $ stack [
+            jux rev $ n ((subtract 12) <$> (offadd ((1/3)) (12) $ offadd 0.125 12 $ offadd 0.25 7 $ slow 4 $ "d1(3,8) e1(5,8) f1*2 g1*2")) # s "xx"
+            # cutoff (slow 4 $ scale 500 3000 saw1)
+            # resonance "0.3"
+            # gain "0.7",
+            const silence $ jux rev $ within (0,0.5) (every 3 $ density 2) $  within (0,0.25) (every 2 $ density 1.5) $ s "dirty*8" # n (whenmod 8 4 ((+ 12) <$>) $ "[d2 e1 f1 g1]/4")
+            # gain "0.8"
+            # resonance "0.3"
+            # cutoff (slow 4 $ scale 1000 3000 saw1)
+            # room "0.8"
+            # size "0.9"
+            # orbit "1"
+           ]
+
+-- jungle
+
+d1 $ sometimes (off 0.25 (# (crush "4" # gain "0.8"))) $ jux (rev) $ slow 2 $ up (sometimes ((subtract 12) <$>) $ slowspread (\x -> offadd x 7) [0.25,0.5] $ "0 [~ 3 ~] 0 3") # sound "[sid:3 sid:4]/4"
+  # resonance "0.3"
+  # cutoff "[1000 2000]/4"
+  # room "0.7"
+  # size "0.6"
+  # orbit "0"
+
+d3 $ jux (|+| speed "2") $ weave 16 (pan sine1)
+  [slow 2 $ sound "{drum sd8 drum*3 [ht8:3*2 sd8], cp ~ ~ }",
+   slow 3 $ sound "drum sd8*2 drum [ht8:3*2 sd8]"
+   ]
+  # orbit "0"
+
+
+-- electric
+
+d1 $ jux ((0.125 <~) . iter 4) $ (chop 8 $ loopAt 2 $ sound "sqrpad")
+  # cutoff "300 400 2000 500"
+  # up "[[0 5 7] ! [0 5 7 12] !]/4"
+
+-- acid
+
+d2 $ slow 2 $ jux (rev) $ slow 2 $ ghost $ sound "drum [feel:1 ~ ~ mt8:5] [~ drum] [~ [voodoo ~ voodoo:4 mt8:3]]" # resonance (scale 0.4 0.5 tri1) # cutoff "3000"  # shape "0.6"
+
+d1 $ slow 2 $ sound "{bd8:4 [rs8 mt8, ~ ht8 ~] [~ [ht8 lt8]] [~ [lt8 ~]], bd8 drum bd*2}"
+  # shape "0.7" # speed "1.5"
+
+
+m1 $ midinote ((+36) <$> ((subtract 12) <$> (offadd 0.125 12 $ offadd (1/16) 7 $ slow 4 ("f7(3,8) a8(3,8,2) c7(5,8) e5(3,8,2)"))))
+  # velocity "1" # dur (slow 8 $ scale 0 0.1 sine1)
+  # ctf (scale 0 0.4 sine1)
+
+d8 $ jux rev $ slow 4 $ n (offadd 0.125 12 $ offadd (1/16) 7 ("f7(3,8) a8(3,5,2) c7(5,8) e8(3,8)")) # s "xx" # room "0" # size "0" # end "0.1" # orbit "1" # room "0" # size "0"
+  # resonance "0.3" # cutoff (slow 4 $ scale 100 5000 sine1)
+  # gain "0.9"
+
+-- dnb
+
+d9 $ stack [(jux rev $ slowspread (chop) [64,128] $ sound "drum cp*2? [arpy:4 arpy:5]/2 drum?")
+            # nudge (slow 2 $ sine1),
+            runWith 4 ((# speed "1.2") . density 4) $ sometimes (chop 32) $ brak $ sound "drum [drum:1 bd*2]"
+            # gain "1.1"
+           ]
+
+d7 $ juxBy 0.3 rev $ slowspread (chop) [3,2,6,8] $ sound "jungbass:1 [bd*2 cp]"
+  # gain "1.1" # speed (liftA2 (+) "[1 1.1 1.4]/3" "[1 3]/2")
+  # crush (liftA2 (+) "[5 3 4]/3" "[1 0]/2")
+
+d6 $ brak $ (chop 64 $ sound "[sd8:3@3 sd8:5, sd8*4, drum cp8:2, {~ xx:20 ~ xx:40*2}%2]")
+
+d6 $ iter 4 $ jux (2 <~) $ chop 8 $ loopAt 4 $ sound "shakedown"
+  # gain "0.99" # shape "0.4"
+
+-- jungle
+
+d1 $ off 0.125 (|*| up "7") $ off 0.25 (# up "3") $ sound "sb*2 [sb*2@3] sb"
+  |*| up "[0 [1 [3 -1]/2]]/4"
+  # gain "1.1"
+  |*| speed "[1,[0.75 0.5]/4]"
+
+
+d5 $ jux rev $ runWith' 4 (density 4 . (|+| speed "1.5")) $ chop 8 $ sound "[os os:1 os:3]/3"
+  # gain "0.9"
+
+-- industry
+
+d1 $ (slow 2 $ jux (0.25 <~) $ n (run 16) # s "ind" # end (slow 8 $ scale 0.1 0.2 sine1))
+  # resonance (slow 3 $ scale 0.1 0.2 $ rev saw1)
+  # cutoff (scale 300 3000 saw1)
+  # gain "0.8"
+
+d2 $ runWith 4 ((# shape "0.4") . (# vowel "a") . density 2) $ slow 2 $ sound "[[mt8 ~ mt8] bd8:4] [[~ ht8] bd8:4]"
+  # cutoff "1000" # gain "1.1"
+  # resonance "0.3" # crush "3" # end "0.4"
+  # speed "2"
+
+d3 $ (jux (every 8 rev) $ chop 8 $ slow 2 $ brak $ sound "[gabba(3,16), ~ [g:3 feel:5]]" # speed "2"
+      # shape "0.98"
+      # gain "0.8")
+  # vowel "[a e i o u]/4"
+
+d4 $ slowspread (\x -> off x (# (gain "0.8" # speed "0.8"))) [0.25,0.125,0.5] $ sound "sid:2*2" # shape "0.5"
+
+d5 $ every 4 (slowspread (chop) [3,5,8]) $ sound "newnotes:1" # gain "1.5" # shape "0.4" # cutoff "5000" # resonance "0.3"
+
+d7 $ sound "bd8*3 future:5*3"
+
+-- paper2
+
+d1 $ iter 4 $ stack [(loopAt 4 $ jux (0.5 <~) $ chop 64 $ s "shakedown")
+                     # cutoff (scale 1000 3000 saw1)
+                     # resonance "0.3"
+                    ]
+
+-- xx [f g] a g d
+
+d1 $ slow 4 $ n "[f8 g9]/2 a9 g8 d9" # s "xx"
+
+m1 $ (every 2 rev $ n $ offadd 0.25 7 $ slow 4 $ "[f5(3,8) g4(3,8)]/2 a4(3,8) g5(3,8) d4(3,8)") # velocity "1"
+
+cps 0.785
+
+d2 $ iter 4 $ slow 4 $ slowspread (chop) [16,32,64,8] $ sound "fm:10"
+  # gain "0.9"
+
+
+
+d3 $ jux rev $ iter 4 $ (loopAt 4 $ chop 16 $ sound "paper"
+      # unit "c"
+      # gain "0.9")
+  
+d4 silence
+
+d4 $ jux (rev . iter 4) $ chop 8 $ sound "[bd8*2 ~] [sd8:4 mt8*2 mt8 ht8]"
+  # shape "0.9"
+  # speed "[1]"
+
+d6 $ jux rev $ chop 4 $ sound "arc"
+
+
+-- paper2
+
+cps 0.8
+
+
+d3 $ jux rev $ loopAt 4 $ chop 16 $ sound "paper"
+  # orbit 1
+
+d5 $ jux rev $ loopAt "<2 1 2>" $ chop 16 $ sound "os"
+  # gain 1.3
+  # orbit 2
+
+d2 $ jux rev $ slow 4 $ sound (samples' "[xx]" (offadd (-0.125) 12 $ "c8(3,8) e8(3,8) f8(3,8) g8(3,8)")) # gain "1"
+
+d3 $ slow 2 $ sometimes (|*| up "12") $ jux rev $ slow 4 $ sound (samples' "[aid]" (offadd (-0.125) 12 $ "c8(3,8) e8(3,8) f8(3,8) g7(3,8)")) # up "3" # resonance "0.3" # cutoff "2000" # gain "1.2"
+
+d4 $ foldEvery [5,7] (|*| up "7") $  jux (iter 4) $ stut' 7 (- (1/32)) ((|+| crush "3") . (|*| gain "0.9")) $ sound (samples' "arpy" (slow 2 $ "0 [5 3]"))
+  # speed "[1,2]"
+  # gain "0.95"
+
+
+d1 $ jux rev $ sometimes (|*| speed "0.5") $ iter 4 $ (slow 4 $ chop 16 $ sound "paper"
+      # unit "c"
+      # speed "[0.25]"
+      # gain "0.9")
+
+d5 $ every 2 (slow 2) $ slow 2 $ runWith 4 (density 2) $ foldEvery [3,7,9] (0.25 <~) $ chop 32 $ sound "[os os:1 os:2]/3"
+  # gain "0.96"
+  # speed "0.8"
+
+d6 $ brak $ jux (density 2) $ sound "[drum*2 [sn:3 sn:2]]"
+  # speed "0.75"
+
+-- broken
+
+d1 $ off 0.25 (# (crush "3" # gain "0.9" # speed "4")) $ jux (4 <~) $ n (slow 8 $ scan 8) # sound "[voodoo,future]"
+  # gain "0.9"
+  # orbit "1"
+  # speed "1"
+
+d2 $ runWith' 4 (density 2) $ off 0.25 (# crush "3") $ off 0.125 (# speed "2") $ sound "drum bd*4"
+
+d1 $ sound "rash:50*2"
+  # pan "0 1"
+
+-- rave
+
+cps 0.75
+
+let f = id
+    never = flip const
+    mute = const silence
+  in 
+  do d1 $ f $ struct "x(3,8,[0 2]/2)" $ n "[d3 d3 as3 g3]/4"
+       # velocity "1"
+       # dur "0.1"
+       # decay (scale 0 0.5 $ slow 4 sine1)
+       # ctf (scale 0.8 1 $ slow 16 sine1)
+     d3 $ mute $ f $ loopAt 4 $ chop 32 $ sound "liq"
+       # cutoff "1000"
+       # resonance "0.3"
+
+d7 $ every 2 (# speed "1.4") $ runWith 4 (density 2) $ jux (4 <~) $ s "amencutup*8" # n (slow 8 $ scan 8)
+  # shape "0.7"
+
+-- large reverb
+
+d4 $ jux rev $ off 0.125 (|*| up "[7 -5]/2") $ n ("[c3 d3 ds3 [a3 e3]]/8") # s "ravebass"
+  # orbit "1"
+  # speed "2"
+  # room "0"
+  # size "0.9"
+  # gain "0.8"
+
+d1 $ often (off 1 (|*| speed "1.5")) $ sometimes (off 0.125 (# up "[5 -7 12]/6")) $ struct "x [x x]" $ n ("[[c8,e8] d8 ds8 f8]/8") # s "xx"
+  # room "1"
+  # size "0.9"
+  # orbit "1"
+  # crush "3"
+  # gain "0.75"
+
+d2 $ jux (iter 4)  $ whenmod 4 2 rev $ every 2 (chop 8) $ sound "glitch:2(3,8)"
+  # gain "1.9"
+  # orbit "2"
+  # vowel "i"
+
+d3 $ jux rev $ iter 8 $ slow 2 $ chop 16 $ sound "arc"
+  # unit "c" # speed "0.5"
+  # gain "1.3"
+
+-- round we go
+
+d4 $ palindrome $
+  stack [slow 4 $ n (offadd 0.125 7 "[c7(8,16) b7(7,16), [a8 e7 g7](17,32)]" + 12) # s "xx"
+         # gain "0.9"
+        ]
+
+d2 $ slowspread (\x -> off x (|*| speed "2")) [0.125,0.25,0.25,-(1/16)] $ (whenmod 8 4 (jux rev) $ (slow 2 $ n "0 [0 2] [2 0] 0 [2 0] 0 [2 1] [0 !?]" # s "drum")) # speed (slow 4 $ scale 0.9 1.5 sine1)
+
+-- and again
+
+d5 $ rev $ stut' 3 0.125 (|*| speed "2") $ slow 2 $ n "c1 [~ g0*2]" # sound "xx" # cutoff (slow 2 $ scale 1000 3000 sine1) # resonance "0.1" # vowel "[a e]/2"
+
+d4 $ slow 2 $ jux (rev) $ n (slowspread (offadd 0.125) [3,5,-7,-5] $ "c1(3,8) [g1(3,8)]") # s "dirty" # resonance "0.3" # cutoff "[4000,400]"
+  # gain "1.1"
+
+d7 $ jux' [id, density 2, (# speed "0.5")] $ every 3 (0.25 <~) $ sound "drum rs8 [sd8:4 mt8:3*2] arpy*2"
+  # cutoff (slow 4 $ scale 1000 4000 sine1)
+  # resonance "0.2"
+
+-- d6 $ slow 2 $ runWith 4 (density 2) $ jux' [id, slow 0.5, rev, (# speed "2") . density 2, (# vowel "a")] $ chop 8 $ sound "bd drum*2 xx:40 jungbass" # gain "1.2" # cutoff "1000" # resonance "0.2"
+
+d6 $ jux (iter 4) $ chop 8 $ sound "sd8(3,8)"
+
+-- 
+
+m1 $ stack [sometimes (|+| n "12") $ off 0.25 (|+| n "7")  $ n "[c3(3,8), d5(3,8,2)]"
+            # ctf (scale 0.5 1 $ slow 4 sine1)
+            # att (saw1)
+           ] # dur "0.1"
+
+
+d1 $ jux (iter 4 . rev) $ chop 16 $ sound "{bd [rs8 sd8:3], cp8 ~ sd8:4}"
+  # speed "2"
+
+d2 $ every 3 (# speed "0.5") $ slowspread (chop) [8,6,3,2] $ sound "~ off"
+
+
+m1 $ sometimes (|+| n "12") $ slow 2 $ n (offadd 0.125 (-12) $ offadd (1/3) 7 "d4 [e5 g4]")
+  # ctf (slow 8 sine1)
+  # dur "0.1"
+
+d9 $ jux rev $ (chop 8 $ sound "jungbass:6")
+  # shape "0.3"
+  # delay "0"
+  # delayfeedback "0.8"
+  # delaytime (scale 0.01 0.02 $ slow 2 $ sine1)
+  # gain "0.8"
+
+d3 $ every 4 (# speed "1.2") $ sound "[bd8:8(3,8), ~ feel:2]"
+  # shape "0.7"
+  # gain "1"
+
+d4 $ slow 2 $ runWith 4 (slow 2) $ chop 16 $ sound "shakedown"
+  # speed "2"
+
+
+d1 $ iter 4 $ jux rev $ n (offadd 0.25 7 $ slow 4 $ "f8(3,8) a8(5,8) c8(3,8) e8(5,8)") # s "xx"
+  # cutoff (scale 1000 5000 sine1)
+  # resonance "0.3"
+
+d2 $ jux rev $ iter 4 $ loopAt 2 $ chop 16 $ sound "arc"
+
+
+d2 $ iter 4 $ n (offadd 0.25 7 $ slow 4 $ "f(3,8) a(5,8) c7(3,8) e7(5,8)")
+  # velocity "0.9"
+
+
+d1 $ jux (iter 4) $ sound "bd [mt8 ravebass:10] [~ rs8] ht8"
+
+d2 $ slow 2 $ jux (iter 4) $ sound "bd [mt8 ravebass:12] [~ rs8] [ht8 lt8]"
+ # speed "2"
+
+d3 $ smash 4 [1,2,3,4] $ s "onoff" # n (irand 6)
+  # gain "0.9" # speed "1.1"
+
+d4 $ jux (iter 4) $ chop 3 $ sound "{bd*2 arpy sn:2*2 ~}"
+
+d8 $ slow 2 $ sometimes (rev . chop 8) $ sometimes (|+| speed "2") $
+    jux (0.25 <~) $ sound (samples "[ifdrums*8, future*8]" (run 8))
+    # nudge "[0 0.04]*4"
+
+
+cps 0.7
+
+d1 $ jux rev $ (off 0.25 (# (s "rash" # speed "2")) $ n (offadd 0.125 12 $ offadd 0.25 7 $ slow 2 $ "d6(3,8) [~ a5*2] e6(3,8) es6(3,8)") # sound "pulse")
+  # lpf (saw1 * 3000 + 500)
+  # resonance 0.2
+  |+| n "<0 0 7 -5 12 7>"
+
