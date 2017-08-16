@@ -1,17 +1,15 @@
 
 x1 $ struct "[x _ x*2, ~ <x [~ x]> ~ x]" $ sound "bks:3"
   # legato 1
-  
-x2 $ (off "<0.125 0.25 0.75>" (# grunge 0.33333) $ sound "bk:1 ~ [~ bk:6] [~ bk:3]")
-  # hpf 1000
-  # hpq (slow 4 $ scale 0.2 0.4 sine)
 
-x3 $ sound "cp sd:1"
+
+x2 $ (off "<0.125 0.25 0.75>" (# (shape 0.99 # gain 0.75)) $ sound "bk:1 ~ [~ bk:6] [~ bk:3]")
+    # speed "[1,4,2]"
+
+x3 $ sound "cp8:5 sd:1"
   # delay 0.9 # delaytime 0.01 # delayfb 0.6
 
-
-
-
-
-
-
+x4 $ chunk 8 (hurry 2) $ stack [sound "kicklinn*4"
+                                # gain 1.3,
+                                loopAt 2 $ chop 16 $ sound "arc"
+                               ]
