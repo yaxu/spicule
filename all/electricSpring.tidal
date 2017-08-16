@@ -21,7 +21,7 @@ d2 $ runWith 4 (density 2) $ brak $ (slowspread (chop) [8,16,128] $ sound "feel 
   # room (slow 4 saw1)
   # orbit "1"
 
-d3 $ degradeBy 0.7 $ sometimes (|+| n "-12") $ off 0.25 (# crush "5") $ jux rev $ slow 2 $ n (offadd 0.125 12 $ offadd 0.25 7 $ slow 2 $ "f6(3,8) a6 [e6*2 c7] e8(3,8,4)") # sound "rash"
+d3 $ sometimes (|+| n "-12") $ off 0.25 (# crush "5") $ jux rev $ slow 2 $ n (offadd 0.125 12 $ offadd 0.25 7 $ slow 2 $ "f6(3,8) a6 [e6*2 c7] e8(3,8,4)") # sound "rash"
   # cutoff (slow 4 $ scale 1000 2000 sine1)
   # resonance "0.3"
   # orbit "0"
@@ -39,7 +39,7 @@ d3 $ degradeBy 0.7 $ sometimes (|+| n "-12") $ off 0.25 (# crush "5") $ jux rev 
 
 d1 $ slow 2 $ jux' [id,rev, iter 4] $ n "{0 ~ [~ 6] 8, 4 4*2 ~}" # sound "jvr"
 
-d2 $ degradeBy 0.7 $ runWith 4 (slow 2 . (# speed "0.5")) $ tabby 8 (n (run 8) # sound "arpy" # pan "0.25") (n (run 8) # sound "arpy*2" # pan "0.75")
+d2 $ runWith 4 (slow 2 . (# speed "0.5")) $ tabby 8 (n (run 8) # sound "arpy" # pan "0.25") (n (run 8) # sound "arpy*2" # pan "0.75")
   # orbit "1"
   # room (slow 4 $ scale 0.6 0.7 saw1)
   # size "0.3"

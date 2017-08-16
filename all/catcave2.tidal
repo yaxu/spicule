@@ -1,7 +1,6 @@
 
-d4 $ do x <- slow 4 $ sine1
-        off (toRational x) (# crush "7") $ n ("c5 [e5 c6]") # s "rash"
-        # shape "0.4"
+d4 $ off (toRational <$> (slow 4 $ sine1)) (# crush "7") $ n ("c5 [e5 c6]") # s "rash"
+  # shape "0.8"
 
 d6 $ n "[27]([3 4]/2,12)" # s "jvrave"
   # speed "0.25"

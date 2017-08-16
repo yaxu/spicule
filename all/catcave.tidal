@@ -27,8 +27,6 @@ d8 $ stack [brak $ n "[0 4, [5 7] ~]"  # sound "jvrave", sound "jvrave:0*2"]
 
 d7 $ jux (# nudge (slow 4 sine1)) $ slow 2 $ every 4 (|+| n "2") $ chop 16 $ n "40(3,8) 52 70(3,8) 40" # s "jvrave"
   
-
-d9 $ do c <- (slow 4 $ scale 2 16 $ run 8)
-        juxBy 0.25 rev $ chop c $ n "21(3,8)" # s "jvrave"
+d9 $ juxBy 0.25 rev $ chop (slow 4 $ scale 2 16 $ run 8) $ n "21(3,8)" # s "jvrave"
      # gain "1"
 
