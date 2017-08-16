@@ -1,9 +1,13 @@
 
 
-x1 $ struct "[x _ x*2, ~ <x [~ x]> ~ x]" $ sound "bk"
-  # n (26)
+x1 $ struct "[x _ x*2, ~ <x [~ x]> ~ x]" $ sound "bks:3"
   # legato 1
   
-x2 $ (off "<0.125 0.25 0.75>" (# grunge 0.4) $ sound "bk:1 ~ [~ bk:6] [~ bk:3]")
-  # hpf 300
+x2 $ (off "<0.125 0.25 0.75>" (# grunge 0.33333) $ sound "bk:1 ~ [~ bk:6] [~ bk:3]")
+  # hpf 1000
   # hpq (slow 4 $ scale 0.2 0.4 sine)
+
+x3 $ sound "~ sd:1"
+  # delay 0.9 # delaytime 0.01 # delayfb 0.6
+
+x4 $ n "c7" # sound "rash"
