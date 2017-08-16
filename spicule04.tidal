@@ -1,0 +1,16 @@
+d1 $ jux rev $ off 0.25 (# speed 2) $ chop "<1 4 1 3>" $ sound "bd ~ micron:2 [~ micron:1]"
+  # orbit 1
+  -- # room 0.6
+  -- # size 0.9
+
+d2 $ off 0.25 (# crush 4) $ sound "[future*8] . bd(3,8) bd*2"
+  # orbit 0
+  # speed "[<1 ~>,2,4]"
+
+
+d4 $ slow 2 $ jux rev $ off 0.25 (|*| speed 2) $ chop "<4 8 3>" $ sound "~ kurt:4*2"
+  # gain 1.3
+  # orbit 2
+  # room 0.6
+  # size 0.5
+  # speed ("[1,1.5]" * "<0.9 0.6>")
