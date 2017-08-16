@@ -1,0 +1,28 @@
+Retreived 1st December 2016 from
+https://fokkie.home.xs4all.nl/IR.htm#claustrofobia
+
+Dear users of the Clautrofobia IR's version 1.1 ,
+
+First i hope you will enjoy these impulse responses i've made. At least i have. They proved me that Altiverb is not only able to capture that church or Lexicon unit.
+
+I agree, they are i bit odd. Why would you need a flower pot IR? The answer is, sometimes i do. Because i work on film and tv sound and sometimes i need to alter voices in an uncommon way. Like a person in an underwater house, a robot,  someone speaking into a drain; all those oddities happen in film sound. So actually this set is far from complete. But it can be a start. There will be additions in the future i guess, so check my site now and then. 
+
+Some notes;
+The differences between dustbin 1, 2 and 3 are mic and speaker placement. That influenced the sound so much that i decided not to use only one. The same goes for the iron bucket. The flower pots are really two differend ones, each with it's own specific tone. The glass cup is captured using two identical pots with the mike in it and the speaker is outside the pots, inbetween.  The same setup for the vacuum cleaner tube; each tube end its own mike and a speaker on the outside. The djembe has little to do with the sound that comes from a djembe, but it does has a sort of wooden interior sound that can be useful. Maybe. 
+
+The IR's are freeware, but i will be most honoured when you tell me you used them for your projects so please don't hestitate to let me know.  
+
+Additions in version 1.1:
+
+¥An iron bath
+
+¥A small tin can
+
+¥I copied all IR's and renamed one channel to .C so now it can be inserted as mono plugin. They are not special re-captures, but they sound ok as 'left only'. 
+
+Have fun. 
+
+Fokke van Saane
+The Netherlands
+
+fokkie@xs4all.nl 
