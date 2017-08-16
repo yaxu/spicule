@@ -1,0 +1,6 @@
+d3 $ slow "[2 [4 1]]/2" $ off 0.25 (# (s "xx" # gain "0.8")) $ slowspread (\x -> stut 16 0.8 x) [(1/32), (1/8), (1/32), (1/4)]
+  $ n "[a8 g7] ~ a7 f6" # sound "rash]"
+  # cutoff (slow 4 $ saw1 * 4000 + 1000)
+  # resonance 0.3
+  # cut (1)
+  # shape 0.6

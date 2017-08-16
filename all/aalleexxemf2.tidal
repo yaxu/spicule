@@ -79,7 +79,7 @@ d3 $ slow 2 $ substruct "x [~ x/2]" $ every 4 (const silence) $ (jux rev $ slow 
   # gain "0.7"
   # speed "[0.5,0.75]"
 
-d4 $ echo 0.25 $ slow 4 $ jux rev $ off 0.125 (|+| n "12") $ off 0.25 (|+| n "7") $ slow 4 $ n "e8(3,8,[0 2]/2) a8*3 f8(3,8) g8(3,8)" # s "xx"
+d4 $ jux rev $ off 0.125 (|+| n "12") $ off 0.25 (|+| n "7") $ slow 4 $ n "e8(3,8,[0 2]/2) a8*3 f8(3,8) g8(3,8)" # s "xx"
   # gain "0.9"
   -- # cutoff (slow 4 $ scale 300 5000 sine1)
   -- # resonance "0.2"
