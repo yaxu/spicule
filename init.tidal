@@ -1,0 +1,7 @@
+
+
+let x1 = d1 . (# orbit 0)
+    x2 = d2 . (# orbit 1)
+    x3 = d3 . (# orbit 2)
+    x4 = d4 . (# orbit 3)
+    x5 = d5 . (# orbit 4)
