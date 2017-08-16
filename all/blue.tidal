@@ -14,7 +14,7 @@ d1 $ degrade $ slow 2 $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.25 (+7) $ s
 
 d1 $ chop 4 $ sound "wobble future"
 
-d2 $ degrade $ jux rev $ slow 2 $ n (off 0.125 (+7) $ off 0.25 (+12) $ slow 2 "c7(3,8) e7(3,8) f7*2 g7(3,8,4)") # sound "rash"
+d2 $ jux rev $ slow 2 $ n (off 0.125 (+7) $ off 0.25 (+12) $ slow 2 "c7(3,8) e7(3,8) f7*2 g7(3,8,4)") # sound "rash"
   # lpf (slow 4 $ scale 500 3000 sine)
   # lpq 0.2
 
@@ -51,7 +51,6 @@ d1 $ up "<0 [~ 1*2]>" # sound "scream"
 
 cps 0.8
 
-
 d1 $ sometimes (# speed 4) $ chunk 4 (# speed 2) $ every 4 (0.25 <~) $ n "0 [~ 3] [~ 6] 1" # sound "jvbass"
   # crush "<4 6>"
   # hpf (100)
@@ -86,8 +85,6 @@ d1 $ off 0.125 (|*| up 7) $ slow 2 $ sound "micron [~ jungbass] ifdrums*2 gabba"
 
 d2 $ brak $ chop 8 $ sound "bd(3,8,<0 4>) sn:3"
 
-
-hush
 d3 $ chunk 4(hurry 2)$off 0.125 (# crush 4) $ off 0.25 (# s "rash") $ off 0.25 (|+| n "<7 12>") $ n "<d6(3,8) a7(3,8)>" # sound "pulse"
   |+| n "<0 0 2 5 7 7 12 12>"
   |*| speed 0.5
@@ -103,4 +100,4 @@ bb2 $ grunge "<0 0.7>"
 
 d2 $ chunk 4 (hurry 2) $ jux rev $ chop "<2 4>" $ sound "~ kurt:2"
 
-  
+hush  

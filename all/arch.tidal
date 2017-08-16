@@ -22,14 +22,13 @@ d3 $ every 4 (0.25 <~) $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "claus
   # gain 1.4
   # crush 3
 
-d4 $ degrade $ off 0.25 ((# s "superpiano") . (|+| n "-24") . (# crush 5)) $ jux rev $ slow 2 $ n (off "<0.25 0.125>" (+7) $slow 2 $ "c7(3,8) a7(3,8) f7(3,8) e7*2") # sound "rash"
+d4 $ off 0.25 ((# s "superpiano") . (|+| n "-24") . (# crush 5)) $ jux rev $ slow 2 $ n (off "<0.25 0.125>" (+7) $slow 2 $ "c7(3,8) a7(3,8) f7(3,8) e7*2") # sound "rash"
   # gain 1.2
   # lpf (slow 4 (sine * 3000 + 1000))
   # lpq 0.1
 
 d5 $ slow 4 $ off 0.125 (# crush 4) $ sound "gabba(3,8,<0 2>)"
   # end 0.1
-
 
 cps (0.85 *2)
 
@@ -46,7 +45,6 @@ d1 $ jux rev $ chunk 4 (hurry 2) $ chop 8 $ sound "bd sn:2*2"
 
 d1 $ sometimes ((|+| speed "<2 0.5>") ) $ chop "<4 2 3>" $ sound "~ <off wobble>"
 
-solo $
 d2 $ slow 2 $ off 0.25 (|+| n 7) $ n "d7 <a7 g7>" # sound "jx"
   # room 0.9
   # orbit 1

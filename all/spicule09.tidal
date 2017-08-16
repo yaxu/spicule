@@ -1,0 +1,16 @@
+d2 $ every 4 ((|*| speed "2") . density 2)$ jux rev $ substruct "x(3,8) x*4" $ sound "claus" # n (slow 3 $ run 16)
+  # crush "<4 5>"
+  # shape "0.3"
+  # orbit "2"
+  # room "0.7 0.8"
+  # size (slow 4 $ saw1 *0.8)
+  # up "<0 6>"
+
+
+d1 $ off 0.25 (|*| up "7")$  slow 2 $ sometimes (off 0.125 (|*| up "-12")) $ runWith 4 (density 2) $ up "0 ~ 5 7" # sound "jungbass:6"
+  # cut "-1"
+  |*| speed "2"
+  # crush "2"
+  # gain 1.1
+  # cutoff (slow 4 $ saw1 * 1000 + 1000)
+  # resonance "0.1"

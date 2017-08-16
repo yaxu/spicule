@@ -11,7 +11,7 @@ d3 $ jux rev $ runWith 4 (density 2) $ loopAt 1 $ chop 8 $ sound "<os os:1 os:2>
 
 d4 $ jux rev $ off 0.25 (|*| speed "2") $ chop "<1 2 4>" $ sound "~ off" |*| up "<0 [7 12]>"
 
-d2 $ degrade $ jux rev $ off 0.25 (# (s "pulse" # speed "0.5")) $ slow 2 $ n (offadd 0.125 12 $ offadd 0.25 7 $ slow 2 "c6(3,8) a5*2 f7(3,8) e7(3,8,2)") # sound "rash"
+d2 $ jux rev $ off 0.25 (# (s "pulse" # speed "0.5")) $ slow 2 $ n (offadd 0.125 12 $ offadd 0.25 7 $ slow 2 "c6(3,8) a5*2 f7(3,8) e7(3,8,2)") # sound "rash"
   # gain "1.1"
   # lpf (slow 4 $ sine1 * 3000 + 500)
   # lpq 0.2
@@ -29,8 +29,7 @@ d2 $ every 4 ((|*| speed "2") . density 2)$ jux rev $ substruct "x(3,8) x*4" $ s
   # size (slow 4 $ saw1 *0.8)
   # up "<0 6>"
 
-
-d6 $ iter 4 $ loopAt 2 $ chop 16 $ sound "repetition"
+d6 $ loopAt 2 $ chop 16 $ sound "repetition"
   # n (irand 16)
   # gain 1.1
 
@@ -38,7 +37,7 @@ d7 $ every 2 (rev . chop 8) $ sound "gab(<3 4 5>,8)"
   # speed "<1 [2 3]>"
   # crush "5"
 
-d1 $ degrade $ off 0.25 (|*| up "7")$  slow 2 $ sometimes (off 0.125 (|*| up "-12")) $ runWith 4 (density 2) $ up "0 ~ 5 7" # sound "jungbass:6"
+d1 $ off 0.25 (|*| up "7")$  slow 2 $ sometimes (off 0.125 (|*| up "-12")) $ runWith 4 (density 2) $ up "0 ~ 5 7" # sound "jungbass:6"
   # cut "-1"
   |*| speed "2"
   # crush "2"
@@ -94,7 +93,6 @@ d6 $ runWith 4 (density 2) $ sound "feel*4"
   # resonance "<0.3 0.2>"
   # shape 0.6
   # speed "2"
-
 
 cps 0.8
 
