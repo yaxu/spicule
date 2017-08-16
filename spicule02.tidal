@@ -1,0 +1,9 @@
+
+d1 $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# (s "superpiano" # gain 0.75))
+                                         . struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
+  # octave "<4 5 3>"
+  |+| n "<0 7 [-5 2] 4>"
+  # sound "supermandolin"
+  # sustain (slow 2 $ scale 0.5 1 saw)
+  # room 0.6
+  # size 0.9
