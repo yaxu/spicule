@@ -1,8 +1,9 @@
-cps 0.8
 
-x1 $ off 0.25 (# speed 2) $ struct "[x _ x*2, ~ <x [~ x]> ~ x]" $ sound "sr"
+
+x1 $ struct "[x _ x*2, ~ <x [~ x]> ~ x]" $ sound "bk"
   # n (26)
-  
   # legato 1
   
-x2 $ rev $ (chop 16) $ n (struct "x x/2" $ irand 16) # sound "sr"
+x2 $ (off "<0.125 0.25 0.75>" (# grunge 0.4) $ sound "bk:1 ~ [~ bk:6] [~ bk:3]")
+  # hpf 300
+  # hpq (slow 4 $ scale 0.2 0.4 sine)
