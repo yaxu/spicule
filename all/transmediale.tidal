@@ -1,0 +1,53 @@
+cps 1.1
+
+d1 $ jux rev $ every 4 (chop 128) $ n "0 1 ~ 1" # sound "{bd8, lt8 ht8 mt8 ~}"
+
+d2 $ off 0.25 (# vowel "a [e i]") $ up "0(3,8) [7 3]" # n "0" # sound "bass3"
+  # shape "0.3"
+  # gain "0.9"
+
+d4 $ every 2 (density 2) $ jux (iter 4) $ slow 2 $ sound "bd ~ mt8 bd . bd sd8:2 bd"
+
+d1 $ jux rev $ n (run 8) # sound "voodoo"
+  # speed "[1,1.1,2]"
+  # gain "1.1"
+
+d1 $ slow 2 $ rev $ jux (|+| n "[7 3 12]/2") $ every 4 (slow 1.5) $ off (0.125) (|+| n "7") $ off 0.25 (|+| n "12") $ slow 2 $ n "[d7(3,8) a7(3,8) f7(3,8) e7(3,8)]/4" # sound "rash(3,8)"
+  # cutoff (slow 16 $ (scale 8000 9000 saw1))
+  # resonance "[0.1 0.2]*3"
+  |*| speed "0.5"
+
+d2 $ every 2 (slow 2) $ n "0 ~ 2 . 16 2" # sound "jvbass"
+  # orbit "1"
+  # room (slow 4 saw1)
+  # size "0.8"
+  # speed "[1,2]"
+
+
+d5 $ slow 8 $ (loopAt 4 $ striate 8 $ sound "atlast:2*4")
+  # gain "0.8"
+
+d3 $ iter 4 $ jux rev $ loopAt 2 $ chop 8 $ sound "os:1"
+
+d1 $ every 2 (slow 2) $ jux (density 2) $ off 0.25 (# crush "8") 
+$ sound "[bd8:2 mt8](3,8)"
+  # speed "2"
+
+d4 $ every 4 (density 2) $ slow 2 $ chop 16 $ sound "~ jungbass:10"
+   # speed "2"
+
+d2 $ every 2 (# speed "2") $slowspread (chop) [16,12,8] $ sound "~ wobble"
+  # shape "0.4"
+
+d3 $ runWith 4 (density 2) $ jux (rev . slow 2 . (|*| speed "2")) $ iter 4 $ off 0.25 (# speed "1.2") $ slow 2 $ n "0 ~ 1 . 0 ~ ~ 1" # sound "odx"
+
+let p = n (run 8) # s "voodoo" in stack [p # vowel "a i o", slow 2 $ p # crush "4", slow 3 $ p # speed "2"]
+
+(\p -> stack [p # vowel "a i o", slow 2 $ p # crush "4", slow 3 $ p # speed "2"]) $ n (run 8) # s "voodoo"
+
+let x = 1; y = 2 in x + y
+
+(\x y -> x + y) 1 2
+
+let replicator = replicate 3000
+

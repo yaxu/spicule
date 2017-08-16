@@ -1,0 +1,12 @@
+d3 $ slow 2 $ sound "[bd8 [bd8:3 bd8:2]] [arpy:1 [sd8 sd8:3]]"
+
+d2 $ jux rev $ runWith 4 (density 2) $ slow 2 $ s "leaf*8" # n (run 8)
+  # ctf "4000"
+
+d3 $ slowspread (chop) [8,3,16,4] $ sound "~ off"
+  # speed "2"
+  # ctf "2000"
+
+d4 $ foldEvery  [5,7] (0.25 <~) $ every 4 (density 2) $ jux rev $ iter 4 $ chop 16 $ loopAt 4 $ sound "shakedown"
+  # vowel "a"
+

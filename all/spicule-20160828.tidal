@@ -1,0 +1,83 @@
+
+(d9 $ jux rev $ sometimes (|*| speed "2 0.5") $ (slow 4 $ chop 16 $ sound "paper"
+       # unit "c"
+       # speed "[0.25]"
+       # gain "0.8"))
+
+d1 $ jux rev $ slow 4 $ sound (samples' "[xx]" (offadd (-0.125) 12 $ "c8(3,8) e8(3,8) f8(3,8) g8(3,8)"))
+  # gain "1" 
+  # resonance "0.3" # ctf (slow 4 $ scale 200 4000 sine1)
+
+d2 $ foldEvery [5,7] (|*| up "7") $  jux (iter 4) $ stut' 7 (- (1/32)) ((|+| crush "3") . (|*| gain "0.9")) $ sound (samples' "arpy" (slow 2 $ "0 [5 3]"))
+  # speed "[1,2]"
+
+d3 $ sometimes (|*| up "12") $ jux rev $ slow 4 $ sound (samples' "[aid]" (offadd (-0.125) 12 $ "c8(3,8) e8(3,8) f8(3,8) g8(3,8)")) # up "3"
+
+d1 $ jux rev $ iter 4 $ sound "perc*8" # n (run 8)
+  # orbit "0"
+  # gain "1.1"
+  
+-- aaah
+
+d2 $ (whenmod 16 8 (jux rev) $ up (every 4 ((+ 3) <$>) $ "0 [~ 5 ~] ~ 8") # sound "pad:3")
+  # end "0.15"
+  # orbit "1"
+  # room (slow 4 saw1)
+  # size "0.9"
+  # gain "0.9"
+
+d3 $ sound "[gabba(3,8), ~ [feel:6 feel:3]]"
+  # orbit "0"
+
+d4 $ whenmod 8 4 (iter 4) $ n (run 8) # s "gabba"
+  # speed "[2,1]"
+  # gain "1.1"
+  # orbit "0"
+
+d7 $ jux rev $ chop 2 $ iter 4 $ slow 2 $ n (run 8) # s "funky"
+  # speed "0.8"
+  # gain "1"
+  # orbit "0"
+
+d8 $ runWith 4 (|*| speed "2") $ jux rev $ sound "jvbass:1(5,8)"
+  # gain "1.1"
+  # speed "2"
+  # resonance "0.4"
+  # cutoff (slow 4 $ every 4 rev $ scale 300 2000 saw1)
+
+d9 $ whenmod 4 1 (const silence) $ (jux rev $ zoom (0,0.5) $ chop 32 $ sound "redflag")
+  # gain "0.9"
+  # speed ((*2) <$> "0.9")
+  # resonance "0.3"
+  # cutoff (slow 4 $ every 4 rev $ scale 3000 4000 saw1)
+  # vowel "a"
+
+d6 $ sometimes (rev . chop 8) $ sometimes (|+| speed "2") $
+  jux (0.25 <~) $ sound (samples "[ifdrums*8, future*8]" (run 8))
+  # nudge "[0 0.04]*4" # shape "0.2" # gain "0.9"
+
+d1 $ jux rev $ runWith 4 (density 2) $ slow 2 $ stut 8 0.7 (-0.5) $ slow 4 $ up "{[0 ~ 3] 7 [3 12] [2 5]}" # sound "wobble"
+  |*| speed "[2,3,1]"
+  # crush "5"
+  # resonance "0.3"
+  # cutoff (scale 1000 5000 rand)
+  # room "0.9"
+  # size "0.8"
+  # orbit "0"
+
+d2 $ struct "x(3,8)" $ sound "bd"
+  # room "0.9"
+  # size "0.8"
+  # orbit "0"
+  # resonance "0.2"
+  # cutoff (scale 1000 5000 rand)
+
+d3 $ sound "~ [arpy,arpy:3]"
+  # orbit "1"
+  # delay "0.8"
+  # delaytime "0.4"
+  # delayfeedback "0.7"
+  # resonance "0.2"
+  # cutoff (scale 1000 5000 rand)
+  # speed "0.5"
+

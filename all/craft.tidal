@@ -1,0 +1,22 @@
+cps (-1)
+
+cps 0.5
+
+d1 $ iter 4 $ (jux rev $ slow 4 $ slowspread (chop) [32,16] $ sound "claus:2 printshort:2 claus:3 [~ claus:4]")
+  # speed "{1 2 0.5}%1"
+  # room "0.6"
+  # size "0.6"
+
+d2 $ n "~ ~ d7" # sound "jx"
+  # shape "0.95"
+  # gain "0.7"
+  # speed "[1,1.01]"
+
+d3 $ sound "~ [~ wobble]"
+  # shape "0.4"
+  # speed "2"
+
+d4 $ every 2 (density 2) $ density 2 $ jux (rev . iter 4) $ slowspread (chop) [8,16,32] $ sound "ind*2
+
+
+Belisha Beacon uses the coding language ixi lang to program her beats. She explores the limitations of this highly accessible livecoding environment with what has been described as ‘polyrhythmic techno’. 

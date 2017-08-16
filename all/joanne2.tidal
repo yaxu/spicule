@@ -1,0 +1,45 @@
+
+
+d2 $ degrade $ jux rev $ chop "<4 2 3>" $ n (off 0.125 (+12) $ someCycles (off 0.25 (+7)) $ slow 2 $ "f7 c7 g7 ~") # sound "rash"
+  # lpf (slow 2 $ sine * 2000 + 400)
+  # lpq 0.2
+  # gain 1
+  # crush 3
+  |+| n "-12"
+
+d3 $ off 0.25 (# crush 3) $  jux rev $ slow 2 $ sound "bd*3 bd*8"
+  # speed 4
+  # orbit 1
+  # room 0.9
+  # gain 0.7
+  # pan (slow 8 sine)
+
+d4 $ gap "<8 4 2>" $ off "<0.25 0.5>" (|+| n 1) $ sound "~ [<~ ~> stabs:1?]"
+  # gain 1.2
+  # vowel "<a e i>"
+
+d5 $ jux rev $ chunk 4 (hurry 2) $ iter 4 $ loopAt 2 $ chop 8 $ sound "<os os:1>"
+  # gain 1.3
+
+d6 $ jux rev $ chunk 4 (hurry 2) $ sound "~ [off off?]"
+  |+| up "<0 7 12>"
+
+
+d5 $ jux rev $ chunk 4 (hurry 2) $ sound "[feel ~ drum ~]"
+  # speed 2
+
+d2 $ jux (rev) $ off "<0.25 0.5 0.125>" (# speed 2) $ sound "feel([3 5],8)"
+  # crush 4
+
+d3 $ degrade $ off 0.25 (# s "rash") $ slow 2 $ jux rev $ off 0.25 (|+| n "-12") $ slow 2 $ n (off 0.125 (+7) "c7 [~ a8*2] [~ <f8 g9>] e9(3,8)") # sound "xx"
+  # room 0.8
+  |+| n "<-12 -12>"
+
+d4 $ off 0.25 (# crush 3) $ sound "gabbaloud(3,8)"
+  # shape 0.8
+  # orbit 1
+
+d7 $ jux rev $ iter 4 $ sound "amencutup*8"
+  # shape 0.6
+  # orbit 1
+  # n (run 8)

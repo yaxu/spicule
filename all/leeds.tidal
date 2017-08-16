@@ -1,0 +1,23 @@
+
+d1 $ jux rev $ chop "<2 4 1>" $ chunk 4 (density 0.5) $ n ((run 4) + "0 [4 2] 1 2") # sound "micron"
+  # room (slow 8 saw)
+  # orbit 1
+  # gain 0.9
+  
+d2 $ degrade $ jux rev $  (slow 2 $ off 0.125 (|+| n 12) $ off 0.25 (|+| n 7) $ slow 2 $ n "d7(3,8) a5(3,8,2)*2 c7(3,8) e6*2" # sound "jx")
+  # gain 0.9
+  # lpf (slow 8 $ saw * 2000 + 100)
+  # lpq 0.2
+
+d3 $ jux rev $ iter 4 $ loopAt 4 $ chop 16 $ sound "arc"
+   # gain 1.2
+
+d4 silence
+d4 $ jux rev $ chop 4 $ stut "<4 2>" 0.9 0.25 $ sound "odx(3,8)"
+  # gain 1
+
+
+let cyc = cat . map pure
+
+
+

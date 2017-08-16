@@ -1,0 +1,72 @@
+-- drum fx patterns
+myk $ delay 0
+
+myk $ flange (discretise 8 sine1)
+myk $ flange 0
+
+myk $ glass "0"
+
+myk $ grunge "0.9"
+
+myk $ reverb "0.9"
+
+-- other patterns
+d1 $ chunk 4 (hurry 2) $ sometimes (# speed 2) $ jux rev $ off 0.25 (# crush 2) $ slow 2 $ sound "bd(3,8)"
+  |*| speed 4
+
+d2 $ jux (rev . chop 2) $ chunk 4 (hurry 2) $ sound "odx [stabs ~ stabs:2 ~]"
+  # lpf (slow 4 (sine * 3000))
+  # lpq 0.1
+
+d3 $ every 4 (0.25 <~) $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "claus"
+  # gain 1.4
+  # crush 3
+
+d4 $ degrade $ off 0.25 ((# s "superpiano") . (|+| n "-24") . (# crush 5)) $ jux rev $ slow 2 $ n (off "<0.25 0.125>" (+7) $slow 2 $ "c7(3,8) a7(3,8) f7(3,8) e7*2") # sound "rash"
+  # gain 1.2
+  # lpf (slow 4 (sine * 3000 + 1000))
+  # lpq 0.1
+
+d5 $ slow 4 $ off 0.125 (# crush 4) $ sound "gabba(3,8,<0 2>)"
+  # end 0.1
+
+
+cps (0.85 *2)
+
+d1 $ jux rev $ slow 8 $ n (off 0.25 (+12) $ off 0.125 (+7) $ "c(3,8) e(3,8) f(3,8,2) g*3") # sound "supermandolin"
+  # gain 1.2
+  # legato 4
+  |+| n "-12"
+
+d1 $ jux rev $ chunk 4 (hurry 2) $ chop 8 $ sound "bd sn:2*2"
+  # gain 1.1
+  
+
+
+
+d1 $ sometimes ((|+| speed "<2 0.5>") ) $ chop "<4 2 3>" $ sound "~ <off wobble>"
+
+solo $
+d2 $ slow 2 $ off 0.25 (|+| n 7) $ n "d7 <a7 g7>" # sound "jx"
+  # room 0.9
+  # orbit 1
+  |+| n (slow 2 "<0 7 12 5>")
+
+d1 $ off 0.25 (# vowel "a") $ jux (iter 4 . (# speed 0.5)) $ off 0.125 (# crush 4) $ chop "<4 8>" $ slow 2 $ sound "<stabs:5 stabs:6>"
+  # pan rand
+  |*| up "<0 [7 12]>"
+
+d2 $ jux rev $ iter 4 $ n "0 .. 7" # sound "amencutup"
+  # gain 1
+  |+| speed 2
+
+d3 $ jux rev $ chunk 4 (# speed 2) $ slow 2 $ sound "gabbaloud(<6 7>,16)"
+
+d4 $ jux rev $ iter 4 $ loopAt "<4 8>" $ chop 16 $ sound "repetition"
+  # gain 1.4
+  # n (irand 8)
+
+d5 $ sound "~ off*4"
+  # vowel "<a e i>"
+
+cps 1.2

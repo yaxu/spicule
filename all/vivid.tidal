@@ -1,0 +1,10 @@
+(click1, _) <- superDirtSetters getNow
+
+click1 silence
+
+click1 $ n "0 1 1 1" # sound "casio"
+  # orbit "2"
+  # gain "1.3"
+
+cps 0.9
+

@@ -1,0 +1,70 @@
+cps 0.8
+
+
+d1 $ slow 2 $ slowspread (\x -> within x (density 2)) [(0,0.125), (0,0.25), (0.25,0.5)] $ s "bd*8" # n (irand 16)
+  # speed "2"
+
+d2 $ degrade $ jux rev $ n (slowspread (offadd 0.25) [7,-5,12] (slow 4 $ palindrome "c3(3,8) g3(3,8) e2(5,16)/2 f3(7,16)/2")) # s "xx"  # gain "0.8"
+  # coarse "5"
+  # room "0.5"
+  # size "0.6"
+  # orbit "1"
+
+d4 $ jux (iter 4) $ slowspread (stut 4 0.5) [-0.25,0.25,0.5] $ sound "drum [bd:4*4 mt8*2]"
+
+d3 $ jux (iter 4) $ slowspread (stut 4 0.5) [-0.25,0.25,0.5] $ sound "lt8 ht8"
+  # vowel "a e i"
+
+d5 $ jux (iter 4) $ every 4 ((# speed "[1.5 2]/2") . density 2) $ sound "voodoo [voodoo:2 mt:3*4 voodoo:2]"
+  
+d5 $ every 4 (within (0,0.25) (density 4)) $ sometimes (# speed "4") $ jux rev $ slowspread (chop) [64,8,16,32] $ sound (every 2 (append "cp8") $ "g(5,8)")
+  # room (scale 0 0.5 $ slow 4 sine1)
+  # orbit "1"
+  # speed "1.5"
+
+d1 $ iter 4 $ rev $ slow 4 $ chop 16 $ s "repetition" # n (irand 8)
+  # unit "c" # speed "0.5"
+  # gain "1.1"
+  # vowel "a i e"
+  
+
+d8 $ slow 2 $ s "breaks125"
+  # unit "c" # speed "0.5"
+d2 $ slow 2 $ sound "drum(6,16,[0 2]/2)"
+
+d1 $ slow 4 $ every 2 (density 1.5) $ jux rev $ sound "bd*8 bd*4 drum*3 wobble*2"
+  # gain "1.2"
+
+d2 $ degrade $ jux rev $ weave 16 (sound "arpy arpy:3 [casio:1 casio:0]")
+  [vowel "a e i",
+   vowel "i o u*2 u",
+   vowel "i e*2 u u",
+   speed "1 0.5 [1 0.5]"
+  ] |*| speed "0.5"
+
+d3 $ off 0.25 (|*| up "[7 12]/2") $ sound "ravebass:10(3,16)"
+  # speed "2"
+  # accelerate "-3"
+  
+d4 $ within (0,0.25) (density 2) $ sound "amencutup*8" # n (irand 16)
+  # gain "1.1" # shape "0.2"
+
+d5 $ jux (iter 4) $ slow 2 $ chop 32 $ sound "[os os:1 os:2]/3" # unit "c" # speed "0.5"
+
+solo $ 
+d1 $ slow 32 $ jux rev $ striate 32 $ sound "bev*4"
+  # unit "c" # speed (((/2) <$>)"0.125")
+  # gain "1.2"
+  # room "0.99"
+  # size "0.99"
+  
+hush
+
+d2 $ jux (rev) $ slow 4 $ sound "[odx bd] odx:4 odx odx odx:3*3 voodoo:4 odx odx:4"
+
+d3 $ sound "kurt*8"
+  # speed (scale 1 2 sine1)
+
+d4 $ jux (rev) $ slow 4 $ striate 8 $ sound "os*2" # shape "0.2" # coarse "3" # speed "[1,2]"
+
+d1 $ within (0.75, 1) (stut 4 0.9 0.5) $ sound "bd sn cp arpy:2"

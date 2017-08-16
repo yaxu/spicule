@@ -1,0 +1,15 @@
+d1 $ every 2 (within (0,0.5) (density 2)) $ iter 4 $ jux (rev . chop 2) $ sound "bd [jvrave:4 sd8:2]"
+  # speed "1 2"
+  # orbit "2"
+
+d2 $ jux rev $ slow 4 $ off 0.25 (|*| up "12") $ off 0.125 ((# shape "0.4") . (# up "7")) $  n  "d8(3,8) [f7 g8*2]" # sound "xx"
+  # gain "0.7"
+  # orbit "2"
+
+d3 $ sound "bd8([3 5]/2,8) [mt8 mt8]"
+  # room (slow 8 $ saw1)
+  # size "0.9"
+  # orbit "1"
+  # speed (scale 1 1.3 $ slow 16 $ saw1)
+
+

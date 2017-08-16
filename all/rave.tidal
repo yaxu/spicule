@@ -1,0 +1,69 @@
+d1 $ slow 2 $ jux rev $ slow 4 $ n (offadd (1/16) (-12) $ rev $ offadd 0.125 7 "c3(3,8) d3*4 e4(5,8,2) g3*2") # s "xx"
+  # cutoff (slow 4 $ scale 1000 3000 sine1)
+  # resonance "0.3"
+
+  
+
+
+d2 $ jux (iter 4) $ every 4 (rev) $ slowspread (loopAt) [2,2,8,4] $ chop 12 $ sound "shakedown"
+  # gain "1.2"
+
+d3 $ every 2 (chop 8) $ jux (iter 4) $ s "drum:2 cp8" # n (slow 4 $ run 8)
+  # gain "1.1"
+  # room "0.5"
+  # size "0.5"
+  # cutoff (scale 3000 8000 sine1)
+
+d4 $ brak $ jux (2 <~) $ foldEvery [3,5] (0.25 <~) $ sound (samples "claus*8" (slow 8 $ scan 8))
+  # speed "[2 1]/2"
+  # room "0.5"
+  # size "0.7"
+  
+d5 $ jux (iter 4) $ loopAt 2 $ sound "arc"
+  # gain "1.2"
+
+
+d6 $ jux rev $ n ((subtract 24) <$> (offadd 0.125 12 $ offadd 0.25 7 $ slow 4 $ "f3(3,8) a3*4 c3*3 e3(3,8)]")) # s "xx"
+  # gain "1.1"
+  # cutoff "3000"
+
+d1 $ jux (rev . iter 4) $ chop 8 $ (s "[bd*2 [bd drum:1]]" # n (irand 4))
+  # speed (scale 1 2 sine1)
+
+d2 $ foldEvery [3,5] (const silence) $ superimpose (iter 4) $ jux (rev . chop 64) $ sound "gabba [cp wobble cp]"
+  # shape "0.4"
+  # speed "2"
+
+d6 $ iter 4 $ slow 4 $ chop 16 $ s "repetition" # n (irand 8)
+  # unit "c" # speed "0.25"
+  # gain "1.4"
+
+d7 $ slowspread (chop) [4,8] $ sound "~ off"
+  # gain "1.3"
+
+cps 0.5
+hush
+
+d1 $ jux (iter 4) $ weave 16 (palindrome $ sound (samples "arpy*8" (run 8)))
+  [vowel "a e o",
+   vowel "a e i*3 o",
+   vowel "i o",
+   speed "1 2 3 1"
+  ]
+  # gain "1.2"
+  |*| speed "0.5"
+
+d2 $ jux (iter 4) $ sound "bd arpy:2*2 sn*3 sn:2"
+
+
+d4 $ sound "amencutup"
+
+d2 $ sound "sn:2"
+
+d1 $ jux (density 2) $ iter 4 $ slow 4 $ n "[0 7 3] [3 5*2 4*2 !]" # s "voodoo"
+  # gain "1.1"
+
+d4 $ slowspread (chop) [8,16] $ jux (iter 4) $ sound "bd [drum wobble] cp ~"
+  # pan (slow 4 sine1)
+
+cps 1.3

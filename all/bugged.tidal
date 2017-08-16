@@ -1,0 +1,18 @@
+
+
+length $ arc (0.5 <~ "a b c d" :: Pattern String) (0,1)
+-- 8
+
+0.25<~ (fastcatbroke [pure "a",pure "b"] :: Pattern String)
+
+
+let fastcatbroke ps = _density (fromIntegral $ length ps) $ slowcat ps
+
+-- 8
+
+listToPat
+
+<~
+withResultTime
+withQueryTime
+

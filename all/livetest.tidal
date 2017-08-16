@@ -1,0 +1,11 @@
+-- Do not worry this is not music
+-- i'm just testing something
+
+-- this is going to be even more repetitive than usual while I test somethign sorry
+
+d1 $ slow 2 $ off 0.125 (# s "pulse") $ slow 2 $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "f6*2 a6(3,8,4) g6*2 e6(3,8)")
+  # sound "rash"
+  # cutoff (slow 8 sine1 * 1000 + 100)
+
+d2 $ jux rev $ n (scan 4) # sound "micron"
+  # gain 1.6

@@ -1,0 +1,24 @@
+let jux f p = stack [p |+| pan 0.25, f p |+| pan (0.75)]
+
+d $ (jux' [slow 2, rev, iter 4] $ chunk 4 (hurry 2) $ off 0.25 (# (crush 3)) $ n "<c3 [d3 ~ e3 ~]>" # sound "supersiren")
+  # gain 0.7
+  # hpf (slow 4 $ sine * 2000 + 100)
+  # hpq 0.3
+  |+| pan (slow 4 saw)
+
+d1 silence
+
+d $ jux' [id,rev,(0.25<~)] $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 $ "d6(3,8) e7(3,8) f7(3,8) g7(3,8)" + "<0 7 12 2>") # sound "superzow"
+  # gain 0.7
+  |+| n "-48"
+  # hpf (slow 4 $ sine * 1000 + 100)
+  # hpq 0.3
+  # room 0.5
+  |+| pan (slow 8 saw)
+
+
+d $ (superimpose (2 <~) $ (chop "<32 64 128>" $ sound "drum arpy:3 cp drum:2"))
+  # nudge (slow 4 sine)
+  |+| pan (slow 8 sine1)
+
+

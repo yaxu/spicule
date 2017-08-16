@@ -1,0 +1,96 @@
+
+
+
+let bdbuild = sound "tok(3,8)"
+              # room (slow 16 saw1)
+              # size (slow 16 saw1)
+              # orbit "0"
+              # delay (slow 16 saw1)
+              # delaytime "0.25"
+              # delayfeedback (scale 0 0.9 $ slow 16 saw1)
+              # gain "1.1"
+
+
+d2 $ jux rev $ (off 0.125 (# crush "5") $ chop 16 $ slow 4 $ n "[~ ~ 20 ~]/4" # s "xx") # nudge (slow 8 sine1) # crush "3" 
+  # orbit "1"
+  # room "0.9"
+  # size "0.4"
+  # gain "0.9"
+
+
+d3 $ slow 2 $ every 2 (superimpose (|+| speed "0.75")) $ juxBy 0.5 (0.25 <~) $ off 0.125 (# vowel "[a e i]/3") $ slow 4 $ stut' 4 0.25 ((|+| speed "2")) $  n "gs7(3,8)" # s "xx"
+  # orbit "1"
+  # gain "0.6"
+  # shape "0.7"
+  # resonance "0.2"
+  # cutoff "1100"
+  # orbit "1"
+  # room "0.9"
+  # size "0.4"
+
+d4 $ iter 4 $ sound "funky*2" # n (slow 8 $ run 8)
+  # orbit "1"
+  # gain "0.9"
+  # speed "2"
+
+d5 $ runWith 4 (density 4) $ chop 4 $ sound "drum"
+  # orbit "1"
+  # vowel "a"
+  # gain "1.2"
+
+d6 $ runWith' 4 (density 4) $ chop 4 $ sound "arpy"
+  # orbit "1"
+  # gain "0.9"
+  # speed "0.5"
+
+d7 $ jux rev $ runWith 4 (density 4) $ chop 8 $ sound "[arpy:0 ! arpy:1 ! arpy:3 !]/6"
+  # orbit "1"
+  # gain "0.9"
+  # speed "0.5"
+
+d8 $ slow 2 $ jux (rev) $ off 0.125 (|*| up "[-3 -5 12]/3") $ off 0.25 (|*| up "[7 12]/2") $ sound "[arpy ~ ~ [arpy:5 arpy:3]]"
+  # orbit "1"
+  |*| speed "0.5"
+  # gain "0.9"
+
+
+d1 $ jux (# speed "0.9") $ weave' 4 (sound "[voodoo:4(3,8), mt8(5,8,[2 4]/2) lt8(3,8,[2 6]/2)]")
+  [substruct "x/3 [x/2]",
+   substruct "x/2 [~ x/4]" . (|*| speed "1.5"),
+   substruct "x/4 [x/2 x/4]" . (|*| speed "1.2"),
+   substruct "x/2 [~ [x/8 x/4]]" . (|*| speed "2")
+  ]
+  # orbit "1"
+  
+d2 $ runWith 4 ((density 1.5)) $  (stut 8 0.3 (-0.25) $ slow 2 $ sound "future:2 [[bd:3 ~ bd:4] [ravebass:10 mt8:3]]")
+  # cut "-1"
+  # delay "0.8"
+  # delaytime (slowcat [(slow 4 $ scale 0.01 0.02 sine1), (slow 3 $ scale 0.01 0.02 sine1)])
+  # delayfeedback "0.9"
+  # orbit "0"
+
+d9 $ sometimes (|+| speed "2") $
+  jux (0.25 <~) $ sound (samples "[ifdrums*8, future*8]" (run 8))
+  # nudge "[0 0.04]*4" # shape "0.2"
+  # orbit "1"
+  # room "0"
+
+d1 $ (slow 4 $ substruct "x/2 [~ x/2] x/4 [x/2 ~]" $ jux rev $ runWith' 4 ((# speed "2") . density 2) $ sound "[bd8:4*8, sd8*4]")
+  # shape (slow 4 $ scale 0.6 0.8 saw1)
+  # crush "6"
+  # cut "-1"
+  # speed "[1,2]"
+
+
+d2 $ jux rev $ sound "{bd mt8*2 ht8:3*2 drum*2}%3"
+  # shape "0.6"
+  # speed "1.2"
+
+d3 $ sound "~ cp"
+  # orbit "1"
+  # speed "1.5" # end "0.2"
+
+d3 $ (rev $ n (offadd 0.125 12 $ offadd 0.25 7 $ slow 4 $ "f9(3,8) a8(3,8,2) c9(3,8) g8(3,8,4)") # s "xx")
+  # cutoff (slow 4 $ scale 3000 500 sine1)
+  # resonance "0.2"
+

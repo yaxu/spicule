@@ -1,0 +1,78 @@
+-- x age
+--   fix pan
+-- x hush x1
+
+import Light
+
+lightServer
+l1 <- lightStream
+
+x1 $ jux rev $ weave 16 (n (run 8) # s "arpy")
+  [vowel "a e i",
+   vowel "i o [u e]",
+   speed "1 2 ~ 3"
+   ]
+  # dur "0.03"
+
+
+x1 $ (jux rev $ n (offadd 0.25 12 $ offadd 0.125 7 $ slow 4 $ ((subtract 12) <$>)$ "50(3,8) [50(3,8) 53*3] 48(5,16)/2 52(3,8)") # s "xx")
+  # cutoff (slow 4 $ scale 600 3000 sine1)
+  # resonance "0.2"
+
+cps 0.4
+
+x2 $ every 2 (slow 2) $ (jux (rev) $ foldEvery [5,7] (slow 2) $ (slowspread (chop) [64,128,32] $ sound "bd*2 [arpy:2 arpy] [mt claus*3] [voodoo ind]"))
+  # dur "0.02"
+  # nudge (slow 4 sine1)
+
+l1 $ s "[bd ~ ~ ~]"
+  # dur "0.5"
+
+hush
+
+x1 $ s "bd*5"
+
+hush
+
+x1 $ slow 4 $ jux rev $ striate 32 $ s "sn" # n "51"
+  # dur "0.1"
+
+x1 $ jux (iter 4) $ sound "bd8 cp sn:8*3" # dur "0.2"
+
+stringToColour' "cp8"
+x1 $ sound "cp"
+x1 $ chop 8 $ jux rev $ s "cp bd cp bd*3"
+
+x1 silence
+
+l1 $ s "orange*8" # pan (slow 4 sine1)
+l1 silence
+l1 $ s "red green" # pan "0"
+
+l1 $ s (p "{purple pink, orange blue green}" :: Pattern ColourD)
+l1 $ rgb "x"
+c2rgb red
+
+l1 silence
+l1 $ red "[0 0.1]*16" # green (slow 2 saw1) # blue (slow 4 sine1)
+  
+l1 $ red "0"
+
+x1 $ sound "bd 0 0 0"
+
+output <- SP.openSerial "/dev/ttyUSB0" SP.defaultSerialSettings
+let to256 f = show $ floor (f * 255)
+
+SP.send output $ B.pack $ "r\r"
+
+l1 $ red "0.5*8"
+
+lightServer
+
+let to256 f = show $ floor (f * 255)
+
+x1 $ jux rev $ iter 4 $ slowspread (slow) [2,1.5,3] $ chop 8 $ sound "[bd*4 mt sn:2 ~ ]/2"
+
+x1 $ s "cp"
+
+hush

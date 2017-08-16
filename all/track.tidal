@@ -1,0 +1,36 @@
+
+d8 $ stack  [slow 2 $ n (slowspread (offadd 0.25) [7,12,-5] "d3 ~ [e2 g3? e2] ~ ") # s "xx"
+             # room "0.8"
+             # size "0.7"
+             # orbit "1",
+             slow 4 $ 0.5 <~ (slow 4 $ jux rev $ n (slowspread (offadd 0.125) [12,-5] ((+12) <$> "d2 ~ [e2 g3? e2] ~")) # s "xx"
+             # room "0.8"
+             # size "0.7"
+             # orbit "1"
+             # crush "7")
+            ]
+
+d1 $ off 0.125 (# speed "[2 1.5 3]/3") $ whenmod 2 1 (const silence) $ slow 1.5 $ slowspread (stut 8 0.9) [0.1, 0.2,0.4,0.2] $ jux rev $ every 2 (slow 1.5) $ n ((+60) <$> run 6) # s "m2"
+
+d3 $ slowspread (off 0.25) [rev, id] $ slow 2 $ sound (unwrap $ e <$> "[3 5 7]/2" <*> "[8, 16]" <*> pure "{feel cp8, cp bd:3 bd:4}/2")
+  # orbit "1"
+  # room (slow 4 sine1)
+  # size "0.8"
+
+d4 $ ghost $ slow 2 $ slowspread (off 0.25) [rev, id] $ slow 2 $ sound (unwrap $ e <$> "[3 5 7]/2" <*> "[8, 16]" <*> pure "{feel sb, cp bd:3 bd:4}/2")
+  # orbit "0"
+  # speed "2"
+
+d5 $ superimpose (# nudge (slow 4 $ scale 0 0.1 sine1)) $ brak $ sound "[feel [feel:2 ~ feel:2?], hc*8, [g g g*2 g?]/4 kurt]"
+  # gain "1"
+  # shape "0.3"
+  # orbit "0"
+  -- # vowel "[a e i o u]/7"
+  # resonance "[0 0.1]/4"
+  # speed "2.1"
+
+d2 $ slowspread ($) [id,rev,struct "x(7,16)"] $ sound "[bd, drum](3,8)"
+
+d7 $ slow 4 $ chop 8 $ s "repetition" # n ("0")
+  # unit "c" # speed "0.25"
+  # gain "1.4"

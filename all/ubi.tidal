@@ -1,0 +1,31 @@
+
+d1 $ do slow 4 $ n (sometimes (+ 24) $ offadd 0.125 12 $ spread (\t -> off t (+12)) [0.25,0.125,0.5] $ "c6 [~ a5] <f5 ! [~ g5] ! e6 !> ~") # sound "rash"
+          # lpf (slow 8 $ sine1 * 1000 + (slow 2 $ saw1 * 2000))
+          # lpq (slow 4 $ sine1 * 0.3)
+          # end 1
+          # room (slow 2 $ saw1 * 0.5 + 0.5)
+          # size 0.95
+          # orbit 1
+          # gain "0.9"
+
+
+d2 $ slow 4 $ density' "<1 2>" $ off 0.5 (slow 2 . spread (chop) [3,4,2]) $ jux (0.125 <~) $ off 0.125 (# crush 4) $ off 0.25 (# (speed 2 # vowel "a e")) $ runWith 4 (density 2) $ sound "drum future:1*2"
+  # speed 1.5
+  # shape 0.3
+
+d3 $ do slow 4 $ n (sometimes (+ 12) $ offadd 0.25 12 $ spread (\t -> off t (+12)) [0.125,0.5,0.25] $ "c6 [~ a5] <f5 ! [~ g5] ! e6 !> ~") # sound "xx"
+          # lpf (slow 4 $ sine1 * 1000 + (slow 2 $ saw1 * 4000))
+          # lpq (slow 4 $ sine1 * 0.3)
+          # end 0.6
+          # room (slow 2 $ saw1 * 0.5 + 0.5)
+          # size 0.95
+          # orbit 2
+          # gain 0.8
+          # delay 0.9 # delayfeedback 0.9 # delaytime 0.001
+
+
+
+-- not cycling properly
+let off' :: Pattern Time -> (Pattern a -> Pattern a) -> Pattern a -> Pattern a
+    off' tp f p = unwrap $ (\tv -> superimpose (f . (tv ~>)) p) <$> tp
+    

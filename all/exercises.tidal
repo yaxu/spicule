@@ -1,0 +1,85 @@
+-- thanks for listening ! 
+
+d6 $ do stut 3 0.8 ((1/6)) $ sometimes (# speed "[-1.5 [1 4] 2 1]/4") $ runWith 3 (density 2) $ n (slowspread (offadd (2/12)) [12,7,3] $ slowspread (\x -> offadd x 7) [(1%6), (3%6)] "d7 d5 [d7 d6]") # sound "rash"
+          # crush "5"
+          # room (slow 16 saw1)
+          # orbit "1"
+
+d2 $ jux rev $ every 3 (# vowel "a") $ runWith 3 (density 2) $ n "0 [3 4*2] 3" # sound "[bsperc, bssnare]"
+
+d3 $ runWith 3 (density 2) $ slowspread (loopAt) [(8/3)] $ chop 24 $ sound "arc"
+  # gain "1.3"
+
+d5 $ slow (2/3) $ sound "bskick:1(3,8,[0 4]/2)" # speed (scale 0.5 1 sine1)
+  # shape "0.9"
+  |*| speed "2"
+
+{-
+d6 $ slow (2/3) $ slow 2 $ jux rev $ someCycles (|+| n "-12") $ n (offadd 0.125 (12) $ offadd 0.25 7 $ slow 4 $ "[[g8 c8]/2](3,8) a7(3,8) f8(3,8,2) e8*2") # sound "xx"
+  # cutoff (scale 100 3000 sine1)
+  # resonance "0.3"
+  # vowel "a e i o u"
+-}
+
+d7 $ jux rev $ runWith 4 ((# crush "3") . (density 2)) $ sound "[bd,drum,future,bskick](3,8,[0 2]/2)"
+  # shape "0.6"
+  # crush "3"
+
+d8 $ slow (2/3) $ slowspread (chop) [3,7,2] $ sound "~ off"
+
+d9 $ slow (2/3) $ jux (|*| speed (slow 2 $ scale 1 1.1 sine1)) $ (slow 4 $ loopAt 8 $ slowspread (striate) [64,32] $ sound "bsvocals*4")
+  # shape "0.4"
+  # crush "[8 3 7 2]"
+  # vowel "a i o u e"
+  # orbit "1"
+  # room (scale 0.5 1 saw1)
+  # size "0.9"
+
+--
+
+d1 $ slow 4 $ (runWith 4 (density 2) $ sound "bd*2 . ~ mt8 . sd8:2 ~ sd8:4 . ~ [ht8 mt8]")
+  # shape (scale 0 0.9 sine1)
+
+d2 $ (off 0.25 (# vowel "a i o") $ jux rev $ (every 3 (density 2) $ every 2 (slow 2) $ slow 4 $ n "[10*2 ~ [11 20]/2 30]*4" # s "pulse")
+  # cutoff ((+) <$> scale 100 1000 sine1 <*> (scale 0 1000 $ slow 8 saw1)))
+  # resonance (slow 4 $ scale 0 0.3 saw1)
+  # crush "4"
+
+d3 $ density 2 $ sound "~ [sid:3 . sid:3 ~ sid:3]/2"
+  # gain "1.2"
+  # speed (stack ["1", slow 4 $ scale 1 1.03 sine1, slow 6 $ scale 1.01 1.04 tri1])
+  # cutoff ((+) <$> scale 100 1000 sine1 <*> (scale 0 3000 $ slow 8 saw1))
+  # resonance (slow 4 $ scale 0 0.4 saw1)
+
+d4 $ (jux rev $ loopAt 2 $ iter 4 $ chop 16 $ sound "breaks165")
+  # shape "0.4"
+  # vowel "[a e i o u]/2"
+
+cps 1.1
+
+--
+
+d2 $ jux rev $ substruct "x/2 [x/8 x/4]" $ n (offadd 0.25 12 $ offadd 0.125 7 $ slow 4 $ "f7(3,8) a7(3,8) c7(3,8) e9*2") # s "rash"
+  # cutoff (slow 4 $ rev $ scale 1000 7000 saw1)
+  # resonance "0.3"
+  # room "0.8"
+  # orbit "1"
+  # gain "0.9"
+
+d3 $ density 4 $ superimpose ((|+| n "[-7 -12]/8") . slow 2 . (# shape "0.9")) $ someCycles (slow 2) $ jux (1 <~) $ slow 2 $ substruct "x/2 [x/8 x/4]" $ n (offadd 0.25 12 $ offadd 0.125 7 $ slow 4 $ "[c9 bs9 a8 g9](3,8) g9(3,8) c9(3,8) a9*2") # s "xx"
+  # cutoff (slow 8 $ rev $ scale 1000 7000 saw1)
+  # resonance "0.1"
+  # end "0.125"
+  # gain "0.6"
+
+d1 $ loopAt 2 $ runWith 2 (density 2 . (# speed "-2")) $ chop 8 $ sound "arc"
+  # gain "1"
+
+d4 $ do x <- "{1 2 1 4 2}%1"
+        slow x $ iter 4 $ n "{0 3 [5 11] 3, 0*2 [4 11] 7*2}" # sound "jvrave"
+        # room saw1
+        # size "0.8"
+        # orbit "1"
+        # cut "-1"
+
+d1 $ sound "jvrave:11"

@@ -1,0 +1,86 @@
+d1 $ stack [off 0.25 (|+| crush 3) $ sound "bd <bd*3 bd(3,8)>"
+            # speed (slow 4 $ scale 1 1.5 saw)
+           ,
+            off 0.125 (# vowel "<a o>")$ off 0.25 (# speed 2) $ s "~ <cp8 [~ cp8] cp8*2>" # orbit 1 # room 0.8 # size 0.8
+             # crush 3 # begin 0.02,
+             chunk 4 (hurry 2) $
+             iter 4 $ struct "x ~ [~ x] ~" $ sound "jungbass:3" # legato 1 # speed 0.5
+           ]
+
+d2 $ jux rev $ off 0.125 (|*| speed 2) $ off 0.125 (|+| n 7) $ chunk 4 (hurry 0.5) $ n "g7 <[d9 e8] g9>" # sound "rash"
+  # lpf (slow 4 $ scale 1000 400 sine)
+  # lpq 0.2
+  # crush 4
+  |+| n "<0 0 7 7>"
+
+d3 $ jux rev $ chunk 4 ((|+| crush 2) . (# speed 2) . every 2 (fast 2)) $ off 0.25 (|+| n "<7 8 2>") $ n "0 .. 7" # sound "micron"
+  # speed 2
+
+d4 $ degrade $ sometimes (|*| speed 2) $ slow 2 $ someCycles (superimpose (|*| speed 1.5)) $ degradeBy 0.3 $ jux (rev . (# speed 2)) $ off 0.25 (every 4 (# s "sid:1")) $ off 0.125 (|*| speed 4) $ off 0.25 (fast 2 . (# vowel "<a a e e>")) $sound "jvbass(3,8)"
+  # shape 0.7
+  # orbit 2 # room 0.2 # size 0.3
+  -- # lpf ("<3000 400>" + (discretise 2 $ scale 1000 400 rand))
+  # lpq 0.2
+  |*| up "<0 7 12 2>"
+
+d2 $ every 4 (|*| speed "-1") $ chunk 4 (hurry 2) $ off 0.25 (hurry 2) $ sound "ifdrums(3,8,<0 4>)"
+  # shape 0.4
+
+d5 silence
+
+d5 $ jux rev $ iter 4 $ loopAt 2 $ chop 8 $ sound "narc"
+  # gain 1.5
+
+d5 $ someCycles (|*| speed "-1") $ jux (chunk 4 (hurry 0.5)) $ iter 4 $ loopAt 1 $ chop 32 $ sound "arc"
+  # gain 1.4
+
+d1 $ chunk 4 (hurry 2) $ n "{0 [~ 2] [5 ~ ~ 4] [2 6], ~ ~ 4}" # sound "micron"
+  # gain 1
+  -- # delay 0.4
+  -- # delayt (slow 1 sine)
+  -- # delayfb 0.9
+  # orbit 1
+  # shape 0.6
+
+d2 $ off 0.125 (# s "rash") $ off 0.25 (# s "pulse") $ degradeBy 0.8 $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 "f6(3,8) a7(3,8) g8(2,8) c8*3") # sound "xx"
+  # lpf "800 ! ! 3000"
+  # orbit 2 # room 0.3
+  |+| n "<0 0 12 0 0 0 7 0>"
+
+d1 $ jux rev $ someCycles (within (0,0.5) (fast 2)) $ slow 2 $ n "0 .. 15" # sound "funky"
+  |+| n "<0 0 3 0 2>"
+  |*| speed 2
+   # gain 1.3
+
+d2 $ chunk 4 (hurry 0.5) $ superimpose (|*| speed 1.5) $  off 0.125 (# crush 7) $ up ("0*2 [~ <7 -5>]") # sound "scream"
+  # legato 0.5
+  |*| up "<0 2 3>"
+  # lpf (saw * 3000 + 1000)
+  # lpq 0.1
+  # room 0.3 # size 0.3
+  # orbit 1
+
+d3 $ jux rev $ chunk 4 (hurry 2) $ iter 4 $ loopAt 1 $ chop 16 $ sound "<os os:1>"
+  # shape 0.5
+
+d4 $ chunk 4 (hurry 2) $ off 0.25 (# speed 2) $ off "<0.25 0.125>" (# crush 1) $ sound "gabba(3,8)"
+  # gain 0.98
+  # room 0.6 # size 0.6
+  |*| speed 1
+  # orbit 1
+  # end 0.6
+
+d3 $ jux rev $ chop "<8 3 4 16>" $ sound "~ off"
+  # vowel "<a e i>"
+  # gain 1.7
+
+d2 $ jux rev $ off 0.25 (|+| n "7") $ off 0.25 (# s "pulse") $ n (off 0.25 (+12)"<c8(3,8) e8(3,8) f8(3,8,4) g8>") # sound "rash"
+  # gain 1.3
+  # crush 4
+
+d5 $ slow 4 $ chunk 4 (hurry 2) $ loopAt 4 $ striate 16 $ sound "paper*4"
+  # gain 1.25
+  # orbit 3 # room 0.9 # size 0.98
+
+
+thanks for listening !

@@ -1,0 +1,23 @@
+
+d1 $ slow 2 $ weave 16 (pan tri1) [
+  substruct "x/4 x/2" $ stut 3 0.9 0.5 $ substruct "x x*2" $ sound "tok(3,8)",
+  substruct "x/8 x/4" $ stut 3 0.9 0.25 $ substruct "x x*2" $ sound "tok:2(5,16)/2"
+  ]
+  # speed "4"
+  # delay "0.6" # delaytime "0.002" # delayfeedback "0.8"
+  # orbit "0"
+
+d2 $ juxBy 0.25 rev $ iter 4 $ substruct "x/4 x/2" $ n (run 8) # s "funky" 
+  # gain "0.8"
+  # speed (whenmod 8 4 (superimpose ((*2) <$>)) $ "[1.6 2]/4")
+  # delay "0.6" # delaytime "0.2" # delayfeedback "0.6"
+  # orbit "0"
+
+d3 $ runWith 4 (density 2 . (|*| speed "4")) $ (every 3 (mask ("x ~" :: Pattern String)) $ delaytime "0.01 [~ [0.02 0.03] ~ [0.005 0.002]]" # sound "[odx odx:6 odx odx]/2"
+  # orbit "1" # speed "[2 3 1]/4"
+  # delay "0.9" # delayfeedback "0.6"
+  # vowel "a")
+  # cutoff (slow 4 $ scale 100 3000 sine1)
+  # resonance "0.3"
+  
+d5 $ sound "~ wobble"

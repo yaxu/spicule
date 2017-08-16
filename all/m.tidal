@@ -1,0 +1,94 @@
+-- greetings from Sheffield, the Socialist Republic of South Yorkshire
+
+d1 $ chunk 4 (# speed 2) $ jux rev $ fast "1 <2 1> <1 2> 1" $ n (run 8 + "<0 2>") # sound "micron"
+
+
+d2 $ chunk 4 (density 2) $ slow 2 $ degradeBy 0 $ off 0.25 (# s "pulse") $ jux rev $ off 0.25 (|+| n "<12 7 12>") $ never (chop "<8 6>") $ slow 2 $ n "d6(3,8,<0 4>) a6 c6*2 e6(3,8)" # sound "rash"
+  # shape 0.97
+  # lpq 0.2
+  # lpf (slow 16 $ sine * 3000 + 1000)
+
+d3 $ density 2 $ chunk 4 (# speed 2) $ density 1 $ sound "[odx(3,8), ~ odx:2]"
+  # gain "1.1"
+  # orbit 1
+  # room 0
+  # size 0
+  # crush 4
+
+d5 $ sometimes (density 2 . (# speed 2)) $ jux (0.5 <~)$ iter 4 $ substruct "x x/2" $ sound "feel drum future ~"
+  # gain 1.3
+  # crush 5
+
+d6 $ degradeBy 0.4 $ off 0.5 (|*| speed 2) $ (off 0.25 (# s "pulse") $ every 2 (slow 2) $ every 3 (0.25 <~) $ every 4 (rev) $ off 0.125 (|*| up 7) $ off 0.25 (|*| up 24) $ up "[0*2 2] [7*2 12]" # sound "sid")
+  # gain 1.1
+  # legato 1
+  # lpq 0.3
+  # lpf (slow 4 $ sine1 * 6000 + 1000)
+  # orbit 2
+  # room 0.9
+  # size 0.9
+d7 silence
+d7 $ chunk 4 (slow 2 . (|*| speed 0.5)) $ jux rev $ loopAt 1 $ chop 8 $ sound "arc"
+  # gain 1.5
+  # shape 0.3
+  # crush 6
+
+d8 $ chop "<8 6 4>" $ s "~ off"
+  # shape 0.8
+  # gain 1.2
+
+d9 $ chunk 4 (# crush 2) $ jux rev $ every 2 (chop 16) $ off "<0.25 0.125 0.5>" (# speed "<2 1.5>") $ sound "gab(3,8)"
+  # gain 1.1
+  # orbit 2
+
+d1 $ sometimes (|*| speed 2) $ degrade $ gap 4 $ off 0.25 (# s "jx") $ jux rev $ off 0.125 (|+| n "12") $ off 0.25 (|+| n "7") $ slow 4 $ n "c8(3,8) a7(3,8) f8*2 e7(3,8,2)" # sound "[rash,pulse]"
+  # room 0.9
+  # size 0.9
+  # lpq 0.3
+  # lpf (slow 4 $ sine1 * 6000 + 1000)
+  # orbit 1
+  |+| n "-12"
+  # legato 1
+
+ d2 $ (density 2 $ jux rev $ n "0 2 [~ 4] 5" # sound "micron")
+   # delay 0.3
+   # delaytime (slow 4 $ sine * 0.03)
+   # delayfeedback 0.9
+   # gain 1.3
+   # crush "<6>"
+
+d6 $ gap 8 $ slow 4 $ off 0.25 (|*| up 7) $ sound "~ wobble(3,8) ~ wobble*2"
+  # gain 1.4
+  # orbit 2
+  # speed 4
+  # shape 0.8
+  # legato 1
+  # lpq 0.3
+  # lpf "<3000 2000>"
+
+d7 $ chunk 4 ((# speed 0.5) . (density 0.5)) $ jux rev $ n (run 16 + "<0 2>") # sound "amencutup"
+  # orbit 2
+  # gain 1.4
+  # hpf 2000
+
+d6 $ jux rev $ slow 8 $ loopAt 8 $ striate 128 $ sound "bev*8"
+  # gain 1.5-- thanks for listening canada, hope you had a nice rave
+-- hope you can hear ok, my meter isn't showing audio.. hmm seems it worked!
+-- goodnight! :)
+
+  # orbit 1
+  # room 0.98
+  # size 0.98
+
+d7 $ jux rev $ loopAt 1 $ iter 4 $ chop 8 $ sound "<os os:1 os:2>"
+  # gain 1.4
+
+d8 $ jux rev $ iter 4 $ n (run 16) # sound "gabba"
+  # gain 1.2
+
+d1 $ n "0 7" # sound "superchip"
+  # slide (7/12)
+
+d1 $ (loopAt 1 $ chop 16 (sound "glitch:5"))
+  # lpf (scale 10 10000 rev saw)
+

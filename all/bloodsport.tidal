@@ -1,0 +1,138 @@
+d1 $
+  struct "[x x] x"
+  $ slow 2 $ n (run 8)
+  # sound "bsperc"
+  # unit "c"
+  # speed "4"
+
+d5 $ n (run 1) # sound "bsbass"
+  # unit "c"
+  # gain "0.9"
+
+d2 $ every 4 (chop 4) $ sound "{bshihat:2 bskick [{bsperc:5 bsperc:5}%1 bskick] ~, ~  ~ bsperc}"
+  # gain "1"
+
+d4 $ (struct "[x x . [x x x . x x . ~ x . x*4]/4]" $ n "0 1 2 3" # sound "bskick")
+  # speed (scale 1 2 sine1)
+
+d3 $ slow 2 $ rev $ loopAt 8 $ slowspread (striate) [8,16] $ sound "bsvocals:10 ~"
+  |*| speed "[1,0.9]"
+  # gain "1.1"
+  # vowel "i"
+
+
+let txs = [("rev", rev),
+           ("in", fadeIn 1),
+           ("out", fadeOut 1),
+           ("chop", rev . chop 128),
+           ("drop", (chop ((floor <$>) $ saw1 * 100))),
+           ("dropquiet", (chop ((floor <$>) $ saw1 * 100)) . (# gain 0.666)),
+           ("erk", (# vowel "a e i o u")),
+           ("urp", (# speed (saw1 + 1))),
+           ("crushup", juxBy 0.5 rev . off 0.25 (# crush 4) . (|*| gain 0.8)),
+           ("roomout", (# (orbit 2 # room saw # size saw))),
+           ("deg", degradeBy saw)
+          ]
+    pats =   [("hook",
+               loopAt 2 $ chop 16 $ s "bsbass"
+              ),
+              ("kick",
+               n (off 0.125 (+1) $ off 0.25 (+2) "0(3,8)") # s "bskick"
+               # crush (every 4 (subtract 3) 7)
+              ),
+              ("perc",
+               n "<0 0 1 2(3,8)>"
+               # s "bsperc"
+               # cutoff (3000 * (slow 2 tri1) + 1000)
+               # resonance 0.3
+               # orbit 1 # room 0.5
+              ),
+              ("kick2",
+               off 0.125 (# speed 2) $ off 0.25 (# crush 4) $ n "[0 1 ~ 2*2, 3]" # sound "bskick"
+               # cutoff (slow 8 $ saw1 * 8000 + 100)
+              ),
+              ("snare",
+               density "<1 2 4>" $ jux ("<0.5 0.25>" <~) $ n "{~ 0*2, ~ ~ 1}" # s "bssnare"
+               # orbit 1
+               # room 0.4
+               # cutoff (((slow 4 saw1) + sine1) * 5000 + 300)
+               # crush "<4 3>"
+              ),
+              ("voc",
+               loopAt 2 $ chop 32 $ s "<bsvocals:2>"
+               # shape 0.3
+              ),
+              ("upthere",
+               juxBy 0.7 rev $ off 0.125 ((# (crush 3 # orbit 1 # room (slow 8 $ sine * 0.5)))) $ off 0.25 (|*| speed 2) $ up "0 [7*2 -2] ~ <12 12*3>" # n "14" # sound "bsguitar"
+               # lpf (slow 2 $ tri * 2000 + (slow 4 $ saw * 300))
+               # lpq 0.3
+               |*| speed 4
+               # gain 0.7
+              ),
+              ("under", s "bssnare:2 ~ <bssnare:6 [bssnare:6 ~ bssnare:6]>" # orbit 2 # delay 0.8 # delayt "0.001" # delayfb 0.9 # hpf (slow 16 $ scale 3000 100 saw) # room 0.9 # size 0.6 # hpq 0.1 # gain 0.85
+              )
+             ]
+in
+-- d1 $ ur' 64 "[kick2, under]" pats txs
+d1 $ ur' 256 "[hook ! ! ~, kick:in kick:drop kick:rev [kick kick:chop], perc ! perc:drop [perc perc:chop]] [kick2:in kick2 ! kick2:drop, kick, ~ ~ [~ voc] ~, snare] . [kick2:deg,hook, [~ under] [under under:crushup],~ kick, ~ ~ [~ voc] ~] . [hook,[under under:crushup] ~,kick ~, ~ [perc perc:drop] [~ [voc ! ! voc:dropquiet]] [kick:drop,kick2:roomout]] . ~" pats txs
+  |*| gain 1.4
+
+cps (-1)
+cps 1.1
+
+d2 $ slow 4 $ n "cs7 ~ e6(3,8) ~" # sound "xx"
+  # shape 0.1
+
+d2 $ slow 2 $ off 0.125 (# (s "supermandolin" # gain 1.4 # legato 8)) $ sometimes (|-| n 12) $ (jux rev $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 "a8(3,8) g8*2 f8(3,8) c9(3,8)") # sound "supergong")
+  # lpf (slow 4 $ rev $ sine * 1000 + 2000)
+  # lpq 0.2
+  |+| n "-48"
+  |+| n "<0 12 12 7 0 7>"
+
+
+let txs = [("rev", rev),
+           ("in", fadeIn 1),
+           ("out", fadeOut 1),
+           ("chop", rev . chop 128),
+           ("drop", (chop ((floor <$>) $ saw1 * 100))),
+           ("erk", (# vowel "a e i o u")),
+           ("urp", (# speed (saw1 + 1)))
+          ]
+    pats = [("kick2",
+             off 0.125 (# speed 2) $ off 0.25 (# crush 4) $ n "[0 1 ~ 2*2, 3]" # sound "bskick"
+             # cutoff (slow 8 $ saw1 * 8000 + 100)
+            ),
+            ("snare",
+             density "<1 2 4>" $ jux ("<0.5 0.25>" <~) $ n "{~ 0*2, ~ ~ 1}" # s "bssnare"
+             # orbit 1
+             # room 0.4
+             # cutoff (((slow 4 saw1) + sine1) * 5000 + 300)
+             # crush "<4 3>"
+             ),
+            ("voc",
+             off 0.125 ((|*| speed 1.5) . (density 2)) $ loopAt 2 $ chop 32 $ s "<bsvocals:2 bsvocals:1>"
+             # shape 0.3
+            )
+           ]
+in
+d1 $ ur' 16 "[kick2 ! ! [kick2 kick2:drop], snare:out, [voc:erk ~] ~ [~ voc] ~]" pats txs
+
+
+hush
+
+
+
+d1 $ sometimes (|+| n "12") $ slow 2 $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.25 (+7) $ slow 2 "c6(3,8) e6(3,8,2) f6*4 g6*3") # sound "rash"
+
+d2 $ jux rev $ loopAt 4 $ chop 8 $ sound "paper"
+  # gain 0.9
+
+d3 $ iter 4 $ loopAt 2 $ chop 8 $ sound "os"
+  # shape 0.6
+
+d2 $ slow 4 $ sound "scream"
+
+d4 $ jux rev $ sound "newnotes(3,8)"
+   # speed 4
+
+d1 $ loopAt 2 $ sound "repetition"

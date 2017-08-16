@@ -1,0 +1,25 @@
+cps 0.8
+
+yaxphone
+dorkface
+http://192.168.43.19:8000/index16.html
+
+
+d1 $ every 3 (0.25 <~) $ sound "arpy arpy:2 bd arpy:3"
+
+d1 $ weave 16 (
+
+d1 $ superimpose (rev . (# pan "0")) $ weave 16 (n "0 .. 7" # sound "arpy")
+  [vowel "a e i",
+   vowel "a i [o u] e",
+   speed "1 2",
+   speed "1 2 3 1"
+  ]
+  # pan "0.75"
+
+
+d1 $ someCycles (slow 2) $ sometimes (# speed 4)$ sound "bd*8"
+  # pan rand
+
+v2 $ fast 12 $ every 3 (0.25 <~) $ "red orange yellow green"
+

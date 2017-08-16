@@ -1,0 +1,62 @@
+solo $ 
+d1 $ (runWith 4 (density 1.5) $ stut 2 0.9 0.5 $ slowspread (chop) [8,64,32] $ sound "[bd9*4, rs9*2]")
+  -- # speed (slow 4 $ scale 1 0.5 sine1)
+  # n (slow 12 $ run 8)
+  # orbit "1"
+  # room "0.8"
+  # size "0.8"
+  # gain "0.9"
+
+d2 $ stack [whenmod 16 8 (const silence) $ every 4 (density 1.5) $ sound "{hh9*2 oh9}"
+            # speed "1.5"
+            # cut "1" # gain "0.9",
+            every 2 (density 2) $ sound "{lt9*2 mt9*2 ht9*3 bd9*4 rs9*2}%2"
+            # speed "1.5" # n (irand 8)
+            # shape "0.7"
+           ]
+  # orbit "0"
+
+d3 $ runWith 4 ((# crush "5") . density 0.5) $ sound "bd9:6(3,8)"
+  # shape "0.8"
+  # orbit "0"
+
+d4 $ sound "bd9*4? [cr9 [~ cr9]]/2"
+  # crush "2"
+  # speed "2"
+  # cutoff (do n <- discretise 1 $ slow 4 $ scale 1 4 saw1
+               slow (realToFrac n) $ scale 1000 4000 saw1
+           )
+  # resonance "0.2"
+
+d5 $ stack [slow 2 $ (jux rev $ up (offadd (1/8) 12 $ offadd (1/16) 7 $ slow 4 $ palindrome "0(5,8) 5(3,8) 7(3,8) 12(5,8)") |*| sound "xx:60")
+             # gain "0.7" |*| speed "[0.25,0.5,1.5]"
+             # orbit "1"
+             # room "0.6"
+             # resonance "0.3"
+             # cutoff (slow 4 $ scale 500 2000 sine1),
+             slow 2 $ (juxBy 0.25 rev $ slow 2 $ up (offadd (1/32) 12 $ offadd (1/16) 7 $ slow 2 $ palindrome "0(3,8) 5(5,8) 7(5,8) 12*4") |*| sound "xx:36")
+             |*| speed "0.5"
+             # gain "0.9"
+            ]
+
+
+cps 0.6
+
+d1 $ slowspread (stut 2 0.25) [0.25,0.5,0.75] $ sound "[[bd9 ht9 ~] [lt9:3 [~ lt9:2]], bd9!3 bd9:1*3]"
+   # speed "[1,1.04]"
+   # gain "1"
+  # orbit "0"
+
+d2 $ foldEvery [5,7] (density 2) $ sound "rs9(3,8,[0 2 4 6]/4)"
+  # speed "4 0.9"
+  # orbit "1"
+  # room "0.4"
+  # size "0.3"
+  # gain "0.8"
+
+
+d3 $ juxBy 0.5 rev $ off 0.25 (|*| up "{7 12 -5}%1") $ sound "bass3:6(3,8)" |*| up "[0 3 7 5]/4"
+  # shape "0.3"
+  # gain "0.8"
+  |*| speed "2"
+  # orbit "0"

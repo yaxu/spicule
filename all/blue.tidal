@@ -1,0 +1,106 @@
+
+d1 $ jux rev $ every 4 (const $ sound "cp") $ sound "odx(3,8)"
+
+d2 $ off 0.25 (# up 7) $ sound "~ stabs*2"
+
+d3 $ every 2 (slow 2) $ chunk 4 (hurry 2) $ n "0 .. 3" # sound "micron"
+  # speed 2
+
+d2 $ iter 4 $ sound "bd*2 [~ gabba]"
+
+
+d1 $ degrade $ slow 2 $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.25 (+7) $ slow 2 "c8(3,8) a7(3,8) f7*2 e8(3,8)") # sound "xx"
+  # gain 0.75
+
+d1 $ chop 4 $ sound "wobble future"
+
+d2 $ degrade $ jux rev $ slow 2 $ n (off 0.125 (+7) $ off 0.25 (+12) $ slow 2 "c7(3,8) e7(3,8) f7*2 g7(3,8,4)") # sound "rash"
+  # lpf (slow 4 $ scale 500 3000 sine)
+  # lpq 0.2
+
+d3 $ iter 4 $ jux rev $ loopAt 4 $ chop 16 $ sound "paper"
+  # gain 1
+
+
+d5 $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "micron"
+  # speed 2
+  # gain 1.1
+
+
+d5 $ jux rev $ loopAt 2 $ chop 16 $ sound "<os os:1>"
+
+d1 $ slow 2 $ jux (iter 4) $ off 0.25 (# crush 4)$ sound "bd(3,8,<0 2 4>) cp"
+
+d2 $ iter 4 $ loopAt 4 $ chop 16 $ sound "repetition"
+  # n (irand 8)
+
+
+d3 $ off 0.125 (# crush 4) $ n ("d6 [~ d8]") # sound "jx"
+  # gain 1.1
+  # delay 0.8
+  # delayt "<0.02 0.03>"
+  # delayfb 0.9
+  # orbit 1
+
+d2 $ sound "~ [~ off]"
+
+d2 $ sound "~ arpy"
+
+d1 $ up "<0 [~ 1*2]>" # sound "scream"
+  # legato 0.5
+
+cps 0.8
+
+
+d1 $ sometimes (# speed 4) $ chunk 4 (# speed 2) $ every 4 (0.25 <~) $ n "0 [~ 3] [~ 6] 1" # sound "jvbass"
+  # crush "<4 6>"
+  # hpf (100)
+  # hpq 0.3
+
+d4 $ jux rev $ slow 2 $ off 0.125 (|+| n "<2 4>") $ n "0 [~ 4] 0 2" # sound "micron"
+
+
+d5 $ degrade $ rev $ chunk 4 (hurry 2) $ loopAt 4 $ chop 8 $ sound "liq"
+  # accerlate 1
+
+
+d6 $ iter 4 $ loopAt 2 $ (chop 8) $ sound "arc"
+  # gain 1.1
+
+
+
+d1 $ jux rev $ weave 16 (palindrome $ n "0 .. 7" # sound "arpy")
+  [vowel "a e i",
+   speed "1 2 [0.5 1]",
+   vowel "o*2",
+   crush "5 4"
+  ]
+  # gain 0.85
+  |*| speed 0.5
+
+d2 $ every 4 (0.25 <~) $ brak $ sound "[ifdrums ~ ~ rash:40] [sn:4*2 arpy:3]"
+  # gain 0.9
+
+d1 $ off 0.125 (|*| up 7) $ slow 2 $ sound "micron [~ jungbass] ifdrums*2 gabba"
+  # gain 0.85
+
+d2 $ brak $ chop 8 $ sound "bd(3,8,<0 4>) sn:3"
+
+
+hush
+d3 $ chunk 4(hurry 2)$off 0.125 (# crush 4) $ off 0.25 (# s "rash") $ off 0.25 (|+| n "<7 12>") $ n "<d6(3,8) a7(3,8)>" # sound "pulse"
+  |+| n "<0 0 2 5 7 7 12 12>"
+  |*| speed 0.5
+  |*| gain 0.9
+
+d1 $ sound "gab(3,8)"
+  # speed 2
+
+
+d2 $ s "~ off"
+
+bb2 $ grunge "<0 0.7>"
+
+d2 $ chunk 4 (hurry 2) $ jux rev $ chop "<2 4>" $ sound "~ kurt:2"
+
+  

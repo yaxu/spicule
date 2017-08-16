@@ -1,0 +1,41 @@
+-- * Pattern appreciation
+
+-- chunk
+
+d1 $ n "0 [~ 3] [2 0.3] 1" # sound "micron" # speed 2
+
+d1 $ chunk 4 (hurry 2) $ n "0 [~ 3] [2 0.3] 1" # sound "micron"
+  # speed 2
+
+-- overlay with itself offset and something applied to it
+
+d1 $ n "0 [~ 3] [2 0.3] 1" # sound "micron" # speed 2
+
+d1 $ off "<0.25 0.5>" (# crush 4) $ n "0 [~ 3] [2 0.3] 1" # sound "micron" # speed 2
+
+d1 $ n "c(3,8) e f g" # sound "supermandolin"
+  # legato 2
+
+d1 $ jux rev $ off 0.125 (|+| n 12) $ slow 4 $ off 0.25 (|+| n 7) $ n "c(3,8) e f g" # sound "supermandolin"
+  # legato 2
+
+-- numbers are patterns too
+
+d1 $ rev $ chop 4 $ n "d6 e7" # sound "rash"
+
+d1 $ rev $ chop "<4 12 3, 8>" $ n "d6 e7" # sound "rash"
+
+-- patterns are numbers too
+
+d1 $ jux rev $ slow 4 $ n "d6(3,8) e7(3,8) f7(3,8) g7(3,8)" # sound "superzow"
+  # gain 0.7
+  |+| n "-32"
+  # hpf (slow 4 $ sine * 1000 + 100)
+  # hpq 0.3
+
+d1 $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 $ "d6(3,8) e7(3,8) f7(3,8) g7(3,8)" + "<0 7 12 2>") # sound "superzow"
+  # gain 0.7
+  |+| n "-48"
+  # hpf (slow 4 $ sine * 1000 + 100)
+  # hpq 0.3
+  # room 0.5

@@ -1,0 +1,50 @@
+
+d1 $ jux rev $ sound "drum [[mt mt?] [ht sd8:3]]"
+  # cutoff (slow 2 $ scale 1000 2000 sine1)
+  # resonance "0.3"
+
+d2 $ sound "[drum:6*4 ! ! [drum:6*8 drum:6*3]/2]/4"
+hush
+d3 $ slowspread (loopAt) [2,3,4] $ chop 12 $ sound "breaks125"
+
+hush
+
+d5 $ juxBy 0.6 (|*| speed "2") $ slowspread (loopAt) [4,2,6,3] $ chop 12 $ sound "fm:14"
+  |*| speed "[2]"
+  # cutoff (slow 4 $ scale 1000 3000 sine1)
+  # resonance "0.3"
+  # vowel "[a e]/2"
+
+d4 $ foldEvery [3,5] (0.25 <~) $ slowspread (loopAt) [2,1,2,4] $ chop 16 $ sound "breaks165"
+  # gain "1.2"
+
+let stretch n p = slow n p |*| speed (pure $ fromRational $ 1/n) # unit "c"
+
+hush
+
+cps 0.9
+
+d1 $ jux rev $ sometimes (|+| n "-12") $ slow 4 $ n (offadd (1/16) 12 $ offadd 0.125 7 $ struct "x(3,8) x*2 x*3 x*4]" "[[f3 a3 c3 e3] ! ! ! [c3 d3 e3 g3] ! ! !]/8") # s "xx"
+  # cutoff "3000"
+  # resonance "0.3"
+  # size "0.5" |*| speed "0.25"
+  # room "0.65"
+
+d2 $ jux (2 <~)$ slowspread (loopAt) [2,1,4,4] $ chop 12 $ sound "shakedown"
+
+d1 $ jux ((every 3 rev) . (2<~)) $ slowspread (loopAt) [2,4,4,1] $ chop 12 $ sound "shakedown"
+  # size "0.5"
+  # room "0.65"
+  # resonance "0.1"
+  # orbit "2"
+
+d2 $ sound "bd ~ bd*2 drum"
+  # speed "2"
+  # orbit "2"
+
+d3 $ jux rev $ slow 4 $ n (offadd (1/16) 12 $ offadd 0.125 7 $ palindrome "c3(3,8) d3*3 e4(5,8) g3*4") # s "xx" 
+  # orbit "1"
+  # cutoff (slow 4 $ scale 2000 8000 saw1)
+
+d1 $ slow 4 $ sound "numbers:0 numbers:1"
+  # pan "0 1"

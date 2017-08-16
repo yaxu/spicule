@@ -1,0 +1,91 @@
+
+
+-- remember to press record
+
+
+d1 $ degrade $ jux (rev . (# speed "1.2")) $ (slow 4 $ sound "bd(3,8) . sd8(3,8,2) . bd8:3(3,8) . sn:2 cp8 sn:5")
+  # room (slow 8 saw1)
+  # size (slow 16 saw1)
+  # orbit "1"
+  # vowel "[a e i o u,p]/5"
+
+d2 $ degrade $ every 2 (slow 2) $ every 4 (|+| n "12") $ every 3 (|+| n "7") $ (jux rev $ slow 2 $ n (offadd 0.25 7 "f6(3,8) a7(5,8) c6(3,8) e8*3") # sound "[pulse, rash]")
+  # orbit "2"
+  # cutoff (slow 2 $ scale 100 5000 sine1)
+  # resonance "0.2"
+
+d3 $ jux rev $ slowspread (chop . (# speed "2")) [8,16,32] $ sound "~ h"
+  # orbit "2"
+
+d4 $ (jux rev $ slowspread (chop) [32,64,128] $ sound "drum . sn:2 arpy:4 ht8 mt8:2 . future bd*2 . drum arpy")
+  # nudge "[0 0.02]*4"
+  
+
+d2 $ jux (# speed "{2 1.5 3 [4 5]}%1") $ foldEvery [3,7] (within (0,0.25) (density 2)) $ sound "gabba [sd8:3 ravebass:10*2]"
+  # shape "0.4"
+  
+d3 $ every 2 (|*| speed "0.75") $ smash 4 [1,2,3,4] $ sound "onoff*4" # n (irand 4)
+  # gain "0.8"
+
+
+d1 $ slowspread (stut 2 0.9) [0.125, 0.5] $ substruct "x x/2" $ sound "future ~ sd8:2 ~"
+  # speed "0.5"
+
+d2 $ degrade $ slow 2 $ jux rev $ weave 16 (n (palindrome $ run 8) # sound "arpy")
+  [vowel "a e i*2 u",
+   vowel "a i*2 [o e]",
+   speed "1 3 2*3",
+   speed "0.5 1 3 2"
+   ]
+  # hcutoff (slow 4 $ scale 8000 6000 sine1)
+  # room "0.5"
+  # size "0.4"
+
+d3 $ slowspread (chop) [4,2,3]  $ sound "~ off"
+  # cutoff "2000"
+  # speed "2"
+
+
+d1 $ every 2 (within (0,0.5) (# speed "2")) $ jux (iter 4) $ chop 2 $ slow 2 $ n (run 16) # sound "voodoo"
+
+d2 $ sound "feel mt8*2 . feel mt8 bd:4 bd"
+  # pan (slow 4 sine1)
+
+d3 $ iter 4 $ slowspread (loopAt) [4,2,8] $ chop 16 $ sound "liq"
+  # cutoff (slow 4 $ scale 1000 3000 sine1)
+  # resonance "0.1"
+
+d4 $ (jux (rev) $ slowspread (loopAt) [4,2,8] $ chop 32 $ sound "arc")
+
+d5 $ jux (2 <~) $ sound "funky*8" # n (run 16)
+
+d7 $ degrade $ every 2 (chop 16) $ sound "[wobble, gabba](3,8)"
+  # shape "0.3"
+  # speed "2"
+
+d8 $ jux (iter 4) $ substruct "x x/2" $ n "[d7 ~ d8] a7*2" # sound "rash"
+  # gain "1.1"
+  # shape "0.3"
+
+
+d9 $ slowspread (stut 4 0.2) [(0.25), 0.5,0.125] $ n (slow 4 $ rev $ scan 4) # sound "mt8"
+  # speed "2"
+  # pan "1"
+  
+d1 $ brak $ n (slow 4 $ scan 4) # sound "ht8 lt8"
+  # pan "0"
+
+d2 $ jux (|*| speed "0.75") $ slow 4 $ off 0.25 (# vowel "i o") $ n "d8 a7 . d8 d6 d8 . d8 e8 . d2 c9 d9" # sound "rash"
+
+
+
+d3 $ within (0.5,1) (|*| speed "-1") $ iter 4 $ rev $ loopAt 8 $ chop 16 $ sound "shackup"
+  # gain "0.8"
+
+d4 $ sometimes (density 0.5) $ sound "[ravebass:10 ravebass:13](3,8)"
+  # accelerate "-1.5"
+  # hcutoff "150"
+
+d5 $ sound "[wobble,drum,future]*2"
+
+d4 $ slowca

@@ -1,0 +1,24 @@
+d1 $ jux rev $ sound "bd([3 5]/2,8) cp"
+  # cutoff "300"
+
+x1 $ sometimes (# speed "2") $ jux rev $ slowspread (chop) [16,32,128] $ every 3 (within (0,0.25) (density 2)) $ sound "bd(5,8,2)/2 [cp arpy [sn sn:2] [cp voodoo*4]]"
+  # vowel "[a e i]/2"
+  # dur "0.02"
+
+x2 $ (chop 16 $ s "jungbass*2") # n (irand 16)
+
+x1 $ jux rev $ stack [slow 4 $ chop 8 $ n (offadd 0.25 12 $ offadd 0.125 7 "40 52(3,8) 57 37(3,8)") # s "xx"
+  # cutoff (slow 4 $ scale 100 200 sine1)
+  # resonance "0.2",
+   slowspread (chop) [16,32,128,64] $ sound "drum [sd8*2 bd*8]"
+   ]
+
+d2 $ degradeBy 0.8 $ (slow 4 $ jux (iter 4) $ rev $ slow 8 $ striate 32 $ sound "bev*4"
+  # speed "0.75") # accelerate "-5"
+
+  
+
+
+
+sound "~ wobble"
+  # crush "0.2"

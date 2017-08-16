@@ -1,0 +1,19 @@
+
+d1 $ off' "<0.125 0.25>" (|*| end 0.1) $ runWith 4 (density 2 . (|*| speed 1.2)) $ slow 4 $ jux (rev . (# speed 1.5)) $ sound "bd ~ sn:1 ~ bd ~ sn:1 bd bd ~ sn:1 ~ cr:1 bd bd bd"
+  # cutoff 1000
+  # resonance 0.3
+  # crush 5
+
+d2 $ runWith 4 (slow 2 . (|*| speed "0.5"))
+  $ n (every 2 (subtract 12) $ off 0.25 (+12) $ off 0.125 (+ "<12 7>") $ slow 2 "d5(3,8) . d6(3,8) f5*4") # sound "pulse"
+  # crush "<5 4 3>"
+  # cutoff (slow 4 $ saw1 * 100 + 300)
+  # resonance 0.3
+
+d3 $ every 4 (runWith 2 ((|*| speed "2") . density 2)) $ (loopAt 2 $ chop 16 $ sound "arc")
+  # shape (density 2 $ (sine1 * 0.5) + 0.3)
+  # cutoff 2000
+
+
+-- thanks for listening, have a good evening
+

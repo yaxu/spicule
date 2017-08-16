@@ -1,0 +1,36 @@
+
+d1 $ (jux (rev) $ n "e6 e7 [g7 g6]" # s "jx")
+  # gain "1.2"
+  # cutoff (slow 4 $ scale 100 2000 saw1)
+  # resonance "0.2"
+  # speed "[0.5,1]"
+
+d2 $ (jux (rev) $ n "{e8 e6 e9 e6 e8}%1 e7 [g7 g6]" # s "rash")
+  # gain "1.2"
+  # cutoff (slow 4 $ 2 <~ (scale 100 2000 saw1))
+  # resonance "0.2"
+
+d3 $ sometimes (slow 2) $ juxBy 0.5 rev $ runWith 3 (density 2 . (# speed "2")) $ n "{[1 4 ~] 5, 7*2}" # s "jvrave"
+  # gain "1"
+
+d4 $ jux rev $ off (1/3) (|+| n "7") $ n "e7(4,6)" # sound "rash" |+| n "{0 5 7}%1"
+  
+
+
+d5 $ runWith 4 (density 2) $ n "0*4" # s "jvrave"
+  # shape (slow 8 $ scale 0.3 0.9 sine1)
+
+
+d8 $ stack [brak $ n "[0 4, [5 7] ~]"  # sound "jvrave", sound "jvrave:0*2"]
+  # shape "0.99"
+  # gain "0.7"
+  # vowel "o"
+
+
+d7 $ jux (# nudge (slow 4 sine1)) $ slow 2 $ every 4 (|+| n "2") $ chop 16 $ n "40(3,8) 52 70(3,8) 40" # s "jvrave"
+  
+
+d9 $ do c <- (slow 4 $ scale 2 16 $ run 8)
+        juxBy 0.25 rev $ chop c $ n "21(3,8)" # s "jvrave"
+     # gain "1"
+

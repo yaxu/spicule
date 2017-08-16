@@ -1,0 +1,20 @@
+
+d1 $ jux rev $ slow 4 $ n (offadd 0.125 12 $ offadd 0.25 7 "f3(5,8) a3*3 c3*2 e4(3,8)")
+  # s "xx"
+  # cutoff (slow 4 $ scale 2000 6000 $ sine1)
+  # resonance "0.3"
+  # size "0.9" # room "0.4"
+  -- # vowel "a e i"
+  # orbit "1"
+  # gain "0.7"
+
+d2 $ jux rev $ iter 4 $ slow 2 $ chop 8 $ sound "arc"
+  # gain "1.3"
+
+d1 silence
+hush
+
+d3 $ degrade $ slow 2 $ every 4 (rev . chop 8) $ jux (rev . iter 4) $ sound "bd claus:4 claus:2 [~ cp]"  # gain "1.35"
+
+d3 silence
+

@@ -1,0 +1,41 @@
+-- new <> syntax for picking one event per cycle:
+d1 $ n "<3 2 1>" # sound "arpy"
+
+d1 $ n "1*2 <3 [2 3] 1>" # sound "arpy"
+
+-- single-number patterns don't have to go in double quotes:
+d1 $ sound "bd mt lt bd mt:3 lt ht:3 lt"
+  # speed 2
+
+-- you can do arithmetic directly on patterns on numbers:
+d1 $ sound "bd mt lt bd mt:3 lt ht:3 lt"
+  # speed (slow 2 $ sine1 * 2 + 1)
+
+-- For quite a lot of functions, where before you always put numbers, e.g. with slow:
+d1 $ slow 2 $ n (run 8) # sound "voodoo"
+
+-- you can now also put a pattern instead:
+d1 $ slow "1 2" $ n (run 8) # sound "voodoo"
+
+-- More examples:
+d1 $ iter "<4 2 8>" $ n (run 8) # sound "voodoo"
+
+d1 $ slow 2 $ (choose [0, 0.25, 0.5, 0.75]) <~ (n (run 16) # sound "amencutup")
+
+d1 $ degradeBy (slow 8 saw1) $ slow 2 $ (n (run 16) # sound "amencutup")
+
+d1 $ rev $ chop "<8 3 2 1>" $ sound "bd ~ sn:2 kurt:2"
+
+d1 $ jux rev $ stut "<3 4>" 0.6 "<0.25 0.5 0.125>"
+  $ sound "[bd mt lt bd mt:3 lt ht:3 lt]/2"
+  # speed (slow 4 $ sine1 + 1)
+
+-- instead of 'density', you can now say 'fast'. they do the
+-- same. 'fast' goes better as an opposite of 'slow'
+d1 $ fast 2 $ n (run 8) # sound "voodoo"
+
+-- instead of 'slow' you can now say 'sparsity', they do the
+-- same. 'sparsity' goes better as an opposite of 'density'
+d1 $ sparsity 2 $ n (run 8) # sound "voodoo"
+
+

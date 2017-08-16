@@ -1,0 +1,48 @@
+-- sounds + effects
+
+d1 $ sound "{xx:60? [xx:62 xx:64 xx:84] xx:64, xx:72? xx:84}"
+  # room "1"
+  # size "0"
+
+d2 $ sound "xx:60*8" # speed ((*) <$> (scale 1 2 sine1) <*> (slow 2.5 "0 1 3"))
+
+d3 $ jux rev $ weave 16 (sound (every 2 rev $ samples' "arpy" (run 16)))
+  [vowel "a e i",
+   vowel "i o*2 u",
+   vowel "i o u*3 e",
+   speed "1 [2 0.5] 3"
+  ]
+
+d1 $ jux (rev) $ n (slowspread (offadd 0.125) [7,-5,12] "c5 e [f d3] a") # s "[pno xx]/2"
+
+
+d2 $ jux rev $ chop 4 $ n "d [e f]" # s "arpy"
+  # size "0.6"
+  # room "0.9"
+  # orbit "1"
+  
+hush
+
+d3 $ jux rev $ chop 4 $ n "d [e f]" # s "arpy"
+  # room "0"
+  # size "0"
+  # speed "2"
+  # orbit "2"
+
+
+d1 $ slow 2 . striate' 8 (scale 0.05 0.15 sine1) $ sound "longsample"
+
+d1 $ slow 2 $
+
+d1 $ (slow 4 $ unwrap $ (\x -> striate' 8 x $ sound "breaks152") <$> (scale 0.05 0.15 sine1))
+
+d1 $ do n <- scale 0.05 0.15 sine1
+        slow 4 $ striate' 8 n $ sound "breaks152"
+
+
+-- patterning
+-- > sequences (granulation, polymetry)
+-- > glitch
+-- > composition
+-- > interference
+

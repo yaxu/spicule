@@ -1,0 +1,46 @@
+
+d1 $ do x <- slow 8 saw
+        juxBy (x) rev $ linger "<1 0.5 0.75 0.5>" $ n "0 ~ 8 [~ 5] 0 [~ 9] ~ [7 5*2]" # sound "micron"
+  # room 0.5
+  # size 0.4
+  # orbit 1
+
+d2 $ degradeBy "<0.25 0.5>" $ (juxBy 0.25 rev $ (chop 64 $ n "d6 c5(3,8)" # sound "rash"))
+  # gain 1.2
+  # shape 0.3
+  # lpq "<0.3 0.34>"
+  # lpf (density "<1 2 3 4>" $ sine * 2000 + 1000)
+  |+| n "<0 7 12 7>"
+
+d4 $ sometimes (|*| speed 2) $ slow 2 $ off "<0.25 0.5>" (# s "pulse") $ n "d7(3,8) [c6*2 ~ c6(3,8)] a6(3,8) e7(3,8)" # sound "jx"
+  # gain 1.5
+  # lpq "<0.3 0.34>"
+  # lpf (density "<1 2 3 4>" $ sine * 300 + 500)
+  # legato 1
+  # orbit 1
+  # room 0.3
+  # delay 0.4
+  # delaytime "<0.1 0.01 0.02>"
+  # delayfeedback 0.9
+  # crush 3
+
+d5 $ slow 2 $ every 2 (slow 2) $ every 3 ((# speed 2) . (fast 2)) $ whenmod 8 4 (linger 0.25) $ n ((run 16) + "<4 2>") # sound "micron"
+  # gain 1.4
+  # crush 4
+
+d6 $ slow 2 $ chop "<4 8 12>" $ sound "~ [~ off]"
+  # shape 0.7
+  # legato 1
+  # crush 2
+
+d7 $ off 0.25 (|*| up "7") $ jux rev $ loopAt "<2 [1 2]>" $ chop "<32 16>" $ sound "narc:1"
+  # orbit 3
+  # lpq "<0.2 0.2>"
+  # lpf (density "<1 2 3 4>" $ sine * 3000 + 1000)
+
+-- thanks for joining me
+-- I have to go to bed now
+-- getting up early to stream to montreal at 7am
+-- have fun
+
+

@@ -1,0 +1,3 @@
+
+d1 $ do r <- discretise 1 $ scale 1 2 rand
+        every 4 (slow $ toRational r) (sound "sn:0 hh:5*2 bd:1*2")

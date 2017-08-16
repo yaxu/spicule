@@ -1,0 +1,67 @@
+cps 0.7
+
+d1 $ (jux rev $ sound "jvrave(3,8)")
+  # end "0.25"
+  # room (slow 4 saw1)
+  # size (slow 4 saw1)
+  # orbit "1"
+
+d2 $ degrade $ jux rev $ sometimes (|+| up "12") $ off 0.125 (|+| n "[12 24]/2") $ off 0.25 (|+| n "7") $ slow 2 $ n "[f5(3,8) a6(3,8,2) c6(3,8) e7(3,8,2)]/2" # sound "[rash,xx]"
+  # orbit "2"
+
+d3 $ jux rev $ every 2 (within (0,0.25) (density 2)) $ loopAt 2 $ chop 16 $ sound "arc"
+  # orbit "2"
+
+d4 $ (jux rev $ slowspread (chop) [128,16,64,128] $ sound "drum*2 . claus:5 [claus claus:4] claus:2 . kurt . arpy:3")
+  # orbit "2"
+  # cutoff (slow 4 $ scale 2000 100 saw1)
+
+d3 $ jux (iter 4) $ (n (run 16) # sound "voodoo")
+  # gain "1.1"
+
+d5 $ sound "jvbass*2 [bass3 ~ casio*2]"
+
+d6 $ jux (2 <~) $ sound "funky(7,8)" # n (irand 16)
+  # gain "0.8"
+
+d7 $ degrade $ jux rev $ weave 16 (rev $ n (run 8) # sound "arpy")
+  [vowel "a [i o] u e",
+   vowel "i o u",
+   speed "1 2*2 2 1",
+   speed "0.5 1 2*2"
+  ]
+  |*| speed "0.5"
+
+
+d8 $ sound "drum ~ cp*2"
+
+d2 $ runWith 4 (density 2) $ sound "amencutup*8" # n (irand 8)
+
+d1 $ jux rev $ iter 4 $ loopAt 32 $ striate 32 $ sound "bev*4"
+  |*| speed "[1,2]"
+  # orbit "1"
+  
+d2 $ jux (rev) $ substruct "x x/2" $ sound "bd ~ [sn:1 mt] lt"
+  # end "0.7"
+  # speed "2"
+  # orbit "1"
+
+d3 $ jux rev $ iter 4 $ loopAt 4 $ slowspread (chop) [16, 32] $ sound "shackup"
+  # gain "0.9"
+  # orbit "1"
+
+d4 $ slow 2 $ sometimes (|+| n "7") $ jux ((|*| speed "2") . rev) $ stut 3 0.6 (0.25) $ n "[d6*2 g6] a7(3,8)" # sound "[jx]"
+  # gain "1.4"
+  # speed "[1,2,1.5]"
+  # orbit "1"
+  # cutoff "3000"
+  
+d5 $ jux (rev) $ every 2 (density 2) $ runWith 4 (|*| speed "2") $ sound "drum(5,8,[0 2]/2)"
+  # room "0.7"
+  # size "0.8"
+  # orbit "2"
+
+d1 $ jux rev $ iter 8 $ (slow 4 $ loopAt 4 $ striate 16 $ sound "liq*4")
+  # gain "0.86"
+  # cutoff (slow 4 $ scale 3000 1000 sine1)
+

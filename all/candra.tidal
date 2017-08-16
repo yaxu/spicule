@@ -1,0 +1,70 @@
+
+d1 $ degradeBy 0.3 $ off 0.25 ((struct "x(3,8)") . (# (s "superpiano" # gain 0.7))) $ jux rev $ slow 2 $ slow 2 $ off 0.125 (|+| n (-12)) $ off 0.25 (|+| n "7") $ n "c(3,8) e*3 f(3,8) g(3,8)" # sound "supermandolin"
+  # lpf (slow 4 $ sine * 3000 + 400)
+  # lpq 0.2
+  # room 0.2
+  # legato "<2 4>"
+  # gain 1.1
+
+
+d3 $ jux' [id, rev, iter 4, slow 2] $ chunk 4 (hurry 2) $ n "0 [~ 1] 2 3" # sound "micron"
+  # gain 0.75
+  # speed 2
+
+d2 $ (chunk 4 (hurry 0.5) $ jux' [id,rev,iter 4] $ loopAt 4 $ chop 16 $ sound "paper")
+  # gain 0.8
+  |+| pan saw
+
+
+d3 $ chunk 4 (hurry 2) $ jux' [id, (# speed 4), (vowel "<a i*2 u*3 o*4>" #), (rev . chop 8), (off "<0.25 0.5>" (# crush "<5 5 5 3>") )] $ chunk 4 (hurry 0.5) $sound "<future(3,8) cp drum(5,8) sn:2>"
+
+d4 $ jux rev $ weave 16 (palindrome $ n "0 1 2 3 4 5 6 7" # sound "arpy" )
+  [vowel "a e [i o] e" # pan 0,
+   speed "1 0.5 3 1" # pan saw,
+   speed "2 3 1" # pan (slow 4 sine),
+   speed "1 [3 0.5] 0.5" # pan (slow 2 tri)
+  ]
+
+d2 $ degradeBy 0.8 $ off 0.25 (# (s "pulse"))$ slow 2 $ (jux' [id, rev, (|*| speed 2), (|+| n 7)] $ off "<0.25 0.5 0.75>" (# crush 5) $  off 0.25 (|+| n 7)$ slow 2 $ n "c6(3,8) a7(3,8) f6(3,8) e5*3" # sound "rash")
+  # gain "0.8"
+  |+| n (slow 4 "<0 7 12 2>")
+  |+| pan (slow 7 saw)
+  # lpf 3000
+  # room 0.1
+  # orbit 1
+
+d3 $ degrade $ chunk 4 (hurry "<0.5 2 0.5>") $ jux rev $ (jux' [id, (0.5 <~), rev, (0.25 <~)] $ (chop "2" $ sound "bd [<jvbass:3 jvbass:5> <kurt:5 kurt:4>] sn:2 cp"))
+  # gain 0.95
+
+d4 $ slow 2 $ every 2 (density 2) $ jux' [id, iter 4] $ chunk 4 (hurry "<0.5 2 0.5>") $ jux rev $ n ("0 .. 7") # sound "amencutup"
+  # gain 1
+  # orbit 1
+  # room 0.2
+  |*| speed 2
+
+
+d1 $ jux' [id, rev, (|*| speed 2), (|+| speed 4) . rev . (# crush 5)] $ (off 0.25 (|+| n "<0 7 12>")$ (off "<0.125 0.25>" (# s "pulse") $ slow 4 $ n "e6(3,8) [c6*2 g6]" # sound "jx"))
+  # orbit 2
+  # room (scale 0.2 0.4 $ slow 16 saw)
+  # size 0.3
+  # gain 0.8
+
+d2 $ jux rev $ stut 4 0.8 0.25 $ chop "<2 4>" $ sound "bd [<drum bd> sn:1]"
+  |+| pan rand
+
+
+d3 $ jux (|*| speed 2) . rev) $ off 0.25 (# crush 5) $ up "0 7 12" # sound "jvbass [~ jvbass]"
+  # delay 0.9
+  # delayfb 0.9
+  # delayt "<0.01 0.02 0.05>"
+  |+| orbit 1
+  |+| gain 1.1
+
+d1 $ every 3 (hurry 2) $ sometimes (|*| speed 2) $ jux ((|+| speed 2) . (slow 2)) $ jux (rev) $ every 5 (0.125 <~) $ every 3 (0.25 <~) $ n "{0 [~ 4] 3*2 2, 0 4 1*2}" # sound "gretsch"
+
+
+d2 $ every 2 (hurry 2) $ sometimes (|*| speed 2) $ jux ((|+| speed 2) . (slow 2)) $ jux (rev) $ every 5 (0.125 <~) $ every 3 (0.25 <~) $ s "micron(3,8)"
+  # n (choose [0, 2])
+
+  # orbit 
+

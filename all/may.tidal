@@ -1,0 +1,89 @@
+cps 0.85
+
+d1 $ degrade $ slow 2 $ jux rev $ within (0.75,1) (|+| n 12) $ (off 0.25 (# (s "rash" |+| n "12")) $ off (1/3) (# (crush 6 |+| n "<7 7 5 5>")) $ chop 2 $ n "d6*4" # sound "jx")
+  # speed 2
+  # cutoff (slow 2 $ scale 500 1000 saw)
+  # resonance (scale 0.1 0.3 saw)
+  # orbit 1
+  # room 0.9
+  |+| n (palindrome "<0 0 2 2 3 3 5 5>")
+
+d2 $ slow 2 $ chunk 4 (density 2 . (|*| speed 2)) $ juxBy 0.5 rev $ iter 4 $ n ("0-7" + 7) # sound "micron"
+  |*| speed 2
+
+d3 $ off 0.25 (# (s "xx" # gain 0.7)) $ jux rev $ sometimes (|+| n 12) $ off 0.25 (|+| n 7) $ slow 2 $ off 0.25 (|*| (gain 0.6 # shape 0.9 # speed 2)) $ n "d6(3,8) [~ d6*2] ~ e6(3,8,2)" # sound "rash"
+  # orbit 1
+  # room 0.9
+  # size 0.6
+  # cutoff (slow 2 $ scale 500 2000 sine)
+  # resonance (scale 0.1 0.3 saw)
+  # legato 1
+
+d4 $ stut "<3 5>" (0.8) "<0.25 0.125>" $ sound "~ [kurt kurt?]"
+  # orbit 2
+  # delay 0.8
+  # delayt (rand * 0.01)
+  # delayfb 0.98
+
+
+
+d1 $ degrade $ ur' 16 "[kurt ~, [arp <arp:inc arp:rev> arp arp:jr], bt:inc, brk brk:jr brk:crak brk:inc]"
+  [("kurt", (stut "<3 5>" (0.8) "<0.25 0.125>" $ sound "bd8 [bd8 [mt8 ht8]]"
+             # orbit 2
+             # delay 0.8
+             # delayt (saw * 0.04 + 0.02)
+             # delayfb 0.98
+            )
+   ),
+   ("arp", (off 0.25 (# (s "pulse" # crush 4)) $ slow 2 $ off 0.125 (|+| n 12)$ n (off 0.25 (+7) $ slow 2 "<c7 g7>(3,8) a7*2 f7(3,8,2) e7(3,8)") # sound "rash")
+   ),
+   ("bt",
+    (jux (rev . (0.25 <~)) $ chop "<1 2>" $ off 0.25 (# crush 4) $ n "0 ~ 3 2" # s "voodoo") # orbit 1
+   ),
+   ("brk", loopAt 8 $ chop 32 $ s "shackup"
+   )
+  ]
+  [("inc", (# (speed (saw1 * 0.5 + 1) # room saw1 # size saw1))),
+   ("jr", (jux rev)),
+   ("crak", iter 4),
+   ("r", rev)
+  ]
+
+d1 $ slow 2 $ jux rev $ delayt "[0.04(3,8) 0.02*2, 0.03(3,8,2)]" # sound "[bd,drum,future]"
+  # room 0.7
+  # size 0.4
+  # speed 0.8
+  # delay 0.8
+  # delayfb 0.9
+  # orbit 1
+  # up "<0 3 7 5>"
+  # gain 0.8
+
+d2 $ off 0.25 (# crush 4) $ jux rev $ delayt "[0.06(3,8,4) 0.08*2, 0.03(3,8,3)]" # sound "[cp]"
+  # room (slow 4 saw)
+  # size 0.8
+  # speed 8
+  # delay 0.8
+  # delayfb 0.9
+  # orbit 2
+  # up "<12>"
+  # gain 0.7
+
+d3 $ slow 2 $ sometimes (|*| speed 2) $ off 0.125 (|+| n "<7 -5>") $ slow 2 $ off "<0.25 0.5>" (# s "jx") $ jux rev $ off 0.125 (|+| n 12) $ off 0.25 (|+| n 7) $ slow 2 $ n ("<c6 a7 d7 g7>(<3 4 5>,8,<2 4>)") # sound "rash"
+  # gain 1.1
+  # room 0.4
+  # orbit 1
+
+
+d4 $ degrade $ loopAt 2 $ chop 128 $ sound "os"
+  # gain 1.4
+
+n (toScale Scales.dorian "0 3" + 5)
+
+-- thank you for listening
+
+
+d1 $ sound "[bd sn:1](5,8)"
+
+d1 $ sound "[hc hh hc hh hc](5,8)"
+

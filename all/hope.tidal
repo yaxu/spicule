@@ -1,0 +1,56 @@
+
+d1 $ off 0.125 (# speed 4)
+  $ jux rev $ chunk 4 (hurry 2) $ inside 2 (iter 4) $ sound "feel(3,8,<0 2>)"
+  # room 0.4
+  # size 0.6
+  # orbit 1
+  
+
+d2 $ chunk 4 (hurry 2) $ off 0.25 (# crush 3) $ every 8 (0.25 <~) $ sound "bd*2 ~ feel cp"
+  # speed 2
+  # shape 0.75
+
+
+d8 $ slow 4 $ off 0.125 ((# s "rash") . (# gain 1.45) . (|+| n "<-12 12>"))
+  $ slow 2 $ n (off (1/16) (subtract 12) $ off (-0.25) (+7) $ slow 2 $ "c7*4 e7 f7*2 g7") # sound "pulse"
+  -- # lpf (slow 2 $ saw * 1000 + 300)
+  -- # lpq 0.3
+  # orbit 2
+  # delay 0
+  # delayt (slow 2 $ sine * 0.01)
+  # delayfb 0.8
+  # gain 1.35
+  # room 0.95
+  # size 0.95
+
+d5 $ off "<0.25 0.5 0.125>" (# crush 3) $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "micron"
+  # gain 1.25
+  |+| n "<0 5 7 2>"
+
+d6 $ slow 2 $ jux rev $ superimpose ((0.25 <~) . (|*| speed 2)) $ slow 2
+  $ gap "<16 32 8 6>" $ sound "~ jungbass:3"
+  # gain 1.25
+  # speed "<1 2 2>"
+
+d7 $ jux (rev . (iter 4)) $ slow 2 $ sound "gabbaloud(6,16)"
+  # shape 0.5
+  |+| pan (slow 4 saw)
+  |*| speed 2
+  # orbit 1 # room 0.6
+
+d3 $ jux rev $ iter 4 $ loopAt 1 $ chop 8 $ sound "<os os:1>"
+  # gain 1.5
+  # vowel "<a i>"
+
+d9 $ chunk 4 (hurry 2) $ every 2 (0.25 <~) $ sound "[bd ~ bd [~ bd*2], ~ ~ ~ [cp lt]]"
+  # room 0.2
+  # size (slow 8 saw)
+  # orbit 1 
+
+d8 $ off 0.25 (|+| n "-7") $ sound "{bd bd sn:2 cp <xx:60 xx:58> _ _ xx:60}"
+  # lpf (slow 2 $ rev $ saw * 3000 + 500)
+  # lpq 0.3
+  # legato 1
+  # crush 3
+  
+thanks for listening in ;)

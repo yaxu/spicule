@@ -1,0 +1,14 @@
+d2 $ jux (iter 4) $ (rev . slowspread (chop) [8,64]) $ every 2 (# speed "2") $ sound "[claus claus:2 arpy claus:3, claus:4*3]"
+
+d2 $ sound "bd*3"
+
+
+d1 $ jux rev $ weave 16 (palindrome $ n (run 8) # s "arpy")
+  [vowel "a i o u e",
+   vowel "i o u",
+   speed "1 2 3",
+   vowel "o u*2 e"
+  ]
+  # cutoff (slow 4 $ scale 1000 3000 sine1)
+  # resonance "0.3"
+

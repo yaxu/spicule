@@ -1,0 +1,10 @@
+d1 $ off 0.25 (|*| up "-12") $ slowspread (stut 3 0.6) [1/3,1/2] $ (jux' [every 2 (0.25 <~),rev,slow 2 . (# n "3"), (|*| speed "0.75"), brak, off 0.25 (|*| up "7")] $ begin "[0 0.2] [0.1 ~ 0.1]" # sound "[hh mt cp8:3]")
+  # gain "[1 0.8]*4"
+  # speed "4"
+  # cutoff (slow 4 $ scale 100 20000 saw1)
+  # resonance "0.3"
+  -- # vowel "<a e i o u>"
+
+d2 $ jux' [id,slow 1.01] $ foldEvery [4,5] (0.25 <~) $ sound "feel(3,8) cp8"
+
+hush

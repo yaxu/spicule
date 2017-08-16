@@ -1,0 +1,21 @@
+d1 $ (jux rev $ off 0.125 (|*| speed "2") $ n (slowspread (offadd 0.25) [5,7,-12] "{d6(3,8) e7(3,8) f6(3,8)}%1") # s "jx")
+  -- # cutoff (slow 4 $ scale 1000 2000 sine1)
+  # resonance "0.3"
+  # room "0.3"
+  # size "0.3"
+  # crush "2"
+
+d2 $ runWith 4 (density 4) $ sound "bd8:4(3,8,[2 4])"
+  # cutoff (slow 4 $ scale 150 2000 sine1)
+  # resonance "0.3"
+  # room "0.3"
+  # size "0.3"
+  # shape "0.7"
+
+d3 $ iter 4 $ jux rev $ chop 4 $ sound "~ [sn:2 ~ sn:4]"
+  # orbit "1"
+
+length $ arc (foldEvery[3..9](slow 0.9)$slowspread slow[0.05,0.1,0.2]$ smash 9[9]$s"bd v*99"#n(run 4)#pan tri1#up"1 0 80 60 70 50 30 20 10 40 1") (0,1)
+
+
+length $ foldEvery[3..9](slow 0.9)$slowspread slow[0.05,0.1,0.2]$ smash 9[9]$s"bd v*99"#n(run 4)#pan tri1#up"1 0 80 60 70 50 30 20 10 40 1"

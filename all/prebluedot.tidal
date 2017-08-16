@@ -1,0 +1,70 @@
+
+d1 $ every 4 (# s "sn:2") $ sound "bd(5,8,<0 2 4 6>)"
+  # begin (chunk 8 (fast 2) $ scale 0.002 0.1 sine)
+  # speed 2
+  # room 0.7
+  # size 0.4
+  # orbit 1
+
+d2 $ slow 2 $ off 0.25 (# s "pulse") $ jux rev $ chunk 4 (hurry 2) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+ "<7 -5 12>") $ "<c7(3,8) a6(3,8,2) f6(3,8) e6(3,8)>") # sound "rash"
+  # crush 5
+  # lpf (slow 4 $ scale 2000 2500 sine1)
+  # lpq 0.2
+  # orbit 2 # size 0.6 # room 0.7
+
+
+d3 $ jux rev $ someCycles (linger 0.25)
+  $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "claus"
+  # gain 1.2
+  |+| n (slow 16 "0 .. 3")
+  # speed 2
+
+d4 $ (off 0.125 (|+| n "<7 7 12 -12>") $ off 0.25 (# crush 3) $ n ("d6 ~ [~ d8] [~ d7]") # sound "jx")
+  # lpf (slow 4 $ saw1 * 100 + 1000)
+  # lpq 0.2
+  |+| n "<0 0 2 2 5 5 12 7>"
+
+d5 $ rev $ loopAt 2 $ chop 16 $ sound "arc"
+  # gain 1.2
+
+
+
+d1 $ off 0.25 ((|*| speed 2) . (# crush 4)) $ slow 4 $ chop 8 $ sound "bd [~ sn:2] mt*8 [~ cp]"
+  # delay 0.9
+  # delayt 0.02
+  # delayfb 0.7
+
+d2 $ jux rev $ chunk 4 (hurry 2) $ off 0.25 (|*| up 12) $ stut 4 0.5 0.25 $ n "0 [7 5]" # sound "arpy"
+ # shape 0.3
+ # lpf 2000
+ # lpq 0.3
+ # orbit 1
+ |*| up "<0 7>"
+ |*| speed 0.25
+
+d3 $ jux rev $ chop "<3 4 8 2>" $ sound "arpy"
+  # orbit 2
+  # room 0.9
+
+d4 $ iter 4 $ loopAt 2 $ chop 16 $ sound "os"
+  # shape 0.5
+
+d1 $ jux rev $ sometimes (|*| speed 2) $ slow 2 $ off 0.25 (# s "jx") $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 "c7(3,8) e7(3,8) f7*3 g7(3,8)") # s "xx"
+  # gain 1.1
+  # orbit 1 # room 0.8
+
+d2 $ iter 4 $ loopAt 4 $ chop 16 $ sound "paper"
+  # gain 1.2
+
+d1 $ sometimes (|*| up 12) $ chunk 4 (hurry 2) $ jux rev $ slow 2 $ off 0.125 (|*| lpf 0.5) $ off 0.25 (|*| up "<7 12 -5>") $ n "<0(3,8)>" # sound "stabs"
+  # lpf (slow 2 $ sine * 3000 + 100)
+  # lpq 0.2
+
+d2 $ slow 4 $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "micron"
+
+d3 $ loopAt 4 $ chop 16 $ sound "repetition"
+
+
+hush
+
+d1 $ sound "

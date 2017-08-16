@@ -1,0 +1,40 @@
+cps 0.6
+
+d1 $ sometimes (|*| speed "2") $ jux (rev) $  (slow 4 $ (n ((+) <$> (offadd 0.25 12 $ slow 2 $ offadd 0.125 (-5) (palindrome "d3(3,8) [e3(5,8) f3(3,8)] ~ g3*2")) <*> "[5 7]/4") # s "xx")
+  # room "0.5" # size "0.8"
+  # orbit "1") # gain "0.7" # speed "2"
+  --  # vowel "[o e i]/3"
+
+d2 $ foldEvery [3,5,7] (slowspread (\x -> within x (density 2)) [(0,0.5), (0,0.25)]) $ every 4 ((|*| gain "0.85") . jux rev) $ chop 8 $ sound "breaks165" # unit "c" # speed "2" # gain "0.9" # resonance (slow 4 $ scale 0 0.3 sine1) # cutoff (scale 1000 5000 $ discretise 0.5 rand) # orbit "1" # room "0.5" # size "0.8"
+
+d3 $ jux (|*| speed "0.5")  $ (sometimes (echo 0.125) $ slow 4 $ (n (offadd 0.25 12 $ slow 2 $ offadd 0.125 (-5) ((+12) <$> (palindrome "d4(3,8) e5*4 f4(5,8) g4(5,8)"))) # s "xx" # gain "0.9") # gain "0.8" # speed "-1"
+  |+| n "[5 7]/4")
+  -- # resonance (slow 4 $ scale 0 0.4 sine1)
+  -- # cutoff ((scale 2000 5000) $ discretise 0.5 rand)
+
+
+
+d4 $ jux rev $ (slow 8 $ striate 256 $ sound "[~ ~ sometimes*4 ~]/4" # unit "c" # speed "[0.42]"
+  # orbit "2")
+  # nudge (slow 3 $ scale 0 0.25 sine1)
+  # orbit "3" # room "0.6" # size "0.9"
+
+d5 $ whenmod 8 4 (const silence) $ sound "drum [~ drum ~]" # shape "0.9" # speed "4" # gain "0.8"
+
+d1 $ sound "bd*16 bd*8 bd*3 bd*32"
+
+d1 $ sound "adsfs"
+
+d6 $ jux rev $ (sometimes (echo 0.125) $ slow 4 $ (n ((+36) <$> (offadd 0.25 12 $ slow 2 $ offadd 0.125 (-5) ((palindrome "d2(3,8) e2(5,8) f2*4 g2(3,8)")))) # s "m2" # gain "0.9") # gain "0.8" # speed "1" # shape "0.5"
+  |+| n "[2 4]/4")
+  -- # resonance (slow 4 $ scale 0 0.4 sine1)
+  -- # cutoff ((scale 2000 5000) $ discretise 0.5 rand)
+
+d7 silence
+
+d7 $ jux (2 <~) $ randcat [jux (iter 4) $ sound "[drum [m2:47*3]]" # gain "1.1",
+                           sound "cp(3,8)",
+                           sound "drum(5,8) arpy*3"
+                          ]
+
+hush

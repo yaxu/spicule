@@ -1,0 +1,126 @@
+
+d3 $ degrade $ jux rev $ n (sometimes ((+12) <$>) $ slow 2 $ offadd 0.125 12 $ offadd 0.25 7 $ palindrome $ slow 2 "f6(3,8) a6(3,8) c7(3,8) e6(5,8)") # sound "rash"
+   # gain "1.2"
+   # speed "[1,1.5]"
+
+d2 $ slow 2 $ (chop 4 $ jux (iter 4) $ runWith 4 (density 2) $ n (slow 4 $ run 16) # sound "funky*8")
+  # gain "0.96"
+  # cutoff (scale 100 3000 saw1)
+  # speed "2"
+
+d4 $ runWith 4 (density 2) $ jux (rev . chop 4) $ sound "odx(3,4,[0 2]/2)"
+  # speed "[2 1.5]/3"
+
+d6 $ iter 4 $ loopAt 4 $ chop 16 $ sound "arc"
+  # gain "1.2"
+
+d7 $ sound "~ [~ wobble]"
+  # speed "[1,2]"
+  # shape "0.5"
+
+d8 $ jux (|*| speed "-2") $ iter 4 $ loopAt 8 $ chop 16 $ sound "liq"
+
+d9 $ sound "fm:11"
+
+d1 $ jux rev $ (slowspread (chop) [64,128,256] $ sound "drum [drum:2 sd8:3] jx:50 [rash:50 rash:52]/2")
+
+d2 $ jux (iter 4 . rev) $ sound "[drum*2 drum*2 drum:1*2]/3 gabba"
+
+d5 $ runWith 4 (|*| speed "2") $ loopAt 2 $ sound "breaks165"
+
+d4 $ iter 4 $ rev $ loopAt 4 $ chop 8 $ sound "repetition" # n (irand 8)
+  # gain "1.1"
+
+d6 $ slowspread (chop) [4,3,2] $ sound "off off*2"
+  # speed "[1 2 3]/3"
+
+d1 $ iter 4 $ sound "[bd, {arpy arpy:2 arpy:3}%2 sd8:2 ~ drum]"
+  # delay "0.8"
+  # delaytime sine1
+  # delayfeedback (slow 16 saw1)
+  # room (slow 4 sine1)
+  # size (slow 4 saw1)
+  # orbit "1"
+
+ d2 $ every 4 (slow 1.5) $ jux rev $ n "0 [~ 1] 4 2" # sound "jvrave"
+   # orbit "2"
+
+cps (137/60)
+
+d1 $ degrade $ every 4 (rev) $ slow 2 $ n (offadd 0.25 7 "d7 [~ g7] e7 a9") # sound "xx"
+  # orbit "2"
+  # resonance "0.3"
+  # cutoff (scale 100 2000 sine1)
+
+d2 $ jux rev $ slowspread (chop) [8,16,32,64] $ n "g8 a8" # sound "xx"
+
+d3 $ jux (# speed "2")$ sound "{drum bd*2, bd pulse:50 [~ sn:2]}"
+  |+| speed (slow 4 $ scale 0 0.5 sine1)
+
+d1 $ sound "bd8:3(3,8)"
+
+d2 $ every 3 (# speed "2")$ slowspread (chop) [4,3,4,8] $ slow 2 $ sound "bd [bd*2 sn:2]"
+  # orbit "1"
+
+d3 $ runWith 4 (|*| speed "2") $ jux (iter 4) $ slow 2 $ n (every 4 rev $ run 4) # sound "arpy" # up "[0 7 -5]/3"
+  # room "0.87"
+  # size "0.9"
+  # orbit "2"
+
+
+
+d1 $ jux rev $ iter 4 $ runWith 4 (density 2) $ sound "amencutup*4"
+  # n (run 8)
+  # speed "2"
+
+d2 $ jux (rev . chop 4 . (# speed "0.5")) $ slow 2 $ sound "gabba(3,8,[0 2]/2)"
+  # speed "[1.5 2 3]/5"
+
+d3 $ every 4 (# speed "0.5") $ sound "pulse"
+  # n "d3 {~ a3, f2 a1 c1}"
+  # cutoff (scale 100 4000 $ slow 4 $ saw1)
+
+
+
+cps (137/120)
+
+
+
+
+
+
+
+
+
+d1 $ sound "tok ~ tok:2"
+  # gain "1.1"
+
+d2 $ jux (# speed "2") $ n (run 8) # sound "[~ jvrave drum feel, voodoo]/2"
+
+d3 $ sound "~ [bass3 ~ bass3]"
+
+d4 $ iter 4 $ runWith 4 (speed 2 . (|*| speed "2")) $ every 4 (slow 2) $ loopAt 8 $ chop 16 $ sound "shackup"
+
+
+d5 $ loopAt 32 $ rev $ striate 64 $ sound "atlast:1"
+  # gain "1.1"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

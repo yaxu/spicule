@@ -1,0 +1,56 @@
+cps 1.1
+
+d1 $ jux' [id, rev, (0.25 <~), hurry 2] $ slow 8 $ sound "{micron bd*2 micron:2 [~ ht:3], bd micron:3 ~}"
+  # room 0.04
+  # orbit 1
+  # gain 0.85
+
+d2 $ jux rev $ jux' [id,rev,(0.25<~)] $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 $ "d6(3,8) e7(3,8) f7(3,8) g7(3,8)" + "<0 7 12 2>") # sound "superzow"
+  # gain 0.45
+  |+| n "-48"
+  # hpf (slow 4 $ sine * 1000 + 100)
+  # hpq 0.3
+  # room 0.3
+  |+| pan (slow 8 saw)
+  # orbit 2
+hush
+
+d3 $ jux ("<0.25 0.5>" <~) $ chunk 4 (hurry "<2 2 0.5>") $ iter 4 $ loopAt 2 $ chop 16 $ sound "breaks165"
+
+d4 $ every 4 (0.25 <~) $ jux (iter 4) $ sometimes (off 0.25 (# crush 3)) $ sound "future(3,8,<0 4>)"
+
+
+d5 $ off 0.25 (# (s "superpiano" # legato 2)) $ every 2 (slow 4) $ slow 2 $ jux' [id, rev] $ slow 2 $ off 0.125 (|+| n 12)$ off 0.25 (|+| n "7") $ n "d7*2 [a6(3,8) g5(3,8)]" # sound "superpiano"
+  |+| pan (slow 32 saw)
+  |+| n (slow 4 "<0 5 12 2>")
+  |+| gain 0.75
+  |+| n "-36"
+  # hpf (slow 16 $ saw * 2000 + 100)
+  # hpq 0.1
+  # legato 0.25
+
+
+d1 $ every 2 (linger 0.25) $ jux ((# speed 2) . slow 2) $ jux (0.25 <~)$ chunk 4 (hurry 2) $ sound "{drum bd future ~, bd*2 sn mt}"
+
+d2 $ slow 2 $ jux' [id, (|*| speed 2), every 2 (hurry 0.5) . rev, iter 4] $ struct "x(3,8)" $ sound "jungbass:2"
+  # gain 0.9
+  |*| speed 2
+  # crush 6
+  # shape 0.3
+  # legato 1
+  |*| up (offadd 0.125 (7) $ "<0 <7 [7 5]>>")
+  |*| up (slow 2 "<0 7 12 2>")
+
+d6 $ slow 2 $ jux (|*| speed "<2 4>") $ (jux rev $ chop "<2 4>" $ sound "bd*2 sn:2(3,8)")
+  |+| pan (slow "<4 8>" saw)
+  |+| speed "0.5"
+
+d7 $ jux' [id, rev, (0.25 <~), (iter 4)] $ chop "<16 32 8>" $ sound "~ off ~ ~"
+  # unit "c"
+  |*| speed 2
+
+d9 $ chunk 4 (hurry 2) $ jux (|*| speed 2) $ off 0.25 (# (crush "5" # speed (slow 4 $ scale 2 1 saw)))$ sound  "gabba(3,8,<0 4 2>)"
+  # pan rand
+  # end 0.1
+
+d1 $ jux rev $ n "2(3,8)" # sound "gabba"

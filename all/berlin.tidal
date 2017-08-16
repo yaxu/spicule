@@ -1,0 +1,140 @@
+cps 0.8
+
+d8 $ sound "~ wobble*2"
+  # shape "0.9"
+  # crush 4
+
+d9 $ jux (rev) $ off 0.25 (# speed "0.5") $ sound "micron(3,8,[0 2]/2)" # n (slow 4 $ run 8)
+
+d3 $ jux rev $ runWith 4 (density 2) $ loopAt 1 $ chop 8 $ sound "<os os:1 os:2>"
+  # gain 1.1
+
+d4 $ jux rev $ off 0.25 (|*| speed "2") $ chop "<1 2 4>" $ sound "~ off" |*| up "<0 [7 12]>"
+
+d2 $ degrade $ jux rev $ off 0.25 (# (s "pulse" # speed "0.5")) $ slow 2 $ n (offadd 0.125 12 $ offadd 0.25 7 $ slow 2 "c6(3,8) a5*2 f7(3,8) e7(3,8,2)") # sound "rash"
+  # gain "1.1"
+  # lpf (slow 4 $ sine1 * 3000 + 500)
+  # lpq 0.2
+  # room 0.4
+  # orbit 1
+
+d1 $ jux (density 2 . rev . (# speed "2")) $ sound "feel(3,8,[0 2 4]/3)"
+  |+| pan (slow 2 saw1)
+
+d2 $ every 4 ((|*| speed "2") . density 2)$ jux rev $ substruct "x(3,8) x*4" $ sound "claus" # n (slow 3 $ run 16)
+  # crush "<4 5>"
+  # shape "0.3"
+  # orbit "2"
+  # room "0.7 0.8"
+  # size (slow 4 $ saw1 *0.8)
+  # up "<0 6>"
+
+
+d6 $ iter 4 $ loopAt 2 $ chop 16 $ sound "repetition"
+  # n (irand 16)
+  # gain 1.1
+
+d7 $ every 2 (rev . chop 8) $ sound "gab(<3 4 5>,8)"
+  # speed "<1 [2 3]>"
+  # crush "5"
+
+d1 $ degrade $ off 0.25 (|*| up "7")$  slow 2 $ sometimes (off 0.125 (|*| up "-12")) $ runWith 4 (density 2) $ up "0 ~ 5 7" # sound "jungbass:6"
+  # cut "-1"
+  |*| speed "2"
+  # crush "2"
+  # gain 1.1
+  # cutoff (slow 4 $ saw1 * 1000 + 1000)
+  # resonance "0.1"
+
+ d2 $ degrade $ (jux rev $ (chop 16 $ loopAt 4 $ sound "jungbass:3"))
+ # shape "0.8"
+ |*| speed "[1 2 1 3]/3"
+
+
+d1 $ degrade $ jux ((|*| speed "0.5") . rev) $ weave 16 (palindrome $ n (run 8) # sound "arpy")
+  [vowel "a e i",
+   speed "1 2 3 0.5",
+   vowel "o u*2 e a",
+   speed "0.5(3,8)"
+  ]
+  # cutoff 3000
+  # resonance 0.2
+
+d2 $ slowspread (\x -> stut x 0.9 3) [4,3] $ sound "bd8:3(3,8)"
+  # shape "0.8"
+  # speed "<1.5 2>"
+
+
+d3 $ degradeBy 0.8 $ runWith 4 ((|*| speed "0.5") . slow 2)$ jux rev $ iter 4 $ loopAt 4 $ chop 16 $ sound "shackup"
+
+
+cps 0.715
+
+d1 $ off 0.125 (# (s "pulse" # speed "0.5")) $ off 0.25 (# s "rash") $ n (off 0.125 (+ 7) $ slow 2 $ "f7*3 d6*2 [c6 d5] a5") #  sound "supermandolin"
+  |+| n "<0 7 12 3>"
+
+d2 $ jux rev $ iter 4 $ runWith 4 (density 2) $ slow 2 $ n (run 16) # sound "amencutup"
+  # orbit 1
+  # room 0.8
+  # size 0.7
+
+d3 $ off 0.25 (# crush 5) $ jux rev $ runWith 4 (# speed 2) $ n (run 8) # sound "voodoo"
+  # gain 1.4
+
+d4 $ jux rev $ off 0.125 (# speed "<1.5 1 3 2>") $ n "0 7 12 2" # sound "jvbass"
+  # gain 1.2
+  # shape 0.6
+  # cutoff "<1000 2000 3000>"
+  # resonance "<0.3 0.2>"
+  |*| speed "2"
+
+d6 $ runWith 4 (density 2) $ sound "feel*4"
+  # gain 1.5
+  # cutoff "<1000 2000 3000>"
+  # resonance "<0.3 0.2>"
+  # shape 0.6
+  # speed "2"
+
+
+cps 0.8
+
+d1 silence
+
+d1 $ jux rev $ iter 4 $ (loopAt 4 $ slow 2 $ striate 8 $ sound "paper*2"
+                         # gain "1.2")
+
+
+d1 $ iter 4 $ stack [(loopAt 4 $ jux (0.5 <~) $ chop 64 $ s "shakedown")
+                    # cutoff (scale 1000 3000 saw1)
+                    # resonance "0.3",
+                    jux rev $ slow 4 $ chop 16 $ sound "paper"
+                    # unit "c"
+                    # speed "[0.2]"
+                    # gain "1.2"
+                   ]
+
+
+d5 $ jux rev $ off 0.25 (|+| speed "4") $ slowspread (gap) [8,16,8,100] $ sound "jungbass:5"
+
+d1 $ every 4 (0.25 <~) $ jux rev $ off 0.25 (# vowel "<a i o>")$ n "0(3,8) [3 4]" # sound "bssnare"
+  # gain 1.6
+
+d2 $ sound "gabba*4"
+
+d8 $ (loopAt 8 $ striate 8 $ sound "atlast:1(3,8,0)")
+  # cut "-2"
+  |*| speed "1"
+  # gain "1.2"
+  # cutoff (slow 16 $ scale 2000 10000 saw1)
+  # resonance "0.3"
+
+d9 $ jux rev $ runWith 4 (density 2) $ loopAt 2 $ chop 16 $ sound "breaks125"
+  # gain 1.2
+
+
+d6 $ runWith' 4 (density 2) $ off 0.25 (# crush "3") $ off 0.125 (# speed "2") $ sound "drum bd*4"
+  |*| speed 2
+
+hush
+
+d6 silence

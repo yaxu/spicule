@@ -1,0 +1,281 @@
+
+
+d1 $ every 2 (slow 1.5) $ gap 16 $ jux (0.25 <~) $ (off 0.125 (|+| n "7") $ slow 2 $ s (substruct "x [~ x]" $ struct "[x*2 x*3 x*4]/3" ("xx")))
+  # n (slow 4 "d7 e7 f7 g7")
+  # resonance "0.1"
+  # cutoff (slow 4 $ scale 1000 5000 saw1)
+  # speed "[4,4.05]"
+
+d2 $ every 2 (within (0,0.25) (rev . density 2)) $ jux rev $ loopAt 4 $ chop 16 $ sound "shakedown"
+  # shape "0.6"
+
+hush
+
+d1 $ every 2 (struct "x*2 [x ~ x*2]") $ sound "arpy arpy:2 arpy:4"
+
+d1 $ jux (slow 1.01) $ sound "arpy:0 arpy:2*2 arpy:3 arpy:4"
+
+d1 $ slow 3 $ sound "bd*2 bd*3 bd*4"
+
+d1 $ iter 4 $ jux rev $ (substruct "[~ x/2] x/2" $ sound "{tok*8, tok:2 mouth:3*2 tok:3}")
+  # speed (sometimes (superimpose ((*2)<$>)) $ slow 2 $ scale 1 2 saw1)
+  # shape (scale 0.99 0.8 sine1)
+  # gain "0.65"
+  # orbit "1"
+
+d2 $ jux rev $ substruct "x [x/2]" $ (chop 32 $ sound "~ drum")
+  # room "0.5"
+  # size (slow 8 saw1)
+  # orbit "2"
+  # end "0.06"
+  # nudge (slow 2 $ scale 0 0.4 sine1)
+  # gain "0.8" # speed "4"
+
+
+d1 $ sound "cp"
+  # gain "1"
+
+d2 $ sound "bd*16"
+  # resonance "0.3"
+  # cutoff "400"
+
+d5 $ every 2 (density 2) $ brak $ chop 16 $ sound "feel*2 feel:3"
+  # room "1"
+  # size "0.8"
+  # gain "0.6"
+  # orbit "1"
+
+-- 
+
+d1 $ (slow 2 $ jux rev $ off (1/16) (|+| n "12") $ off (1/8) (|+| n "7") $ slow 2 $ sound ("xx(5,8) xx:3(3,8) xx:1(3,8,2) xx:8(3,8,4)")
+  |+| n "[g7 d7 e7 f7]/4")
+  # resonance "0.3"
+  # cutoff (slow 4 $ scale 1000 4000 sine1)
+
+d1 $ off 0.125 (# up "7") $ n "0 3 [4 2]" # sound "jvbass"
+
+
+d3 $ every 2 (|+| speed "1") $ jux (rev) $ runWith 4 (density 2) $ n "0 1(3,8) 2 3 4 5 6*2 7" # s "funky"
+  # orbit "1"
+  # gain "0.9"
+
+d2 $ runWith 4 (slowspread (density) [0.5,2]) $ (chop 32 $ sound "[glitch:5,bd](3,8,0)")
+  # shape "0.6"
+  # crush (choose [1,2,3,4])
+
+
+
+hush
+
+d1 $ sound "sn:2*8"
+  # pan "0 1"
+
+d1 $ slow 2 $ sound "cp"
+
+
+m $ slow 4 $ n (offadd 0.125 12 "c(3,8) d e f")
+  # ctf (scale 0 0.1 sine1)
+  # dur "0.2"
+
+d1 $ sound "bd"
+
+let m p = m1 $ p |+| nudge "0.18"
+
+
+
+m $ off 0.125 (|+| n "12") $ off 0.25 (|+| n "7") $ n "[[d3 g3]([6 7]/2,16)]/2"
+  # dur (slow 4 $ scale 0.04 0.1 sine1)
+  # ctf ((*) <$> (slow 2 $ scale 0 1 sine1) <*> (slow 16 $ sine1))
+
+d1 $ iter 4 $ jux rev $ loopAt 2 $ chop 8 $ sound "foo:16"
+
+d2 $ sound "bd"
+
+let hush = mapM_ ($ silence) [c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,m1]
+    solo p = hush >> p
+
+d1 $ sound (density 4 $ "{bd sn cp arpy}")
+  # speed (slow 3.4 "1 2 3")
+  
+hush
+
+d1 $ jux rev $ slowspread (density) [1,2] $ sound "[bd8 ~ [~ bd8:3] bd8:2] [~ bd8]"
+  # speed "[1.5,5]"
+  # gain "0.85"
+
+d2 $ stack [runWith 4 (density 2) $ jux ((# speed "1.5") . (0.5 <~) . (every 2 rev)) $ sound "odx [bd:2 sd8:3] tok*2 bd*2"
+            # delay "0.95"
+            # delaytime (every 2 (slow 2) $ slow 2 $ scale 0.01 0.02 sine1)
+            # delayfeedback "0.85"
+            # gain "0.8"
+           ]
+  # orbit "2"
+
+d3 $ jux (iter 4) $ slow 2 $ rev $ slowspread (chop) [8,16,32] $ sound "[bd [bd*2 cp8]] cp8"
+  # orbit "1"
+
+m $ iter 4 $ n (offadd 0.125 7 $ offadd 0.5 12 "[c3(3,8) f3(3,8,2) g3*2 e3]/4")
+  # dur "0.04"
+  # cutoff (scale 0 0.4 sine1)
+
+d4 $ jux rev $ n (offadd 0.125 12 $ offadd 0.25 7 $ slow 8 $ ("c8(3,8) c8(5,8) g8(5,8) e8(5,8)")) # s "xx"
+  # resonance "0.3"
+  # cutoff (slow 4 $ scale 1000 5000 sine1)
+  # gain "0.75"
+
+d1 $ runWith 4 (density 2) $ weave 16 (pan sine1)
+  [sound "bd8*3 bd8:4*4",
+   sound "drum(3,8,[0 2 4 7]/4)",
+   sound "~ bass6:2*2",
+   sound "~ sd8:2*3"
+  ]
+  # shape (slow 8 $ scale 0 0.9 saw1)
+
+d2 $ jux rev $ iter 4 $ (loopAt 8 $ gap 32 $ s "liq"
+      # n (irand 8)
+      # resonance "0.2")
+  # cutoff (palindrome $ slow 4 $ scale 400 5000 saw1)
+
+d3 $ substruct "x/2 [x/2 x/4]" $ runWith 4 (density 2) $ jux (iter 4) $ loopAt 4 $ chop 16 $ sound "shakedown:12"
+  # gain "1"
+
+d8 $ runWith 4 (density 2) $ (jux (rev) $ chop 8  $ loopAt 4 $ sound "shakedown")
+  # resonance "0.3"
+  # gain "1.1"
+  -- # cutoff (slow 4 $ scale 400 7000 saw1)
+
+
+
+m $ slow 4 $ n (offadd 0.25 12 $ offadd 0.125 7 "c4(3,8) g4(3,8) f(3,8) a(3,8)")
+  # ctf (slow 4 sine1)
+  # dur (slow 6 $ scale 0.1 0.2 saw1)
+
+solo $ 
+d4 $ jux rev $ slow 4 $ n (offadd 0.125 7 "c4(3,8) g4(3,8) f(3,8) a(3,8)") # s "xx" |+| n "48"
+  # resonance "0.3"
+  # cutoff (slow 4 $ scale 400 7000 saw1)
+
+d1 $ sound "bd(3,8,[0 0 4 2]/4)"
+
+
+d2 $ weave' 8 (jux (iter 4) $ runWith 4 (density 2) $ slow 2 $ n (run 8) # s "arpy")
+  [struct "x*4" . (# speed "2"),
+   struct "x(3,8)" . (# vowel "a e i"),
+   struct "x(6,16)/2" . (# speed "1"),
+   struct "x*3" . (# speed "2")
+   ]
+  # gain "0.8"
+
+
+d1 $ jux rev $ runWith 4 (density 4) $ sound "drum sd8:2*2"
+  # delay "0"
+  -- # delaytime (slow 4 $ scale 0.01 0.02 sine1)
+  # delayfeedback "0.9"
+  # orbit "1"
+
+d2 $ runWith 4 (|*| speed "1.5") $ jux rev $ chop 16 $ sound "~ bass3:3(3,8)" # up "[0 7 3 7]/4"
+  # crush "[3 5 8]/16"
+  |*| speed "[2 1 0.5]/3"
+  # gain "0.9"
+
+d3 $ every 4 (|*| speed "0.8") $ runWith 4 (density 1.5) $ jux (0.5 <~) $ loopAt 2 $ chop 16 $ sound "arc"
+
+d3 $ loopAt 2 $ sound "[arc, mef:2]"
+hush
+
+d4 $ jux ((|*| speed "-2") . (rev)) $ slow 8 $ (loopAt 4 $ striate 32 $ sound "liq*8")
+  # gain "0.75"
+  # resonance "0.25"
+  # cutoff (slow 8 $ scale 500 4000 sine1)
+  # room "0.7"
+  # size "0.96"
+  # vowel "e"
+  # orbit "1"
+
+hush
+
+d5 $ runWith 4 (density 4) $ iter 4 $ sound "[[bd sn:2] [bd mt8*2], funky*4]" # n (run 8)
+  # room "0"
+  # orbit "2"
+  # gain "0.9"
+
+d6 $ sometimes (|*| speed "0.5") $ runWith 4 (density 2) $ slow 4 $ gap 16 $ sound "fm:10"
+  # speed "0.95"
+
+d2 $ (jux rev $ n (offadd 0.25 12 $ (offadd 0.125 7 $ slow 4 $ "c7(3,8) a8(3,8,2) f7*3 e8(3,8)")) # s "xx"
+  # end "0.1"
+  # orbit "2"
+  # delay "0"
+  # gain "0.85"
+  # resonance "0.25")
+  # cutoff (slow 8 $ scale 1000 7000 sine1)
+  # vowel "[a i o u e]/5"
+
+
+
+
+hush
+
+
+d1 $ jux (density 2 . (# speed "2")) $ every 4 (chop 32) $ sound "[tok*4, bd:3]"
+  # gain "1.3"
+
+
+d2 $ every 2 (slow 4 . (# speed "0.5")) $ jux rev $ runWith 4 (density 2) $ n (run 8) # s "funky"
+  # gain "0.9"
+  # orbit "1"
+
+
+d3 $ slow 4 $ ((slow 8 $ loopAt 4 $ rev $ striate 32 $ sound "liq*8")
+  # resonance "0.3"
+  # ctf (scale 1000 4000 tri1) |*| speed "1")
+  # vowel "a i o u e"
+  # gain "0.85"
+
+d3 $ every 2 (density 2) $ runWith 4 (# speed "2") $ jux (rev) $ slowspread (chop) [8,64,32,64] $ sound "sb:0 [[mt8:9 [ht8:9 ht3:2]] mt1:4]"
+  # delay "0.9"
+  # delaytime "0.005 0.01"
+  # delayfeedback "0.9"
+  # gain "0.7"
+  # orbit "0"
+
+d4 $ slow 2 $ up (offadd 0.25 12 $ slowspread (offadd 0.125) [7,12] $ "0 [~ -1] 0 [~ 4 ~ ~]") # n "0" # s "bass3"
+  # orbit "1"
+  # shape "0.5"
+  # gain "0.8"
+
+m $ runWith 4 (density 2) $ n (palindrome "d*2 e f*2 g")
+  # ctf "[0.4 0.9]*4"
+  # nudge "[0 0.04]*4"
+  # att "0.3"
+
+m $ n (offadd 0.25) 7 $ slow 2 $ "c4(3,8) a5*2 f4(3,8) [[e4(3,4,2)]]")
+  # ctf (slow 4 sine1)
+  # dur "0.2"
+
+
+
+d1 $ jux rev $ slowspread ($) [(# vowel "a"), id, rev, (# speed "2")] $ n "[4 [~ 1] 2 3, [2 3] 4*2 ~]" # s "short"
+
+d2 $ jux rev $ slowspread (chop) [4,5,3,16] $ sound "claus [claus:4 claus:3]"
+  # shape "0.6"
+
+d3 $ jux rev $ weave 16 (shape $ scale 0 0.96 tri1)
+  [sound "ravebass:10 [~ ravebass:9 ravebass:12]",
+   sound "ravebass:10*2 [~ ravebass:14 ravebass:12]" # speed "2",
+   sound "bd [cp8 sd8:3*2]"
+  ]|*| up ("[0 7 5 3 5 7 0 3]/8")
+  # end "0.3"
+
+d4 $ jux rev $ weave 8 (palindrome $ sound "arpy arpy:1 arpy:2 arpy:3 arpy:4 arpy:5 arpy:6 arpy:7")
+  [vowel "a e i",
+   vowel "a i o*2 u",
+   speed "1 2*2 3",
+   speed "1 2 3 2"
+  ]
+
+d1 $ n "d9 e9 [a9 f9]" # sound "dirty"
+
+hush
+
+let (dect, dect_p) = pF "dect" Nothing

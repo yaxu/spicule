@@ -1,0 +1,39 @@
+
+d1 $ jux rev $ slow 2 $ (n (offadd 0.25 12 $ offadd 0.125 7 $ slow 4 $ "d8*2 [~ a7(3,8)] f6(3,8) e6(3,8)") # s "xx")
+  # accelerate "[-1.2 1.2]/2"
+  # hcutoff "400"
+  # end "0.1"
+
+d2 $ stack [stut 4 0.4 (-0.125) $ jux (iter 4) $ sound "bd8(3,8,[2 3]/2)"
+            # speed "[1 2]/8"
+            # crush "[4 7]/3",
+            jux (rev) $ slowspread (stut 4 0.4) [-(1/16), (1/8), (1/2)] $ sound "sd8:7(3,8,[3 5]/2)"
+            # crush "4"
+           ]
+
+d4 $ (every 8 (density 2) $ jux (iter 4 . (# speed "2"))$ sound "sid:1*4"
+  # speed ((+) <$> scale 1 1.1 saw1 <*> (slow 4 $ scale 0 0.2 saw1)))
+  # cutoff (slow 8 $ scale 900 1000 sine1)
+  # resonance "0.1"
+
+d1 $ slow 4 $ whenmod 3 2 (slow 2) $ jux (rev) $ chop 8 $ sound "bd8:7 [dirty:40 dirty:32]/2 sd8:3 can:52"
+  # dur "0.2"
+  # speed "2"
+  # cutoff "700"
+  # room "0.3"
+  # size "0.5"
+
+d2 $ jux (slow 2 . (|*| speed "0.9")) $ iter' 4 $ chop 8 $ s "drum:0.8 [drum:1.2*2, ~ [mt ~ lt]]"
+
+d1 $ slow 4 $ rev $ (struct "x*3 x*4 x*4 x*6" $ chop 16 $ sound "jungbass:7") # speed "2" # crush "2"  # cutoff "500" # resonance "0.3"
+
+d2 $ runWith 8 (density 4) $ jux rev $ iter' 4 $ loopAt 8 $ striate 32 $ sound "shakedown*2"
+
+
+d1 $ sound "{bd8:4 [rs8 mt8, ~ ht8 ~] [~ [ht8 lt8]] [~ [lt8 ~]], bd8 drum bd*2}"
+  # shape "0.7" # speed "1.5"
+
+d2 $ every 2 (slow 1.5) $ stut' 2 (-0.125) (|*| speed "0.9") $ slow 2 $ sound "~ xx:50 xx:62 xx:38" # cutoff (slow 8 $ scale 2000 200 sine1) # resonance "0.3" # gain "0.8"
+
+d3 $ jux rev $ off 0.125 (|*| up "[3 5]/8") $ sound "ravebass:10(3,8)" # vowel "[a e i o u]/5" |*| speed "[1,1.5,2]" # gain "0.9"
+

@@ -1,0 +1,4 @@
+d1 $ chunk 4 (hurry 2) $ n "0 1" # sound "alphabet" # pan "0 1"
+  # room (slow 8 saw) # size (slow 8 0.5)
+
+
