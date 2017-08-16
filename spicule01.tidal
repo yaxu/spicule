@@ -1,0 +1,9 @@
+cps 0.7
+
+x1 $ off 0.125 (# crush 3) $ struct "x _ x*2 ~" $ sound "bk"
+  # n (slow 16 "0 .. 7")
+  # legato 1
+  
+
+
+
