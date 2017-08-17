@@ -30,7 +30,7 @@ do now <- getNow
                            ]
                           )
 
-solo $ 
+
 d1 $ stack [never (off "<0.25 0.125>" (# (speed 2 # crush (slow 16 $ scale 2 16 saw)))) $ someCycles (off 0.25 ((|*| up "12 0") . struct "x(5,8)" . (# sound "supermandolin"))) $ jux rev $ sometimes (|+| n 12)
             $ off 0.25 ((|+| n 7) . (# (s "superpiano" # gain 0.8))) $ chunk 4 ((|+| n 12) . (fast 2)) $ n "c3(3,8)" # sound "supermandolin"
             # shape 0.6
