@@ -59,7 +59,7 @@ d4 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "c7*2 ~ [a6 [~ a6] ~ g8*2] [~
   # sound "jx"
   # lpf 700
   # lpq 0.2
-  # vowel "a"
+  # vowel "e o"
   |+| n "0 7 12 5"
   # orbit 2
   # room 0.5
