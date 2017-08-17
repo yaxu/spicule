@@ -75,4 +75,6 @@ d7 $ jux rev $ chop "<64 32 16>" $ substruct "x x/2" $ n "2 [1 ~] 0 ~" # sound "
 
 d8 $ chunk 4 (|+| speed 0.5)
   $ off 0.25 (|+| speed 2) $ sound "industrial:3(3,8,<0 2 5>)"
-  # gain 1.4
+  # gain 1.4 |+| end 0.25
+  # lpf 1000
+  # lpq 0.3
