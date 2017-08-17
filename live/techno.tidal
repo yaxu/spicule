@@ -31,7 +31,7 @@ d3 $ jux (rev . (|*| speed 0.5)) $ (off 0.125 (|+| n "-12")
 
 
 d5 $ off 0.25 (# speed "<2 4 3>") $ n "0(3,8)" # sound "bks"
-  # gain 1.1
+  # gain 1
   |+| n "<0 1 2 3>"
   
 d4 $ chunk 4 (hurry 2)
@@ -40,3 +40,7 @@ d4 $ chunk 4 (hurry 2)
 
 d6 $ (jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) f7*2 e7 a7") # sound "rash")
   |+| n "<0 0 7 7 12 12 -5 -5>"
+
+d7 $ n "0 .. 7" # sound "funky"
+  # shape 0.5
+  |+| n (iter 4 "0 .. 3")
