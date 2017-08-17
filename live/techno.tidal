@@ -1,6 +1,6 @@
 -- hello internet
 
-cps (126/60/2)
+cps (136/60/2)
 
 d1 $ jux rev $ every 4 (0.25 <~) $ off 0.125 (|*| up 19) $ whenmod 16 12 (|*| speed "[1,4]")
   $ up "0 [3 7] ~ 1" # sound "sid:1"
@@ -67,8 +67,12 @@ d4 $ (n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "c7*2 ~ [a6 [~ a6] ~ g8*2] [
 
 d5 $ jux rev $ iter 4 $ n "0 .. 7" # sound "funky"
 
-d7 $ jux rev $ chop "<64 32 128>" $ substruct "x x/2" $ n "2 [1 ~] 0 ~" # sound "jungbass"
+d7 $ jux rev $ chop "<64 32 16>" $ substruct "x x/2" $ n "2 [1 ~] 0 ~" # sound "jungbass"
   # shape 0.3
-  # speed 2
+  # speed 4
   # crush 4
   # gain 1.2
+
+d8 $ off 0.25 (|+| speed 2) $ sound "industrial:3(3,8,<0 2 5>)"
+  # gain 1.4
+  
