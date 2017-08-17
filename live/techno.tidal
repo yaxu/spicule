@@ -17,7 +17,8 @@ d2 $ whenmod 32 20 (off 0.125 (|*| speed 2))
   # size 0.7
   # grunge 0.4
   
-d3 $ sometimes (echo 0.125) $ n "[~ <43 45>] 40" # sound "pulse"
+d3 $ off 0.125 (|+| n "-12")
+  $ sometimes (echo 0.125) $ n "[~ <43 45>] 40" # sound "pulse"
   # crush 2
   # gain 0.9
 
