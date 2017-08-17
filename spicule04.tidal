@@ -18,7 +18,7 @@ d6 $ slow 2 $ every "4 2" (density 2 . rev) $ sound "[jungbass:4](3,8,[4,2])"
 
 d5 $ chunk 8 (density 2) $ chunk 4 (density 2) $ loopAt 1 $ chop 16 $ sound "[arc]"
   # gain 1.7
-  # crush 4
+  # crush 5
 
 
 {-
