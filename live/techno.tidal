@@ -17,6 +17,9 @@ d2 $ chunk 4 (hurry 2) $ whenmod 32 20 (off 0.125 (|*| speed 0.5))
   # size 0.7
   -- # grunge 0.9
   # gain 1.2
+  # delay 0.9
+  # delaytime 0.9
+  # delayfb 0.99
 
 d3 $ jux (rev . (|*| speed 0.5)) $ (off 0.125 (|+| n "-12")
   $ sometimes (echo 0.125) $ n "[52 <43 45>] 40" # sound "pulse")
