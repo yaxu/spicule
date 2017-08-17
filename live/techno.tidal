@@ -65,3 +65,5 @@ d4 $ (n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "c7*2 ~ [a6 [~ a6] ~ g8*2] [
   # room 0.5
   # size 0.8
 
+d5 $ jux rev $ iter 4 $ n "0 .. 7" # sound "funky"
+
