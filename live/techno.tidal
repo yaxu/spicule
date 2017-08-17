@@ -48,7 +48,7 @@ d7 $ chunk 4 (hurry 2) $ whenmod 16 8 (jux rev) $ n "0 .. 7" # sound "funky"
 
 d1 $ foldEvery [3,5] (0.25 <~) $ struct "x(3,8)" $ n (slow 4 "0 .. 7") # sound "claus"
 
-d2 $ jux (iter 4) $
+d2 $ off 0.125 (|+| speed 2) $ jux (iter 4) $
   sound "kicklinn [~ micron:5] <~ micron> [~ kicklinn]"
   # shape 0.6
 
