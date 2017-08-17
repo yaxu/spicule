@@ -50,3 +50,5 @@ d1 $ foldEvery [3,5] (0.25 <~) $ struct "x(3,8)" $ n (slow 4 "0 .. 7") # sound "
 
 d2 $ jux (iter 4) $
   sound "kicklinn [~ micron:5] <~ micron> [~ kicklinn]"
+
+d3 $ sound "bd9 bd9*2"
