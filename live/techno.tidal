@@ -36,4 +36,5 @@ d4 $ chunk 4 (hurry 2)
 d5 $ off 0.25 (# speed 2) $ n "0*2" # sound "bks"
   # gain 1.2
   # shape 0.5
+  |+| n "<0 1 2 3>"
   
