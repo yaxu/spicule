@@ -57,7 +57,7 @@ d3 $ chunk 4 (hurry 2) $ off 0.25 (|+| grunge 0.6) $ sound "bd9 bd9*2"
 
 d4 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "c7*2 ~ [a6 [~ a6] ~ g8*2] [~ e7*2]")
   # sound "jx"
-  # lpf 700
+  # lpf (slow 4 $ scale 700 1000 saw)
   # lpq 0.2
   # vowel "e i"
   |+| n "0 7 12 5"
