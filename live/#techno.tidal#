@@ -1,8 +1,0 @@
--- hello internet
-
-cps (126/60/2)
-
-d1 $ up "0 ~ ~ 1" # sound "sid:1"
-  # orbit 1
-  # room (scalsaw)
-  # size 0.3

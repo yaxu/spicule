@@ -1,5 +1,9 @@
--- one moment
+-- hello internet
 
+cps (126/60/2)
 
-d1 $ sound "kicklinn"
-
+d1 $ whenmod 16 12 (|*| speed "[1,2.5]")
+  $ up "0 ~ ~ 1" # sound "sid:1"
+  # orbit 1
+  # room (slow 4 $ scale 0.6 0.8 saw)
+  # size 0.3
