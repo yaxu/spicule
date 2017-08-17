@@ -10,12 +10,12 @@ d1 $ jux rev $ every 4 (0.25 <~) $ off 0.125 (|*| up 19) $ whenmod 16 12 (|*| sp
   # shape 0.8
   # gain 0.9
 
-d2 $ whenmod 32 20 (off 0.125 (|*| speed 2))
-  $ sound "kicklinn [~ kicklinn:1] ~ kicklinn"
+d2 $ chunk 4 (hurry 4) $ whenmod 32 20 (off 0.125 (|*| speed 2))
+  $ sound "kicklinn [~ sr] sr:20 kicklinn"
   # orbit 2
   # room 0.4
   # size 0.7
-  # grunge 0.3
+  -- # grunge 0.9
   # gain 1.2
 
 d3 $ jux (rev . (|*| speed 0.5)) $ (off 0.125 (|+| n "-12")
