@@ -2,7 +2,7 @@ cps 1.15
 
 d1 $ chunk 4 (slow 2) $ (off 0.25 (# crush 5) $ jux rev $ sound "kicklinn(3,8,[2 4])")
   # (slow 8 $ room (saw1 * 0.5) # size (saw1 * 0.5))
-  # orbit 1
+  # orbit 0
   # resonance 0.2
   # lpf 5000
 
@@ -17,7 +17,7 @@ d2 $ iter 4 $ sometimes (fast 2) $ sound "micron:4*2"
   
 d3 $ off 0.125 ((|*| speed 2) . slow 2) $ off 0.125 ((|*| speed 1.5) . rev) $ chop "[8 4]/2" $ sound "newnotes"
   -- # room 0.9 # size 0.95
-  # orbit 3
+  # orbit 0
   # gain 1.2
 
 d5 $ chunk 4 (density 2 . (|*| speed 2)) $ loopAt 1 $ chop 128 $ sound "breaks165"
