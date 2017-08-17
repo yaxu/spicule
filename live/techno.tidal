@@ -53,7 +53,7 @@ d2 $ jux (iter 4) $
 
 d3 $ sound "bd9 bd9*2"
 
-d4 $ n (off 0.25 (+7) $ slow 2 $ "c7*2 ~ [a6 g6] e7")
+d4 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "c7*2 ~ [a6 [~ a6] ~ g8*2] [~ e7*2]")
   # sound "jx"
-  # hpf 1000
+  # hpf 500
   # hpq 0.3
