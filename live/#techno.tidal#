@@ -45,3 +45,5 @@ d6 $ (jux rev $ chop 2 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ palindrom
 d7 $ chunk 4 (hurry 2) $ whenmod 16 8 (jux rev) $ n "0 .. 7" # sound "funky"
   # shape 0.7
   |+| n (iter 4 "0 .. 3")
+
+d1 $ folstruct "x(3,8)" $ n (slow 4 "0 .. 7") # sound "bks"
