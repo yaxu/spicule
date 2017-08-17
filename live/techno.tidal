@@ -2,7 +2,7 @@
 
 cps (126/60/2)
 
-d1 $ every 4 (0.25 <~) $ whenmod 16 12 (|*| speed "[1,4]")
+d1 $ jux rev $ every 4 (0.25 <~) $ whenmod 16 12 (|*| speed "[1,4]")
   $ up "0 3 ~ 1" # sound "sid:1"
   # orbit 1
   # room (slow 4 $ scale 0.6 0.8 saw)
