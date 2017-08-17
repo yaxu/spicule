@@ -21,6 +21,7 @@ d3 $ off 0.125 (|+| n "-12")
   $ sometimes (echo 0.125) $ n "[~ <43 45>] 40" # sound "pulse"
   # crush 2
   # gain 0.9
+  # lpf 3000
 
 d4 $ chunk 4 (hurry 2)
   $ n "{5 2 [~ 9] 4, 4 2 [~ 5]}" # sound "jvrave"
