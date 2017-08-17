@@ -38,8 +38,9 @@ d4 $ chunk 4 (hurry 2)
   $ n "{5 2 [~ 9] 4, 4 2 [~ 5]}" # sound "jvrave"
   # gain 1.3
 
-d6 $ (jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) f7*2 e7 a7") # sound "rash")
+d6 $ (jux rev $ chop 2 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ palindrome $ "d7(3,8) f7*2 e7 a7") # sound "rash")
   |+| n "<0 0 7 7 12 12 -5 -5>"
+  |+| gain 1.1
 
 d7 $ chunk 4 (hurry 2) $ whenmod 16 8 (jux rev) $ n "0 .. 7" # sound "funky"
   # shape 0.7
