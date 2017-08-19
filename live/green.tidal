@@ -5,3 +5,13 @@ d2 $ off 0.25 (# grunge 0.3) $ sound "drum*2 cp"
   # speed 2
   # orbit 1
 
+cps 0.8
+
+d3 $ jux rev $ off 0.25 ((# s "superpiano") . (|*| gain 0.85)) $ slow 4 $ n (off 0.125 (+12) $ off 0.25 (+7) "c5*4 e4(5,8) f5*3 g4(3,8)") # s "supermandolin"
+  # sustain 1
+  # gain 1.2
+  # orbit 1
+  # size 0.2 # room 0.7
+
+d4 $ loopAt "4" $ chop 16 $ sound "paper"
+  # gain 1.2
