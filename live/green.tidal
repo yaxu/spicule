@@ -1,6 +1,7 @@
-d1 $ chunk 4 (hurry 2) $ slow 2 $ n "0(6,16)" # sound "kicklinn"
+d1 $ every 4 (0.25 <~) $ jux rev $ chunk 4 (hurry 2) $ slow 2 $ n "0(6,16)" # sound "kicklinn"
   # shape 0.8
 
 d2 $ off 0.25 (# grunge 0.3) $ sound "drum*2 cp"
   # speed 2
   # orbit 1
+
