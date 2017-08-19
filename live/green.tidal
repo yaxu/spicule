@@ -1,4 +1,13 @@
-d2 $ every 4 (0.25 <~) $ jux rev $ chunk 4 (hurry 2) $ slow 2 $ n "0(6,16)" # sound "kicklinn"
+cps (134/60/2)
+
+nudger (-0.01)
+
+d1 $ sound "bk(3,8)"
+
+d2 $ jux rev $ slow 2 $ chop "<4 3>" $ sound "~ off"
+  # lpf 2000
+
+d3 $ every 4 (0.25 <~) $ jux rev $ chunk 4 (hurry 2) $ slow 2 $ n "0(6,16)" # sound "kicklinn"
   # shape 0.8
 
 d3 $ off 0.25 (# grunge 0.3) $ sound "drum*2 cp"
@@ -19,6 +28,7 @@ d1 $ slow 2 $ n (slow 2 $ "c(3,8) e(3,8) f(3,8) g*2") # s "supermandolin"
 d2 $ jux rev $ chunk 4 (hurry 2) $ n "c7 c6*4" # sound "pulse"
   # gain 1.1
 
+hush
 
 d2 $ loopAt 4 $ chop 32 $ sound "paper"
   # gain 0.8
