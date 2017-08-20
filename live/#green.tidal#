@@ -44,7 +44,18 @@ d2 $ loopAt 4 $ chop 32 $ sound "paper"
 d1 $ chunk 4 (hurry 2) $ jux rev $ chop 2 $ sound "bk(3,8)"
 
 
-d2 $ slow 2 $ n (off 02off 0.125 (+7) $ slow 2 "c7(3,8) a7*2 f7(3,8) [e7 ~ ~ e6]") # sound "rash"
-  # lpf 2000
+d2 $ sometimes (|+|n "-12") $ degradeBy 0.4 $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "c7(3,8) a7*2 f7(3,8) [e7 ~ ~ e6]") # sound "rash"
+  # gain 0.8
+  # lpf (slow 4 $ scale 1000 3000 sine1)
   # lpq 0.2
 
+d2 $ chunk (hurry 2) $ chop "<6 8 3 4>" $ sound "off"
+  # gain 0.9
+  
+d1 $ off 0.25 (# grunge 0.2) $ sound "bk*2 rs:2"
+  # n (irand 7)
+
+d3 $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "funky"
+  # lpq 0.1
+  # lpf 2000
+  |+| n "<0 4 8 12>"

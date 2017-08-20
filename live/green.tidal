@@ -33,3 +33,20 @@ hush
 d2 $ loopAt 4 $ chop 32 $ sound "paper"
   # gain 0.8
 
+
+
+
+
+
+
+
+
+d1 $ chunk 4 (hurry 2) $ jux rev $ chop 2 $ sound "bk(3,8)"
+
+
+d2 $ off 0.25 (# s "pulse") $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "c7(3,8) a7*2 f7(3,8) [e7 ~ ~ e6]") # sound "rash"
+  # gain 0.8
+  # lpf 3000
+
+d1 $ off 0.25 (# grunge 0.2) $ sound "bk*2 rs:2"
+  # n (irand 7)
