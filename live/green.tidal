@@ -99,7 +99,17 @@ d4 $ chunk 4 (hurry 2) $ loopAt 2 $ chop 8 $ sound "os"
   # gain 1.2
   # lpf 3000
 
-d5 $ loopAt 2 $ chop 8 $ sound "narc"
+d5 $ jux rev $ iter 4 $ loopAt 2 $ chop 8 $ sound "narc"
   # n (irand 2)
+
+d6 $ chunk 4 (hurry 2)$ jux rev $ iter 4 $ slow 2 $ up "0 3 [~ 3] [~ 12]" # n "3" # sound "stabs"
+  # orbit 1 # room 0.3 # size 0.9
+
+d7 $ off "<0.125 0.25>" (# speed 2) $ iter 4 $ sound "gabba ~ gabba [~ gabba]"
+  |*| speed 1
+  |*| end 0.4
+
+d8 $ jux rev $ iter 4 $ every 4 (0.25 <~) $ loopAt 2 $ chop "<16 8>" $ sound "arc"
+  # gain 1.2
 
 nudger (0.01)
