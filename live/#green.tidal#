@@ -1,0 +1,50 @@
+cps (134/60/2)
+
+nudger (-0.01)
+
+d1 $ sound "bk(3,8)"
+
+d2 $ jux rev $ slow 2 $ chop "<4 3>" $ sound "~ off"
+  # lpf 2000
+
+d3 $ every 4 (0.25 <~) $ jux rev $ chunk 4 (hurry 2) $ slow 2 $ n "0(6,16)" # sound "kicklinn"
+  # shape 0.8
+
+d3 $ off 0.25 (# grunge 0.3) $ sound "drum*2 cp"
+  # speed 2
+  # orbit 1
+
+cps 0.8
+
+d1 $ slow 2 $ n "0 1" # sound "numbers" # pan "0 1"
+
+d1 $ jux rev $ off 0.25 (# grunge 0.2) $ sound "bk:1(3,8)"
+  # n (irand 16)
+
+d1 $ slow 2 $ n (slow 2 $ "c(3,8) e(3,8) f(3,8) g*2") # s "supermandolin"
+  # gain 1.1
+  # sustain 1
+
+d2 $ jux rev $ chunk 4 (hurry 2) $ n "c7 c6*4" # sound "pulse"
+  # gain 1.1
+
+hush
+
+d2 $ loopAt 4 $ chop 32 $ sound "paper"
+  # gain 0.8
+
+
+
+
+
+
+
+
+
+d1 $ chunk 4 (hurry 2) $ jux rev $ chop 2 $ sound "bk(3,8)"
+
+
+d2 $ slow 2 $ n (off 02off 0.125 (+7) $ slow 2 "c7(3,8) a7*2 f7(3,8) [e7 ~ ~ e6]") # sound "rash"
+  # lpf 2000
+  # lpq 0.2
+
