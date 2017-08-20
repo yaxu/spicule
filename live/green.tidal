@@ -103,7 +103,7 @@ d5 $ jux rev $ iter 4 $ loopAt 2 $ chop 8 $ sound "narc"
   # n (irand 2)
 
 d6 $ chunk 4 (hurry 2)$ jux rev $ iter 4 $ slow 2 $ up "0 3 [~ 3] [~ 12]" # n "3" # sound "stabs"
-  # orbit 1 # room 0.3 # size 0.9
+  # orbit 1 # room 0.3 # size 0
 
 d7 $ off "<0.125 0.25>" (# speed 2) $ iter 4 $ sound "gabba ~ gabba [~ gabba]"
   |*| speed 1
@@ -111,5 +111,15 @@ d7 $ off "<0.125 0.25>" (# speed 2) $ iter 4 $ sound "gabba ~ gabba [~ gabba]"
 
 d8 $ jux rev $ iter 4 $ every 4 (0.25 <~) $ loopAt 2 $ chop "<16 8>" $ sound "arc"
   # gain 1.2
+
+d9 $ sound "~ <wobble*2 wobble*3>"
+  # shape 0.9
+  # speed 1
+
+
+d1 $ jux rev $ slow 2 $
+  n (off 0.25 (+7) $ slow 2 $ "c7(3,8) a7(3,8,2) f7(3,8) e7(3,8)") # sound "xx"
+  # lpf 3000
+  # lpq 0.2
 
 nudger (0.01)
