@@ -62,8 +62,9 @@ d3 $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "funky"
   |+| n "<0 4 8 12>"
   |*| speed 2
 
-d1 $ sound "bk(3,8)"
+d1 $ slow 2 $ sound "bk(6,16)"
   # n (irand 8)
+  # shape 0.3
 
 d2 $ every 8 (0.25 <~) $ jux rev $ off 0.25 (|*| speed 2) $ n "0 [5 7] 4 3" # sound "jvrave"
   # orbit 1
@@ -75,8 +76,13 @@ d3 $ rev $ iter 4 $ loopAt 4 $ chop 16 $ sound "repetition"
   # shape 0.2
 
 d4 $ sometimes (|*| speed 2) $ every 4 (rev . chop 8) $ jux rev $ slow 2 $ n "~ [c7 e7] ~ c7*2" # sound "jx"
-  # shape 0.2
   # lpf "<700 400>"
   # lpq 0.2
-  
-  
+
+d5 $ jux rev $ off 0.25 (# (s "bk" # speed 4)) $sound "~ [sr ~ sr:3? sr:4]"
+
+d1 $ sound "bk(3,8)"
+  # sha
+
+
+nudger (0.01)
