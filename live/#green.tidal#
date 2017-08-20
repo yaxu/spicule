@@ -140,5 +140,9 @@ d4 $ jux rev $ iter 4 $ loopAt 8 $ chop 16 $ sound "shackup"
 
 d5 $ chunk 4 (hurry 2) $ every 4 (chop 128) $ n "~ 5" # sound "jungbass"
   # speed 2
+  # gain 0.8
+
+d6 $ chunk 4( hurup "0 7 2 ~" # sound "sid"
+  # gain 1.1
 
 nudger (0.01)
