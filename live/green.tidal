@@ -75,11 +75,31 @@ d3 $ rev $ iter 4 $ loopAt 4 $ chop 16 $ sound "repetition"
   # n (irand 8)
   # shape 0.2
 
-d4 $ off 0.25 (# s "xx") $ sometimes (|*| speed 2) $ every 4 (rev . chop 8) $ jux rev $ slow 2 $ n "~ [c7 e7] ~ c7*2" # sound "jx"
+d4 $ sometimes (|*| speed 2) $ every 4 (rev . chop 8) $ jux rev $ slow 2 $ n "~ [c7 e7] ~ c7*2" # sound "jx"
   # lpf "<700 400>"
   # lpq 0.2
 
-
 d5 $ jux rev $ off 0.25 (# (s "bk" # speed 4)) $sound "~ [sr ~ sr:3? sr:4]"
-  
 
+d1 $ jux rev $ sound "bk(3,8,2)"
+  # shape 0.3
+  # speed "<2 2 2 2 1 1 1 1>"
+
+d2 $ jux rev $ iter 4 $ loopAt 4 $ chop 8 $ sound "liq"
+  # gain 1
+  
+  # lpf (slow 1 $ scale 1000 3000 sine1)
+  # lpq 0.1
+
+d2 silence
+
+d3 $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "micron"
+
+d4 $ chunk 4 (hurry 2) $ loopAt 2 $ chop 8 $ sound "os"
+  # gain 1.2
+  # lpf 3000
+
+d5 $ loopAt 2 $ chop 8 $ sound "narc"
+  # n (irand 2)
+
+nudger (0.01)
