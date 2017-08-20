@@ -142,7 +142,21 @@ d5 $ chunk 4 (hurry 2) $ every 4 (chop 128) $ n "~ 5" # sound "jungbass"
   # speed 2
   # gain 0.8
 
-d6 $ chunk 4( hurup "0 7 2 ~" # sound "sid"
+
+d6 $ slow 2 $ jux rev $ off 0.125 (|*| speed 2) $ up "[0 12] [7 12] [24 7] 12" # sound "sid"
+  # gain 1
+  # lpf (slow 8 $ sine * 2000 + 1000)
+  # lpq 0.2
+  # orbit 1 # room 0.8 # size 0.9
+
+d7 $ jux rev $ whenmod 8 4 (|+| speed 2) $ sound "bk:2(3,8)"
+
+d9 $ n "0(3,8)" sound "kicklinn"
   # gain 1.1
+ 
+
+## thank you green man
+
+hush
 
 nudger (0.01)
