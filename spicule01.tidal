@@ -7,7 +7,6 @@ d2 $ (off "<0.125 0.25 0.75>" (# (shape 0.99 # gain 0.75)) $ sound "bk:1 ~ [~ bk
   # speed "[1]"
   # legato 0.5
 
-
 d3 $ sound "[~ ~ cp8:3 ~] sd:1([1*8 3*8]/16,8)"
   # delay 0.9 # delaytime 0.01 # delayfb 0.6
   # legato 1
