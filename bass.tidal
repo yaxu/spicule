@@ -7,10 +7,21 @@ let hush' = hush
 
 let hush = do hush'
               m1 silence
+    m p = m1 $ p |+| nudge 0.31
 
 
-let notes = "c4 e6 a6 f6"
-
-let sounds = n "30 31 32 33" # s "jvr"
+let notes = "c3 e3 a2 f2"
+    sounds = n "30 31 32 33" # s "jvr"
+    str = "x(3,8)"
 in 
-d1 $ sounds
+do d1 $ struct str $ sounds
+   m $ struct str $ n notes
+     # dur 0.2
+
+
+
+
+
+
+
+
