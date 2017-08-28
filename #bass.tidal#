@@ -18,6 +18,7 @@ do d1 $ jux rev $ off 0.125 (|+| n 7) $ chop 8 $ struct str $ sounds
    m $ off 0.125 (|+| n 7) $ struct str $ n notes
      # unit "c"
 
+m $ n 0
 
 
 
