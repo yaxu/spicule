@@ -10,9 +10,12 @@ let hush = do hush'
     m p = m1 $ p |+| nudge 0.31
 
 
-let notes = "c3 e3 a2 f2"
+let notes = (someCycles (subtract 12) "c3 e3 a2 f2" + "<0@7 12>")
     sounds = n "30 31 32 33" # s "jvr"
-    str = fast "<1 2>" $ "<x(3,8) x(5,8)>"
+    str = seqPLoop [(0,3, fast "<1 2>" $ "<x(3,8) x(5,8)>"),
+                    (4,8, "x*4")
+                   ]
+              
 in 
 do d1 $ (off 0.125 (|+| n 7) $ struct str $ sounds
          # shape 0.6 # speed 2) # glass (slow 8 saw)
@@ -21,7 +24,6 @@ do d1 $ (off 0.125 (|+| n 7) $ struct str $ sounds
      # ctf sine
    d2 $ off 0.125 (|+| n 7) $ struct (slow 2 str) $ n notes # sound "rash"
      |+| n (12 * 5)
-     
-
+     # grunge 0.01
 
 
