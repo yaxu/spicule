@@ -14,13 +14,14 @@ let notes = "c3 e3 a2 f2"
     sounds = n "30 31 32 33" # s "jvr"
     str = fast "<1 2>" $ "<x(3,8) x(5,8)>"
 in 
-do d1 $ off 0.125 (|+| n 7) $ struct str $ sounds
-     # shape 0.6 # speed 2
+do d1 $ (off 0.125 (|+| n 7) $ struct str $ sounds
+         # shape 0.6 # speed 2) # glass (slow 8 saw)
    m $ off 0.125 (|+| n 7) $ struct str $ n notes
      # unit "c"
-
-m $ n 0
-
+     # ctf sine
+   d2 $ off 0.125 (|+| n 7) $ struct (slow 2 str) $ n notes # sound "rash"
+     |+| n (12 * 5)
+     
 
 
 
