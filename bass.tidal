@@ -12,20 +12,18 @@ let hush = do hush'
 
 let notes = (someCycles (subtract 12) "[c3 c5] [a3 a5] [f4 g5] [e3 e5]" + "<0@7 12>")
     sounds = n "30 31 32 33" # s "jvr"
-    str = seqPLoop [(0,3, fast "<1 2>" $ "<x(3,8) x(5,8)>"),
-                    (4,8, "x*2")
+    str = seqPLoop [(0,4, fast "<1 2>" $ "<x(3,8) x(5,8)>"),
+                    (4,8, "<[x ~ x x] x(3,8)>")
                    ]
 in 
 do d1 $ (off (1/8) (|+| n 7) $ struct str $ sounds
-         # shape 0.6 # speed 2)
+         # shape 0.6 # speed 1)
    m $ off 0.125 (|+| n 7) $ struct str $ n notes
      # ctf sine
-     # dur (scale 0.08 0.1 saw)
-     
-   d2 $ off 0.25 (|+| n 12) $ off 0.125 (|+| n 7) $ struct (str) $ n notes # sound "xx"
+     # dur (scale 0.08 0.04 saw)
+   d2 $ off 0.125 (|+| n 7) $ struct (str) $ n notes # sound "dirty"
      |+| n (12 * 5)
-     # lpf 1000
-     # lpq 0.1
-     # legato 1
+     # orbit 1 # room 0.2 # size 0.9
 
+d3 $ sound "sr(3,8)"
 
