@@ -12,11 +12,13 @@ let hush = do hush'
 
 let notes = "c3 e3 a2 f2"
     sounds = n "30 31 32 33" # s "jvr"
-    str = "<x(3,8) x(5,8)>"
+    str = fast "<1 2>" $ "<x(3,8) x(5,8)>"
 in 
-do d1 $ jux rev $ off 0.125 (|+| n 7) $ chop 8 $ struct str $ sounds
+do d1 $ off 0.125 (|+| n 7) $ struct str $ sounds
+     # shape 0.6 # speed 2
    m $ off 0.125 (|+| n 7) $ struct str $ n notes
      # unit "c"
+   d2 $ strustr $ n notes # sound "rash"
 
 m $ n 0
 
