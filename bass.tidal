@@ -3,9 +3,14 @@ import Sound.Tidal.MIDI.VolcaBass
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 m1 <- midiStream devices "X18/XR18 MIDI 1" 2 volcabassController
-
 let hush' = hush
 
 let hush = do hush'
               m1 silence
 
+
+let notes = "c4 e6 a6 f6"
+
+let sounds = n "30 31 32 33" # s "jvr"
+in 
+d1 $ sounds
