@@ -1,6 +1,7 @@
-d2 $ (off "<0.125 0.25 0.75>" (# (shape 0.9 # gain 0.75)) $ sound "kicklinn ~ [~ kicklinn] [~ kicklinn]")
+d2 $ (off "<0.125 0.25 0.75>" (# (shape 0.9 # gain 0.8)) $ sound "kicklinn ~ [~ kicklinn] [~ kicklinn]")
   # speed "[2]"
   # legato 0.5
+  |*| gain 1.2
 
 d3 $ sound "[~ ~ cp8:3 ~] sd:1([1*8 3*8]/16,8)"
   # delay 0.9 # delaytime 0.01 # delayfb 0.6
@@ -12,6 +13,7 @@ d4 $ (every 2 (# glass 0.1)) $ chunk 4 (hurry 2) $ stack [struct "<x(5,8) x*4>" 
   |+| gain 0.8
 
 d5 $ sound "sr(3,8)"
+  |+| n (slow 64 $ "0 .. 15")
 
 do m silence
    d3 $ slow "[2 [4 1]]/2" $ off 0.25 (# (s "xx" # gain "0.8")) $ slowspread (\x -> stut 16 0.8 x) [(1/32), (1/8), (1/32), (1/4)]
@@ -48,5 +50,7 @@ d1 $ never (superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# (s "superpiano"
   # room 0.6
   # size 0.9
   # orbit 2
+
+cps (-1)
 
 cps (1.1)
