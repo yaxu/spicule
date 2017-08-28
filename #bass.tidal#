@@ -1,0 +1,12 @@
+import Sound.Tidal.MIDI.Context
+import Sound.Tidal.MIDI.VolcaBass
+displayOutputDevices >>= putStrLn
+devices <- midiDevices
+m1 <- midiStream devices "X18/XR18 MIDI 1" 2 volcabassController
+let hush' = hush
+
+let hush = do hush'
+              m1 silence
+
+
+m1 $ n "c"
