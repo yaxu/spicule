@@ -20,4 +20,8 @@ d4 $ jux rev $ chunk 4 (hurry 2) $ stack [struct "<x(5,8) x*4>" $ sound "kicklin
                                           |+| n 0
                                          ]
 
+
+d1 $ slow 2 $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "c8(3,8) a6(3,8) f7(3,8) e7*2") # sound "xx"
+
+
 d1 $ sound "wobble"
