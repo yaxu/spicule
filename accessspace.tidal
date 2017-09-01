@@ -80,5 +80,8 @@ d5 $ jux rev $ chunk 4 (hurry 0.5) $ n "0 ~ [2*2] 4" # sound "sr"
 x1 $ slow 2 $ off 0.25 (# speed 2) $ chop 4 $ sound "[bd(5,8), ~ cp]"
   # shape 0.7
   
-m $ n "0*2"
+m $ n "0*2 [7 12]"
 
+d5 $ chunk 4 (hurry 2) $ jux rev $ loopAt 2 $ chop 4 $ sound "narc" # n (irand 2)
+  # orbit 3 # room 0.6 # size 0.6
+  # delay 0.3 # delayt (scale 0.01 0.02 rand) # delayfb 0.99
