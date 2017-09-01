@@ -1,0 +1,13 @@
+cps (110/60/4)
+hush
+
+m $ slow 2 $ off 0.25 (# velocity 0.23)
+  $ note (off 0.125 (+7) $ "c4(3,8) a3")
+  # cutoff sine
+  # pitch1 saw
+
+d1 $ jux rev $ chop "<8 16>" $ sound "kicklinn"
+
+d2 $ sound "~ [cp8 ~ ~ sr:3]"
+
+d3 $ chunk 4 (hurry 2) $ off 0.25 (# crush 5) $ sound "micron:3(3,8,[0 2]/2)"
