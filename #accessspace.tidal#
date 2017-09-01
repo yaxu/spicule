@@ -7,17 +7,25 @@ m $ sometimes (|+| n 12) $ slow 2 $ off 0.25 (# velocity 0.23) $ note (off 0.125
   # attack rand
   # dur 0.02
 
-d1 $ (jux (rev . (# speed (1.1))) $ chunk 4 (hurry 2) $ n "0 4 [4 5*2] [6 3]" # sound "jvr")
+d5 $ (jux (rev . (# speed (1.1))) $ chunk 4 (hurry 2) $ n "0 4 [4 5*2] [6 3]" # sound "jvr")
   # speed 1.5
-  # hpq 500
+  # hpq (sine * 700 + 200)
   # hpq 0.2
 
-d2 $ jux rev $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "c7(3,8) e7(3,8) f7(3,8) g8") # sound "rash"
-  # lpq 0.2
-  # lpf 2000
-  
+d2 $ chunk 4 (hurry 2) $ jux rev $ iter 4 $ loopAt 4 $ chop 8 $ sound "paper"
 
-  
+d3 $ (off 0.25 (# (s "pulse" # gain 0.85 # speed 0.5)) $ chunk 4 (hurry 0.5) $ jux rev $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "c7(3,8) e7(3,8) f7(3,8) g8") # sound "rash")
+  # lpq 0.2
+  # lpf (slow 4 $ scale 1000 600 sine)
+
+d1 $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "micron"
+
+d2 $ substruct "x x/2" $ n "0 ~ 2? 3" # sound "speakspell"
+
+d3 $ sound "gabba"
+
+
+
 d1 $ jux rev $ chop "<8 16>" $ sound "kicklinn"
 
 d2 $ sound "~ [cp8 ~ ~ sr:3]"
