@@ -61,5 +61,24 @@ d9 $ (jux (iter 4) $ n "0 .. 7" # sound "funky"
 
 d1 $ chunk 4 (hurry 2) $ iter 4 $ slow 2 $ n "0 .. 15" # sound "amencutup"
   # gain 1.1
+
+d4 $ iter 4 $ loopAt 8 $ striate 128 $ sound "atlast:2"
+  # orbit 1 # size 0.8 # room 0.9
+
+d1 $ off 0.25 (fast 2) $  off 0.25 (|*| speed 2) $ n "{7 ~ [~ 5] 6, 4*2 ~ 6 7}" # sound "jvr"
+  # room (slow 4 saw)
+  # size (slow 4 saw)
+  # orbit 1
+  # hpf 100
+  # gain 0.8
+
+d2 $ rev $ loopAt 2 $ chop 8 $ sound "arc"
+  # gain 1
+
+d5 $ jux rev $ chunk 4 (hurry 0.5) $ n "0 ~ [2*2] 4" # sound "sr"
+
+x1 $ slow 2 $ off 0.25 (# speed 2) $ chop 4 $ sound "[bd(5,8), ~ cp]"
+  # shape 0.7
   
-d2 $ loopAt 4 $ sound "atlast"
+m $ n "0*2"
+
