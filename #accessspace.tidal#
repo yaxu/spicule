@@ -1,16 +1,27 @@
-cps (110/60/4)
-hush
+cps 0.8
 
 m $ sometimes (|+| n 12) $ slow 2 $ off 0.25 (# velocity 0.23) $ note (off 0.125 (+7) $ "c4 ~ [a3 a4] g4")
   # cutoff sine
   # pitch1 saw
   # pitch2 0.5
   # attack rand
-  # dur 0.1
+  # dur 0.02
 
+d1 $ (jux (rev . (# speed (1.1))) $ chunk 4 (hurry 2) $ n "0 4 [4 5*2] [6 3]" # sound "jvr")
+  # speed 1.5
+  # hpq 500
+  # hpq 0.2
+
+d2 $ jux rev $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "c7(3,8) e7(3,8) f7(3,8) g8") # sound "rash"
+  # lpq 0.2
+  # lpf 2000
+  
+
+  
 d1 $ jux rev $ chop "<8 16>" $ sound "kicklinn"
 
 d2 $ sound "~ [cp8 ~ ~ sr:3]"
 
 d3 $ chunk 4 (hurry 2) $ off 0.25 (# crush 5) $ sound "micron:3(3,8,[0 2]/2)"
   # crush 4
+
