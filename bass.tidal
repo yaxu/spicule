@@ -10,6 +10,7 @@ let hush = do hush'
     m p = m1 $ p |+| nudge 0.31
 
 
+
 let notes = (someCycles (subtract 12) "[c3 c5] [a3 a5] [f4 g5] [e3 e5]" + "<0@7 12>")
     sounds = n "30 31 32 33" # s "jvr"
     str = seqPLoop [(0,4, fast "<1 2>" $ "<x(3,8) x(5,8)>"),
