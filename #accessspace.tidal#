@@ -61,5 +61,11 @@ d9 $ (jux (iter 4) $ n "0 .. 7" # sound "funky"
 
 d1 $ chunk 4 (hurry 2) $ iter 4 $ slow 2 $ n "0 .. 15" # sound "amencutup"
   # gain 1.1
-  
-d2 $ loopAt 4 $ sound "atlast"
+
+d4 $ loopAt 8 $ chop 128 $ sound "atlast"
+
+d1 $ n "{0 ~ ~ 3, 4*2 ~ }" # sound "jvr"
+  # room (slow 4 saw)
+  # size (slow 4 saw)
+  # orbit 1
+  # hpf 2
