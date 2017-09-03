@@ -88,5 +88,6 @@ d5 $ chunk 4 (hurry 2) $ jux rev $ loopAt 2 $ chop 4 $ sound "narc" # n (irand 2
 
 
 
-d1 $ when (\x -> `mod` 8 == 2) (cons) $ brak $ n "[0 3, 2*8]" # sound "feel"
+d1 $ when (\x -> mod x 8 == 2) (const (sound "bd*8")) $ brak $ n "[0 3, 2*8]" # sound "feel"
+
 
