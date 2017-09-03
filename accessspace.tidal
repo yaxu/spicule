@@ -86,3 +86,8 @@ d5 $ chunk 4 (hurry 2) $ jux rev $ loopAt 2 $ chop 4 $ sound "narc" # n (irand 2
   # orbit 3 # room 0.9 # size 0.7
   # delay 0.3 # delayt (scale 0.05 0.04 rand) # delayfb 0.99
 
+
+
+d1 $ when (\x -> mod x 8 == 2) (const (sound "bd*8")) $ brak $ n "[0 3, 2*8]" # sound "feel"
+
+
