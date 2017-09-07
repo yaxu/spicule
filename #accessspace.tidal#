@@ -18,6 +18,12 @@ d3 $ (off 0.25 (# (s "pulse" # gain 0.85 # speed 0.5)) $ chunk 4 (hurry 0.5) $ j
   # lpq 0.2
   # lpf (slow 4 $ scale 1000 600 sine)
 
+d1 $ off 0.125 (# crush 3) $ chunk 4 (|+| n 12) $ slow 4 $ n (off 0.25 (+7) "c7(3,8) ~ g5(3,8,2) a5") # sound "rash"
+  # lpf 4000
+  # lpq 0.2
+
+d2 $ iter 4 $ loopAt 2 $ chop 16 $ sound "arc"
+
 d1 $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "micron"
 
 d2 $ jux (rev . slow 2) $ substruct "x x/2" $ n "0 ~ 2? 3" # sound "speakspell"
@@ -88,6 +94,6 @@ d5 $ chunk 4 (hurry 2) $ jux rev $ loopAt 2 $ chop 4 $ sound "narc" # n (irand 2
 
 
 
-d1 $ every 8 (0.5 ~>) $ brak $ n "[0 3, 2*8]" # sound "feel"
-  
+d1 $ when (\x -> mod x 8 == 2) (const (sound "bd*8")) $ brak $ n "[0 3, 2*8]" # sound "feel"
+
 
