@@ -1,0 +1,17 @@
+
+
+let x1 = d1 . (# orbit 0)
+    x2 = d2 . (# orbit 1)
+    x3 = d3 . (# orbit 2)
+    x4 = d4 . (# orbit 3)
+    x5 = d5 . (# orbit 4)
+
+m $ off 0.25 (|+| n 7) $ n "fs(3,8)"
+  # cutoff (slow 8 sine)
+
+ m $ slow 2 $ n (off 0.125 (+7) "c4*2 e(3,8) g5*2 f4*2")
+  # cutoff (slow 8 sine)
+
+d1 $ n "0 4 ~ 3 4 5 ~ [~ 2]" # sound "jvr"
+
+d1 $ sound "bd"
