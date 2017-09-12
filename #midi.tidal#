@@ -6,6 +6,8 @@ devices <- midiDevices
 m1 <- midiStream devices "MIDI4x4 MIDI 1" 13 jp08Controller
 
 
-m1 $ n "d(3,8) "
+m1 $ n "a2*8"
   # vcoocrossmod (slow 16 saw)
+  # otune 40
+ 
 
