@@ -1,10 +1,22 @@
 import Sound.Tidal.MIDI.Context
 import Sound.Tidal.MIDI.JP08
+import Sound.Tidal.MIDI.VolcaFM
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
-m1 <- midiStream devices "MIDI4x4 MIDI 1" 13 jp08Controller
+m1 <- midiStream devices "MIDI4x4 MIDI 1" 4 volcafmController
 
+m1 $ n "a3(5,8)" # moddecay saw
+  |+| n "<0 3>"
+  # algtm (slow 16 saw)
+  |+| n (discretise 1 $ irand 4)
+  
 
-m1 $ note "d(3,8)"
+  
+m1 $ n "a3" # otune 0.8
 
+  # vcoocrossmod 0
+  # otune 1
+  # attack 0.4
+ 
+m1 silence
