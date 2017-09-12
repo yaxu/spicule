@@ -6,14 +6,20 @@ devices <- midiDevices
 
 m1 <- midiStream devices "MIDI4x4 MIDI 1" 4 volcafmController
 
-m1 $ off 0.125 (|+| algtm 0.1)
+m1 <- midiStream devices "MIDI4x4 MIDI 1" 13 jp08Controller
+
+m1 $ note "c6"
+
+
+m1 $ off 0.125 (|+| algtm 0.5)
   $ n (off 0.125 (+7) $ slow 4 "c4 e3(3,8) f5(3,8) g5") # moddecay (slow 4 saw)
   |+| n "<0 7 12>"
-  # algtm (scale 0 0.9 $ slow 16 saw)
+  # algtm (scale 0 0.5 $ slow 16 saw)
   -- |+| n (discretise 1 $ irand 4)
+  # dur 0.3
   
+m1 silence
 
-  
 m1 $ n "a3" # otune 0.8
 
   # vcoocrossmod 0
