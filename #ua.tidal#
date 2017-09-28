@@ -1,8 +1,0 @@
-
-m $ chunk 4 (|+| n "-12") $ slow 2 $ n (off "<0.125 0.25>" (+7) "c4 [~ e4] [~ f4] a5")
-
-d2 $ jux rev $ chunk 4 (hurry 2) $ off 0.25 (# crush "<3 5>") $ n "{0 2 [~ 2] 3, 5 1 6}" # sound "micron"
-
-d1 $ jux rev $ chunk 4 (|+| n "-12") $ slow 2 $ n (off "<0.125 0.25>" (+7) "c7 [~ e6] [~ f7] a8") # s "rash"
-
-
