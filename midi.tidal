@@ -27,10 +27,11 @@ m $ every 4 (0.25 <~) $ n "c*2 [~ a4(3,8)] ~ c4"
   # dur 0.3
 
 d1 $ n (off 0.25 (+7) $ "c7(3,8)") # sound "rash"
-  # lpf 500
-  # lpq 0.2
+  # lpf 700
+  # lpq 0.3
 
-
+d2 $ chunk 4 (hurry 2) $ off 0.25 (|*| crush 5) $ stut' 16 (1/16) ((|+| n 7) . (|*| speed 1.1)) $ sound "jvr"
+ 
 m $ off 0.125 (|+| n 12) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) "c4 a5 ~ [g5 a3]")
   # dur (slow 8 $ scale 0.25 0.5 sine)
   # cutoff 1
