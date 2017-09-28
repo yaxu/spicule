@@ -12,6 +12,11 @@ m1 $ off 0.125 (|+| algtm 0.5)
   -- |+| n (discretise 1 $ irand 4)
   # dur 0.3
 
+
+
+m $ n "c [~ a4] ~ c4"
+  # cutoff "<0 1>"
+
 let m p = m1 $ p # nudge 0.25
 
 m $ off 0.125 (|+| n 12) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) "c4 a5 ~ [g5 a3]")
