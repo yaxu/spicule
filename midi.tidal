@@ -5,6 +5,12 @@ displayOutputDevices >>= putStrLn
 devices <- midiDevices
 m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 2 volcabassController
 
+let m p = m1 $ p # nudge 0.25
+let hush' = hush >> m1 silence
+let hush = hush'               
+
+
+
 m1 $ off 0.125 (|+| algtm 0.5)
   $ n (off 0.125 (+7) $ slow 4 "c4 e3(3,8) f5(3,8) g5") # moddecay (slow 4 saw)
   |+| n "<0 7 12>"
@@ -17,7 +23,6 @@ m1 $ off 0.125 (|+| algtm 0.5)
 m $ n "c [~ a4] ~ c4"
   # cutoff "<0 1>"
 
-let m p = m1 $ p # nudge 0.25
 
 m $ off 0.125 (|+| n 12) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) "c4 a5 ~ [g5 a3]")
   # dur (slow 8 $ scale 0.25 0.5 sine)
