@@ -14,8 +14,9 @@ m1 $ off 0.125 (|+| algtm 0.5)
 
 let m p = m1 $ p # nudge 0.317
 
-m $ slow 2 $ n "c4 ~ ~ a3"
-  # dur 0.4
+m $ superimpose (|+| n12) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) "c4 a5 ~ [g5 a3]")
+  # dur (slow 8 $ scale 0.25 0.5 sine)
+  # cutoff 1
 
 
 d1 $ n "c6" # sound "rash"
