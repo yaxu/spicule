@@ -14,7 +14,8 @@ m1 $ off 0.125 (|+| algtm 0.5)
 
 let m p = m1 $ p # nudge 0.317
 
-m $ n "c"
+m $ slow 2 $ n "c4 ~ ~ a3"
+  # dur 0.4
 
 
 d1 $ n "c6" # sound "rash"
