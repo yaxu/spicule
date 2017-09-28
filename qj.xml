@@ -23,10 +23,16 @@
    <plug>in\.L</plug>
    <plug>in\.R</plug>
   </socket>
+  <socket exclusive="off" type="jack-audio" name="obs in 1" client="obs in">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
  </input-sockets>
  <slots/>
  <cables>
   <cable output="zita-rev 1" type="jack-audio" input="system 1"/>
+  <cable output="zita-rev 1" type="jack-audio" input="obs in 1"/>
+  <cable output="SuperCollider 1" type="jack-audio" input="obs in 1"/>
   <cable output="system 1" type="jack-audio" input="zita-rev 1"/>
  </cables>
 </patchbay>
