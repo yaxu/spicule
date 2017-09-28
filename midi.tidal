@@ -26,7 +26,9 @@ m $ every 4 (0.25 <~) $ n "c*2 [~ a4(3,8)] ~ c4"
   # pitch3 sine
   # dur 0.3
 
-
+d1 $ n (off 0.25 (+7) $ "c7(3,8)") # sound "rash"
+  # lpf 500
+  # lpq 0.2
 
 
 m $ off 0.125 (|+| n 12) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) "c4 a5 ~ [g5 a3]")
