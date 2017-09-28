@@ -75,3 +75,6 @@ d5 $ jux rev $ every 4 (fast "2 4") $ sound "acid(3,8,<0 2>)"
 
 d6 $ chunk 4 (hurry 2) $ loopAt 2 $ chop 8 $ n "0" # sound "narc"
   
+d7 $ loopAt 8 $ chop 16 $ sound "dhm"
+
+hush
