@@ -1,39 +1,45 @@
 <!DOCTYPE patchbay>
 <patchbay version="0.4.4" name="qj">
  <output-sockets>
-  <socket exclusive="off" type="jack-audio" name="zita-rev 1" client="zita-rev1">
+  <socket exclusive="off" name="zita-rev 1" client="zita-rev1" type="jack-audio">
    <plug>out\.L</plug>
    <plug>out\.R</plug>
   </socket>
-  <socket exclusive="off" type="jack-audio" name="SuperCollider 1" client="SuperCollider">
+  <socket exclusive="off" name="SuperCollider 1" client="SuperCollider" type="jack-audio">
    <plug>out_1</plug>
    <plug>out_2</plug>
   </socket>
-  <socket exclusive="off" type="jack-audio" name="system 1" client="system">
+  <socket exclusive="off" name="system 1" client="system" type="jack-audio">
    <plug>capture_1</plug>
    <plug>capture_2</plug>
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket exclusive="off" type="jack-audio" name="system 1" client="system">
+  <socket exclusive="off" name="ecasound 1" client="ecasound" type="jack-audio">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+  <socket exclusive="off" name="system 1" client="system" type="jack-audio">
    <plug>playback_1</plug>
    <plug>playback_2</plug>
   </socket>
-  <socket exclusive="off" type="jack-audio" name="zita-rev 1" client="zita-rev1">
+  <socket exclusive="off" name="zita-rev 1" client="zita-rev1" type="jack-audio">
    <plug>in\.L</plug>
    <plug>in\.R</plug>
   </socket>
-  <socket exclusive="off" type="jack-audio" name="obs in 1" client="obs in">
+  <socket exclusive="off" name="obs in 1" client="obs in" type="jack-audio">
    <plug>in_1</plug>
    <plug>in_2</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable output="zita-rev 1" type="jack-audio" input="system 1"/>
-  <cable output="zita-rev 1" type="jack-audio" input="obs in 1"/>
-  <cable output="SuperCollider 1" type="jack-audio" input="obs in 1"/>
-  <cable output="system 1" type="jack-audio" input="zita-rev 1"/>
+  <cable input="system 1" output="zita-rev 1" type="jack-audio"/>
+  <cable input="obs in 1" output="zita-rev 1" type="jack-audio"/>
+  <cable input="ecasound 1" output="zita-rev 1" type="jack-audio"/>
+  <cable input="obs in 1" output="SuperCollider 1" type="jack-audio"/>
+  <cable input="ecasound 1" output="SuperCollider 1" type="jack-audio"/>
+  <cable input="zita-rev 1" output="system 1" type="jack-audio"/>
  </cables>
 </patchbay>
 
