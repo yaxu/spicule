@@ -31,6 +31,9 @@ d1 $ n (off 0.25 (+7) $ "c7(3,8)") # sound "rash"
   # lpf 700
   # lpq 0.3
 
+
+
+
 d2 $ chunk 4 (hurry 2) $ off 0.25 (|*| crush 5) $ stut' 16 (1/16) ((|+| n 7) . (|*| speed 0.99)) $ sound "jvr"
 
 d3 $ jux rev $ off 0.25 (|*| speed 2) $ s "acid acid(3,8)"
@@ -41,7 +44,6 @@ d3 $ jux rev $ off 0.25 (|*| speed 2) $ s "acid acid(3,8)"
 d4 $ chunk 4 (hurry 2) $ off 0.25 (# crush 3) $ sound "[bk,drum,feel](3,8)"
   # gain 1.3
 
-
 m $ off 0.125 (|+| n 12) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) "c4 a5 ~ [g5 a3]")
   # dur (slow 8 $ scale 0.25 0.5 sine)
   # cutoff "<0 1>"
@@ -51,6 +53,17 @@ m $ off 0.125 (|+| n 12) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) "c4 a5 ~ 
 
 d1 $ chunk 4 (hurry 2) $ off 0.125 (rev . chop 128) $ sound "sd(3,8)"
   # gain 1.1
+
+
+
+
+
+
+
+
+
+
+
 
 
 d1 $ n "c6" # sound "rash"
