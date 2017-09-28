@@ -12,8 +12,11 @@ m1 $ off 0.125 (|+| algtm 0.5)
   -- |+| n (discretise 1 $ irand 4)
   # dur 0.3
 
+let m p = m1 $ p # nudge 0.317
+
+      
 m1 $ n "0"
-  # nudge 0.317
+  
 
 d1 $ sound "sd"
   # pan 1
