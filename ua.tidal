@@ -1,1 +1,8 @@
 d1 $ slow 2 $ pan "0 1" # n "0 1" # sound "alphabet"
+
+
+d1 $ jux rev $ off 0.125 ((|+| n "-12") . (# (s "pulse" # lpf 2500))) $ slow 1 $  n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 $
+         "c6(3,8) e7(3,8.2) f6(3,8) g7*2") # sound "rash"
+
+d2 $ jux rev $ iter 4 $ loopAt 4 $ chop 8 $ sound "paper"
+  
