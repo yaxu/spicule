@@ -1,8 +1,9 @@
 import Sound.Tidal.MIDI.Context
-import Sound.Tidal.MIDI.VolcaFM
+import Sound.Tidal.MIDI.VolcaBass
+
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
-m1 <- midiStream devices "MIDI4x4 MIDI 1" 4 volcafmController
+m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 2 volcabassController
 
 m1 $ off 0.125 (|+| algtm 0.5)
   $ n (off 0.125 (+7) $ slow 4 "c4 e3(3,8) f5(3,8) g5") # moddecay (slow 4 saw)
@@ -11,6 +12,11 @@ m1 $ off 0.125 (|+| algtm 0.5)
   -- |+| n (discretise 1 $ irand 4)
   # dur 0.3
 
+m1 $ n "0"
+  # nudge 0.317
+
+d1 $ sound "sd"
+  # pan 1
 
 import Sound.Tidal.MIDI.JP08
 
