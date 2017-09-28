@@ -1,1 +1,4 @@
-m $ n "c a f e"
+d1 $ slow 2 $ pan "0 1" # n "0 1" # sound "alphabet"
+
+
+d1 $ n (slow 2 $ "c6(3,8) e7(3,8.2) f6 g6") # sound "rash"
