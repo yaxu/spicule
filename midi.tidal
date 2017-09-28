@@ -54,16 +54,8 @@ m $ off 0.125 (|+| n 12) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) "c4 a5 ~ 
 d1 $ chunk 4 (hurry 2) $ off 0.125 (rev . chop 128) $ sound "sd(3,8)"
   # gain 1.1
 
-
-
-
-
-
-
-
-
-
-
+d1 $ every 3 (rev) $
+  sound "bd sn"
 
 
 d1 $ n "c6" # sound "rash"
