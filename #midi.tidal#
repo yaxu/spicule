@@ -30,7 +30,7 @@ d1 $ n (off 0.25 (+7) $ "c7(3,8)") # sound "rash"
   # lpf 700
   # lpq 0.3
 
-d2 $ stut' 0.25 ( )$ sound "jvr"
+d2 $ off 0.25 (|*| crush 5) $ stut' 16 (1/16) ((|+| n 7) . (|*| speed 1.1)) $ sound "jvr"
  
 m $ off 0.125 (|+| n 12) $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) "c4 a5 ~ [g5 a3]")
   # dur (slow 8 $ scale 0.25 0.5 sine)
