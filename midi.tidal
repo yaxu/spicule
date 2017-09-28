@@ -4,7 +4,6 @@ import Sound.Tidal.MIDI.VolcaBass
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 2 volcabassController
-
 let m p = m1 $ p # nudge 0.25
 let hush' = hush >> m1 silence
 let hush = hush'               
