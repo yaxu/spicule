@@ -78,3 +78,9 @@ d6 $ chunk 4 (hurry 2) $ loopAt 2 $ chop 8 $ n "0" # sound "narc"
 d7 $ loopAt 8 $ chop 16 $ sound "dhm"
 
 hush
+
+d1 $ jux rev $ n "{0*2 ~ ~ 4 2? ~ ~ 4, 0 ~ 2}" # sound "micron"
+  # crush "<4 5 1>"
+  # gain 1.4
+
+
