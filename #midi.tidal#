@@ -5,9 +5,9 @@ import Sound.Tidal.MIDI.VolcaBass
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
-m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.3})
+m1 <- midiStream devices "X18/XR18 MIDI 1" 2 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.3})
 
-m1 $ n "12"
+m1 $ n "12*8"
 
 
 let m p = m1 $ p # nudge 0.25
