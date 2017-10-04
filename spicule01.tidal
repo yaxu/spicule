@@ -3,6 +3,7 @@ cps 0.75
 d1 $ struct "[x _ x*2, ~ <x [~ x]> ~ x]" $ sound "bks:3"
   # legato 1
 
+
 d2 $ (off "<0.125 0.25 0.75>" (# (shape 0.99 # gain 0.75)) $ sound "bk:1 ~ [~ bk:6] [~ bk:3]")
   # speed "[1]"
   # legato 0.5
