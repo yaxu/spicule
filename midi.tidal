@@ -2,12 +2,13 @@ import Sound.Tidal.MIDI.Context
 import Sound.Tidal.MIDI.CC
 import Sound.Tidal.MIDI.VolcaBass
 
-ccall {Sound.Tidal.Context.latency = 0.2}
-
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
-m1 <- midiStream devices "X18/XR18 MIDI 1" 2 (volcabassController {Sound.Tidal.MIDI.Context.latency = 0.3})
+m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (volcabassController {Sound.Tidal.MIDI.Context.latency = 0.3})
+
+m1 $ n "12*8"
+
 
 let m p = m1 $ p # nudge 0.25
 let hush' = hush >> m1 silence
