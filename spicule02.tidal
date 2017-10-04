@@ -10,7 +10,6 @@ d3 $ n "[0 <2 2 4> ~ 0 <1 4> ~ 0 ~]" # sound "feel" # crush 4.5
 d4 $ every 8 (jux rev) $ chunk 4 (hurry 2) $ up "0 [~ 1]" |*| speed "2.42" # sound "bks:3"
   # gain 1.2 # shape 0.2
 
-
 d5 $ superimpose (-- off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
                   struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
   # octave "<4 5 3>"
