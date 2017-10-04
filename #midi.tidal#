@@ -1,16 +1,18 @@
 import Sound.Tidal.MIDI.Context
 import Sound.Tidal.MIDI.CC
+import Sound.Tidal.MIDI.VolcaBass
 
 ccall {Sound.Tidal.Context.latency = 0.2}
 
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
-m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 2 volcabassController
+m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 2 (volcabassController {Sound.Tidal.MIDI.Context.latency = 0.3})
 let m p = m1 $ p # nudge 0.25
 let hush' = hush >> m1 silence
 let hush = hush'               
 
 
+ccall {Sound.Tidal.Context.latency = 0.2}
 
 m1 $ off 0.125 (|+| algtm 0.5)
   $ n (off 0.125 (+7) $ slow 4 "c4 e3(3,8) f5(3,8) g5") # moddecay (slow 4 saw)
