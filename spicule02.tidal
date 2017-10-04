@@ -1,7 +1,8 @@
 cps 1.1
 
-d5 $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# (s "superpiano" # gain 0.75))
-                                         . struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
+d5 $ superimpose (off "<0.25 0.5 0.75>"
+                   (|+| n "12") . (# (s "superpiano" # gain 0.75))
+                   . struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
   # octave "<4 5 3>"
   |+| n "<0 7 [-5 2] 4>"
   # sound "supermandolin"
@@ -9,3 +10,5 @@ d5 $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# (s "superpiano" # gain
   # room 0.6
   # size 0.9
   # orbit 2
+
+d1 $ chunk 4 (hurry 2) $ sound "kicklinn(3,8)"
