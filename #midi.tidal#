@@ -1,5 +1,7 @@
 import Sound.Tidal.MIDI.Context
-import Sound.Tidal.MIDI.CCController
+import Sound.Tidal.MIDI.CC
+
+synth
 
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
