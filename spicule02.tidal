@@ -20,6 +20,6 @@ d5 $ superimpose (-- off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (
   # size 0.9
   # orbit 2
   |*| gain 0.9
-  # lpf (slow 4 $ scale 600 1000 saw)
+  # lpf (slow 4 $ scale 600 1500 saw)
   # lpq 0.3
   # shape 0.5
