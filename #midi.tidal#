@@ -1,7 +1,7 @@
 import Sound.Tidal.MIDI.Context
 import Sound.Tidal.MIDI.CC
 
-synth
+ccall {Sound.Tidal.Context.latency = 0.2}
 
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
