@@ -1,6 +1,6 @@
 cps 1.1
 
-d1 $ jux rev $ slow 2 $ chunk 4 (hurry 2) $ sound "kicklinn(3,8,<0 4>) cp8"
+d1 $ jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,8,<0 4>) cp8"
 
 d2 $ slow 2 $ n "3(5,16)" # sound "micron"
 
@@ -19,7 +19,7 @@ d5 $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*|
   # room 0.6
   # size 0.9
   # orbit 1
-  |*| gain 0.9
+  |*| gain 0.7
   # lpf (slow 4 $ scale 500 3000 sine)
   # lpq 0.2
   # shape 0.5
