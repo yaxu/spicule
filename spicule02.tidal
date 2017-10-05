@@ -24,7 +24,7 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
           ("grungeoff", off "<0.25 0.125>" ((|*| speed 0.5) . (# grunge 0.4)) )
          ]
 in
-d1 $ ur' 32 "{[hall, ~ blip ~ blip, ~ kick], bline:comb}" pats fx
+d1 $ ur' 32 "{[hall, ~ blip ~ blip, ~ kick], bline:comb bline:grungeoff}" pats fx
 
 0.009
 
