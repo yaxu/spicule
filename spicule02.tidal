@@ -20,9 +20,9 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
                      # shape 0.5
             )
            ]
-    fx = [("comb", (# (delayt "[0.009 _ _ 0.012]*2" # orbit 2 # delay 0.4 # delayfb 0.8)))]
+    fx = [("comb", (# (delayt "[0.008]*2" # orbit 2 # delay 0.4 # delayfb 0.8)))]
 in
-d1 $ ur' 32 "{[hall, ~ blip ~ blip, ~ kick], bline:comb}" pats fx
+d1 $ ur' 32 "{[hall, ~ blip ~ blip, ~ kick], bline:comb, enya}" pats fx
 
 0.009
 
