@@ -27,7 +27,6 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
 in
 d1 $ ur' 32 "{[hall, ~ blip ~ blip, ~ kick], bline:comb bline:grungeoff bline:grungecomb _}" pats fx
 
-0.009
 
 do cps (-1)
    threadDelay 2000000
