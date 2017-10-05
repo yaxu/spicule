@@ -22,4 +22,11 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
            ]
     fx = []
 in
-d1 ur' 16 ""[]
+d1 $ ur' 16 "kick" pats fx
+
+
+do cps (-1)
+   threadDelay 2000000
+   cps 1.1
+
+hush
