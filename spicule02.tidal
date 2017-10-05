@@ -22,7 +22,7 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
            ]
     fx = []
 in
-d1 $ ur' 32 "[hall, ~ blip ~ blip, ~ kick]]" pats fx
+d1 $ ur' 64 "{[hall, ~ blip ~ blip, ~ kick], ~ bline}" pats fx
 
 
 do cps (-1)
