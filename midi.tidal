@@ -5,12 +5,19 @@ import Sound.Tidal.MIDI.VolcaBass
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
-m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (volcabassController {Sound.Tidal.MIDI.Context.latency = 0.3})
+m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 2 (volcabassController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
-m1 $ n "12*8"
+m1 $ slow 2 $ off 0.25 (|+| n 7) $ n "f(3,8) a c*2 e"
+  # cutoff (slow 8 sine)
+  # pitch1 "<0 1>"
+  # pitch2 sine
+
+d2 $ sound "drum(3,8)"
+  # gain 1.5
 
 
 let m p = m1 $ p # nudge 0.25
+
 let hush' = hush >> m1 silence
 let hush = hush'               
 
