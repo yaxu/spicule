@@ -34,7 +34,7 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
          ]
 in
 -- do d1 $ ur' 64 "{[hall hall:messup, ~ blip ~ blip, ~ kick], bline:comb bline:grungeoff bline:grungecomb [~ enya _ _] . enya:messup} ~" pats fx
-do d1 $ ur' 32 "[[[hall hall:messup, ~ blip], ~ kick], <bline bline:grungecomb>] ! [enya:fadeIn enya ! !] enya" pats fx
+do d1 $ ur' 32 "[[[hall hall:messup, ~ blip], ~ kick], <bline bline:grungecomb>] ! [enya:fadeIn enya ! !] enya:messup" pats fx
 
    cps (-1)
    threadDelay 2000000
