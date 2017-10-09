@@ -29,6 +29,10 @@ in
 d1 $ ur' 32 "{[hall hall:messup, ~ blip ~ blip, ~ kick], bline:comb bline:grungeoff bline:grungecomb [~ enya _ _] . enya:messup}" pats fx
 
 
+d2 $ up "[-4 -5](<3 3 3 5>,8)" # sound "stabs"
+  # gain 1.5
+
+
 do cps (-1)
    threadDelay 2000000
    cps 1.1
