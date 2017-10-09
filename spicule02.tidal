@@ -29,11 +29,12 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
     fx = [("comb", (# (delayt "[0.008 _ _ 0.009]*2" # orbit 2 # delay 0.4 # delayfb 0.8))),
           ("grungeoff", off "<0.25 0.125>" ((|*| speed 0.5) . (# grunge 0.4)) ),
           ("grungecomb", (# (delayt "[0.008 _ _ 0.009]*2" # orbit 2 # delay 0.4 # delayfb 0.8)) . (off "<0.25 0.125>" ((|*| speed 0.5) . (# grunge 0.4)))),
-          ("messup", whenmod 16 8 (slow 2))
+          ("messup", whenmod 16 8 (slow 2)),
+          ("fadeIn", (|*| gain saw))
          ]
 in
 -- do d1 $ ur' 64 "{[hall hall:messup, ~ blip ~ blip, ~ kick], bline:comb bline:grungeoff bline:grungecomb [~ enya _ _] . enya:messup} ~" pats fx
-do d1 $ ur' 16 "[[[hall hall:messup, ~ blip], ~ kick], <bline bline:grungecomb>]" pats fx
+do d1 $ ur' 32 "[[[hall hall:messup, ~ blip], ~ kick], <bline bline:grungecomb>] ! [enya:fadeIn enya ! !] !" pats fx
 
    cps (-1)
    threadDelay 2000000
