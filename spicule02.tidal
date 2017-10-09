@@ -31,8 +31,10 @@ d1 $ ur' 32 "{[hall hall:messup, ~ blip ~ blip, ~ kick], bline:comb bline:grunge
 
 d2 $ someCycles (off 0.25 (# end 0.2))
   $ up "[6 -5](<3 3 3 3 3 3 3 5>,8)" # sound "stabs"
-  # gain 1.3
+  # gain 1.2
   |*| speed "[1,2,1.5]"
+  # hpf (scale 1000 0 $ slow 4 $ saw)
+  # hpq 0.3
 
 
 do cps (-1)
