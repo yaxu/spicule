@@ -18,7 +18,14 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
                      # lpf (slow 4 $ scale 500 3000 sine)
                      # lpq 0.2
                      # shape 0.5
-            )
+            ),
+             ("allover", jux (someCycles rev . (|*| hpf 2). (|*| speed 0.5))$ someCycles (off 0.25 (# end 0.2))
+               $ up "[6 -5](<3 3 3 3 3 3 3 5>,8)" # sound "stabs"
+               # gain 1.2
+               |*| speed "[1,2,1.5]"
+               # hpf (every 2 (slow 2) $ scale 1000 0 $ slow 4 $ palindrome $ saw)
+               # hpq 0.3
+             )
            ]
     fx = [("comb", (# (delayt "[0.008 _ _ 0.009]*2" # orbit 2 # delay 0.4 # delayfb 0.8))),
           ("grungeoff", off "<0.25 0.125>" ((|*| speed 0.5) . (# grunge 0.4)) ),
@@ -28,12 +35,6 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
 in
 d1 $ ur' 32 "{[hall hall:messup, ~ blip ~ blip, ~ kick], bline:comb bline:grungeoff bline:grungecomb [~ enya _ _] . enya:messup}" pats fx
 
-d2 $ jux (someCycles rev . (|*| hpf 2). (|*| speed 0.5))$ someCycles (off 0.25 (# end 0.2))
-  $ up "[6 -5](<3 3 3 3 3 3 3 5>,8)" # sound "stabs"
-  # gain 1.2
-  |*| speed "[1,2,1.5]"
-  # hpf (every 2 (slow 2) $ scale 1000 0 $ slow 4 $ palindrome $ saw)
-  # hpq 0.3
 
 
 do cps (-1)
