@@ -29,11 +29,11 @@ in
 d1 $ ur' 32 "{[hall hall:messup, ~ blip ~ blip, ~ kick], bline:comb bline:grungeoff bline:grungecomb [~ enya _ _] . enya:messup}" pats fx
 
 
-d2 $ someCycles (off 0.25 (# end 0.2))
+d2 $ jux ((|*| hpf 2))$ someCycles (off 0.25 (# end 0.2))
   $ up "[6 -5](<3 3 3 3 3 3 3 5>,8)" # sound "stabs"
   # gain 1.2
   |*| speed "[1,2,1.5]"
-  # hpf (scale 1000 0 $ slow 4 $ saw)
+  # hpf (every 2 (slow 2) $ scale 1000 0 $ slow 4 $ saw)
   # hpq 0.3
 
 
