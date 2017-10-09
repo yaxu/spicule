@@ -39,5 +39,4 @@ do cps (-1)
    threadDelay 2000000
    cps 1.1
 
-
 hush
