@@ -1,0 +1,70 @@
+cps 1.1
+
+let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,8,<0 4>) cp8" # gain 1.1),
+            ("blip", (slow 2 $ n "3(5,16)" # sound "micron") # gain 1 # speed "[1,0.5]"),
+            ("hall", n "[0 <2 2 4> ~ 0 <1 4> ~ 0 ~]" # sound "feel" # crush 4.5 # gain 1 # orbit 3 # delay 0.3 # delayt "<0.1 0.2>" # delayfb 0.3),
+            ("bline", every 8 (jux rev) $ chunk 4 (hurry 2) $ up "0 [~ 1]" |*| speed "2.42" # sound "bks:3" # shape 0.2 # gain 1 |*| speed "[1,0.5]"),
+            ("enyaone", superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
+                                     struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
+                        # octave "<4 5 3 2>"
+                        -- |+| n "<0 7 [-5 2] 4>"
+                        # sound "supermandolin"
+                        # sustain (slow 2 $ scale 0.5 1 sine)
+                        -- # room 0.6
+                        -- # size 0.9
+                        # orbit 1
+                        |*| gain 1.1
+                        # lpf (slow 4 $ scale 300 800 sine)
+                        # lpq 0.2
+              -- # shape 0.5
+            ),
+            ("enya", (10 <~) $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
+                                           struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
+                     # octave "<4 5 3>"
+                     |+| n "<0 7 [-5 2] 4>"
+                     # sound "supermandolin"
+                     # sustain (slow 2 $ scale 0.5 1 saw)
+                     # room 0.6
+                     # size 0.9
+                     # orbit 1
+                     |*| gain 0.9
+                     # lpf (slow 4 $ scale 500 3000 sine)
+                     # lpq 0.2
+                     # shape 0.5
+            ),
+             ("allover", jux (someCycles rev . (|*| hpf 2). (|*| speed 0.5))$ someCycles (off 0.25 (# end 0.2))
+               $ up "[6 -5](<3 3 3 3 3 3 3 5>,8)" # sound "stabs"
+               # gain 0.9
+               |*| speed "[1,2,1.5]"
+               # hpf (every 2 (slow 2) $ scale 1000 0 $ slow 4 $ palindrome $ saw)
+               # hpq 0.3
+             )
+           ]
+    fx = [("comb", (# (delayt "[0.008 _ _ 0.009]*2" # orbit 2 # delay 0.4 # delayfb 0.8))),
+          ("grungeoff", off "<0.25 0.125>" ((|*| speed 0.5) . (# grunge 0.4)) ),
+          ("grungecomb", (# (delayt "[0.008 _ _ 0.009]*2" # orbit 2 # delay 0.4 # delayfb 0.8)) . (off "<0.25 0.125>" ((|*| speed 0.5) . (# grunge 0.4)))),
+          ("messup", whenmod 16 8 (slow 2)),
+          ("fadeIn", (|*| gain saw))
+         ]
+in
+-- do d1 $ ur' 64 "{[hall hall:messup, ~ blip ~ blip, ~ kick], bline:comb bline:grungeoff bline:grungecomb [~ enya _ _] . enya:messup} ~" pats fx
+do d1 $ ur' 48 "[[[enyaone:fadeIn enyaone, hall hall:messup, ~ blip], ~ kick], <bline bline:grungecomb>] [enya enya:messup, hall:messup]" pats fx
+   cps (-1)
+   threadDelay 2000000
+   cps 1.1
+
+
+d1 $ (~> 1) $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
+                               struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
+                     # octave "<4 5 3>"
+                     |+| n "<0 7 [-5 2] 4>"
+                     # sound "supermandolin"
+                     # sustain (slow 2 $ scale 0.5 1 saw)
+                     # room 0.6
+                     # size 0.9
+                     # orbit 1
+                     |*| gain 0.9
+                     # lpf (slow 4 $ scale 500 3000 sine)
+                     # lpq 0.2
+                     # shape 0.5
+
