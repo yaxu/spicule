@@ -41,14 +41,14 @@ d2 $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*|
   # octave "<4 5 3>"
   -- |+| n "<0 7 [-5 2] 4>"
   # sound "supermandolin"
-  # sustain (slow 2 $ scale 0.5 1 saw)
+  # sustain (slow 2 $ scale 0.5 1 sine)
   # room 0.6
   # size 0.9
   # orbit 1
   |*| gain 0.9
-  # lpf (slow 4 $ scale 500 3000 sine)
+  # lpf (slow 4 $ scale 300 800 sine)
   # lpq 0.2
-  # shape 0.5
+  -- # shape 0.5
 
    cps (-1)
    threadDelay 2000000
