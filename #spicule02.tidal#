@@ -18,7 +18,7 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
                         # lpq 0.2
               -- # shape 0.5
             ),
-            ("enya", (0.125 <~) $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
+            ("enya", () $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
                                   struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
                      # octave "<4 5 3>"
                      |+| n "<0 7 [-5 2] 4>"
@@ -57,8 +57,8 @@ do d1 $ ur' 64 "[[[hall hall:messup, ~ blip], ~ kick], <bline bline:grungecomb>]
 
 hush
 
-(0.125 <~) $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
-                                  struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
+d1 $ (~> 1) $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
+                               struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
                      # octave "<4 5 3>"
                      |+| n "<0 7 [-5 2] 4>"
                      # sound "supermandolin"
@@ -70,3 +70,5 @@ hush
                      # lpf (slow 4 $ scale 500 3000 sine)
                      # lpq 0.2
                      # shape 0.5
+
+d2 $ slow 2 $ sound "cp arpy arpy arpy"
