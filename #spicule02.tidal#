@@ -34,10 +34,25 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
          ]
 in
 -- do d1 $ ur' 64 "{[hall hall:messup, ~ blip ~ blip, ~ kick], bline:comb bline:grungeoff bline:grungecomb [~ enya _ _] . enya:messup} ~" pats fx
-do d1 $ ur' 32 "[[[hall hall:messup, ~ blip], ~ kick], <bline bline:grungecomb>] ! [enya enya, hall]" pats fx
+do d1 $ ur' 32 "[[[hall hall:messup, ~ blip], ~ kick], <bline bline:grungecomb>] [[enya:fadeIn enya ! !] enya:messup, hall:messup]" pats fx
+
+d2 $ superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
+                   struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
+  # octave "<4 5 3>"
+  -- |+| n "<0 7 [-5 2] 4>"
+  # sound "supermandolin"
+  # sustain (slow 2 $ scale 0.5 1 saw)
+  # room 0.6
+  # size 0.9
+  # orbit 1
+  |*| gain 0.9
+  # lpf (slow 4 $ scale 500 3000 sine)
+  # lpq 0.2
+  # shape 0.5
 
    cps (-1)
    threadDelay 2000000
    cps 1.1
+
 
 hush
