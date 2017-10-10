@@ -6,14 +6,14 @@ let pats = [("kick", jux rev $ slow 2 $ chunk 4 (hurry 0.5) $ sound "kicklinn(3,
             ("bline", every 8 (jux rev) $ chunk 4 (hurry 2) $ up "0 [~ 1]" |*| speed "2.42" # sound "bks:3" # shape 0.2 # gain 1 |*| speed "[1,0.5]"),
             ("enyaone", superimpose (off "<0.25 0.5 0.75>" (|+| n "12") . (# s "superpiano") . (|*| gain 0.75) .
                                      struct "[x(3,8)]/2") $ jux rev $ off 0.25 (|+| octave "<1 -1>") $ off 0.125 (|+| n 7) $ n "3(<3 5 2>,8,<0 2 4>)"
-                        # octave "<4 5 3>"
+                        # octave "<4 5 3 2>"
                         -- |+| n "<0 7 [-5 2] 4>"
                         # sound "supermandolin"
                         # sustain (slow 2 $ scale 0.5 1 sine)
-                        # room 0.6
-                        # size 0.9
+                        -- # room 0.6
+                        -- # size 0.9
                         # orbit 1
-                        |*| gain 0.9
+                        |*| gain 1.1
                         # lpf (slow 4 $ scale 300 800 sine)
                         # lpq 0.2
               -- # shape 0.5
