@@ -9,7 +9,7 @@ m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.T
 let x = hush
 let hush = x >> m1 silence
 
-m1 $ stack [jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
+m1 $ stack [{-jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
             # dur 0.5
             # velocity (scale 0.5 0.75 saw)
             # algtm "0.1 ! ! 0.2"
@@ -17,8 +17,12 @@ m1 $ stack [jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
             # cardecay (scale 0.1 0.9 $ slow 2 saw)
             # lfo rand
             |+| n "0 -12"
-            # octave 0,
-            n (n "c(3,8)" +chord "major")
+            # octave 0,-}
+            n ("<c7(5,8) a6(3,8)>" + chord "major")
+             # cardecay 0.6
+             # algtm rand
+             # carattack 0
+             # moddecay 0.4
            ]
 
 
