@@ -33,4 +33,11 @@ d2 $ off 0.125 ((|*| gain 0.9) . (|*| speed 4)) $ sound "bk(3,8)"
   # gain 1.1
   # speed 1.5
 
-d3 $ n "{c8 ~ ~}%4" # s "rash"
+d3 $ slow 2 $ chop 8 $ off 0.25 (|+| n 12) $ n "{c7*2 [~ d6] ~}%4" # s "rash"
+  # hpf 500
+  # hpq 0.3
+  # orbit 1
+  # room 0.3
+  # size 0.7
+  # gain 0.9
+  # accelerate (-1)
