@@ -41,3 +41,4 @@ d3 $ off "<0.125 0.5 0.25>" ((# s "pulse") . (|+| n "-12")) $ jux rev $ slow 2 $
   # lpf (scale 1000 3000 saw)
   # lpq 0.2
 
+-- that's it for tonight thank you for listening x
