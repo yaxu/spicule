@@ -17,4 +17,9 @@ m1 $ jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
   # cardecay saw
   # lfo rand
   |+| n "0 -12"
+  # octac 0.2
 
+
+d1 $ off "<0.25 0.125>" (# speed 0.5) $ slow 4 $ sound "bd ! ! ! bd*2 bd ! !"
+  # begin 0.01
+  # speed 4
