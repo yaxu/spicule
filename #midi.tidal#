@@ -7,8 +7,9 @@ devices <- midiDevices
 
 m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
-m1 $ n "1"
-  # dur 1
+m1 $ n "c*2 e f g"
+  # dur 0.25
+  # unit "c"
 
 m1 $ slow 2 $ off 0.25 (|+| n 7) $ n "f(3,8) a c*2 e"
   # cutoff (slow 8 sine)
