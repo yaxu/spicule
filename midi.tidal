@@ -13,6 +13,7 @@ m1 $ jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
   # algtm "0.1 ! ! 0.2"
   # moddecay (slow 4 saw)
   # cardecay 0.5
+  # lfo rand
 
 m1 $ slow 2 $ off 0.25 (|+| n 7) $ n "f(3,8) a c*2 e"
   # cutoff (slow 8 sine)
