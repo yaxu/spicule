@@ -7,9 +7,10 @@ devices <- midiDevices
 
 m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
-m1 $ n (off 0.25 (subtract 5) $ slow 2 $ "c*2 e f g")
-  # dur 0.125
-  # unit "c"
+m1 $ n (off 0.25 (subtract 5) $ slow 2 $ "c6 a6")
+  # dur 0.5
+  # velocity "0.5"
+  # algtm "0.1 ! ! 0.2"
 
 m1 $ slow 2 $ off 0.25 (|+| n 7) $ n "f(3,8) a c*2 e"
   # cutoff (slow 8 sine)
