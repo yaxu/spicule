@@ -16,8 +16,7 @@ m1 $ stack [jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
             # moddecay (slow 4 saw)
             # cardecay (scale 0.1 0.9 $ slow 2 saw)
             # lfo rand
-            |+| n "0 -12"
-            # octave 0.5,
+            |+| n "0 -12",
             n ("<c7(5,8) a5(3,8) g5(3,8) e6(3,8)>" + chord "<major ! minor>")
              # cardecay 0.6
              # algtm 0.8
