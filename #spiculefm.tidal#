@@ -5,9 +5,9 @@ import Sound.Tidal.MIDI.VolcaFM
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
-let x = hush
-let hush = hush >> m1 silence
 m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.42})
+let x = hush
+let hush = x >> m1 silence
 
 m1 $ jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
   # dur 0.5
