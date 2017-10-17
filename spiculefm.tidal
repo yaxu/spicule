@@ -8,3 +8,9 @@ m1 $ jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
   # lfo rand
   |+| n "0 -12"
 
+m1 $ n "c"
+  # nudge 0.02
+
+
+d1 $ sound "sn:1"
+  # speed 4
