@@ -1,0 +1,32 @@
+import Sound.Tidal.MIDI.Context
+import Sound.Tidal.MIDI.CC
+import Sound.Tidal.MIDI.VolcaFM
+
+displayOutputDevices >>= putStrLn
+devices <- midiDevices
+
+m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.42})
+let x = hush
+let hush = x >> m1 silence
+
+m1 $ stack [jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
+            # dur 0.5
+            # velocity (scale 0.5 0.75 saw)
+            # algtm "0.1 ! ! 0.2"
+            # moddecay (slow 4 saw)
+            # cardecay (scale 0.1 0.9 $ slow 2 saw)
+            # lfo rand
+            |+| n "0 -12"
+            # octave 0.5,
+            n ("<c7(5,8) a5(3,8) g5(3,8) e6(3,8)>" + chord "<major ! minor>")
+             # cardecay 0.6
+             # algtm 0.8
+             # carattack 0
+             # moddecay 0.4
+           ] |+| n "<0 7 12>"
+
+d1 $ chunk 4 (hurry 2) $ jux rev $ off "<0.25 0.125>" (# speed 0.5) $ slow 4 $ sound "sr ! ! ! bd*2 bd ! !"
+  # begin 0.01
+  # speed 4
+
+d2 $ sound "bk()"
