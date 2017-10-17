@@ -4,5 +4,7 @@ m1 $ jux rev $ n (off 0.25 (subtract 5) $ slow 2 $ "c6(3,8) a6*2")
   # velocity (scale 0.5 0.75 saw)
   # algtm "0.1 ! ! 0.2"
   # moddecay (slow 4 saw)
-  # cardecay 0.5
+  # cardecay saw
   # lfo rand
+  |+| n "0 -12"
+
