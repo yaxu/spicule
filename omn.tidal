@@ -11,6 +11,7 @@ m <- midiStream devices "X18/XR18 MIDI 1" 2 (volcabassController {Sound.Tidal.MI
 
 let hush' = hush
 let hush = hush' >> m silence
+let solo p = hush >> p
 
 cps 1.1
 
@@ -33,7 +34,7 @@ d3 $ off 0.25 (# crush 3) $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "mi
 d4 $ jux rev $ iter 4 $ loopAt 2 $ chop 16 $ sound "arc"
   # gain 1.6
 
-d1 $ jux (rev . (#n speed (-1))) $ chunk 4 (hurry 2) $ sound "acid:1(3,8) acid:1"
+d1 $ chunk 4 (hurry 2) $ sound "acid:1(3,8) acid:1"
   # legato 1
 
 
@@ -45,10 +46,10 @@ d3 $ sound "{bk ~ [~ bk] ~, sr sr:7 sr:4}"
 
 m $ iter 4 $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c(3,8) e(3,8) f(3,8) g(3,8)>")
 
-d1 $ iter 4 $ jux rev $ n (off 0.25 (+12) $ off 0.125 (+7) "<c6(3,8) e6(3,8,2) f6(3,8) g7*2>") # sound "rash"
+d1 $ jux rev $ chunk 4 (hurry 0.5) $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c6(3,8) e6(3,8,2) f6(3,8) g7*2>") # sound "rash"
 
 d2 $ rev $ loopAt 4 $ chop 16 $ sound "paper"
-
+hush
 
 d3 $ jux rev $ chunk 4 (hurry 2) $ sound "[kicklinn(3,8), ~ sr ~ [~ sr]]"
   # gain 1.2
