@@ -67,7 +67,10 @@ d1 $ every 3 (0.25 <~) $ n "{0 1 2 3, 3 6 2}" # sound "industrial"
   # shape 0.5
   # speed "<2 2 2 4>"
 
-m $ n "c3(3,8)"
+m $ slow 4 $ n (off 0.25 (+7) $ slow 2 $ "c(3,8) a(5,8) f*2 e(3,8)")
+
+d2 $ n "0 .. 7" # sound "amencutup"
+  # gain 1.4
 
 m silence
 
