@@ -143,8 +143,13 @@ d4 $ chunk 4 (hurry 0.5) $ jux rev $ n "0 [~ 5] 3 4*2" # sound "speakspell"
 
 d5 $ chunk 4 (hurry 2) $ sound "[bd(3,8), ~ cp8]"
 
-m $ n "0 ~ 3 2"
+m $ breakUp $ off 0.25 (|+| n 7) $ chunk 4 (fast 2) $ n "0 ~ 3 2"
   |+| n "<0 0 7 2>"
+  # cutoff rand
+
+d6 $ loopAt "<2 4 1 2>" $ chop 16 $ sound "arc"
+  # gain 1.4
+
 
 
 d2 $ jux rev $ palindrome $ loopAt 4 $ chop 8 $ sound "paper"
