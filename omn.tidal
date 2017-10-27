@@ -63,8 +63,14 @@ d8 $ sound "gabba(3,8)"
 
 d9 $ chop "<8 2>" $ sound "off"
 
-d1 $ n "{0 1 2 3, 3 6}" # sound "industrial"
+d1 $ every 3 (0.25 <~) $ n "{0 1 2 3, 3 6 2}" # sound "industrial"
   # shape 0.5
+  # speed "<2 2 2 4>"
+
+m $ slow 4 $ n (off 0.25 (+7) $ slow 2 $ "c(3,8) a(5,8) f*2 e(3,8)")
+
+d2 $ sometimes (|+| n 12) $ jux rev $ slow 2 $ n "0 .. 15" # sound "amencutup"
+  # gain 1.4
 
 m silence
 
