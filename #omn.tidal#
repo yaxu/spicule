@@ -190,4 +190,10 @@ d4 $ sound "gabba(3,8)"
 d5 $ chunk 4 (hurry 0.5) $ jux rev $ n (off 0.25 (+"<12 7>") $ off 0.125 (+"<7 12>") $ "<c7(3,8) e8(3,8) [f8 f7*2] g7(3,8)>") # sound "xx"
   |*| speed "[2, 4]"
 
-d6 $ n "" # sound "speakspell"
+d6 $ off 0.25 (# crush 2) $ slow 2 $ n "0 ~ [3 4] 2 4 [2 ~ ~ 5] 3 ~" # sound "speakspell"
+
+d7 $ sound "gabba(3,8)"
+
+d8 $ sound "~ donk ~ donk*2"
+
+d9 $ sound "f
