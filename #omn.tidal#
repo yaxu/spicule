@@ -31,7 +31,7 @@ d3 $ off 0.25 (# crush 3) $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "mi
 
 d4 $ jux rev $ iter 4 $ loopAt 2 $ chop 16 $ sound "arc"
   # gain 1.6
-hush
+
 d1 $ rev $ chop 8 $ sound "acid(3,8)"
   # legato 1
   |*| speed 0.5
