@@ -149,10 +149,11 @@ m $ breakUp $ off 0.25 (|+| n 7) $ chunk 4 (fast 2) $ n "0 ~ 3 2"
 
 d6 $ jux rev $ loopAt "<2 4 1 2>" $ chop 16 $ sound "arc"
 
-d7 $ n "0 [~ 4] 4 ~ 3 4 2 ~" # sound "jvr"
-   
+d7 $ off "<0.25 0.125>" (|+| crush 4) $ n "0 [~ 4] 4 ~ 3 4 2 ~" # sound "jvr"
+  # shape 0.6
 
-
+hu
+cps 0.95
 
 d3 $ sound "bk(3,8)"
   # shape 0.8
