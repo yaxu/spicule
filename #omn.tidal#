@@ -129,7 +129,7 @@ d4 $ sound "gabba"
 
 cps 0.8
 
-m $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 $ "[c c] e(3,8) f(3,8) g")
-  # pitch2 0.5
-  # pitch3 1
-  # dur 0.05
+m $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 4 $ "c(3,8) e(3,8) f(3,8) g(3,8)")
+  # dur 0.01
+
+d1 $  n "<c7(3,8) e7(3,8) f7 g7>" # sound "rash"
