@@ -48,9 +48,14 @@ d1 $ iter 4 $ jux rev $ n (off 0.25 (+12) $ off 0.125 (+7) "<c6(3,8) e6(3,8,2) f
 
 d2 $ jux rev $ chunk 4 (hurry 2) $ loopAt 4 $ chop 16 $ sound "paper"
 
+
 d3 $ jux rev $ chunk 4 (hurry 2) $ sound "[kicklinn(3,8), ~ sr ~ [~ sr]]"
   # gain 1.2
 
+d4 $ iter 4 $ n "0 .. 7" # sound "micron"
+
+d5 $ cloopAt 1 $ chop 8 $ sound "os"
+  # gain 1.2
 
 d3 $ fast 2 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
   # shape 0.99
