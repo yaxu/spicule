@@ -129,7 +129,9 @@ d4 $ sound "gabba"
 
 cps 0.8
 
-m $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 4 $ "c(3,8) e(3,8) f(3,8) g(3,8)")
-  # dur 0.01
+m $ breakUp $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4
+                  $ "c(3,8) e(3,8) f(3,8) g(3,8)")
+  # dur 0.04
 
-d1 $  n "<c7(3,8) e7(3,8) f7 g7>" # sound "rash"
+d1 $ off 0.25 (# s) $ n (off 0.125 (+12) $ off 0.25 (+7) $ "<c7(3,8) e7(3,8) f7(3,8) g7(3,8)>") # sound "rash"
+
