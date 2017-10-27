@@ -13,7 +13,7 @@ let hush = hush' >> m silence
 cps 1.1
 
 m $ sometimes (|+| n "12") $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c(3,8) e*2 f(3,8) g*2>")
-  -- # algorithm (slow 16 sine)
+  # algorithm (slow 16 sine)
   -- |+| n (chord "major")
   |+| n "-12"
   # velocity 1
@@ -32,8 +32,6 @@ d3 $ off 0.25 (# crush 3) $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "mi
 d4 $ jux rev $ iter 4 $ loopAt 2 $ chop 16 $ sound "arc"
   # gain 1.6
 hush
-
-
 d1 $ rev $ chop 8 $ sound "acid(3,8)"
   # legato 1
   |*| speed 0.5
@@ -42,6 +40,9 @@ d2 $ jux rev $ n "[3(3,8,<0 2 4>), 0 3 ~ 2]" # sound "micron"
   |+| n 8
   # shape 0.2
 
-d3 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
-  # shape 0.95
+d3 $ fast 2 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
+  # shape 0.99
 
+d4 $ sound "drum(3,8)"
+  # shape 0.99
+  # speed 2
