@@ -129,5 +129,7 @@ d4 $ sound "gabba"
 
 cps 0.8
 
-m $ n "[c c] f"
-  # pitch1 "<0 0.5
+m $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 $ "[c c] e(3,8) f(3,8) g")
+  # pitch2 0.5
+  # pitch3 1
+  # dur 0.05
