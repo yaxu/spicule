@@ -1,11 +1,13 @@
 import Sound.Tidal.MIDI.Context
 import Sound.Tidal.MIDI.CC
 import Sound.Tidal.MIDI.VolcaFM
+import Sound.Tidal.MIDI.VolcaBass
 
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
-m <- midiStream devices "X18/XR18 MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
+-- m <- midiStream devices "X18/XR18 MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
+m <- midiStream devices "X18/XR18 MIDI 1" 2 (volcabassController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
 let hush' = hush
 let hush = hush' >> m silence
@@ -13,7 +15,7 @@ let hush = hush' >> m silence
 cps 1.1
 
 m $ sometimes (|+| n "12") $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c(3,8) e*2 f(3,8) g*2>")
-  # algorithm (slow 16 sine)
+  -- # algorithm (slow 16 sine)
   -- |+| n (chord "major")
   |+| n "-12"
   # velocity 1
