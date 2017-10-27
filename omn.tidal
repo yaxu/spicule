@@ -163,9 +163,9 @@ d2 $ (jux rev $ off 0.125 (|*| up 7) $ up "0 7 [~ 12] 2" # sound "sid"
   # room 0.2
   # size 0.4
 
-d3 $ every 4 (0.25 <~) $ stack [sound "bk(3,8)"
-                                # shape 0.8,
-                                sound "donk [cp]" # orbit 1 # delay 0.8 # delayt "<0.01 0.03 0.02>" # delayfb 0.8
+  d3 $ every 4 (0.25 <~) $ stack [sound "gabba(3,8,<0 2>)"
+                                  # shape 0.8,
+                                  sound "donk sr*2" # orbit 1 # delay 0.8 # delayt "<0.01 0.03 0.02>" # delayfb 0.8
                                ]
 
 d4 $ jux rev $ loopAt 2 $ chop "<8 4>" $ sound "arc"
@@ -174,3 +174,4 @@ d4 $ jux rev $ loopAt 2 $ chop "<8 4>" $ sound "arc"
 d5 $ jux rev $ loopAt "[4,8,12]" $ gap 8 $ sound "fm:10"
   # lpf 1000
   # lpq 0.2
+
