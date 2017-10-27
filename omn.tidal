@@ -42,6 +42,9 @@ d2 $ chunk 4 (hurry 2) $ jux rev $ n "[3(3,8,<0 2 4>), 0 3 ~ 2]" # sound "micron
 d3 $ sound "{bk ~ [~ bk] ~, sr sr:7 sr:4}"
 
 
+m $n (off 0.25 (+ (chord "<major major minor>")) $ off 0.125 (+7) $ "c(3,8)")
+  |+| n "<0 0 4 4 7 7 12 12>"
+
 d3 $ fast 2 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
   # shape 0.99
 
