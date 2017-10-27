@@ -147,12 +147,30 @@ m $ breakUp $ off 0.25 (|+| n 7) $ chunk 4 (fast 2) $ n "0 ~ 3 2"
   |+| n "<0 0 7 2>"
   # cutoff rand
 
-d6 $ loopAt "<2 4 1 2>" $ chop 16 $ sound "arc"
+d6 $ jux rev $ loopAt "<2 4 1 2>" $ chop 16 $ sound "arc"
+
+d7 $ off "<0.25 0.125>" (|+| crush 4) $ n "0 [~ 4] 4 ~ 3 4 2 ~" # sound "jvr"
+  # shape 0.6
+
+d1 $ sound "gabba(3,8)"
+
+d2 $ (jux rev $ off 0.125 (|*| up 7) $ up "0 7 [~ 12] 2" # sound "sid"
+      # gain 1.3
+      |*| speed 2)
+  |*| lpf (slow 8 (scale 100 3000 sine) )
+  # lpq 0.2
+  # orbit 1
+  # room 0.2
+  # size 0.4
+
+d3 $ every 4 (0.25 <~) $ stack [sound "bk(3,8)"
+                                # shape 0.8,
+                                sound "donk [cp]" # orbit 1 # delay 0.8 # delayt "<0.01 0.03 0.02>" # delayfb 0.8
+                               ]
+
+d4 $ jux rev $ loopAt 2 $ chop "<8 4>" $ sound "arc"
   # gain 1.4
 
-
-
-d2 $ jux rev $ palindrome $ loopAt 4 $ chop 8 $ sound "paper"
-
-d3 $ sound "bk(3,8)"
-  # shape 0.8
+d5 $ jux rev $ loopAt "[4,8,12]" $ gap 8 $ sound "fm:10"
+  # lpf 1000
+  # lpq 0.2
