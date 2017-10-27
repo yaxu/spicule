@@ -32,13 +32,15 @@ d3 $ off 0.25 (# crush 3) $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "mi
 d4 $ jux rev $ iter 4 $ loopAt 2 $ chop 16 $ sound "arc"
   # gain 1.6
 
-d1 $ rev $ chop 8 $ sound "acid(3,8)"
+d1 $ chunk 4 (hurry 2) $ sound "acid:1(3,8) acid:1"
   # legato 1
-  |*| speed 0.5
 
-d2 $ jux rev $ n "[3(3,8,<0 2 4>), 0 3 ~ 2]" # sound "micron"
+
+d2 $ chunk 4 (hurry 2) $ jux rev $ n "[3(3,8,<0 2 4>), 0 3 ~ 2]" # sound "micron"
   |+| n 8
-  # shape 0.2
+
+d3 $ sound "{bk ~ [~ bk] ~, sr sr:7 sr:4}"
+
 
 d3 $ fast 2 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
   # shape 0.99
