@@ -5,7 +5,7 @@ import Sound.Tidal.MIDI.VolcaFM
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
-m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
+m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
 m1 $ slow 2 $ off 0.25 (|+| n 7) $ n "f(3,8) a c*2 e"
   # cutoff (slow 8 sine)
