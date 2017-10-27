@@ -156,12 +156,14 @@ d1 $ sound "gabba(3,8)"
 
 d2 $ (jux rev $ off 0.125 (|*| up 7) $ up "0 7 [~ 12] 2" # sound "sid"
       # gain 1.3
-       |*| speed 2)
+      |*| speed 2)
   |*| lpf (slow 8 (scale 100 3000 sine) )
   # lpq 0.2
-  
+  # orbit 1
+  # room 0.2
+  # size 0.4
 
-cps 0.95
-
-d3 $ sound "bk(3,8)"
-  # shape 0.8
+d3 $ every 4 (0.25 <~) $ stack [sound "bk(3,8)"
+                                # shape 0.8,
+                                sound "~ cp" # orbit 1 # delay 1
+                               ]
