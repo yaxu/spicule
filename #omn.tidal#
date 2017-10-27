@@ -168,8 +168,6 @@ d2 $ (jux rev $ off 0.125 (|*| up 7) $ up "0 7 [~ 12] 2" # sound "sid"
                                   sound "donk sr*2" # orbit 1 # delay 0.8 # delayt "<0.01 0.03 0.02>" # delayfb 0.8
                                ]
 
-d4 $ jux rev $ loopAt 2 $ chop "<8 4>" $ sound "arc"
-  # gain 1.4
-  # crush 3
+d1 $ n "<c e f g>" # sound "rash"
 
-cps 0.9
+hush
