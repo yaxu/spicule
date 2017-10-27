@@ -76,11 +76,7 @@ d2 $ sometimes (|+| n 12) $ jux rev $ slow 2 $ n "0 .. 15" # sound "amencutup"
 
 d3 $ fast 2 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
   # shape 0.99
-
-d4 $ off 0.25 ((# crush 2) . (|*| speed 2)) $ slow 2 $ up "0 0 0 [7 5 0 12]" # sound "donk"
-  |*| up "<0 0 7 5>"
-  # lpf 4000
-  # lpq 0.1
+hush
 
 m $ n (off 0.125 (+"<7 12 5>") $ "fs(3,8)")
   # cutoff sine
@@ -94,3 +90,29 @@ d3 $ brak $ sound "{feel feel:3, micron:2 ~ ~ }"
 
 d2 $ jux rev $ off 0.125 (# speed 2) $ sound "gabba(3,8)"
 
+d1 $ every 4 (0.25 <~) $ jux rev $ off 0.125 (|*| up "<7 12>") $ up "0 -12 [5 7] 12" #  sound "donk"
+
+m $ sometimes (|+| n "-12") $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "c(3,8) e(3,8) f(3,8) g(3,8)")
+  # cutoff sine
+  |-| n "-6"
+
+d1 $ off 0.125 ((# s "pulse") . (# gain 1)) $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ "<c7(3,8) e7(3,8,2) f7(3,8) g7(3,8)>") # sound "rash" # gain 0.9
+  |*| up "-6"
+
+d2 $ off 0.25 (# crush 4) $ jux rev $ chunk 4 (hurry 0.5) $ slow 2 $ n "0 .. 15" # sound "jvr"
+
+d3 $ rev $ loopAt "<4 8>" $ chop 8 $ sound "paper"
+
+m $ n "<c4(3,8) e4(3,8) f4(3,8) g4(3,8)>"
+  |+| n "6"
+
+d1 $ jux rev $ n "0(2,8) [3 _ _ 3]" # sound "hit"
+  # legato 1
+  # speed 0.5
+
+d2 $ n "0 .. 7" # sound "rs9"
+
+d1 $ sound "[bk(3,8), hc(5,8)]"
+  # size (slow 8 saw)
+  # room 0.9
+  # orbit 1
