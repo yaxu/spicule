@@ -97,4 +97,4 @@ m $ sometimes (|+| n "-12") $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow
 
 d1 $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ "<c7(3,8) e7(3,8,2) f7(3,8) g7(3,8)>") # sound "rash"
 
-d2 $ nsound "paper"
+d2 $ off 0.25 (# cr) $ jux rev $ chunk 4 (hurry 0.5) $ slow 2 $ n "0 .. 15" # sound "jvr"
