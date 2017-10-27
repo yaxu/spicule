@@ -90,4 +90,6 @@ d3 $ brak $ sound "{feel feel:3, micron:2 ~ ~ }"
 
 d2 $ jux rev $ off 0.125 (# speed 2) $ sound "gabba(3,8)"
 
-d1 $ off 0.125 () sound "donk"
+d1 $ every 4 (0.25 <~) $ jux rev $ off 0.125 (|*| up "<7 12>") $ up "0 -12 [5 7] 12" #  sound "donk"
+
+d3 $ sound
