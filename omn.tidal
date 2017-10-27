@@ -79,7 +79,7 @@ d3 $ fast 2 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
 
 d4 $ off 0.25 ((# crush 2) . (|*| speed 2)) $ slow 2 $ up "0 0 0 [7 5 0 12]" # sound "donk"
   |*| up "<0 0 7 5>"
-  # lpf 1000
+  # lpf 4000
   # lpq 0.1
 
 m $ n (off 0.125 (+"<7 12 5>") $ "fs(3,8)")
