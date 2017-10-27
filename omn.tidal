@@ -7,6 +7,8 @@ devices <- midiDevices
 
 m <- midiStream devices "X18/XR18 MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
-m $ n ("c(3,8)")
+cps 1.1
+
+m $ off 0.125 (|+| n "<5 7 12 5>") $ n (superimpose (fill "c8 c9") "<c7(3,8) g7(3,8)>")
 
 
