@@ -12,18 +12,20 @@ let hush = hush' >> m silence
 
 cps 1.1
 
-m $ slow 2 $ (breakUp $ off 0.125 (|+| n "<5 7 12 5>") $ n (superimpose (fill "c8 c9") "<c7(3,8) g7(3,8)>"))
+m $ n "<c e f g>"
   -- # algorithm (slow 16 sine)
   |+| n "<0 4 7 12>"
   |+| n (chord "major")
-  |+| 
+  |+| n "-12"
 
 d1 $ rev $ chop 8 $ sound "acid(3,8)"
   # legato 1
   |*| speed 0.5
 
-d2 $ jux rev $ n "3(3,8,<0 2 4>)" # sound "micron"
-  |+| n 7
+d2 $ jux rev $ n "[3(3,8,<0 2 4>), 0 3 ~ 2]" # sound "micron"
+  |+| n 8
+  # shape 0.2
 
 d3 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
   # shape 0.95
+
