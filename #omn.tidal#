@@ -1,0 +1,10 @@
+import Sound.Tidal.MIDI.Context
+import Sound.Tidal.MIDI.CC
+import Sound.Tidal.MIDI.VolcaFM
+
+displayOutputDevices >>= putStrLn
+devices <- midiDevices
+
+m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
+
+
