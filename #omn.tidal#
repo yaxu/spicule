@@ -199,14 +199,17 @@ d8 $ sound "~ donk ~ donk*2"
 d9 $ brak $ fast 2 $ sound "feel feel:3"
   # gain 1.3
 
-d10 $ slow 2 $ up (off 0.25 (+7) $ "[0(3,8), ~ [7 5]]") # sound "stabs"
+d10 $ slow 2 $ up (off 0.25 (+12) $ "[0(3,8), ~ [7 2]]") # sound "stabs"
   # legato 1
   # shape 0.9
 
 d1 $ jux rev $ loopAt 1 $ chop 8 $ sound "<os os:1 os:2 os:1>"
   # gain 1.5
 
-d2 $ loopAt 4 $ chop 8 $ sound "repetition"
+d2 $ j(loopAt 4 $ chop 16 $ sound "repetition")
   # gain 1.2
-  # lpf 2000
+  
+  # shape 0.6
+  # lpf (slow 3 $ scale 100 4000 sine)
   # lpq 0.2
+  |+| n (irand 16)
