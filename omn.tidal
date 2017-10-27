@@ -49,7 +49,7 @@ m $ iter 4 $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c(3,8) e(3,8) f(3,8) g(3,8)>
 d1 $ jux rev $ chunk 4 (hurry 0.5) $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c6(3,8) e6(3,8,2) f6(3,8) g7*2>") # sound "rash"
 
 d2 $ rev $ loopAt 4 $ chop 16 $ sound "paper"
-hush
+
 
 d3 $ jux rev $ chunk 4 (hurry 2) $ sound "[kicklinn(3,8), ~ sr ~ [~ sr]]"
   # gain 1.2
@@ -79,6 +79,13 @@ d3 $ fast 2 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
 
 d4 $ off 0.25 ((# crush 2) . (|*| speed 2)) $ slow 2 $ up "0 0 0 [7 5 0 12]" # sound "donk"
   |*| up "<0 0 7 5>"
+  # lpf 1000
+  # lpq 0.1
+
+m $ n (off 0.125 (+"<7 12 5>") $ "fs(3,8)")
+  # cutoff sine
+
+
 
 d1 $ jux rev $ off 0.125 (|*| crush 2) $ sound "sr(3,8)"
 
