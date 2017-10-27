@@ -12,11 +12,13 @@ let hush = hush' >> m silence
 
 cps 1.1
 
-m $ n "<c e f g>"
+m $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c e f g>")
   -- # algorithm (slow 16 sine)
-  |+| n "<0 4 7 12>"
-  |+| n (chord "major")
+  -- |+| n (chord "major")
   |+| n "-12"
+  # velocity 1
+
+d1 $ n "<c7(3,8) e7(3,8) f7(3,8) g7(3,8)>" # sound "rash"
 
 d1 $ rev $ chop 8 $ sound "acid(3,8)"
   # legato 1
