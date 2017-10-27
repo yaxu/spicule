@@ -75,7 +75,12 @@ d2 $ sometimes (|+| n 12) $ jux rev $ slow 2 $ n "0 .. 15" # sound "amencutup"
 d3 $ fast 2 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
   # shape 0.99
 
+d4 $ off 0.25 ((# crush 2) . (|*| speed 2)) $ slow 2 $ up "0 0 0 [7 5 0 12]" # sound "donk"
+  |*| up "<0 0 7 5>"
 
-d4 $ jux (rev . (|*| speed "-1")) $ off 0.25 ((# crush 2) . (|*| speed 2)) $ slow 2 $ up "0 0 0 [7 5 0 12]" # sound "donk"
+d1 $ jux rev $ off 0.125 (|*| crush 2) $ sound "sr(3,8)"
+
+d2 $ brak $sound "feel feel:3"
+  # shape 0.8
 
 d2 $ jux rev $ off 0.125 (# speed 2) $ sound "gabba(3,8)"
