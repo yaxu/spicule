@@ -63,7 +63,8 @@ d8 $ sound "gabba(3,8)"
 
 d9 $ chop "<8 2>" $ sound "off"
 
-d1 $ n "0 .. 7" # sound "industrial"
+d1 $ n "{0 1 2 3, 3 6}" # sound "industrial"
+  # shape 0.5
 
 m silence
 
