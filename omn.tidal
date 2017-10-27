@@ -25,8 +25,7 @@ d1 $ off 0.125 ((# s "pulse") . (|*| gain 0.98) . (|+| n "-12")) $ jux rev $ n (
   # lpf (slow 2 $ scale 3000 1000 sine)
   # lpq 0.2
 
-
-d2 $ jux rev $ iter 4 $ loopAt 4 $ chop 16 $ sound "paper"
+d2 $ palindrome $ loopAt 4 $ chop 16 $ sound "paper"
   # gain 1.1
 
 d3 $ off 0.25 (# crush 3) $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "micron"
