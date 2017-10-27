@@ -95,6 +95,13 @@ d1 $ every 4 (0.25 <~) $ jux rev $ off 0.125 (|*| up "<7 12>") $ up "0 -12 [5 7]
 m $ sometimes (|+| n "-12") $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "c(3,8) e(3,8) f(3,8) g(3,8)")
   # cutoff sine
 
-d1 $ off 0.125 ((# s "pulse") . (slow 2) . ) . (# gain 1.1)) $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ "<c7(3,8) e7(3,8,2) f7(3,8) g7(3,8)>") # sound "rash" # gain 0.9
+d1 $ off 0.125 ((# s "pulse") . (# gain 1)) $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ "<c7(3,8) e7(3,8,2) f7(3,8) g7(3,8)>") # sound "rash" # gain 0.9
 
 d2 $ off 0.25 (# crush 4) $ jux rev $ chunk 4 (hurry 0.5) $ slow 2 $ n "0 .. 15" # sound "jvr"
+
+d3 $ loopAt 4 $ chop 8 $ sound "paper"
+
+m $ n "<c e f g>"
+  |+| n "4"
+
+cps 1.1
