@@ -165,5 +165,8 @@ d2 $ (jux rev $ off 0.125 (|*| up 7) $ up "0 7 [~ 12] 2" # sound "sid"
 
 d3 $ every 4 (0.25 <~) $ stack [sound "bk(3,8)"
                                 # shape 0.8,
-                                sound "~ cp" # orbit 1 # delay 1
+                                sound "donk [cp]" # orbit 1 # delay 0.8 # delayt "<0.01 0.03 0.02>" # delayfb 0.8
                                ]
+
+d4 $ loopAt 2 $ chop "<8 16>" $ sound "arc"
+  # gain 1.4
