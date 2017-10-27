@@ -106,3 +106,8 @@ d3 $ rev $ loopAt "<4 8>" $ chop 8 $ sound "paper"
 m $ n "<c4(3,8) e4(3,8) f4(3,8) g4(3,8)>"
   |+| n "6"
 
+d1 $ jux rev $ n "0(2,8) [3 _ _ 3]" # sound "hit"
+  # legato 1
+  # speed 0.5
+
+d2 $ sound "scream"
