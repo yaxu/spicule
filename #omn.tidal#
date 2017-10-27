@@ -18,10 +18,13 @@ m $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c(3,8) e*2 f(3,8) g*2>")
   |+| n "-12"
   # velocity 1
 
-d1 $ off 0.125 ((# s "pulse") . (|*| gain 0.96)) $ jux rev $ n (off 0.25 (+12)
+d1 $ off 0.125 ((# s "pulse") . (|*| gain 0.98) . (|+| n "-12")) $ jux rev $ n (off 0.25 (+12)
          $ off 0.125 (+7) $ "<c7(3,8) e7(3,8) f7(3,8) g7(3,8)>") # sound "rash"
+  # lpf (slow 2 $ scale 3000 1000 sine)
+  # lpq 0.2
 
-
+d2 $ iter 4 $ loopAt 4 $ chop 16 $ sound "paper"
+  # gain 1.1
 
 
 d1 $ rev $ chop 8 $ sound "acid(3,8)"
