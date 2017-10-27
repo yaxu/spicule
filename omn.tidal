@@ -134,7 +134,7 @@ m $ breakUp $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4
   # dur 0.04
   |+| n "-12"
 
-d1 $ chunk 4 (hurry 0.5) $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ "<c7(3,8) e7(3,8,2) f7*2 g7(3,8)>") # sound "rash"
+d1 $ chunk 4 (hurry 0.5) $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ "<c7(3,8) e7(3,8,2) f7*2 g6(3,8)>") # sound "rash"
 
 d2 $ jux rev $ palindrome $ loopAt 4 $ chop 8 $ sound "paper"
 
