@@ -186,3 +186,5 @@ d3 $ loopAt 4 $ chop 8 $ sound "paper"
   # gain 1.2
 
 d4 $ sound "gabba(3,8)"
+
+d5 $ jux rev $ n (off 0.25 (+"<12 7>") $ off 0.125 (+"<7 12>") $ "<c7(3,8) e8(3,8) [f8 f7*2] g7(3,8)>") # sound "xx"
