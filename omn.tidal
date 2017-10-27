@@ -182,7 +182,7 @@ d1 $ jux rev $ off 0.25 (# s "pulse") $ n (off 0.25 (+"<12 7>") $ off 0.125 (+"<
 d2 $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "micron"
   # gain 1.2
 
-d3 $ loopAt 4 $ chop 8 $ sound "paper"
+d3 $ palindrome $ loopAt 4 $ chop 8 $ sound "paper"
   # gain 1.2
 
 d4 $ sound "gabba(3,8)"
