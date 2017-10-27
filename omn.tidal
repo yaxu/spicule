@@ -129,3 +129,15 @@ d4 $ sound "gabba"
 
 cps 0.8
 
+m $ breakUp $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4
+                  $ "c(3,8) e(3,8) f(3,8) g(3,8)")
+  # dur 0.04
+  |+| n "-12"
+
+d1 $ jux rev $ off "<0.25 0.125>" (# s "pulse") $ n (off 0.125 (+12) $ off 0.25 (+7) $ "<c7(3,8) e7(3,8,2) f7*2 g7(3,8)>") # sound "rash"
+
+
+d2 $ jux rev $ palindrome $ loopAt 4 $ chop 8 $ sound "paper"
+
+d3 $ sound "bk(3,8)"
+  # shape 0.8
