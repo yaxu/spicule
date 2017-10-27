@@ -176,15 +176,40 @@ m $ breakUp $ n (off 0.25 (+"<12 7>") $ off 0.125 (+"<7 12>") $ "<c4(3,8) e(3,8,
   # dur 0.02
   # velocity 0.9
 
-d1 $ jux rev $ off 0.25 (# s "pulse") $ n (off 0.25 (+"<12 7>") $ off 0.125 (+"<7 12>") $ "<c(3,8) e(3,8) f(3,8) g(3,8)>") # sound "rash"
+d1 $ chunk 4 (hurry 0.5) $ jux rev $ off 0.25 (# s "pulse") $ n (off 0.25 (+"<12 7>") $ off 0.125 (+"<7 12>") $ "<c(3,8) e(3,8) f(3,8) g(3,8)>") # sound "rash"
   |+| n "12"
 
 d2 $ jux rev $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "micron"
   # gain 1.2
 
-d3 $ palindrome $ loopAt 4 $ chop 8 $ sound "paper"
+d3 $ chunk 4 (hurry 0.5) $ loopAt 4 $ chop 8 $ sound "paper"
   # gain 1.2
 
 d4 $ sound "gabba(3,8)"
 
-d5 $ jux rev $ n (off 0.25 (+"<12 7>") $ off 0.125 (+"<7 12>") $ "<c7(3,8) e8(3,8) [f8 f7*2] g7(3,8)>") # sound "xx"
+d5 $ chunk 4 (hurry 0.5) $ jux rev $ n (off 0.25 (+"<12 7>") $ off 0.125 (+"<7 12>") $ "<c7(3,8) e8(3,8) [f8 f7*2] g7(3,8)>") # sound "xx"
+  |*| speed "[2, 4]"
+
+d6 $ off 0.25 (# crush 2) $ slow 2 $ n "0 ~ [3 4] 2 4 [2 ~ ~ 5] 3 ~" # sound "speakspell"
+
+d7 $ sound "gabba(3,8)"
+
+d8 $ sound "~ donk ~ donk*2"
+
+d9 $ brak $ fast 2 $ sound "feel feel:3"
+  # gain 1.3
+
+d10 $ slow 2 $ up (off 0.25 (+12) $ "[0(3,8), ~ [7 2]]") # sound "stabs"
+  # legato 1
+  # shape 0.9
+
+d1 $ jux rev $ loopAt 1 $ chop 8 $ sound "<os os:1 os:2 os:1>"
+  # gain 1.5
+
+d2 $ (loopAt 4 $ chop 16 $ sound "repetition")
+  # gain 1.2
+  
+  # shape 0.6
+  # lpf (slow 3 $ scale 100 4000 sine)
+  # lpq 0.2
+  |+| n (irand 16)
