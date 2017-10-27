@@ -80,7 +80,7 @@ d3 $ fast 2 $ chunk 4 (hurry 2) $ sound "kicklinn*4"
 d4 $ off 0.25 ((# crush 2) . (|*| speed 2)) $ slow 2 $ up "0 0 0 [7 5 0 12]" # sound "donk"
   |*| up "<0 0 7 5>"
 
-m $ n (o"c*8"
+m $ n (off 0.125 (+7) $ "c(3,8)")
 
 
 d1 $ jux rev $ off 0.125 (|*| crush 2) $ sound "sr(3,8)"
