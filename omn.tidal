@@ -124,3 +124,8 @@ d2 $ off 0.125 (|*| speed 2) $ off 0.25 (# crush 3) $ sound "bk:1(5,8)"
   # shape 0.2
 
 d3 $ chunk 4 (# speed 4) $ jux rev $ chop "<2 4 3>" $ sound "~ off"
+
+d4 $ sound "gabba"
+
+cps 0.8
+
