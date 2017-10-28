@@ -40,8 +40,46 @@ d6 $ sound "~ wobble*2"
   # shape 0.5
   # speed "<4 8 2>"
 
+solo $ 
 d7 $ jux rev $ iter 4 $ loopAt 4 $ chop 8 $ sound "repetition"
   # shape 0.6
   # gain 1.1
   # n (irand (8))
 
+
+d7 $ jux rev $ weave 16 (n "0 .. 7" # sound "arpy")
+  [vowel "a e i*2",
+   vowel "i e*2 o u",
+   speed "1 2 3 0.5",
+   speed "0.5 1"
+  ]
+  # lpf 2000
+  # lpq 0.1
+
+d1 $ off 0.25 (# glass 0.2) $ breakUp $ jux rev $ brak $ sound "[feel [~ feel:3], bd(3,8)]"
+  # speed 2
+
+d2 $ n "{0 ~ 3 1, 2 1*2 3}" # sound "drum"
+
+d3 $ jux rev $ iter 4 $ loopAt 4 $ chop 8 $ sound "liq"
+  # gain 1.3
+
+d4 $ jux rev $ chunk 4 (hurry 0.5) $ loopAt 2 $ chop 8 $ sound "<os os:1 os:2>"
+  # gain 1.3
+
+d5 $ off 0.125 (|*| up 7) $ off 0.25 (|*| up 12) $ up "0 [7 12]" # n "0" # sound "sid:3"
+  # gain 1.3
+  # lpf (slow 4 $ scale 500 3000 sine1)
+  # lpq 0.2
+
+d1 $ jux rev $ chunk 4 (hurry 2) $ slow 2 $ off 0.25 (# crush 3) $ sound "acid [~ acid*2] acid:4 ~"
+  # legato 1
+  # gain 1.3
+  
+d3 $ jux rev $ off 0.25 (|+| speed 2) $ sound "kicklinn(3,8)"
+   # gain 1.3
+
+d4 $ chunk 4 (hurry 2) $ n "0 [~ 4] 0*2 3" # sound "jvr"
+  # gain 1.3
+
+d5 $ sound "~ gabba"
