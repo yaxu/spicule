@@ -6,8 +6,26 @@ d2 $ jux rev $ chop "<4 8 6>" $ sound "~ off"
   # gain 1.1
   # speed 2
 
+d3  $ chunk 4 (hurry 0.5) $ jux rev $ n (off 0.125 (+12)$ off 0.25 (+7) $"<c7(3,8) e7(3,8,2) f7(3,8) g6(3,8)>") # sound "<rash>"
+  |+| n "12"
 
-d3 $ jux rev $ n (off 0.125 (+12)$ off 0.25 (+7) $"<c7(3,8) e7(3,8,2) f7(3,8) g6(3,8)>") # sound "xx"
-  |+| n "24"
+d2 $ iter 4 $ loopAt 4 $ chop 8 $ sound "paper"
+  # gain 1.2
 
-d2 $ sound "pa
+d2 silence
+
+d1 $ every 3 (0.25 <~) $ chunk 4 (hurry 2) $ n "0 .. 7" # sound "amencutup"
+  # shape 0.3
+  # gain 1.1
+
+d2 $ off 0.25 (|*| up 7) $ up "0 [~ <7 12>]" # sound "stabs"
+  # shape 0.5
+
+d3 $ chunk 4 (chop 2 . hurry 2) $ sound "gabba(3,8)"
+
+d4 $ off 0.25 (# crush 4) $ jux rev $ loopAt "<2 1>" $ chop 8 $ sound "arc"
+  # gain 1.1
+  # shape 0.2
+
+d5 $ jux revchop 8 $ sound "~ cp*2"
+  # gain 1.1
