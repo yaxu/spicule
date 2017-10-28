@@ -1,3 +1,13 @@
-m $ n "c(3,8)"
 
-d1 $ sound "bd"
+d1 $ (jux rev $ off 0.25 (# speed 2) $ n "[0(3,8), 1(5,8)]" # sound "micron")
+  # orbit 1
+
+d2 $ jux rev $ chop "<4 8 6>" $ sound "~ off"
+  # gain 1.1
+  # speed 2
+
+
+d3 $ jux rev $ n (off 0.125 (+12)$ off 0.25 (+7) $"<c7(3,8) e7(3,8,2) f7(3,8) g6(3,8)>") # sound "xx"
+  |+| n "24"
+
+d2 $ sound "pa
