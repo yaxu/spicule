@@ -16,6 +16,7 @@ d5 $ chunk 4 (hurry 2) $loopAt 2 $ chop 8 $ sound "arc"
 
 d5 $ jux rev $ chunk 4 (hurry 2) $ loopAt 4 $ chop 16 $ sound "sl:1"
   # gain 1.1
+  # accelerate 1
 
 d6 $ jux rev $ chop 2 $ sound "feel(3,8)"
   # orbit 1
@@ -28,8 +29,10 @@ d7 $ iter 4 $ off 0.25 (|*| speed 2) $ sound "jungbass [jungbass*2 [~ jungbass]]
   # legato 1
   # crush 5
 
-d8 $ n "" # sound "funky"
-  # gain 1.1
+d8 $ chunk 4 (hurry 2 ) $ every 4 (rev) $ every 3 (0.25 <~) $ n "0 .. 7" # sound "funky"
+  # gain 1
+
+d9 $ sound "sid"
 
 d2 $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ "c7 [~ [a6 a5]] f7(3,8) e7") # sound "rash"
   # lpf 2000
