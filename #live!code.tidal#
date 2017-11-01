@@ -23,8 +23,13 @@ d6 $ jux rev $ chop 2 $ sound "feel(3,8)"
   # delayt 0.01
   # delayfb 0.9
 
-d7 $ sound "jungbass"
-  # 
+d7 $ iter 4 $ off 0.25 (|*| speed 2) $ sound "jungbass [jungbass*2 [~ jungbass]]"
+  # speed 2
+  # legato 1
+  # crush 5
+
+d8 $ n "" # sound "funky"
+  # gain 1.1
 
 d2 $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ "c7 [~ [a6 a5]] f7(3,8) e7") # sound "rash"
   # lpf 2000
