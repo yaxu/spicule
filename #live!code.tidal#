@@ -1,5 +1,5 @@
 
-d1 $ jux rev $ off 0.25 (# speed 2) $ n "<0(3,8) 3*2>" # sound "micron(3,8)"
+d1 $ chunk 4 (hurry 2) $ jux rev $ off 0.25 (# speed 2) $ n "<0(3,8) [3 4]*2>" # sound "micron(3,8)"
   # orbit 1
   # room 0.3
   # size 0.4
@@ -11,9 +11,11 @@ d3 $ jux rev $ off 0.25 (# s "pulse") $ n (off 0.25 (+7) $"<c6(3,8) e7(3,8) f7(3
 
 d4 $ iter 4 $ loopAt 4 $ chop 8 $ sound "paper"
 
-d5 $ loopAt 2 $ chop 8 $ sound "arc"
+d5 $ chunk 4 (hurry 2) $loopAt 2 $ chop 8 $ sound "arc"
   # gain 1.1
 
+d5 $ chunk 4 (hurry 2) $ loopAt 4 $ sound "sl:1"
+  # gain 1.1
 
 d2 $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ "c7 [~ [a6 a5]] f7(3,8) e7") # sound "rash"
   # lpf 2000
