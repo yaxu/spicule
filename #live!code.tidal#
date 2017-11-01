@@ -2,5 +2,9 @@
 
 d1 $ jux rev $ off 0.25 (# speed 2) $ n "<0(3,8) 3*2>" # sound "micron(3,8)"
 
-d2 $ n "c7 [~ [a6 a5]]" # sound "rash"
+d2 $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ "c7 [~ [a6 a5]] f7(3,8) e7") # sound "rash"
+  # lpf 2000
+
+d3 $ loopAt 2 $ chop 16 $ sound "sl"
+  
 
