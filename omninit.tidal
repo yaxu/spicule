@@ -7,8 +7,10 @@ displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
 -- m <- midiStream devices "X18/XR18 MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
-m <- midiStream devices "Scarlett 2i4 USB MIDI 1" 2 (volcabassController {Sound.Tidal.MIDI.Context.latency = 0.4})
+m <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
 let hush' = hush
 let hush = hush' >> m silence
 let solo p = hush >> p
+
+
