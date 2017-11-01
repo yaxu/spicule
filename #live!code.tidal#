@@ -53,5 +53,5 @@ d3 $ chunk 4 (hurry 0.5) $ jux rev $ loopAt 2 $ chop 16 $ sound "sl"
   # gain 1.1
   
 
-d1 $ jux revery 4 (hurry 0.5) $ off 0.25 ((# (s "pulse" # gain 0.9)) . (|+| n "12")) $ n (off 0.25 (+"<12 -12>") $ off 0.125 (+7) $ slow 2 $ "f a c e") # sound "supermandolin"
+d1 $ slow 2 $ every 4 (hurry 0.5) $ jux rev $ off 0.25 ((# (s "pulse" # gain 0.9)) . (|+| n "12")) $ n (off 0.25 (+"<12 -12>") $ off 0.125 (+7) $ slow 2 $ "f(3,8) a(3,8) c*2 e(3,8)") # sound "supermandolin"
 
