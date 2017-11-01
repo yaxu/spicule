@@ -39,16 +39,16 @@ d10 $ sound "~ stabs"
 
 d1 $ chunk 4 (fast 2) $ sound "gabba(3,8,<0 4 2>)"
   # speed 4
-  # end 0.4
+  # end 0.6
 
-d2 $ rev $ loopAt 8 $ chop 16 $ sound "atlast:1"
-
+d2 $ chunk 4 (hurry 2) $ loopAt 4 $ chop 16 $ sound "atlast:2"
 
 
 d2 $ jux rev $ slow 2 $ n (off 0.25 (+12) $ off 0.125 (+7) $ "c7 [~ [a6 a5]] f7(3,8) e7") # sound "rash"
   # lpf 2000
   |+| n "<0 7 -5 0>"
 
+hush
 d3 $ chunk 4 (hurry 0.5) $ jux rev $ loopAt 2 $ chop 16 $ sound "sl"
   # gain 1.1
   
