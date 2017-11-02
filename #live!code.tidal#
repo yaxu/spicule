@@ -56,6 +56,7 @@ d3 $ chunk 4 (hurry 0.5) $ jux rev $ loopAt 2 $ chop 16 $ sound "sl"
 d1 $ slow 2 $ every 4 (hurry 0.5) $ jux rev $ off 0.25 ((# (s "pulse" # gain 0.9)) . (|+| n "12")) $ n (off 0.25 (+"<12 -12>") $ off 0.125 (+7) $ slow 2 $ "f(3,8) a(3,8) c*2 e(3,8)") # sound "supermandolin"
 
 
+
 (randcat ["cp","cp*2","cp*3","cp*3","cp*4","cp*5","cp*6","cp*7","cp*8","cp*9","cp*10","cp*11","cp*12"])
 
 d1 $ sound $ fast (discretise 1 $ (irand 12) + 1) "cp"
