@@ -10,6 +10,7 @@ m1 $ cc4 "3 2 1"
 
   {Sound.Tidal.MIDI.Context.latency = 0.4})
 
+m2 <- midiStream devices "Midi Through Port-0" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
 import Sound.Tidal.MIDI.VolcaFM
 
