@@ -1,0 +1,8 @@
+d1 $ jux rev $ do let numbers = [2,3,4,5]
+                      possibilities = permutations numbers
+                      total = sum numbers
+                      l = length possibilities
+                  x <- discretise (1%(fromIntegral total)) $ irand l
+                  spaceOut (possibilities !! x) $ sound "[bd sn mt*2 lt drum*3 sn:2*2 sn:4]"
+                    # speed 4
+                    # delay 0.4 # delayfb 0.9 # delayt (scale 0.01 0.02 sine)
