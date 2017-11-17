@@ -58,3 +58,15 @@ x5 $ slowspread (\x -> off x (|*| speed "2")) [0.125,0.25,0.25,-(1/16)] $ (whenm
 
 d1 $ n "0 1" # sound "alphabet"
   # pan "0 1"
+
+
+d1 $ sound "wobble"
+ # shape 0.3
+
+d2 $ off 0.25 (# s "pulse")$ jux rev $ n (off 0.25 (+7) $ "<c7(3,8) a7(3,8,2) f7 e7>")# sound "xx"
+
+d3 $ sound "cp8(3,8)"
+
+d3 $ n "0 .. 7" # sound "amencutup*8"
+
+d3 $ sound "notes*8"
