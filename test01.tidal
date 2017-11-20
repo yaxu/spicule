@@ -61,7 +61,7 @@ d1 $ n "0 1" # sound "alphabet"
 
 
 d1 $ sound "wobble"
- # shape 0.3
+  
 
 d2 $ off 0.25 (# s "pulse")$ jux rev $ n (off 0.25 (+7) $ "<c7(3,8) a7(3,8,2) f7 e7>")# sound "xx"
 
