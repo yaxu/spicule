@@ -7,6 +7,14 @@ devices <- midiDevices
 
 m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
+let hush' = hush >> m1 silence
+let hush = hush'               
+
+
+m1 $ n "c4 [~ a4]"
+  # lfo (slow 8 sine)
+  # dur 0.1
+
 m1 $ n "c(3,8)"
   # dur 0.1
   # velocity 1
@@ -23,9 +31,6 @@ d2 $ sound "drum(3,8)"
 
 
 let m p = m1 $ p # nudge 0.25
-
-let hush' = hush >> m1 silence
-let hush = hush'               
 
 
 ccall {Sound.Tidal.Context.latency = 0.2}
