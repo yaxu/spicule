@@ -142,4 +142,8 @@ m1 $ n (scaleP "<majPent ! minPent !>" $ off 0.25 (+5) $ off 0.125 (+3) $ struct
 
 m1 $ off 0.125 (|+| n 12)$ n (scaleP "majPent" (floor <$> (scale 0 10 $ (slow 4 sine) + (slow 2 saw))))
   |+| n "<0 7 5 12>"
-  
+
+d1 $ sound "wobble(3,8)"
+hush
+
+d2 $ n "0 3" # sound "sclap"
