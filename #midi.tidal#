@@ -118,5 +118,6 @@ m1 $ n "a3" # otune 0.8
 m1 silence
 
 
-d1 $ n (scaleP "majpent" ("0.5")) # sound "superpiano"
+d1 $ n (scaleP "majPent" (struct "x(5,8,[0 2]/2)" $ floor <$> scale 0 10 (sine + (slow 4 saw)))) # sound "rash"
+  |+| n "12"
 
