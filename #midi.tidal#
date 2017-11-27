@@ -24,10 +24,15 @@ d3 $ sound "ravebass"
   # speed 2
   
 m1 silence
+
 m1 $ n "c(3,8)"
+  # dur 0.4
+
+
   # dur 0.1
   # velocity 1
   # lfo 1
+
 hush
 
 m1 $ slow 2 $ off 0.25 (|+| n 7) $ n "f(3,8) a c*2 e"
@@ -147,3 +152,6 @@ d1 $ sound "wobble(3,8)"
 hush
 
 d2 $ n "0 3" # sound "sclap"
+
+
+d1 $ sound ""
