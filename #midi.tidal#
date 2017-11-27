@@ -130,11 +130,14 @@ d3 $ chunk 4 (hurry 2) $ sound "bk*4"
   # shape 0.6
 
 
-m1 $ arpit $ slow 2 $ off 0.125 (# algrtm "0.2") $ n (off 0.25 (+12) $ scaleP "majPent" (struct "x(5,8,[0 2]/2)" $ floor <$> scale 0 10 (sine + (slow 8 saw))))
+m1 $ n (off 0.25 (+12) $ scaleP "majPent" (struct "x(5,8,[0 2]/2)" $ floor <$> scale 0 10 (sine + (slow 8 saw))))
   |+| n "<12 7 0 7>"
   # lfo 0
-  # algrtm 0.6
+  # algrtm 0.2
 
 m1 $ n "0"
 
-m1 $ n (scaleP "majPent" $ off 0.125 (+3) $ struct "3(3,8)" (slow 4 $ floor <$> (scale 0 10 saw) + (scale 0-slow 2 sine)))
+m1 $ n (scaleP "<majPent ! minPent !>" $ off 0.25 (+5) $ off 0.125 (+3) $ struct "3(3,8)" (slow 4 $ floor <$> (scale 0 10 saw) + (scale 0 3 $ slow 2 sine)))
+
+
+m1 $ n (scaleP "majPen)
