@@ -118,6 +118,14 @@ m1 $ n "a3" # otune 0.8
 m1 silence
 
 
-d1 $ off 0.125 (# s "pulse") $ n (arpit $ off 0.25 (+12) $ scaleP "majPent" (struct "x(5,8,[0 2]/2)" $ floor <$> scale 0 10 (sine + (slow 8 saw)))) # sound "rash"
+d1 $ slow 2 $ off 0.125 (# s "pulse") $ n (arpit $ off 0.25 (+12) $ scaleP "majPent" (struct "x(5,8,[0 2]/2)" $ floor <$> scale 0 10 (sine + (slow 8 saw)))) # sound "rash"
   |+| n "<12 7 0 7>"
+
+d2 $ n "[0(3,8), 2(5,8)]" # sound "sclap"
+  # speed 2
+
+d3 $ chunk 4 (hurry 2) $ sound "bk*4"
+  # gain 1.1
+  # speed 2
+  # shape 0.6
 
