@@ -7,11 +7,11 @@ devices <- midiDevices
 
 m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
-m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
+m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
 m1 <- midiStream devices "TR-8 MIDI 1" 10 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
-m1 $ n "0(3,8)"
+m1 $ slow 8 $ n "1 .. 127"
 
 let hush' = hush >> m1 silence
 let hush = hush'               
