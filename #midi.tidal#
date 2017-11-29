@@ -155,4 +155,4 @@ d1 $ chunk 4 (hurry 2) $ n "0 ~ 6 [~ 4*2]" # sound "sclap"
 d2 $ n "c7" # sound "xx"
 
 
-m1 $ n "0"
+m1 $ n "12"
