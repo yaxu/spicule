@@ -5,16 +5,19 @@ import Sound.Tidal.MIDI.VolcaFM
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
-m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
+m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
+
+let hush' = hush >> m1 silence
+let hush = hush'               
+
+m1 $ n "c"
+
 
 m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
 m1 <- midiStream devices "TR-8 MIDI 1" 10 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
 m1 $ slow 8 $ n "1 .. 127"
-
-let hush' = hush >> m1 silence
-let hush = hush'               
 
 m1 $ off 0.25 (|+| n "-12") $ n (scaleP "minPent" (struct "x(5,8)" $ floor <$> (scale 0 10 $ (slow 4 sine) + (slow 2 saw))))
 
@@ -155,4 +158,3 @@ d1 $ chunk 4 (hurry 2) $ n "0 ~ 6 [~ 4*2]" # sound "sclap"
 d2 $ n "c7" # sound "xx"
 
 
-m1 $ n "12"
