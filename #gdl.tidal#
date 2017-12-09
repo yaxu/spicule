@@ -1,0 +1,6 @@
+d1 $ sound "bd"
+
+cps 0.6
+
+m1 $ slow 4 $ n "c(3,8) e f g"
+
