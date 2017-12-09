@@ -1,0 +1,20 @@
+<!DOCTYPE patchbay>
+<patchbay name="gdl" version="0.4.4">
+ <output-sockets>
+  <socket type="jack-audio" name="SuperCollider 1" client="SuperCollider" exclusive="off">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+ </output-sockets>
+ <input-sockets>
+  <socket type="jack-audio" name="JACK Input Client 1" client="JACK Input Client" exclusive="off">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+ </input-sockets>
+ <slots/>
+ <cables>
+  <cable type="jack-audio" input="JACK Input Client 1" output="SuperCollider 1"/>
+ </cables>
+</patchbay>
+
