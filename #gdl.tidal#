@@ -2,5 +2,6 @@ d1 $ sound "bd"
 
 cps 0.6
 
-m1 $ slow 4 $ n "c(3,8) e f g"
+m1 $ n (slow 2 $ off 0.25 (+7) $
+         slow 2 "c(3,8) e*2 f{5,8} g")
 
