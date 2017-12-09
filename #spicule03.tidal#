@@ -43,6 +43,9 @@ d1 $ stack [never (off "<0.25 0.125>" (# (speed 2 # crush (slow 16 $ scale 2 16 
             # room 0.4
            ]
 
+m1 $ n "c"
+
+d1 $ sound "bd gabba"
 
 let patterns = [("line",
                  (slow 2 $ off "<0.25 0.5 0.125>" (degradeBy "0 0.3" . (# (s "xx" # speed 2 # gain 0.9 # legato 1))) $ juxBy 0.2 (rev . (|+| n "<7 7 7 7 12>")) $ off 0.25 (|+| n 7) $ n "<c7(3,8,<0 4>) a7(3,8) f7(3,8) e7(3,8)>" # sound "rash"
