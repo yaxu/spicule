@@ -10,7 +10,7 @@ m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.T
 let hush' = hush >> m1 silence
 let hush = hush'               
 
-m1 $ n "c"
+
 
 
 
