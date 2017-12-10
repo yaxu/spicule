@@ -40,7 +40,7 @@ d2 $ jux (|*| speed 0.5) $ n (off 0.25 (+"<7 7 5 5>") $ "c7 [~ g9] c6 c8*2") # s
 d3 $ off 0.25 (# crush 3) $ chunk 4 (hurry 2) $ n "{0*2 ~, 1 5*2 3*2}" # sound "speakspell"
   # gain 1.1
 
-d5 $ jux rev $ slow 2 $ struct "x(3,8)" $ sound "hits:1"
+d5 $ jux rev $ slow 2 $ struct "x(3,8)" $ sound "hits:2"
   # orbit 1
   # gain 1.2
 
@@ -50,13 +50,21 @@ d9 $ jux rev $ loopAt 4 $ chop 32 $sound "repetition"
 
 d8 $ off 0.25 (|*| speed 2) $ slow 2 $ sound "gab(<5 7>,16)"
   # gain 1.2
+  # end 0.01
 
 d7 $ jux rev $ iter 4 $ loopAt 4 $ chop 8 $ sound "liq"
   # gain 1.5
-  # lpf (slow 2 $ scale 2000 6000 sine)
+  # lpf (slow 4 $ scale 2000 8000 sine)
   # lpq 0.2
 
-d1 $ rev $ loopAt 2 $ chop 4 $ sound "narc"
+d1 $ rev $ loopAt 2 $ chop 4 $ sound "narc:1"
   # gain 1.5
+
+d1 $ off 0.25 (|*| s "jx") $ slow 2 $ n "[c8 ~ d8? e9] [c8 g8]" # sound "xx"
+  # gain 1.35
+  |+| n "<0 7 12 7>"
+
+d2 $ jux rev $ off 0.25 (# speed 2)$ loopAt 2 $ chop 8 $ s "os:1"
+  # gain 1.4
 
 cps 1.1
