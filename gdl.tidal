@@ -60,11 +60,11 @@ d7 $ jux rev $ iter 4 $ loopAt 4 $ chop 8 $ sound "liq"
 d1 $ rev $ loopAt 2 $ chop 4 $ sound "narc:1"
   # gain 1.5
 
-d1 $ off 0.25 (|*| s "jx") $ slow 2 $ n "[c8 ~ d8? e9] [c8 g8]" # sound "xx"
+d1 $ chunk 4 (hurry 2) $ off 0.25 (|*| s "jx") $ slow 2 $ n "[c8 ~ d8? e9] [c8 g8]" # sound "xx"
   # gain 1.35
   |+| n "<0 7 12 7>"
 
-d2 $ jux rev $ off 0.25 (# speed 2)$ loopAt 2 $ chop 8 $ s "os:1"
+d2 $ jux rev $ off 0.25 (|*| speed 2)$ loopAt 2 $ chop 8 $ s "os:1"
   # gain 1.4
 
 cps 1.1
