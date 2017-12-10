@@ -40,9 +40,9 @@ d2 $ jux (|*| speed 0.5) $ n (off 0.25 (+"<7 7 5 5>") $ "c7 [~ g9] c6 c8*2") # s
 d3 $ off 0.25 (# crush 3) $ chunk 4 (hurry 2) $ n "{0*2 ~, 1 5*2 3*2}" # sound "speakspell"
   # gain 1.1
 
-d5 $ sound "~ hits"
+d5 $ jux rev $ slow 2 $ struct "x(3,8)" $ sound "hits:2"
   # delay "0.8"
-  # delayt "<0.02 0.03>"
+  # delayt "<0.1 0.09>"
   # delayfb 0.9
   # orbit 1
   # gain 1.2
