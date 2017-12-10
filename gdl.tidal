@@ -13,7 +13,6 @@ d2 $ chunk 4 (hurry 0.5) $ jux rev $ off 0.125 (# s "pulse") $ slow 1 $ n (off 0
 d3 $ chunk 4 (hurry 0.5) $ jux rev $ palindrome $ loopAt 4 $ chop 8 $ sound "paper"
   # gain 1.2
 
-
 d4 $ jux rev $ n (off 0.125 (+ 4) $ "0 [~ 6] 3 4") # sound "funky"
   # gain 1.4
 
@@ -25,3 +24,7 @@ d3 $ jux rev $ off 0.25 (# speed 0.75) $ chop "<3 4>" $ sound "~ sn:2*2"
   
 d4 $ chop "<2 4 6>" $ sound "~ off"
   # shape 0.6
+
+d7 $ off 0.25 (|*| speed 2) $ sound "gabba(3,8,<0 4>)"
+  # gain 1.1
+  
