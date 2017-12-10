@@ -75,8 +75,10 @@ d3 $ jux rev $ off 0.25 (|*| speed 2) $ n "0 .. 7" # sound "micron"
 
 d2 $ jux rev $ off 0.25 (|*| speed 2)$ loopAt 2 $ chop 8 $ s "<os:1 os:0>"
   # gain 1.4
-
+hush
 d2 silence
 cps 1.1
 
-d1 $ soun
+d1 $ n (off 0.125 (+ chord "major") $ "c e") # sound "superpiano"
+  # gain 1.4
+  
