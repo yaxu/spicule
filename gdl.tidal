@@ -66,7 +66,7 @@ d1 $ chunk 4 (hurry 2) $ off 0.25 (|*| s "jx") $ slow 2 $ n "[c8 ~ d8? e9] [c8 g
   # lpf 3000
   # lpq 0.2
 
-d2 $ jux rev $ off 0.25 (# speed 4) $ sound "bd gab [mt ht] sn:2"
+d2 $ chunk 4 (hurry 2) $ jux rev $ off 0.25 (# speed 4) $ sound "bd gab [mt ht] sn:2"
   # speed 2
   # gain 1.3
 
