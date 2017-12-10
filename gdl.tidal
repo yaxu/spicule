@@ -56,4 +56,7 @@ d7 $ jux rev $ iter 4 $ loopAt 4 $ chop 8 $ sound "liq"
   # lpf (slow 2 $ scale 2000 6000 sine)
   # lpq 0.2
 
+d1 $ rev $ loopAt 2 $ chop 4 $ sound "narc"
+  # gain 1.5
+
 cps 1.1
