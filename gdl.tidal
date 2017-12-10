@@ -1,6 +1,6 @@
 
 d1 $ off 0.125 (|*| speed 0.75) $ jux rev $
-  off 0.25 (# crush 2) $ slow 2 $ sound "odx(3,8)"
+  off 0.25 (# crush 2) $ slow 2 $ sound "kicklinn(3,8)"
   # speed 4
   # lpf (slow 2 $ scale 3000 200 sine)
   # lpq 0.2
