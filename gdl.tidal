@@ -4,11 +4,12 @@ d1 $ off 0.125 (|*| speed 0.75) $ jux rev $
   # speed 4
   # lpf (slow 2 $ scale 3000 200 sine)
   # lpq 0.2
-
-d2 $ chunk 4 (hurry 0.5) $ jux rev $ off 0.125 (# s "pulse") $ slow 1 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 "c7(3,8) e7(3,8) f7(3,8) g7*2") # sound "rash"
+d2 silence
+d2 $ chunk 4 (hurry 0.5) $ jux rev $ off 0.125 (# s "jx") $ slow 1 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 "c7(3,8) e7(3,8) f7(3,8) g7*2") # sound "rash"
   # lpf (slow 2 $ scale 2000 4000 saw)
   # lpq 0.2
   # gain 1.1
+
 
 d3 $ chunk 4 (hurry 0.5) $ loopAt 4 $ chop 16 $ sound "paper"
   # gain 1.2
@@ -28,3 +29,12 @@ d4 $ chop "<2 4 6>" $ sound "~ off"
 d7 $ off 0.25 (|*| speed 2) $ sound "gabba(3,8,<0 4>)"
   # gain 1.1
   
+d1 $ jux rev $ loopAt 2 $ chop 8 $ sound "arc"
+  # gain 1.4
+
+d2 $ jux (|*| speed 0.5) $ n (off 0.25 (+"<7 7 5 5>") $ "c7 [~ g9] c6 c8") # sound "jx"
+  # lpf (slow 2 $ scale 2000 4000 sine)
+  # lpq 0.3
+  
+
+cps 1.1
