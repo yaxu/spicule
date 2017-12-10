@@ -10,7 +10,7 @@ d2 $ chunk 4 (hurry 0.5) $ jux rev $ off 0.125 (# s "pulse") $ slow 1 $ n (off 0
   # lpq 0.2
   # gain 1.1
 
-d3 $ jux rev $ palindrome $ loopAt 4 $ chop 8 $ sound "paper"
+d3 $ chunk 4 (hurry 0.5) $ jux rev $ palindrome $ loopAt 4 $ chop 8 $ sound "paper"
   # gain 1.2
 
 
