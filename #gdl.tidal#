@@ -5,4 +5,11 @@ d1 $ off 0.125 (|*| speed 0.5) $ jux rev $
   # lpf (slow 2 $ scale 3000 200 sine)
   # lpq 0.2
 
-d2 $ n "" # sound "rash"
+d2 $ n (slow 2 "c7(3,8) e6*2 f7(3,8) g6") # sound "rash"
+  # lpf 2000
+  # lpq 0.2
+
+d3 $ chop "<3 4>" $ sound "~ cp*2"
+  # orbit 1
+  # room 0.3
+  # size 0.
