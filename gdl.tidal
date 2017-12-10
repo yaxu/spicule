@@ -47,7 +47,7 @@ d5 $ sound "~ hits"
   # orbit 1
   # gain 1.2
 
-d9 $ loopAt 4 $ gap 32 $sound "repetition"
+d9 $ jux rev $ loopAt 4 $ chop 32 $sound "repetition"
   # gain 1.4
   # n (irand 7)
 
