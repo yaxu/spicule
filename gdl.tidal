@@ -41,14 +41,19 @@ d3 $ off 0.25 (# crush 3) $ chunk 4 (hurry 2) $ n "{0*2 ~, 1 5*2 3*2}" # sound "
   # gain 1.1
 
 d5 $ jux rev $ slow 2 $ struct "x(3,8)" $ sound "hits:1"
-  # delay "0.8"
-  # delayt "<0.1 0.09>"
-  # delayfb 0.9
   # orbit 1
   # gain 1.2
 
 d9 $ jux rev $ loopAt 4 $ chop 32 $sound "repetition"
   # gain 1.4
   # n (irand 7)
+
+d8 $ sound "~ gab*2"
+  # gain 1.2
+
+d7 $ jux rev $ iter 4 $ loopAt 4 $ chop 8 $ sound "liq"
+  # gain 1.5
+  # lpf (slow 2 $ scale 2000 6000 sine)
+  # lpq 0.2
 
 cps 1.1
