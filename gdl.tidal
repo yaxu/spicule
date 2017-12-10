@@ -5,7 +5,7 @@ d1 $ off 0.125 (|*| speed 0.75) $ jux rev $
   # lpf (slow 2 $ scale 3000 200 sine)
   # lpq 0.2
 
-d2 $ n (off 0.25 (+7) $ slow 2 "c7(3,8) e6*2 f7(3,8) g6*2") # sound "rash"
+d2 $ slow 2 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 "c7(3,8) e6*2 f7(3,8) g6*2") # sound "rash"
   # lpf (slow 2 $ scale 2000 4000 saw)
   # lpq 0.2
   # gain 1.1
