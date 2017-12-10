@@ -35,6 +35,7 @@ d1 $ iter 4 $ jux rev $ loopAt 2 $ chop 8 $ sound "arc"
 d2 $ jux (|*| speed 0.5) $ n (off 0.25 (+"<7 7 5 5>") $ "c7 [~ g9] c6 c8") # sound "jx"
   # lpf (slow 2 $ scale 2000 4000 sine)
   # lpq 0.3
+  |+| n "<0 2 5 12>"
 
 d3 $ off 0.25 (# crush 3) $ chunk 4 (hurry 2) $ n "{0*2 ~, 1 5*2 3}" # sound "speakspell"
   # gain 1.1
