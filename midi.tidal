@@ -13,8 +13,6 @@ let hush = hush'
 
 
 
-
-
 m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
 m1 <- midiStream devices "TR-8 MIDI 1" 10 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
