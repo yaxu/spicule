@@ -13,15 +13,25 @@ let hush = hush'
 
 cps (145/60/2)
 
+d1 $ someCycles (stut 8 0.7 ( <$> rand) $ sound "[bd9:3, future,drum]*2"
+  # cut (-1)
+  
+
+
+cps (129/60/)
+
+
+
 m1 $ n (off 0.25 (+"-12") $ off 0.125 (+7) $ slow 4 "c(3,8) e*2 f(3,8) g*2")
 
-m1 $ n ("c8*2 [~ e7]")
-  # dur (scale 0.3 0.5 $ slow 4 sine)
-  # lfo 0.1
+m1 $ n (off 0.125 (+12) $ off 0.25 (subtract 5) $ slow 2 $ "c8*2 [~ <g7 e7>] f8 a7")
+  # dur (scale 0.01 0.1 $ slow 4 sine)
+  |+| n "[-36,-24]"
 
+d1 $ iter 4 $ jux rev $ chunk 4 (hurry "<2 0.75>") $ sound "drum*4"
+  # shape 0.8
 
-
-
+  
 m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
 
 m1 <- midiStream devices "TR-8 MIDI 1" 10 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
