@@ -13,8 +13,11 @@ let hush = hush'
 
 
 
+m1 $ n (off 0.25 (+"-12") $ off 0.125 (+7) $ slow 4 "c(3,8) e*2 f(3,8) g*2")
 
-m1 $ y
+m1 $ n "c8 [~ e7]"
+  # dur (scale 0.3 0.5 $ slow 4 sine)
+
 
 
 
