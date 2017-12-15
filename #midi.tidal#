@@ -172,8 +172,16 @@ d3 $ sound "wobble(3,8)"
 
 hush
 
-d2 $ offn "[0 12] [3 4 8 8]" # sound "sclap"
+d2 $ chunk 4 (hurry 2) $ off 0.25 (# lpq 0.1)$ n "[0 12] [3 4 16 8]" # sound "sclap"
   # lpf 4000
+  |*| speed 2
+
+d1 $ sound "bk:2(3,8)"
+  # gain 1.1
+  # crush 3
+
+d2 $ n "0 [4 [~ 4]]" # sound "jvrave"
+  # gain 1.2
 
 
 d1 $ n  # sound "rash"
