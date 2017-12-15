@@ -177,7 +177,7 @@ d2 $ chunk 4 (hurry 2) $ off 0.25 (# lpq 0.1)$ n "[0 12] [3 4 16 8]" # sound "sc
   |*| speed 2
 
 d1 $ chunk 4 (hurry 2 . (# lpf 5000))
-  $ off 0.125 (# crush "<4 5>") $ sound "bk:2(3,8)"
+  $ off 0.125 (# crush "<4 5>") $ sound "bk:2(4,8)"
   # gain 1.3
   # lpf 3000
   # lpq (slow 4 $ scale 0.2 0.3 sine)
@@ -185,17 +185,20 @@ d1 $ chunk 4 (hurry 2 . (# lpf 5000))
 d2 $ n "[0 3] [4 [~ 4]]" # sound "jvrave"
   # gain 1.4
 
-d4 $ chunk 4 (hurry 2) $ n "0 ~ 0 <2 [3 5]>" # sound "osc1"
+d4 $ chunk 4 (hurry 2) $ gap 8 $ n "0 ~ 0 <2 [3 5]>" # sound "osc1"
   # gain 1
   # legato 1
   # lpf "<1000 ! 3000 !>"
   # lpq 0.1
 
-
 d1 $ n  # sound "rash"
 
 d1 $ chunk 4 (hurry 2) $ n "0 ~ 6 [~ 4*2]" # sound "sclap"
 
-d2 $ n "c7" # sound "xx"
 
+d2 $ n "c7 [c8 [~ c9*2]]" # sound "rash"
+  # gain 1.2
+  # lpf 3000
+  # lpq 0.2
+  # legato 1
 
