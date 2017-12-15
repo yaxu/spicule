@@ -13,7 +13,9 @@ let hush = hush'
 
 
 
-m1 $ slow 2 $ n (off 0.25 (+"-12") $ off 0.125 (subtract 5) $ slow 2 "c [e e6] g [~ ~ ~ a]")
+m1 $ n (off 0.25 (+"-12") $ off 0.125 (+7) $ slow 4 "c(3,8) e*2 f(3,8) g*2")
+
+d2 $ n "" # sound "rash"
 
 
 m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
