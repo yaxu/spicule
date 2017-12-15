@@ -185,7 +185,7 @@ d1 $ chunk 4 (hurry 2 . (# lpf 5000))
 d2 $ n "[0 3] [4 [~ 4]]" # sound "jvrave"
   # gain 1.4
 
-d4 $ n "0 ~ 0 2" # sound "osc1"
+d4 $ n "0 ~ 0 <2 3>" # sound "osc1"
   # gain 1
   # legato 1
   # lpf "<1000 ! 3000 !>"
