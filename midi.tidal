@@ -11,6 +11,14 @@ m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (volcafmController {Sound.Tidal.MID
 let hush' = hush >> m1 silence
 let hush = hush'               
 
+cps (145/60/2)
+
+m1 $ n (off 0.25 (+"-12") $ off 0.125 (+7) $ slow 4 "c(3,8) e*2 f(3,8) g*2")
+
+m1 $ n ("c8*2 [~ e7]")
+  # dur (scale 0.3 0.5 $ slow 4 sine)
+  # lfo 0.1
+
 
 
 
