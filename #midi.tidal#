@@ -18,17 +18,18 @@ d1 $ someCycles (stut 8 0.7 ( <$> rand) $ sound "[bd9:3, future,drum]*2"
   
 
 
-cps (1.1)
+cps (129/60/)
 
 
 
 m1 $ n (off 0.25 (+"-12") $ off 0.125 (+7) $ slow 4 "c(3,8) e*2 f(3,8) g*2")
 
 m1 $ n ("c8*2 [~ e7]")
-  # dur (scale 0.3 0.5 $ slow 4 sine)
-  # lfo 0.1
+  # dur (scale 0.01 0.1 $ slow 4 sine)
+  |+| n "-24"
 
-
+d1 $ jux revchunk 4 (hurry 2) $ sound "drum*4"
+  
 
 
 m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (ccallController {Sound.Tidal.MIDI.Context.latency = 0.4})
