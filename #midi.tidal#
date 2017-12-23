@@ -13,11 +13,13 @@ m1 $ n "0"
 
 d1 $ silence
 
-d1 $ n "e4(3,8) g5" # sound "midi"
+d1 $ n "e4" # sound "midi"
   # legato 0.5
 
+hush
+
 d2 $ sound "bd"
-  # nudge "0.4"
+  # nudge "-0.2"
 
 cps 1
 
