@@ -5,8 +5,25 @@ import Sound.Tidal.MIDI.VolcaFM
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
-m1 <- midiStream devices "Scarlett 2i4 USB MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
+m1 <- midiStream devices "Midi Through Port-0" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
+
 m1 <- midiStream devices "X18/XR18 MIDI 1" 1 (volcafmController {Sound.Tidal.MIDI.Context.latency = 0.4})
+
+m1 $ n "0"
+
+d1 $ silence
+
+d1 $ n ("<e4 g4>?") # sound "midi"
+ # legato 1.1
+
+hush
+
+d2 $ sound "bd"
+
+
+cps 1
+
+d1 silence
 
 let hush' = hush >> m1 silence
 let hush = hush'               
