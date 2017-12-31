@@ -13,9 +13,16 @@ let (midicmd, midicmd_p) = pS "midicmd" (Nothing)
     (ctlNum, ctlNum_p) = pF "ctlNum" (Nothing)
     (control, control_p) = pF "control" (Nothing)
 
+(x1,_) <- superDirtSetters getNow
 
-d10 $ midicmd "[start/4,midiClock*24]" # s "midi" # nudge 0.11
+x1 $ midicmd "[start/4,midiClock*48]" # s "midi" # nudge 0.11
 
-d1 $ slow 2 $ sound "cp(3,8)" # speed 2
 
-cps 2.2
+cps 1.1
+
+
+d1 $ every 8 (jux rev) $ off 0.125 (|*| gain 0.7) $ off 0.25 ((# speed 2) . (# cutoff 1000)) $ sound "bd(3,8)"
+
+
+d2 $ jux rev $ loopAt 4 $ chop 32 $ sound "osd3"
+
