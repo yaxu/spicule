@@ -1,0 +1,3 @@
+
+
+d10 $ midicmd "[start/4,midiClock*24]" # s "midi" # nudge 0.1
