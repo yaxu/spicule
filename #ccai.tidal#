@@ -21,7 +21,8 @@ x1 $ midicmd "[start/4,midiClock*48]" # s "midi" # nudge 0.11
 cps 1.1
 
 
-d1 $ off 0.25 (# speed 0.9) $ sound "bd(3,8)"
+d1 $ every 8 (jux rev) $ off 0.125 (|*| gain 0.7) $ off 0.25 ((# speed 2) . (# cutoff 1000)) $ sound "bd(3,8)"
 
 
-hush
+d2 $ lsound "osd4"
+
