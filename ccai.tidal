@@ -18,7 +18,14 @@ let (midicmd, midicmd_p) = pS "midicmd" (Nothing)
 x1 $ midicmd "[start/4,midiClock*48]" # s "midi" # nudge 0.11
 
 
+hush
 cps 1.1
+
+d1 $ sound "vbass"
+
+d1 $ up "~ 4 ~ 5 ~ ~ ~ ~" # sound "osd1:11"
+
+hush
 
 
 d1 $ every 8 (jux rev) $ off 0.125 (|*| gain 0.7) $ off 0.25 ((# speed 2) . (# cutoff 1000)) $ sound "bd(3,8)"
@@ -26,3 +33,7 @@ d1 $ every 8 (jux rev) $ off 0.125 (|*| gain 0.7) $ off 0.25 ((# speed 2) . (# c
 
 d2 $ jux rev $ loopAt 4 $ chop 32 $ sound "osd3"
 
+
+d1 $ sound "bd"
+
+hush
