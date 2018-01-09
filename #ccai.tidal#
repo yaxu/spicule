@@ -28,3 +28,5 @@ d2 $ jux rev $ loopAt 4 $ chop 32 $ sound "osd3"
 
 
 d1 $ sound "bd"
+
+hush
