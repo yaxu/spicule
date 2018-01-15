@@ -14,7 +14,6 @@ let (midicmd, midicmd_p) = pS "midicmd" (Nothing)
     (control, control_p) = pF "control" (Nothing)
 
 (x1,_) <- superDirtSetters getNow
-
 x1 $ midicmd "[start/4,midiClock*48]" # s "midi" # nudge 0.11
 
 
