@@ -20,6 +20,8 @@ x1 $ midicmd "[start/4,midiClock*48]" # s "midi" # nudge 0.11
 hush
 cps 1.1
 
+x1 silence
+
 d1 $ sound "vbass"
 
 d1 $ up "~ 4 ~ 5 ~ ~ ~ ~" # sound "osd1:11"
@@ -34,5 +36,15 @@ d2 $ jux rev $ loopAt 4 $ chop 32 $ sound "osd3"
 
 
 d1 $ sound "bd"
+
+hush
+
+
+d1 $ slow 2 $ pan "0 1" # n "0" # sound "alphabet"
+
+
+d1 $ jux rev $ chop 8 $ chunk 4 (hurry 2) $ sound "bd(3,8)"
+
+d2 $ n "c7 a7 a6(3,8) e8" # sound "rash"
 
 hush
