@@ -1,0 +1,3 @@
+d1 $ stut 4 0.35 7 $ n (every 4 (+ chord "major") $ "c(5,8,<0 2 4 6>)" + (stack [slow 12 sine, slow 12 cosine])) # sound "supermandolin"
+  # legato 8
+  |+| n "<0@7 7>"
