@@ -1,0 +1,6 @@
+d1 $ stut 4 0.35 7 $ n (whenmod 16 8 (+ (stack [slow 12 sine, slow 12 cosine])) $ every 4 (+ chord "major") $ "<c a f e>(5,8,<0 2 4 6>)") # sound "supermandolin"
+  # legato 8
+  |+| n "<0@7 7>"
+
+d2 $ every 2 (stut 16 0.5 1) $ sound "drum" # speed "[2,1]"
+hush
