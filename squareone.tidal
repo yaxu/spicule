@@ -6,3 +6,5 @@ d2 $ jux (iter 4) $ every 2 (stut 8 0.5 1) $ sound "drum" # speed "[2,1]"
 
 d3 $ chunk 4 (hurry 0.5) $ sound "[cp8(13,32)]/4" # speed 2
 
+
+
