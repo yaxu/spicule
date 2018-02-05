@@ -11,3 +11,6 @@ arc (discretise 0.5 saw) (0,2)
 
 arc (_discretise 0.5 saw) (0,2)
 
+arc (__discretise 0.5 saw) (0,2)
+
+let __discretise n p = (density n $ atom (id)) <*> p
