@@ -83,3 +83,10 @@ let patterns = [("line",
           ]
 in
 d1 $ ur' 128 "heli:in [heli,br] [heli:out,br,line:in] [heli,br,line:crash] [heli,bass] [heli,bass:out,line] [heli,line,bass,br] [heli:out,bass:crash,line:crash,br:out]" patterns txs
+
+d1 $ (pure now + 0) ~>
+  stack [
+     slow 4 $ sound "<fband fband fband:1 fband:2 >"
+  ]
+
+  hush
