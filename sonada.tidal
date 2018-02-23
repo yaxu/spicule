@@ -5,7 +5,7 @@ kick patterns
 uptempo into techno with room sz saw
 ritusen weave rise+fall
 fill spaceOut breakUp substruct
-feedforward
 -}
 
-d1 $ sound "bd"
+d1 $ sound (superimpose (fill $  "cp") $ "bd:5(3,8)")
+   # speed 4
