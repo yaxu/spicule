@@ -59,7 +59,7 @@ d7 $ jux rev $ iter 4 $ loopAt 4 $ chop 16 $ sound "repetition"
 m $ sometimes (|+| n "-12") $ degradeBy 0.7 $ n (off 0.125 (+7) "f [~ a] c e")
   # cutoff (slow 8 sine)
 
-d8 $ degrade $ chunk 4 (hurry 2) $ slow 2 $ off 0.25 (# crush 5) $ up "0*2 ~ 7 12" # n "8" # sound "stabs"
+d9 $ degrade $ chunk 4 (hurry 2) $ slow 2 $ off 0.25 (# crush 5) $ up "0*2 ~ 7 12" # n "8" # sound "stabs"
   # gain 1.4
   # lpf 600
   # lpq 0.2
