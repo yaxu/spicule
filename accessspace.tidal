@@ -100,3 +100,10 @@ d5 $ chunk 4 (hurry 2) $ jux rev $ loopAt 2 $ chop 4 $ sound "narc" # n (irand 2
 d1 $ when (\x -> mod x 8 == 2) (const (sound "bd*8")) $ brak $ n "[0 3, 2*8]" # sound "feel"
 
 
+d1 $ jux rev $ fast 2 $ sound "{bd ~ sd8 ~, rash:4 ht9:2 bd}" # room 0.3 # orbit 1 # delay 0.3 # delayt 0.01 # delayfb 0.9
+
+d2 $ jux (iter 4) $ sound "drumtraks:2*2 bd" # speed 2
+
+
+
+cps 1.15
