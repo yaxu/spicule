@@ -1,4 +1,3 @@
-cps 1.1
 
 d1 $ jux rev $ off 0.25 ((|*| speed 2) . fast 2) $ slow 4 $ s "odx ~ [bd*2 ~] ~"
   # lpf 2000
@@ -29,4 +28,31 @@ d6 $ iter 4 $ loopAt 2 $ chop 8 $ sound "arc"
 
 d7 $ off 0.25 (|*| speed 2) $ off 0.25 (# crush 2) $ chunk 4 (hurry 2) $ sound "feel [~ feel:2]"
   # gain 1.2
+
+d8 $ jux rev $ weave 16 (palindrome $ n "0 .. 7" # sound "arpy")
+  [vowel "a e ", vowel "o e [e i]",
+   speed "1 0.5 [2 0.5]",
+   speed "1 [2 0.5]"
+   ]
+  # gain 1.1
+  # orbit 1
+  # room 0.5# lpf 1000
+
+d5 $ chunk 4 (hurry 4) $ every 4 (0.25 <~) $ iter 4 $ n "0 .. 3" # sound "micron"
+
+
+d6 $ slow 4 $ off 0.125 (|*| speed 0.75) $jux rev $ iter 4 $ n "0 .. 7" # sound "amencutup"
+  # gain 1.2
+  # lpf 1000
+  # orbit 1 # room 0.7 # size 0.9
   
+d7 $ jux rev $ off 0.125 (|*| speed 4)$ sound "gabba(<5 3>,8)
+"
+  # gain 0.85 # shape (slow 2 $ scale 0.5 0.95 sine)
+  # end 0.3
+
+d1 $ jux rev $ chop "<8 32>" $ slow 2 $off 0.25 (|*| speed 2) $  note "c6 [<e7*2 g8> <g e*2>]" # sound "dbass:1"
+  # gain 0.95
+
+d2 $ jux rev $ iter 4 $ loopAt 2 $ chop 8 $ sound "<os os:1>"
+  # gain 1.1 # lpf 3000 # lpq 0.05
