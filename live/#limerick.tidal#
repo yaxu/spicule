@@ -5,8 +5,13 @@ d1 $ jux rev $ off 0.25 ((|*| speed 2) . fast 2) $ slow 4 $ s "odx ~ [bd*2 ~] ~"
   # lpq 0.1
   # accelerate (scale (-2) 4 rand)
 
-d2 $ chunk 4 (hurry 2) $ off 0.25 (|*| speed 2) $ jux (rev . iter 4) $ chunk 4 (hurry 2) $ sound "~ bk*2"
-  |*| speed 4
+d2 $ chunk 4 (hurry 0.5) $ off 0.25 (|*| speed 2) $ jux (rev . iter 4) $ chunk 4 (hurry 2) $ sound "~ bk*2"
+  |*| speed 2
   
-d3 $ n "<c7>" # sound "rash"
-  # 
+d3 $ off 0.25 ((# s "pulse") . (|*| speed 0.5)) $ chunk 4 (hurry 0.5) $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) "<c7(3,8) e6(3,8,2) f6(3,8) g7(2,8)>") # sound "rash" # legato 1
+  # orbit 1 # room 0.3
+
+d4 silence
+
+d4 $ jux rev $ chunk 4 (hurry 0.5) $ loopAt 4 $ chop 8 $ sound "paper"
+  # lpf 4000
