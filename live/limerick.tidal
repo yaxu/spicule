@@ -1,7 +1,32 @@
-cps 0.8
+cps 1.1
 
 d1 $ jux rev $ off 0.25 ((|*| speed 2) . fast 2) $ slow 4 $ s "odx ~ [bd*2 ~] ~"
-  # orbit 1 # room 0.8 # size 0.96
   # lpf 2000
   # lpq 0.1
   # accelerate (scale (-2) 4 rand)
+
+d2 $ chunk 4 (hurry 0.5) $ off 0.25 (|*| speed 2) $ jux (rev . iter 4) $ chunk 4 (hurry 2) $ sound "~ bk*2"
+  |*| speed 2
+
+d3 $ degradeBy 0.5 $ off 0.25 ((# s "pulse") . (|*| speed 0.5)) $ chunk 4 (hurry 0.5) $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) "<c7(3,8) e6(3,8,2) f6(3,8) g7(2,8)>") # sound "rash" # legato 1
+  # orbit 1 # room 0.3
+
+d4 $ degrade $ off 0.25 (|*| shape 0.3)$  jux rev $ sound "{drum(3,8), sid ~ ~}"
+  # crush 4
+  # gain 1.1
+  # lpf (slow 4 $ scale 300 5000 sine)
+  # lpq 0.1
+
+
+d5 $ slow 2 $ off 0.25 (|*| speed 2) $ chop "<4 3>" $ sound "~ off"
+  |*| up "<0 7 2 5>"
+  # lpf 1000
+  # lpq 0.1
+
+d6 $ iter 4 $ loopAt 2 $ chop 8 $ sound "arc"
+  # gain 1.2
+  # lpf 2000 # lpq 0.2
+
+d7 $ off 0.25 (|*| speed 2) $ off 0.25 (# crush 2) $ chunk 4 (hurry 2) $ sound "feel [~ feel:2]"
+  # gain 1.2
+  
