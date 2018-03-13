@@ -1,3 +1,4 @@
+cps 1.15
 
 d1 $ jux rev $ off 0.25 ((|*| speed 2) . fast 2) $ slow 4 $ s "odx ~ [bd*2 ~] ~"
   # lpf 2000
@@ -45,14 +46,21 @@ d6 $ slow 4 $ off 0.125 (|*| speed 0.75) $jux rev $ iter 4 $ n "0 .. 7" # sound 
   # gain 1.2
   # lpf 1000
   # orbit 1 # room 0.7 # size 0.9
-  
-d7 $ jux rev $ off 0.125 (|*| speed 4)$ sound "gabba(<5 3>,8)
-"
+
+d7 $ jux rev $ off 0.125 (|*| speed 4)$ sound "[bd8(<5 3>,8), ~ cp]"
   # gain 0.85 # shape (slow 2 $ scale 0.5 0.95 sine)
   # end 0.3
 
-d1 $ jux rev $ chop "<8 32>" $ slow 2 $off 0.25 (|*| speed 2) $  note "c6 [<e7*2 g8> <g e*2>]" # sound "dbass:1"
-  # gain 0.95
+d1 $ jux rev $ chop "<8 32>" $ slow 2 $off 0.25 (|*| speed 2) $  note "c6 g7" # sound "dbass:1"
+  # gain 0.95 # lpf 300 
 
-d2 $ jux rev $ iter 4 $ loopAt 2 $ chop 8 $ sound "<os os:1>"
-  # gain 1.1 # lpf 3000 # lpq 0.05
+d2 $ off 0.25 (# n 2) $ sound "odx <bd*2 bd*4>"
+
+d3 $ jux rev $ slow 2 $ n "0(<3 5>,8)" # sound "acid"
+  # legato (slow 4 $ scale 1 4 sine)
+  # gain 1.3
+
+d4 $ every 4 (fast 2)$ sound "bd*2" # gain 1
+
+d8 $ n "<c6 c8(3,8)>" # sound "xx"
+  # hpf 1500
