@@ -51,9 +51,7 @@ d7 $ jux rev $ off 0.125 (|*| speed 4)$ sound "[bd8(<5 3>,8), ~ cp]"
   # gain 0.85 # shape (slow 2 $ scale 0.5 0.95 sine)
   # end 0.3
 
-d1 $ jux rev $ chop "<8 32>" $ slow 2 $off 0.25 (|*| speed 2) $  note "c6 g7" # sound "dbass:1"
-  # gain 0.95 # lpf 300 
-
+solo $
 d2 $ off 0.25 (# n 2) $ sound "odx <bd*2 bd*4>"
 
 d3 $ jux rev $ slow 2 $ n "0(<3 5>,8)" # sound "acid"
@@ -62,5 +60,13 @@ d3 $ jux rev $ slow 2 $ n "0(<3 5>,8)" # sound "acid"
 
 d4 $ every 4 (fast 2)$ sound "bd*2" # gain 1
 
-d8 $ n "<c6 c8(3,8)>" # sound "xx"
-  # hpf 1500
+d8 $ off "0.25 0.125" (# s "pulse") $off 0.25 (# s "rash") $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2
+    $ rev $ "<c6(3,8,2) a6(3,8) f7(3,8) e8(3,8,2)>") # sound "xx"
+  # room 0.2 # size 0.976
+
+hush
+  
+
+  
+  
+
