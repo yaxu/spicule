@@ -82,4 +82,9 @@ d4 $ off 0.25 (# note 7) $ slow 2 $ n "0 ~ [ ~ 0, 3] 3" # sound "dbass"
 
 d1 $ jux rev $ iter 4 $ loopAt "<1 2>" $ chop 8 $ sound "<os os:1>"
 
-d1 $ sound ""
+d1 $ loopAt 16 $ striate 128 $ sound "bev"
+
+
+
+
+
