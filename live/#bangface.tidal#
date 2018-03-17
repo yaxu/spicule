@@ -1,0 +1,5 @@
+d1 $ jux rev $
+  chunk 4 (hurry 2) $ sound "bd bk kicklinn [~ bd*2]"
+
+d2 $ jux rev $ chop 4 $ slow 2 $ sound "dbass:4(3,8)"
+  # hpf 400
