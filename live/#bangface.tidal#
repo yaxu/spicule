@@ -27,10 +27,33 @@ d7 $ off "<0.25 0.125>" (# lpf 3000)$ chop "<4 3 2>" $ sound "~ off"
   # lpq 0.1
 
 
-  d8 $ slow 2 $ jux rev $ off 0.25 (|*| speed 2) $ note "c [g g2] <a g> c7" # sound "dsynth"
+d8 $ slow 2 $ jux rev $ off 0.25 (|*| speed 2) $ note "c [g g2] <a g> c7" # sound "dsynth"
   # lpf 1000
+  |+| note "<0 7>"
 
-d9 $ loopAt 4 $ chop 8 $ sound "repetition"
+d9 $ iter 4 $ loopAt 4 $ chop 8 $ sound "repeticion"
   # gain 1.2
+  # n (irand 8)
 
-d1 $ sound "micr
+d1 $ jux rev $ iter 4 $ n "0 .. 7" # sound "micron"
+
+d1 $ slow 2 $ off 0.125 (# speed 2) $ jux rev $ iter 4 $ sound "bd(3,8) mt ht*2 lt"
+
+d2 $ jux (rev) $brak $ sound "feel feel:2"
+
+d3 $ off 0.25 (|*| speed 1.5) $ sound "~ dsynth:1(3,8)"
+  # legato 1
+  # note "<c a f e>"
+  
+d4 $ sound "~ cp*2"
+  # lpf 3000
+
+d1 $ jux (0.25 <~) $ sound "amencutup*8" # n (irand 16)
+  # gain 1.25
+
+d5 $ chunk 4 (hurry 0.5) $ $ loopAt 2 $ chop 8 $ sound "narc"
+  # gain 1.1
+  # n (irand 2)
+
+d3 $ iter 4loopAt 4 $ chop 16 $ sound "liq"
+  # gain 1.15
