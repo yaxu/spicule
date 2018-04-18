@@ -1,1 +1,15 @@
-Dropbox/lurk/
+
+d1 $ jux rev $ chop 16 $ sound "bd(<3 5>,8)" # speed 2 # orbit 2 # delay 0.9 # delayt (scale 0.01 0.02 rand) # delayfb 0.99
+  # speed 64
+
+
+d2 $ slow 2 $ stack [substep [4, 10, 16] $ sound "<ht ht:2>",
+                     substep ["<3 5>", "<10 12 9>", 16] $ sound "lt",
+                     substep ["<6 3>", "<10 12 9 4>", 16] $ sound "kicklinn" # shape 0.6,
+                     substep ["<5 6>", "<9 8 16>", 16] $
+                      sound "drum" # speed 1 # shape 0.8 # lpf 2000 # lpq 0.4
+                    ]
+  # orbit 1 # room 0.2
+
+d3 $ loopAt 2 $ chop 16 $ sound "arc"
+
