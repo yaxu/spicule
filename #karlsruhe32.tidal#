@@ -8,7 +8,7 @@ d2 $ (jux' [id, rev, (0.25 <~), hurry 0.5] $ chop 32 $ sound "drum [~ bd*2] hc*2
 
 d1 $ chunk 4 (hurry 0.5) $ up (off 0.125 (+12) $ off 0.25 (+7) $"<c(3,8) e*2 f*2 g>") # sound "dbass"
   # n 2
-  # pan saw
 
-d2 $ off 0.25 (#)$ jux' [id, rev] $ chunk 4 (hurry 0.5) $ n "<c7(3,8) e7(3,8,2) f7*2 g7(3,8,4)>" # sound "rash"
+d2 $ off 0.25 (# s "pulse") $ jux' [id, rev] $ chunk 4 (hurry 0.5) $ n (off 0.25 (+7) $ "<c7(3,8) e7(3,8,2) f7*2 g7(3,8,4)>") # sound "rash"
   
+d3 $ loopAt 4 $ chop 16sound "paper"
