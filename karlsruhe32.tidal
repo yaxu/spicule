@@ -16,11 +16,13 @@ d3 $ slow 2 $ every 2 (chop 8) $ jux' [id, (rev . (# crush 4)), fast 2, hurry 2]
 d5 $ every 2 (const $ sound "bd*16" # pan rand) $ jux' [id,rev,chunk 4 (hurry 2), (# speed 2)] $ iter 4 $ loopAt 2$ chop 8 $ sound "arc"
    # shape 0.2
 
-d6 $ jux (rev . chop 4) $ off "<0.125 0.25>" (|*| speed 2)$ n "0 ~ [3 3] 2*2" # sound "jvr"
+d6 $ degrade $ jux (rev . chop 4) $ off "<0.125 0.25>" (|*| speed 2)$ n "0 ~ [3 3] 2*2" # sound "jvr"
   # pan rand
 
-d7 $ off 0.07 ((|*| speed (scale 1.01 1.02 rand)) . (|+| pan 0.25)) $ substep ["<3 5 2>","<7 9>",16] $ sound "dsynth" # up "<0 7>"
+d7 $ jux' [id, rev, (# accelerate (-1))] $ off 0.07 ((|*| speed (scale 1.01 1.02 rand)) . (|+| pan 0.25)) $ substep ["<3 5 2>","<7 9>",16] $ sound "dsynth" # up "<0 7>"
   # pan rand
+  # lpf 500
+  # lpq  0.2
 
 d2 silence
 
