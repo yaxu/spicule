@@ -6,5 +6,8 @@ d1 $ degrade $ off 0.25 (# n 2) $ chunk 4 (hurry 2) $ jux' [id, rev] $ off 0.25 
 
 d2 $ (jux' [id, rev, (0.25 <~), hurry 0.5] $ chop 32 $ sound "drum [~ bd*2] hc*2 [arpy]")
 
-d1 $ up "<c e e g>" # sound "dbass"
+d1 $ chunk 4 (hurry 0.5) $ up (off 0.125 (+12) $ off 0.25 (+7) $"<c(3,8) e*2 f*2 g>") # sound "dbass"
+  # lpf 400
+  # lpq 0.2
+  # pan saw
 
