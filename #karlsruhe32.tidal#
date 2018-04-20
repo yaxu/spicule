@@ -4,4 +4,8 @@ d1 $ degrade $ off 0.25 (# n 2) $ chunk 4 (hurry 2) $ jux' [id, rev] $ off 0.25 
   |+| pan saw
   # gain 0.9
 
-d2 $
+d2 $ (jux' [id, rev, (0.25 <~)] $ chop 32 $ sound "drum [~ arpy] hc*2 [arpy]")
+  # nudge (slow 8 sine)
+  # room (slow 4 $ saw)
+  # siz
+  # orbit 1
