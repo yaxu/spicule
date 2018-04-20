@@ -1,2 +1,9 @@
-d1 $ sound "bd"
 
+d1 $ (substep ["<3 5>", "<7 9>", 16] $ sound "bd")
+  # pan (slow 16 saw)
+
+d2 $ jux' [id, rev, slow 2] $ chunk 4 (fast 2) $ (substep ["<3 5>", "<7 9 12>", 16] $ chop 16 $ sound "[mt8 jvr bd ~, cp*3]")
+  # pan (slow 16 $ rev saw)
+  # speed "2"
+
+d3 $ chop 16 $ sound "wobble(3,8,<3 2>)" # pan rand
