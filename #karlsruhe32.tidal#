@@ -4,3 +4,4 @@ d1 $ off "<0.125 0.25>" (# crush 5) $ jux rev $ stut' 3 "<0.125 1%32 1%64>" ((|+
   # end 0.1
   # gain 0.95
 
+d2 $ jux rev $ chunk 4 (hurry 0.5) $ n (off 0.125 (+7) $ "<c7(3,8) e7(3,8) f7(3,8) g7(3,8)>") # sound "xx"
