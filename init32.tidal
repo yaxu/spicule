@@ -16,3 +16,6 @@ d10 <- sd "192.168.1.100" 57120
 let hush = mapM_ ($ silence) [d1,d2,d3,d4,d5,d6,d7,d8,d9,d10]
 
 let solo x = hush >> x
+
+let jux = juxBy 0.5
+
