@@ -13,13 +13,11 @@ d2 $ degrade $ off 0.25 (# s "pulse") $ (jux rev $ chunk 4 (hurry 0.5) $ n (off 
 d3 $ slow 2 $ every 2 (chop 8) $ jux' [id, (rev . (# crush 4)), fast 2, hurry 2] $sound "kicklinn(<3 5>,8,2)"
   # gain 1.3
 
-d4 $ someCycles () $ iter 4 $ jux (rev) $ (chop 16 $ up "0 ~ [7 ~] 5" # sound "stabs:1")
-  |+| pan (slow 4 saw)
-
 d5 $ jux' [id,rev,chunk 4 (hurry 2), (# speed 2)] $ iter 4 $ loopAt 2$ chop 8 $ sound "arc"
    # shape 0.2
 
-d6 $ sound ""
+d6 $ jux (rev . chop 4) $ off "<0.125 0.25>" (|*| speed 2)$ n "0 ~ [3 3] 2*2" # sound "jvr"
+  # pan rand
 
 d2 silence
 
