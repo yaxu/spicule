@@ -6,5 +6,6 @@ d2 $ jux' [id, rev, slow 2] $ chunk 4 (fast 2) $ (substep ["<3 5>", "<7 9 12>", 
   # pan (slow 16 $ rev saw)
   # speed "2"
 
-d3 $ jux' [id,rev] $ off 0.25 (# crush 3)$ chop 16 $ sound "wobble(3,8,<3 2>)" # pan rand
+d3 $ chunk 4 (hurry 2) $ jux' [id,rev] $ off 0.25 (# speed 2)$ chop 16 $ sound "wobble(3,8,<3 2>)" # pan rand
 
+d1 $ slsound "bd*16" # pan saw
