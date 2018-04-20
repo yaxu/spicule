@@ -1,1 +1,19 @@
+cps (1.1/2)
+
+d1 $ degrade $ off 0.25 (# n 2) $ chunk 4 (hurry 2) $ jux' [id, rev] $ off 0.25 (|*| speed 2) $ up "[0 0 7 ~]" # sound "dsynth"
+  |+| pan saw
+  # gain 0.9
+
+d2 $ (jux' [id, rev, (0.25 <~), hurry 0.5] $ chop 32 $ sound "drum [~ bd*2] hc*2 [arpy]")
+
+d1 $ chunk 4 (hurry 0.5) $ up (off 0.125 (+12) $ off 0.25 (+7) $"<c(3,8) e*2 f*2 g>") # sound "dbass"
+  # n 2
+  # hpf 200
+
+d2 $ off 0.25 (# s "pulse") $ jux' [id, rev] $ chunk 4 (hurry 0.5) $ n (off 0.25 (+7) $ "<c7(3,8) e7(3,8,2) f7*2 g7(3,8,4)>") # sound "rash"
+  
+d3 $ (chunk 4 (hurry 0.5) $ iter 4 $ loopAt 4 $ chop 16 $ sound "paper")
+  # pan rand
+
+d4 $ n "0 .. 7" # sound "amencutup"
 
