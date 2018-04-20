@@ -1,0 +1,6 @@
+
+d1 $ (substep ["<3 5>", "<7 9>", 16] $ sound "bd")
+  # pan (slow 16 saw)
+
+d2 $ (substep ["<3 5>", "<7 9 12>", 16] $ sound "mt")
+  # pan (slow 16 $ rev saw)
