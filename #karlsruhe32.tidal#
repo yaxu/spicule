@@ -12,9 +12,7 @@ d3 $ iter 4 $ jux' [id, rev, (hurry 2)] $ iter 4 $ loopAt 2 $ chop 8 $  sound "a
 d4 $ jux' [id, rev, (0.25 <~)] $ (chop 64 $ sound "odx [~ future] mt8*2 off")
   # nudge (slow 8 sine)
 
-hush
 
-jux' fs p = stack $ map (\n -> ((fs !! n) p) |+| pan (pure $ fromIntegral n / fromIntegral l)) [0 .. l-1]
-  where l = length fs
+d1 $ jux' [id, rev] $ sound "bd cp"
+  |+| pan (slow 8 saw)
 
-d1 $
