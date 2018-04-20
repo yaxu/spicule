@@ -1,4 +1,4 @@
-d1 $ jux rev $ stut' 3 "<0.125 1/16>" ((|+| pan 0.11)) $  jux (rev) $ slow 2 $ n "0 [~ 4] 2 ~" # sound "bd"
-  # hpf 700
+d1 $ off "<0.125 0.25>" (# crush 5) $ jux rev $ stut' 3 "<0.125 1%32 1%64>" ((|+| pan 0.11)) $  jux (rev) $ slow 2 $ n "c" # sound "rash"
   # orbit 1
-  # room 0.08
+  # room 0.1
+  # end 0.1
