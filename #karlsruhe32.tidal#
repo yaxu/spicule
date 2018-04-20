@@ -1,0 +1,5 @@
+
+d1 $ chop 32 $ (n "c6" # sound "xx"
+                # crush 3)
+  
+
