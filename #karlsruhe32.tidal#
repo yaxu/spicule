@@ -1,0 +1,4 @@
+d1 $ stut' 4 (|+| pan 0.01) 0 $  jux (rev) $ slow 2 $ n "0 4 2 ~" # sound "bd"
+  # hpf 500
+
+  :t stut'
