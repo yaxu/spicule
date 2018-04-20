@@ -6,14 +6,17 @@ d1 $ off "<0.125 0.25>" (# crush 5) $ jux rev $ stut' 3 "<0.125 1%32 1%64>" ((|+
   # hpf 200
   |*| speed 2
 
-d2 $ off 0.25 (# s "pulse") $ (jux rev $ chunk 4 (hurry 0.5) $ n (off 0.25 (+ 12) $ off 0.125 (+7) $ "<c7(3,8) e7(3,8) f7(3,8) g7(3,8)>") # sound "rash" # end 0.3)
+d2 $ degrade $ off 0.25 (# s "pulse") $ (jux rev $ chunk 4 (hurry 0.5) $ n (off 0.25 (+ 12) $ off 0.125 (+7) $ "<c7(3,8) e7(3,8) f7(3,8) g7(3,8)>") # sound "rash" # end 0.3)
   # lpf (slow 4 $ scale 100 4000 sine)
   # lpq 0.1
 
-d3 $ jux' [id, rev, fast 2, hurry 2] $sound "kicklinn(<3 5>,8,2)"
+d3 $ every 2 (chop 8) $ jux' [id, (rev . (# crush 4)), fast 2, hurry 2] $sound "kicklinn(<3 5>,8,2)"
   # gain 1.3
 
-d3 silence
+d4 $ jux (rev) $ (chop 16 $ up "0 ~ [7 2] ~" # sound "stabs")
+  |+| pan (slow 4 saw)
+
+d2 silence
 
 d3 $ jux rev $ (chunk 4 (hurry 0.5) $ loopAt 4 $ chop 16 $ sound "paper")
   # pan rand
