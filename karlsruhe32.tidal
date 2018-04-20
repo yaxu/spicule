@@ -19,6 +19,9 @@ d5 $ every 2 (const $ sound "bd*16" # pan rand) $ jux' [id,rev,chunk 4 (hurry 2)
 d6 $ jux (rev . chop 4) $ off "<0.125 0.25>" (|*| speed 2)$ n "0 ~ [3 3] 2*2" # sound "jvr"
   # pan rand
 
+d7 $ off 0.07 ((|*| speed (scale 1.01 1.02 rand)) . (|+| pan 0.25)) $ substep ["<3 5 2>","<7 9>",16] $ sound "dsynth" # up "<0 7>"
+  # pan rand
+
 d2 silence
 
 d3 $ jux rev $ (chunk 4 (hurry 0.5) $ loopAt 4 $ chop 16 $ sound "paper")
