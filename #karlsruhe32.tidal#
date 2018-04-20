@@ -1,5 +1,5 @@
 
-d1 $ chop 32 $ (n "c6" # sound "xx"
-                # crush 3)
-  
+d1 $ chunk 4 (hurry 2) $ (chop 4 $ (n "<c7(3,8) e7(3,8) f7(3,8,2) g7(3,8)>" # sound "xx"))
+  # pan (saw + (slow 5 saw))
+
 
