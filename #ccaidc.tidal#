@@ -1,3 +1,10 @@
-d1 $ n "0 1 2 3" # sound "alphabet" # pan "0 1 0 1" # orbit "1"
+cps (132 / 60 / 2)
 
-hush
+
+d1 $ jux (rev . chop 128) $ distrib ["<3 5 3>","<7 12>",16] $ sound "dsynth"
+  # gain 1.2
+  # legato 1
+  # room 0.3
+
+
+nudger (-0.01)
