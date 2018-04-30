@@ -10,6 +10,11 @@ d1 $ (every 4 (within (0.25,0.75) (hurry 2)) $ juxBy 0.25 rev $ off 0.25 (|*| sp
 
 d3 $ sound "cp" # gain 1.2
 
-nudger (-0.01)
+nudger (0.01)
 
-hush
+d4 $ n "0 .. 15" # sound "bk" # speed 8
+
+d5 $ chunk 4 (hurry "<2 1.5>") $ off 0.25 (|+| n 3) $ substruct "x/2 x/4" $ chop 16 $ sound "osd4:3" # legato 1 |*| speed 4 # crush 3
+
+  # room 0.3 # size 0.9
+
