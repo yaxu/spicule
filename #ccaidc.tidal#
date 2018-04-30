@@ -1,10 +1,11 @@
 cps (132 / 60 / 2)
 
 
-d1 $ jux (rev . chop 128) $ distrib ["<3 5 3>","<7 12>",16] $ sound "dsynth"
-  # gain 1.2
+d1 $ everuevery 8 (|*| speed 1.5) $ juxBy 0.25 (rev . chop 2) $ distrib ["<3 5 3>","<7 5>",8] $ sound "osc1:1"
+  # gain 1.1
   # legato 1
   # room 0.3
 
+d1 $ sound "cp" # gain 1.1
 
 nudger (-0.01)
