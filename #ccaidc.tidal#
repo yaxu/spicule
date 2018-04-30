@@ -6,9 +6,11 @@ d1 $ every 2 (slow 2) $ every 8 (|*| speed 1.5) $ juxBy 0.25 (rev . chop 2) $ di
   # legato 1
   # bpf (slow 4 $ scale 1000 3000 sine) # bpq 10
 
-d2 $ juxBy 0.5 rev $ off 0.25 (|*| speed 1.5) $ substruct "x/2 [x/2 [x/4 x/3]]" $ palindrome $ (chop 64 $ sound "ose1") # hpf (scale 100 3000 saw)
+d2 $ every 4 (within (0.25,0.75) (hurry 2)) $ juxBy 0.25 rev $ off 0.25 (|*| speed 1.5) $ (chop 8 $ sound "osf1") # hpf (scale 100 8000 saw)
   # gain 1.1
 
 d2 $ sound "cp" # gain 1.2
 
-nudger (0.01)
+nudger (-0.01)
+
+hush
