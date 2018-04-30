@@ -1,11 +1,16 @@
 cps (132 / 60 / 2)
 
 
-d1 $ everuevery 8 (|*| speed 1.5) $ juxBy 0.25 (rev . chop 2) $ distrib ["<3 5 3>","<7 5>",8] $ sound "osc1:1"
+d1 $ every 2 (slow 2) $ every 8 (|*| speed 1.5) $ juxBy 0.25 (rev . chop 2) $ distrib ["<3 5 3>","<7 5>",8] $ sound "osc1:1"
   # gain 1.1
   # legato 1
-  # room 0.3
+  # bpf (slow 4 $ scale 1000 3000 sine) # bpq 10
 
-d1 $ sound "cp" # gain 1.1
+
+d2 $ sound "ose1:2" # legato 1
+
+
+
+d1 $ sound "cp" # gain 1.2
 
 nudger (-0.01)

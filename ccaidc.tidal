@@ -1,1 +1,13 @@
-d1 $ n "0 1 2 3" # sound "alphabet" # pan "0 1 0 1" # orbit "0 1"
+cps (132 / 60 / 2)
+
+
+d1 $ every 2 (slow 2) $ every 8 (|*| speed 1.5) $ juxBy 0.25 (rev . chop 2) $ distrib ["<3 5 3>","<7 5>",8] $ sound "osc1:1"
+  # gain 1.1
+  --  # legato 1
+  # bpf (slow 4 $ scale 1000 3000 sine) # bpq 10
+
+
+
+d1 $ sound "cp" # gain 1.1
+
+nudger (-0.01)
