@@ -1,0 +1,152 @@
+import Data.Maybe
+
+let drums = (subtract 60 <$>) <$> [("bd", 36),
+                                   ("rs", 37),
+                                   ("sd", 38),
+                                   ("sn", 38),
+                                   ("cp", 39),
+                                   ("lt", 41),
+                                   ("hc", 42),
+                                   ("ch", 42),
+                                   ("mt", 45),
+                                   ("ho", 46),
+                                   ("oh", 46),
+                                   ("ht", 48),
+                                   ("cy", 49),
+                                   ("cr", 49),                                   
+                                   ("rc", 51),
+                                   ("cb", 56),
+                                   ("cgh", 62),
+                                   ("cgm", 63),
+                                   ("cgl", 64),
+                                   ("ma", 70),
+                                   ("cl", 75)
+                                  ]
+    drum :: Pattern String -> ParamPattern
+    drum p = (note $ ((\x -> fromMaybe 0 (lookup x drums)) <$> p)) # midichan 9 # s "midi"
+    begins = match
+        [("bd", 20),
+         ("sn", 26),
+         ("lt", 32),
+         ("mt", 37),
+         ("ht", 42)
+        ]
+    pans = match
+        [("bd", 21),
+         ("sn", 27),
+         ("lt", 33),
+         ("mt", 38),
+         ("ht", 43),
+         ("rs", 47),
+         ("cp", 49),
+         ("cb", 41),
+         ("ch", 54),
+         ("oh", 57),
+         ("cr", 60),
+         ("cgl", 63),
+         ("cgm", 66),
+         ("cgh", 69),
+         ("ma", 72),
+         ("cl", 74)
+        ]
+    dists = match
+        [("bd", 22),
+         ("sn", 28),
+         ("lt", 34),
+         ("mt", 39),
+         ("ht", 44),
+         ("cb", 52),
+         ("cgl", 64),
+         ("cgm", 67),
+         ("chh", 70)
+        ]
+    tunes = match
+        [("bd", 23),
+         ("sn", 29),
+         ("lt", 34),
+         ("mt", 40),
+         ("ht", 45),
+         ("rs", 48),
+         ("cp", 50),
+         ("cb", 53),
+         ("ch", 55),
+         ("oh", 58),
+         ("cgl", 65),
+         ("cgm", 68),
+         ("cgh", 71),
+         ("ma", 73),
+         ("cl", 75)
+        ]
+    tones = match
+        [("bd", 24),
+         ("sn", 30),
+         ("cr", 61)
+        ]
+    decays = match
+        [("bd", 25),
+         ("lt", 36),
+         ("mt", 41),
+         ("ht", 46),
+         ("ch", 56),
+         ("oh", 59),
+         ("cr", 62)
+        ]
+    snappys = match
+        [("sn", 31)
+        ]
+    match xs = map (\(drum, n) -> (fromJust (lookup drum drums), n)) xs
+    (midichan, midichan_p) = pF "midiChan" Nothing            
+    (dist, dist_p) = pF "dist" Nothing            
+    (tune, tune_p) = pF "tune" Nothing            
+    (tone, tone_p) = pF "tone" Nothing            
+    (snappy, snappy_p) = pF "snappy" Nothing            
+    drumstation :: ParamPattern -> ParamPattern
+    drumstation p = stack [sendcc pans panp,
+                           sendcc begins beginp,
+                           sendcc dists distp,
+                           sendcc tunes tunep,
+                           sendcc tunes tunep,
+                           sendcc tones tonep,
+                           sendcc snappys snappyp,
+                           p
+                          ] # s "midi" # midichan 9
+      where notep = getF note_p p
+            panp = getF pan_p p
+            beginp = getF begin_p p
+            distp = getF dist_p p
+            tunep = getF tune_p p
+            tonep = getF tone_p p
+            decayp = getF decay_p p
+            snappyp = getF snappy_p p
+            sendcc table p = (ccn (fromJust <$> (filterValues isJust $ ((\x -> lookup x table) <$> notep)))
+                              # ccv (p * 127) # midichan 9 # s "midi") # nudge "-0.05"
+                             
+
+d1 $ drumstation $ drum "[bd(<3 4 5>,8,<0 2>), sn*2, ~ ht*4]"
+  # begin 1 # dist (slow 8 sine) # gain 1.2 # tune saw # pan rand # snappy 1
+
+
+
+d1 $ drumstation $ drum "sn bd ~ cgl" # pan 0.5
+
+d1 $ midinote "39" # s "midi" # midichan 9
+
+  # begin 1 # gain 1.2 # tone 0 # tune 0.5 # dist 1 # snappy 0 # begin 0
+
+-- load test..
+d1 $ stack [ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            midinote "38*16" # s "midi" # midichan 9
+           ]
+
+d1 $ drumstation $ whenmod 8 6 (# dist 1)
+  $ slicepat "0 1 2*4 [3 3*8]" 4 $ drum "[bd(3,8) sn, hc hc hc*2 ho, lt [~ mt] cgh ~]" # dist 0
+  # gain 1.1
+
