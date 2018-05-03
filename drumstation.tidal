@@ -24,15 +24,15 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
                                   ]
     drum :: Pattern String -> ParamPattern
     drum p = (note $ ((\x -> fromMaybe 0 (lookup x drums)) <$> p)) # midichan 9 # s "midi"
-    begins
-      = [("bd", 20),
+    begins = match
+        [("bd", 20),
          ("sn", 26),
          ("lt", 32),
          ("mt", 37),
          ("ht", 42)
         ]
-    pans
-      = [("bd", 21),
+    pans = match
+        [("bd", 21),
          ("sn", 27),
          ("lt", 33),
          ("mt", 38),
@@ -49,8 +49,8 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
          ("ma", 72),
          ("cl", 74)
         ]
-    dists
-      = [("bd", 22),
+    dists = match
+        [("bd", 22),
          ("sn", 28),
          ("lt", 34),
          ("mt", 39),
@@ -60,8 +60,8 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
          ("cgm", 67),
          ("chh", 70)
         ]
-    tunes
-      = [("bd", 23),
+    tunes = match
+        [("bd", 23),
          ("sn", 29),
          ("lt", 34),
          ("mt", 40),
@@ -77,13 +77,13 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
          ("ma", 73),
          ("cl", 75)
         ]
-    tones
-      = [("bd", 24),
+    tones = match
+        [("bd", 24),
          ("sn", 30),
          ("cr", 61)
         ]
-    decays
-      = [("bd", 25),
+    decays = match
+        [("bd", 25),
          ("lt", 36),
          ("mt", 41),
          ("ht", 46),
@@ -91,9 +91,10 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
          ("oh", 59),
          ("cr", 62)
         ]
-    snappys
-      = [("sn", 31)
+    snappys = match
+        [("sn", 31)
         ]
+    match = (\(drum, n) -> (fromJust (lookup n drums), n))
     (midichan, midichan_p) = pF "midiChan" Nothing            
     (dist, dist_p) = pF "dist" Nothing            
     (tune, tune_p) = pF "tune" Nothing            
