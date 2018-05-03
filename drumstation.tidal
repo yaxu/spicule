@@ -60,6 +60,28 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
          ("cgm", 67),
          ("chh", 70)
         ]
+    tunes
+      = [("bd", 23),
+         ("sn", 29),
+         ("lt", 34),
+         ("mt", 40),
+         ("ht", 45),
+         ("rs", 48),
+         ("cp", 50),
+         ("cb", 53),
+         ("ch", 55),
+         ("oh", 58),
+         ("cgl", 65),
+         ("cgm", 68),
+         ("cgh", 71),
+         ("ma", 73),
+         ("cl", 75)
+        ]
+    tones
+      = [("bd", 24),
+         ("sn", 30),
+         ("cr", 61)
+        ]
     (midichan, midichan_p) = pF "midiChan" Nothing            
     (dist, dist_p) = pF "dist" Nothing            
     (tune, tune_p) = pF "tune" Nothing            
