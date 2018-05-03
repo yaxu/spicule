@@ -1,0 +1,92 @@
+
+let drums = (subtract 60 <$>) <$> [("bd", 36),
+                                   ("rs", 37),
+                                   ("sd", 38),
+                                   ("sn", 38),
+                                   ("cp", 39),
+                                   ("lt", 41),
+                                   ("hc", 42),
+                                   ("ch", 42),
+                                   ("mt", 45),
+                                   ("ho", 46),
+                                   ("oh", 46),
+                                   ("ht", 48),
+                                   ("cr", 49),
+                                   ("rd", 51),
+                                   ("cb", 56),
+                                   ("cgh", 62),
+                                   ("cgm", 63),
+                                   ("cgl", 64),
+                                   ("ma", 70),
+                                   ("cl", 75)
+                                  ]
+    drum :: Pattern String -> ParamPattern
+    drum p = (note $ ((\x -> fromMaybe 0 (lookup x drums)) <$> p)) # midichan 9 # s "midi"
+    pans = [(-12, 43), -- ht
+            (-22, 27), -- sn
+            (-24, 21) -- bd
+           ]
+    begins = [(-12, 42), -- ht
+              (-22, 26), -- sn
+              (-24, 20) -- bd
+             ]
+    dists = [(-12, 44), -- ht
+             (-22, 28), -- sn
+             (-24, 22) -- bd
+            ]
+    tunes = [(-12, 45), -- ht
+             (-22, 29), -- sn
+             (-24, 23) -- bd
+            ]
+    (dist, dist_p) = pF "dist" Nothing            
+    (tune, tune_p) = pF "tune" Nothing            
+    manip :: ParamPattern -> ParamPattern
+    manip p = stack [ctlNum (fromJust <$> (filterValues isJust $ ((\x -> lookup x pans) <$> notep)))
+                     # control (panp * 127) # midichan 9 # s "midi" # midicmd "control",
+                     ctlNum (fromJust <$> (filterValues isJust $ ((\x -> lookup x begins) <$> notep)))
+                     # control (beginp * 127) # midichan 9 # s "midi" # midicmd "control",
+                     ctlNum (fromJust <$> (filterValues isJust $ ((\x -> lookup x dists) <$> notep)))
+                     # control (distp * 127) # midichan 9 # s "midi" # midicmd "control",
+                     ctlNum (fromJust <$> (filterValues isJust $ ((\x -> lookup x tunes) <$> notep)))
+                     # control (tunep * 127) # midichan 9 # s "midi" # midicmd "control",
+                     p
+                    ]
+      where notep = getF note_p p
+            panp = getF pan_p p
+            beginp = getF begin_p p
+            distp = getF dist_p p
+            tunep = getF tune_p p
+
+
+d1 $ manip $ someCyclesBy 0.2 (# dist 1) $ drum "bd(<3 4 5>,8,<0 2>)" # begin 1 # dist 0 # gain 1.2 # tune saw # pan rand
+
+drum "ht"
+
+(lookup "bd" drums) :: Maybe Int
+
+let p = drum "sn*16" # pan saw
+    notep = getF note_p p
+    panp = getF pan_p p
+in
+d1 $ manip p
+
+(filterValues isJust $ ((\x -> lookup x pans) <$> notep))
+
+notep
+
+(\x -> lookup  x pans) <$> notep
+
+notep
+
+d1 $ midinote "38*8" # s "midi" # channel 9 # pan 0
+
+d2 $ s "midi" # midicmd "control" # ctlNum 30 # control 10 # channel 9
+
+d2 $ s "midi" # ccn 30 # ccv "10" # channel 9
+
+putStr $ "\n" ++
+  (show $ drum "bd" # pan 1
+  )
+let (channel, channel_p) = pF "midiChan" Nothing
+
+let (distortion, distortion_p) = pF "distortion" Nothing
