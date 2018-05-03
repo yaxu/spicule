@@ -24,13 +24,26 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
                                   ]
     drum :: Pattern String -> ParamPattern
     drum p = (note $ ((\x -> fromMaybe 0 (lookup x drums)) <$> p)) # midichan 9 # s "midi"
-    pans = [(-12, 43), -- ht
-            (-22, 27), -- sn
-            (-24, 21) -- bd
+    pans = [("bd", 21),
+            ("sn", 27),
+            ("lt", 33),
+            ("mt", 38),
+            ("ht", 43),
+            ("rs", 47),
+            ("cp", 49),
+            ("cb", 41),
+            ("ch", 54),
+            ("oh", 57),
+            ("cr", 60),
+            ("cgh", 63),
+            ("cgm", 66),
+            ("chl", 69),
+            ("ma", 72),
+            ("cl", 74)
            ]
-    begins = [(-12, 42), -- ht
-              (-22, 26), -- sn
-              (-24, 20) -- bd
+    begins = [(48, 42), -- ht
+              (38, 26), -- sn
+              (36, 20) -- bd
              ]
     dists = [(-12, 44), -- ht
              (-22, 28), -- sn
