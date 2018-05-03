@@ -60,8 +60,16 @@ in
 d1 $ manip $ drum "[bd(<3 4 5>,8,<0 2>), sn*2, ~ ht*4]"
   # begin 1 # dist (slow 8 sine) # gain 1.2 # tune saw # pan rand
 
-d1 $ stack [midinote "36" # s "midi" # midichan 9
-           , ccn 22 # ccv 2 # s "midi" # midichan 9
+d1 $ stack [midinote "38*16" # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9,
+            ccn "28*16" # ccv 127 # s "midi" # midichan 9
            ]
 
 
