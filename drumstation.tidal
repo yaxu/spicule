@@ -105,6 +105,9 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
                            sendcc begins beginp,
                            sendcc dists distp,
                            sendcc tunes tunep,
+                           sendcc tunes tunep,
+                           sendcc tones tonep,
+                           sendcc snappys snappyp,
                            p
                           ] # s "midi" # midichan 9
       where notep = getF note_p p
