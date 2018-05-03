@@ -127,8 +127,8 @@ d1 $ sound "bd"
 d1 $ drumstation $ drum "[bd(<3 4 5>,8,<0 2>), sn*2, ~ ht*4]"
   # begin 1 # dist (slow 8 sine) # gain 1.2 # tune saw # pan rand # snappy 1
 
-d1 $ drumstation $ drum "sn*8"
-  # begin 1 # dist (slow 8 sine) # gain 1.2 # tune saw # pan rand # snappy rand # decay 0 # 
+d1 $ drumstation $ drum "sn(3,8) bd*2"
+  # begin 1 # gain 1.2 # tone 0 # tune 0.5 # dist 1 # snappy sine # begin 0
 
 -- load test..
 d1 $ stack [ccn "28*16" # ccv 127 # s "midi" # midichan 9,
