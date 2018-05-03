@@ -112,6 +112,9 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
             beginp = getF begin_p p
             distp = getF dist_p p
             tunep = getF tune_p p
+            tonep = getF tone_p p
+            decayp = getF decay_p p
+            snappyp = getF snappy_p p
             sendcc table p = (ccn (fromJust <$> (filterValues isJust $ ((\x -> lookup x table) <$> notep)))
                               # ccv (p * 127) # midichan 9 # s "midi") # nudge "-0.05"
                              
