@@ -39,6 +39,7 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
              (-22, 29), -- sn
              (-24, 23) -- bd
             ]
+    (midichan, midichan_p) = pF "midiChan" Nothing            
     (dist, dist_p) = pF "dist" Nothing            
     (tune, tune_p) = pF "tune" Nothing            
     manip :: ParamPattern -> ParamPattern
