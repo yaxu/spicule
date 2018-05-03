@@ -59,4 +59,3 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
             tunep = getF tune_p p
 
 d1 $ manip $ someCyclesBy 0.2 (# dist 1) $ drum "bd(<3 4 5>,8,<0 2>)" # begin 1 # dist 0 # gain 1.2 # tune saw # pan rand
-
