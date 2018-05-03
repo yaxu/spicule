@@ -94,7 +94,7 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
     snappys = match
         [("sn", 31)
         ]
-    match xs = map (\(drum, n) -> (fromJust (lookup drum drums), n)) xs
+    match xs = map (\(drum, n) -> (fromMaybe 0 (lookup drum drums), n)) xs
     (midichan, midichan_p) = pF "midiChan" Nothing            
     (dist, dist_p) = pF "dist" Nothing            
     (tune, tune_p) = pF "tune" Nothing            
@@ -127,7 +127,7 @@ d1 $ drumstation $ drum "[bd(<3 4 5>,8,<0 2>), sn*2, ~ ht*4]"
 
 
 
-d1 $ drumstation $ drum "bd bd cgm*2 bd" # pan 0.5 # dist 1
+d1 $ drumstation $ drum "bd bd cgm cp" # pan 0.5 # dist 1
 
 d1 $ midinote "39" # s "midi" # midichan 9
 
