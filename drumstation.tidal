@@ -1,3 +1,4 @@
+import Data.Maybe
 
 let drums = (subtract 60 <$>) <$> [("bd", 36),
                                    ("rs", 37),
@@ -60,33 +61,3 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
 
 d1 $ manip $ someCyclesBy 0.2 (# dist 1) $ drum "bd(<3 4 5>,8,<0 2>)" # begin 1 # dist 0 # gain 1.2 # tune saw # pan rand
 
-drum "ht"
-
-(lookup "bd" drums) :: Maybe Int
-
-let p = drum "sn*16" # pan saw
-    notep = getF note_p p
-    panp = getF pan_p p
-in
-d1 $ manip p
-
-(filterValues isJust $ ((\x -> lookup x pans) <$> notep))
-
-notep
-
-(\x -> lookup  x pans) <$> notep
-
-notep
-
-d1 $ midinote "38*8" # s "midi" # channel 9 # pan 0
-
-d2 $ s "midi" # midicmd "control" # ctlNum 30 # control 10 # channel 9
-
-d2 $ s "midi" # ccn 30 # ccv "10" # channel 9
-
-putStr $ "\n" ++
-  (show $ drum "bd" # pan 1
-  )
-let (channel, channel_p) = pF "midiChan" Nothing
-
-let (distortion, distortion_p) = pF "distortion" Nothing
