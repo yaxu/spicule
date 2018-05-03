@@ -43,14 +43,10 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
     (dist, dist_p) = pF "dist" Nothing            
     (tune, tune_p) = pF "tune" Nothing            
     manip :: ParamPattern -> ParamPattern
-    manip p = stack [ctlNum (fromJust <$> (filterValues isJust $ ((\x -> lookup x pans) <$> notep)))
-                     # control (panp * 127) # midichan 9 # s "midi" # midicmd "control",
-                     ctlNum (fromJust <$> (filterValues isJust $ ((\x -> lookup x begins) <$> notep)))
-                     # control (beginp * 127) # midichan 9 # s "midi" # midicmd "control",
-                     ctlNum (fromJust <$> (filterValues isJust $ ((\x -> lookup x dists) <$> notep)))
-                     # control (distp * 127) # midichan 9 # s "midi" # midicmd "control",
-                     ctlNum (fromJust <$> (filterValues isJust $ ((\x -> lookup x tunes) <$> notep)))
-                     # control (tunep * 127) # midichan 9 # s "midi" # midicmd "control",
+    manip p = stack [sendcc pans panp,
+                     sendcc begins beginp,
+                     sendcc dists distp,
+                     sendcc tunes tunep,
                      p
                     ]
       where notep = getF note_p p
@@ -58,6 +54,8 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
             beginp = getF begin_p p
             distp = getF dist_p p
             tunep = getF tune_p p
+            sendcc table p = ccn (fromJust <$> (filterValues isJust $ ((\x -> lookup x table) <$> notep)))
+                             # ccv (p * 127) # midichan 9 # s "midi"
 
 d1 $ manip $ someCyclesBy 0.2 (# dist 1) $ drum "bd(<3 4 5>,8,<0 2>)" # begin 1 # dist 0 # gain 1.2 # tune saw # pan rand
 
