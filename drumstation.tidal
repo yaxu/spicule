@@ -73,4 +73,4 @@ d1 $ stack [ccn "28*16" # ccv 127 # s "midi" # midichan 9,
             midinote "38*16" # s "midi" # midichan 9
            ]
 
-
+d1 $ midinote "38(3,8)" # s "midi" # midichan 9
