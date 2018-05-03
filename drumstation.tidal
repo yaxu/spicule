@@ -94,7 +94,7 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
     snappys = match
         [("sn", 31)
         ]
-    match xs = map (\(drum, n) -> (fromJust (lookup n drums), n)) xs
+    match xs = map (\(drum, n) -> (fromJust (lookup drum drums), n)) xs
     (midichan, midichan_p) = pF "midiChan" Nothing            
     (dist, dist_p) = pF "dist" Nothing            
     (tune, tune_p) = pF "tune" Nothing            
