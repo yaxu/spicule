@@ -54,9 +54,9 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
             beginp = getF begin_p p
             distp = getF dist_p p
             tunep = getF tune_p p
-            sendcc table p = ccn (fromJust <$> (filterValues isJust $ ((\x -> lookup x table) <$> notep)))
-                             # ccv (p * 127) # midichan 9 # s "midi"
-
+            sendcc table p = 0.05 <~ (ccn (fromJust <$> (filterValues isJust $ ((\x -> lookup x table) <$> notep)))
+                             # ccv (p * 127) # midichan 9 # s "midi")
+in
 d1 $ manip $ drum "[bd(<3 4 5>,8,<0 2>), sn*2, ~ ht*4]"
   # begin 1 # dist (slow 8 sine) # gain 1.2 # tune saw # pan rand
 
