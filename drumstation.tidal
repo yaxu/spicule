@@ -127,7 +127,7 @@ d1 $ drumstation $ drum "[bd(<3 4 5>,8,<0 2>), sn*2, ~ ht*4]"
 
 
 
-d1 $ drumstation $ drum "sn bd ~ cp"
+d1 $ drumstation $ drum "bd bd cgm*2 bd" # pan 0.5 # dist 1
 
 d1 $ midinote "39" # s "midi" # midichan 9
 
