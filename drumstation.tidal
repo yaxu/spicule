@@ -82,6 +82,18 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
          ("sn", 30),
          ("cr", 61)
         ]
+    decays
+      = [("bd", 25),
+         ("lt", 36),
+         ("mt", 41),
+         ("ht", 46),
+         ("ch", 56),
+         ("oh", 59),
+         ("cr", 62)
+        ]
+    snappys
+      = [("sn", 31)
+        ]
     (midichan, midichan_p) = pF "midiChan" Nothing            
     (dist, dist_p) = pF "dist" Nothing            
     (tune, tune_p) = pF "tune" Nothing            
