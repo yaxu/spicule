@@ -98,6 +98,8 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
     (midichan, midichan_p) = pF "midiChan" Nothing            
     (dist, dist_p) = pF "dist" Nothing            
     (tune, tune_p) = pF "tune" Nothing            
+    (tone, tone_p) = pF "tone" Nothing            
+    (snappy, snappy_p) = pF "snappy" Nothing            
     drumstation :: ParamPattern -> ParamPattern
     drumstation p = stack [sendcc pans panp,
                            sendcc begins beginp,
