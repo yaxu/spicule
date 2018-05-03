@@ -129,6 +129,8 @@ d1 $ drumstation $ drum "[bd(<3 4 5>,8,<0 2>), sn*2, ~ ht*4]"
 
 d1 $ drumstation $ drum "sn bd ~ cp"
 
+d1 $ midinote "39" # s "midi" # midichan 9
+
   # begin 1 # gain 1.2 # tone 0 # tune 0.5 # dist 1 # snappy 0 # begin 0
 
 -- load test..
