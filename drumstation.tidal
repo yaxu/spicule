@@ -94,17 +94,17 @@ let drums = (subtract 60 <$>) <$> [("bd", 36),
     snappys = match
         [("sn", 31)
         ]
-    match = (\(drum, n) -> (fromJust (lookup n drums), n))
+    match xs = map (\(drum, n) -> (fromJust (lookup n drums), n)) xs
     (midichan, midichan_p) = pF "midiChan" Nothing            
     (dist, dist_p) = pF "dist" Nothing            
     (tune, tune_p) = pF "tune" Nothing            
     drumstation :: ParamPattern -> ParamPattern
     drumstation p = stack [sendcc pans panp,
-                     sendcc begins beginp,
-                     sendcc dists distp,
-                     sendcc tunes tunep,
-                     p
-                    ] # s "midi" # midichan 9
+                           sendcc begins beginp,
+                           sendcc dists distp,
+                           sendcc tunes tunep,
+                           p
+                          ] # s "midi" # midichan 9
       where notep = getF note_p p
             panp = getF pan_p p
             beginp = getF begin_p p
