@@ -1,0 +1,38 @@
+
+
+
+d1 $ drumstation $ off 0.25 (# dist 0) $ drum "[bd(<3 4 5>,8,<0 2>), cgh*2]"
+  # begin 0 # dist (1) # gain 1.2 # tune sine # snappy rand
+
+
+d2 $ chunk 4 (hurry 2) $ slow 2 $ chop 8 $ pan "0 1" # n "0 <1 3>" # sound "alphabet"
+
+d3 $ off 0.25 (# crush 4) $ loopAt 2 $ slice "{0 <1 4> 2 3*2, 5*4 ~ 6 ~ 7 ~}" 8 $ sound "arc"
+  # gain 1.1
+  # legato 1
+
+d4 $ chunk 4 (hurry 0.5) $ note (off 0.25 (+12)$ "<c(3,8) e(3,8) f(3,8,2) g(3,8)>") # sound "dsynth:1"
+  # lpf 3000
+
+d5 $ drumstation $ chunk 4 (# dist 1) $ drum "bd [sn [cp rs]]"
+  # gain 1.2
+
+d6 $ chunk 4 (hurry 0.5) $ loopAt 4 $chop 8 $ sound "paper"
+  # gain 0.9
+
+d1 $ sound "bd"
+
+
+
+
+
+d1 $ every 3 rev $ chop 8 $ sound "bd sd? arpy ~"
+  # shape "<0.8 0>"
+
+d2 $ loopAt 2 $sound "arc"
+
+
+
+
+
+
