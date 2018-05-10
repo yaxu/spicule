@@ -7,6 +7,6 @@ d1 $ drumstation $ jux rev $ slicepat "0 1*2 <4 7> 5" 8 $ drum "<bd sd cgh sd>(<
   # gain 1
   # tune (scale 0.5 1 sine)
 
-d2 $ loopAt 2 $ slice (chunk 4 (fast 2) $ "0 [1 2] ~ 3*2 4 5*4 [~ 6] 7") 8 $ sound "arc"
+d2 $ loopAt 2 $ slice (chunk 4 (fast 0.5) $ "0 [1 2] ~ 3*2 4 5*4 [~ 6] 7") 8 $ sound "arc"
   # room 1 # sz 0.3 # legato 1
 
