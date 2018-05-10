@@ -29,7 +29,8 @@ d1 $ sound "bd"
 d1 $ every 3 rev $ chop 8 $ sound "bd sd? arpy ~"
   # shape "<0.8 0>"
 
-d2 $ loopAt 2 $sound "arc"
+d2 $ every 4 (# room 0.9) $ off 0.25 (|*| speed 2) $ chunk 4 (hurry 2) $ loopAt 2 $ chop 8 $ sound "arc"
+  # gain 1.1
 
 
 
