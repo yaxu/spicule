@@ -12,12 +12,16 @@ d3 $ jux rev $ off 0.25 (|*| speed 2) $ every 4 (hurry 0.5) $ iter 4 $ loopAt 2 
   # lpf 1000
   # lpq 0.2
 
-d4 $ iter 4 $ off "<0.25 0.125>" (|*| speed 1.5) $ note "c [e g*2]" # sound "stabs"
-  # orbit 1
-  # room 0.3
-  # lpf (slow 4 $ scale 100 6000 sine)
+d5 $ slow 2 $ off 0.125 (# crush 2) $ sound "[drum,future](3,8)"
+  |*| speed (scale 2 1 sine)
 
-d5 $ jux (rev . (|*| speed 2)) $ off 0.125 (# crush 3) $ sound "[drum,future](3,8)"
+d3 $ slow 4 $ off 0.25 (# s "rash") $ n "c7 [~ a8] f6 e8" # sound "xx"
+  # orbit 1
+  # room 0.8
+  # accelerate (-1)
+
+d1 $ jux rev $ chunk 4 (hurry 2) $ n (every 2 (+2) $ iter 4 $ "0 ~ 3 <5 4>") # sound "micron"
+
 
 
 d3 $ jux (rev . (# speed 4)) $ sound "bk(<3 5>,8,3 2)"
