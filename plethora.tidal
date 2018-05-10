@@ -51,5 +51,13 @@ d5 $ off 0.25 (# s "pulse")$ degrade $ chunk 4 (hurry 0.5) $ jux rev $ n (off 0.
 d5 $ degrade $ chunk 4 (hurry 0.5) $ off 0.25 (|*| speed 2) $ off "<0.25 0.5>" (hurry 2) $ jux rev $ chop "<4 2>" $ sound "~ dsynth:1"
 
 
-d1 $ chunk 4 (fast 2) $ every 4 (fast 2)$ sound "drum*4 bd*8 bd*16 bd*8"
-  # pan sine
+d1 $ slow 4 $ jux rev $ chunk 4 (fast 2) $ every 4 (fast 2)$ sound "drum*2 bd(3,8) bd*2 bd*2"
+  # orbit 1 # room 0.8 # size 0.9
+
+d2 $ chunk 4 (hurry 2) $ every 4 (fast 2) $ sound "gabba*4"
+
+d3 $ every 4 (rev .chop 8) $ sound "industrial:2 industrial*2"
+
+d4 $ off 0.25 (|*| speed 2)$ sound "~ donk:1 ~ donk:1"
+  # orbit 2 # room 0.2 # size 0.99
+
