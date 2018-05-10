@@ -10,5 +10,4 @@ d3 $ off 0.25 (# crush 4) $ loopAt 2 $ slice "{0 <1 4> 2 3*2, 5*4 ~ 6 ~ 7 ~}" 8 
   # gain 1.1
   # legato 1
 
-d4 $ chunk 4 (hurry 2) $ loopAt "8 6" $ chop 8 $ sound "repeticion"
 
