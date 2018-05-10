@@ -4,16 +4,15 @@ d1 $ drumstation $
     # dist 0.3
     # tune (slow 2 sine)
 
-d3 $ sound "bd(3,8)"
-    
-d2 $ jux rev $ note (off 0.125 (+12) $ off 0.25 (+7) "<c(3,8) [~ e*2] f*2 g(3,8,2)>") # sound "dbass"
-  # speed 4
+d3 $ jux (rev . (# speed 2)) $ sound "bd(<3 5>,8,0 2)"
+  # shape 0.3
+
+d9 $ slice (iter 4 "0*2 1 2*2 [3 6]") 8 $ sound "arc"
+  # gain 1.1
   # legato 1
-  # lpf 2000
-  |+| n "<0 7>"
-  # gain 0.85
 
-d5 $ jux rev $ n (off 0.125 (+12) $ off 0.25(+7)$ "<c7(3,8) e7(3,8) f7(3,8,2) g7*2>") # sound "rash"
-  # gain 1
+d5 $ off 0.25 (# s "pulse")$ degrade $ chunk 4 (hurry 0.5) $ jux rev $ n (off 0.125 (+12) $ off 0.25(+7)$ "<c7(3,8) e7(3,8) f7(3,8,2) g7*2>") # sound "rash"
+  # gain 0.9
 
-d6 $ loopAt 4 $ chop 8 $ sound "paper"
+d5 $ off 0.25 (hurry 2) $ jux rev $ chop "<4 2>" $ sound "~ dsynth"
+  # hpf 300
