@@ -10,4 +10,13 @@ d3 $ off 0.25 (# crush 4) $ loopAt 2 $ slice "{0 <1 4> 2 3*2, 5*4 ~ 6 ~ 7 ~}" 8 
   # gain 1.1
   # legato 1
 
+d4 $ chunk 4 (hurry 0.5) $ note (off 0.25 (+12)$ "<c(3,8) e(3,8) f(3,8,2) g(3,8)>") # sound "dsynth:1"
+  # lpf 3000
+d4 silence
+solo $ 
+d5 $ drumstation $ chunk 4 (# dist 1) $ drum "bd [sn [cp rs]]"
+  # gain 1.2
 
+d6 $ chunk 4 (hurry 0.5) $ loopAt 4 $chop 8 $ sound "paper"
+  # gain 0.9
+  
