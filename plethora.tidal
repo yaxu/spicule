@@ -1,7 +1,19 @@
 
 d1 $ drumstation $
-  drum "<bd sd>(<3 5>,8,<0 2 4>)"
+  drum "<bd [sd rs]>(<3 5>,8,<0 2 4>)"
     # dist 0.3
     # tune (slow 2 sine)
-  
 
+d3 $ sound "bd(3,8)"
+    
+d2 $ jux rev $ note (off 0.125 (+12) $ off 0.25 (+7) "<c(3,8) [~ e*2] f*2 g(3,8,2)>") # sound "dbass"
+  # speed 4
+  # legato 1
+  # lpf 2000
+  |+| n "<0 7>"
+  # gain 0.85
+
+d5 $ jux rev $ n (off 0.125 (+12) $ off 0.25(+7)$ "<c7(3,8) e7(3,8) f7(3,8,2) g7*2>") # sound "rash"
+  # gain 1
+
+d6 $ loopAt 4 $ chop 8 $ sound "paper"
