@@ -1,1 +1,8 @@
-d1 $ drumstation $ drum "bd"
+
+d1 $ drumstation $
+  drum "<bd [sd cp]>(<3 5>,8,<0 2 4>)"
+    # dist 0.3
+    # tune (slow 2 sine)
+  
+d2 $ chop 16 $ sound "cp"
+
