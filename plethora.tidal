@@ -1,0 +1,5 @@
+
+
+d1 $ drumstation $ drum "[bd(<3 4 5>,8,<0 2>), sn*2]"
+  # begin 1 # dist (slow 8 sine) # gain 1.2 # tune saw # snappy rand
+  
