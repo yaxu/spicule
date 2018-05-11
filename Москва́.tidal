@@ -30,6 +30,6 @@ d7 $ someCycles (# lpf 500) $ jux rev $ off "<0.125 0.25 0.75>" (# (crush 3 # sp
 
 d4 $ jux rev $ chunk 4 (hurry 2) $ chop "<1 4>" $ sound "[~ sr] sd"
 
-d5 $ note "c [~ g]" # sound "dsynth"
+d5 $ note (off 0.25 (+7) $ "c [~ g]") # sound "dsynth"
   # legato 0.5
   |+| note "<0 7 12>"
