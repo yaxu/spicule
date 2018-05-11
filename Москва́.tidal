@@ -40,4 +40,5 @@ d6 $ chunk 4 (hurry 2) $jux rev $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>"
   # legato 1
 
 d7 $ chunk 4 (hurry 2) $ sound "bd feel(5,8)"
-  # orbit 1 # delay 0.4 # delayt (slow 4 $ scale 0.02 0.2 sine) # delayfb 0.9
+
+d8 $ jux (0.5 <~) $ stut 3 0.8 "<1 0.25  -1>" $ n "c7 [~ <g8 e8 c6>]" # sound "xx"
