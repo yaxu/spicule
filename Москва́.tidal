@@ -39,10 +39,9 @@ d5 $ jux rev $ note (off 0.25 (+7) $ "c [~]") # sound "dsynth"
 d6 $ jux rev $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1") 8 $ sound "arc"
   # legato 1
 
-d7 $ sound "bd feel(3,8)"
+d7 $ sound "bd feel(5,8)"
   # orbit 1 # delay 0.4 # delayt (slow 4 $ scale 0.02 0.2 sine) # delayfb 0.9
-  # crush 4
 
-d8 $ iter 4 $ jux (4 <~) $ loopAt 4 $ chop 16 $ sound "repetition"
+d8 $ iter 4 $ jux (4.5 <~) $ loopAt 4 $ chop 16 $ sound "repetition"
   # gain 1.1
   # n (irand 4)
