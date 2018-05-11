@@ -40,7 +40,7 @@ d6 $ jux rev $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1"
   # legato 1
 
 d7 $ sound "bd gabba*2"
-  # orbit 1 # delay 0.4 # delayt (slow 4 $ scale 0.01 0.3 sine) # delayfb 0.9
+  # orbit 1 # delay 0.4 # delayt (slow 4 $ scale 0.02 0.2 sine) # delayfb 0.9
   # crush 4
 
 d8 $ iter 4 $ jux (4 <~) $ loopAt 4 $ chop 16 $ sound "repetition"
