@@ -43,6 +43,6 @@ d7 $ sound "bd gabba*2"
   # orbit 1 # delay 0.4 # delayt (slow 4 $ scale 0.01 0.3 sine) # delayfb 0.9
   # crush 4
 
-d8 $ loopAt 4 $ chop 16 $ sound "repetition"
+d8 $ jux (4 <~) $ loopAt 4 $ chop 16 $ sound "repetition"
   # gain 1.15
   # n (irand 4)
