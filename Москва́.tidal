@@ -36,7 +36,7 @@ d5 $ jux rev $ note (off 0.25 (+7) $ "c [~]") # sound "dsynth"
   # legato 0.5
   #lpf (slow 4 $ scale 600 200 sine) # lpq 0.1
 
-d6 $ jux rev $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1") 8 $ sound "arc"
+d6 $ every 4 (const $ sound "bd*4") $ jux rev $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1") 8 $ sound "arc"
   # legato 1
 
 d7 $ sound "~ gabba*2"
