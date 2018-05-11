@@ -36,9 +36,10 @@ d5 $ jux rev $ note (off 0.25 (+7) $ "c [~]") # sound "dsynth"
   # legato 0.5
   #lpf (slow 4 $ scale 600 200 sine) # lpq 0.1
 
-d6 $ chunk 4 (hurry 2) $jux rev $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1") 8 $ sound "arc"
+d6 $ chunk 4 (hurry 2) $jux rev $ loopAt "<8 4>" $ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1") 8 $ sound "shackup"
   # legato 1
 
 d7 $ chunk 4 (hurry 2) $ sound "bd feel(5,8)"
 
 d8 $ jux (0.5 <~) $ stut 3 0.8 "<1 0.25  -1>" $ n "c7 [~ <g8 e8 c6>]" # sound "xx"
+  # hpf 1000
