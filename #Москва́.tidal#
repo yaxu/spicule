@@ -1,3 +1,7 @@
-d1 $ sound "bd"
+d1 $ slice "0*2 4*8" 8 $ sound "cp"
 
-d2 $ drumsta
+
+
+d2 $ drumstation $ drum "bd cp"
+  # gain 2
+  # pan 0.5
