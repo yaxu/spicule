@@ -36,8 +36,13 @@ d5 $ jux rev $ note (off 0.25 (+7) $ "c [~]") # sound "dsynth"
   # legato 0.5
   #lpf (slow 4 $ scale 600 200 sine) # lpq 0.1
 
-d6 $ every 4 (const $ sound "bd(5,8)") $ jux rev $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1") 8 $ sound "arc"
+d6 $ jux rev $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1") 8 $ sound "arc"
   # legato 1
 
-d7 $ sound "~ gabba*2"
+d7 $ sound "bd gabba*2"
   # orbit 1 # delay 0.4 # delayt (slow 4 $ scale 0.01 0.3 sine) # delayfb 0.9
+  # crush 4
+
+d8 $ loopAt 4 $ chop 16 $ sound "repetition"
+  # gain 1.15
+  # n (irand 4)
