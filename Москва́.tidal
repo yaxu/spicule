@@ -42,7 +42,7 @@ d6 $ slow 2 $ chunk 4 (hurry 2) $jux rev $ loopAt "<8 4>" $ slice (off "<0.25 0.
 
 d7 $ degrade $ chunk 4 (hurry 2) $ sound "bd feel(5,8)"
 
-d8 $ degrade $ off 0.25 ((# sound "rash") . (|+| n "5 12"))$ jux (0.5 <~) $ stut 3 0.8 "<1 0.25  -1>" $ n "c7 [~ <g8 e8 c6>]" # sound "xx"
+d8 $ degradeBy 0.8 $ off 0.25 ((# sound "rash") . (|+| n "5 12"))$ jux (0.5 <~) $ stut 3 0.8 "<1 0.25  -1>" $ n "c7 [~ <g8 e8 c6>]" # sound "xx"
   # lpf 3000
   # end 0.4
 
