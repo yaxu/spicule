@@ -43,6 +43,6 @@ d7 $ chunk 4 (hurry 2) $ sound "bd feel(5,8)"
 
 d8 $ off 0.25 ((# sound "rash") . (|+| n "5 12"))$ jux (0.5 <~) $ stut 3 0.8 "<1 0.25  -1>" $ n "c7 [~ <g8 e8 c6>]" # sound "xx"
 
-d9 $ off 0.25 (# speed 2) $ sound "[gabba(3,8), ~ wobble]"
+d9 $ every 4 (fast 2) $ off 0.25 (# speed 2) $ sound "[gabba(3,8), ~ wobble]"
   # shape 0.4
   
