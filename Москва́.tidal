@@ -27,3 +27,5 @@ d6 $ jux rev $ off 0.25 (# crush 4) $ sound "<kicklinn>(3,8)"
 
 d5 $ jux rev $ off "<0.125 0.25 0.75>" (# (crush 3 # speed 1.5)) $ sound "~ donk ~ [~ donk]"
   # lpf 300 #lpq 0.2
+
+d4 $ chop "<1 4>" $ sound "~ sd"
