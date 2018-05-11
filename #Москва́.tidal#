@@ -6,9 +6,14 @@ d1 $ drumstation $ chunk 4 (fast 2) $ drum "[rs(3 5,8,<0 2>), bd*2, ~ sn*2]"
 
 d2 $ off 0.25 (# speed 2) $jux rev $ iter 4 $ chop 8 $ sound "~ bd*2"
 
-d3 $ note (off 0.25 (+7) $ "<c(3,8) e*2 f(3,8,2) g*2>") # sound "dbass:1"
+d3 $ jux rev $ note (off 0.125 (+12) $ off 0.25 (+7) $ "<c(3,8) e*2 f(3,8,2) g*2>") # sound "dbass:1"
   # legato 1
-  # gain 0.9
-  # lpf 2000
-  # lpq 0.2
-  # orbit 1 # roo m0.3
+  # gain 0.75
+  # lpf 700
+  # lpq 0.1
+  # orbit 1
+  # room 0.3
+  # sz 0.8
+  # speed 2
+
+d4 $ n "c" # sound "rash"
