@@ -30,9 +30,8 @@ d7 $ someCycles (# lpf 500) $ jux rev $ off "<0.125 0.25 0.75>" (# (crush 3 # sp
 
 d4 $ jux rev $ chunk 4 (hurry 2) $ chop "<1 4>" $ sound "[~ sr] sd"
 
-d5 $ jux rev $ off 0.125 (|*| speed 1.5)$ note (off 0.25 (+7) $ "c [~ g]") # sound "dsynth"
+d5 $ jux rev $ off 0.125 (|*| speed 1.5)$ note (off 0.25 (+7) $ "c [~]") # sound "dsynth"
   # legato 0.5
-  |+| note "<0 7 12>"
   #lpf (slow 4 $ scale 600 4000 sine) # lpq 0.1
 
-d6 $ loopAt 1 $ chop 64 $ sound "arc"
+d6 $ loopAt 2$ chop 64 $ sound "arc"
