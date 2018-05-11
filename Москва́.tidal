@@ -21,4 +21,4 @@ d4 $ chunk 4 (hurry 0.5) $ off 0.25 (# (s "xx" # gain 0.8)) $ jux rev $ n (off 0
 
 d5 $ jux rev $ chunk 4 (hurry 0.5) $ iter 4 $ loopAt 4 $ chop 16 $ sound "paper"
 
-d6 $ jux rev $ off 0.25 (# crush 2) $ sound "odx(3,8)"
+d6 $ jux rev $ off 0.25 (# crush 4) $ sound "<odx kicklinn>(3,8)"
