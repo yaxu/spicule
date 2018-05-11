@@ -40,3 +40,4 @@ d6 $ every 4 (const $ sound "bd(5,8)") $ jux rev $ loopAt 2$ slice (off "<0.25 0
   # legato 1
 
 d7 $ sound "~ gabba*2"
+  # orbit 1 # delay 0.4 # delayt (slow 4 $ scale 0.01 0.3 sine) # delayfb 0.9
