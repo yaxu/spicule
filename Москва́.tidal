@@ -34,3 +34,5 @@ d5 $ jux rev $ off 0.125 (|*| speed 1.5)$ note (off 0.25 (+7) $ "c [~ g]") # sou
   # legato 0.5
   |+| note "<0 7 12>"
   #lpf (slow 4 $ scale 600 4000 sine) # lpq 0.1
+
+d6 $ loopAt 1 $ chop 64 $ sound "arc"
