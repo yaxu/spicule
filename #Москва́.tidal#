@@ -1,0 +1,5 @@
+d1 $ chunk 4 (hurry 2)$ jux (("<0.125 0.25 0.75>" <~) . rev) $ slice "0*2 1*4" 8 $ sound "<cp bd>" # crush 2
+
+d2 $ drumstation $ drum "bd cp"
+  # gain 2
+  # pan 0.5
