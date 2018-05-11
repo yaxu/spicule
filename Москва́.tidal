@@ -34,4 +34,5 @@ d5 $ jux rev $ note (off 0.25 (+7) $ "c [~]") # sound "dsynth"
   # legato 0.5
   #lpf (slow 4 $ scale 600 200 sine) # lpq 0.1
 
-d6 $ loopAt 2$ chop 64 $ sound "arc"
+d6 $ loopAt 2$ slice "0 2*2 [4 4*2] 1" 8 $ sound "arc"
+  # legato 1
