@@ -1,0 +1,48 @@
+
+d1 $ drumstation $ drum "[rs(3 5,8,<0 2>), bd*2, ~ sn*2]"
+  # pan 0.5 # snappy rand
+  # tone (slow 2 saw)
+  # tune sine
+
+
+d2 $ off 0.25 (# speed 2) $jux rev $ iter 4 $ chop 8 $ sound "~ bd*2"
+
+d3 $ chunk 4 (hurry 0.5) $ jux rev $ note (off 0.125 (+12) $ off 0.25 (+7) $ "<c(3,8) e*2 f(3,8,2) g*2>") # sound "dbass:1"
+  # legato 1
+  # gain 0.75
+  # lpf 700
+  # lpq 0.1
+  # orbit 1
+  # room 0.3
+  # sz 0.8
+  # speed 2
+
+d4 $ chunk 4 (hurry 0.5) $ off 0.25 (# (s "xx" # gain 0.8)) $ jux rev $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c7(3,8) e7(3,8,<2 4>) f7(3,8) g7*2>") # sound "rash"
+
+d5 $ degrade $ jux rev $ chunk 4 (hurry 0.5) $ iter 4 $ loopAt 4 $ chop 16 $ sound "paper"
+  # crush 3
+
+d6 $ jux rev $ off 0.25 (# crush 4) $ sound "<kicklinn>(3,8)"
+  # speed (scale 1 1.2 sine)
+
+d7 $ someCycles (# lpf 500) $ jux rev $ off "<0.125 0.25 0.75>" (# (crush 3 # speed 1.5)) $ sound "~ donk ~ [~ donk]"
+  # lpf 300 #lpq 0.2
+  # end 0.01
+
+d4 $ jux rev $ chunk 4 (hurry 2) $ chop "<1 4>" $ sound "[~ sr] sd"
+
+
+d5 $ jux rev $ note (off 0.25 (+7) $ "c [~]") # sound "dsynth"
+  # legato 0.5
+  #lpf (slow 4 $ scale 600 200 sine) # lpq 0.1
+
+d6 $ jux rev $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1") 8 $ sound "arc"
+  # legato 1
+
+d7 $ sound "bd feel(5,8)"
+  # orbit 1 # delay 0.4 # delayt (slow 4 $ scale 0.02 0.2 sine) # delayfb 0.9
+
+d8 $ iter 4 $ jux (4.5 <~) $ loopAt 4 $ chop 16 $ sound "repetition"
+  # gain 1.1
+  # n (irand 4)
+  # crush 2
