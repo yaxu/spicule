@@ -1,0 +1,4 @@
+
+d1 $ drumstation $ chunk 4 (fast 2) $ drum "[rs(3 5,8,<0 2>), bd*2, ~ sn*2]"
+  # pan 0.5
+  
