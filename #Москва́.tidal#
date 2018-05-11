@@ -1,0 +1,11 @@
+-- this is a test
+-- this is test music
+-- do not enjoy
+
+d1 $ chunk 4 (hurry 2)$ jux (("<0.125 0.25 0.75>" <~) . rev) $ slice "0*2 1*4" 8 $ sound "<cp bd>" # crush 2
+
+d2 $ drumstation $ off "<0.25 0.125>" (# dist 0.5) $ drum "bd(3,8) [cp cgh]"
+  # gain 2
+  # tone (slow 8 sine)
+  # tune (slow 8 saw)
+
