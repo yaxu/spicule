@@ -16,4 +16,8 @@ d3 $ jux rev $ note (off 0.125 (+12) $ off 0.25 (+7) $ "<c(3,8) e*2 f(3,8,2) g*2
   # sz 0.8
   # speed 2
 
-d4 $ n "c" # sound "rash"
+d4 $ off 0.25 (# s "pulse") $ jux rev $ n (off 0.25 (+12) $ off 0.125 (+7) $ "<c7(3,8) e7(3,8,<2 4>) f7(3,8) g7*2>") # sound "rash"
+  # lpf 4000
+  #lpq 0.1
+
+d5 $ sound "paper"
