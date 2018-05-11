@@ -1,1 +1,3 @@
+-- testing
 
+d1 $ slow 4 $ n "0 1" # sound "numbers" # pan "0 1"
