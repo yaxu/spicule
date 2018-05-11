@@ -33,3 +33,4 @@ d4 $ jux rev $ chunk 4 (hurry 2) $ chop "<1 4>" $ sound "[~ sr] sd"
 d5 $ note (off 0.25 (+7) $ "c [~ g]") # sound "dsynth"
   # legato 0.5
   |+| note "<0 7 12>"
+  #lpf (slow 4 $ scale 600 4000 sine) # lpq 0.1
