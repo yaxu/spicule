@@ -29,3 +29,6 @@ d5 $ jux rev $ off "<0.125 0.25 0.75>" (# (crush 3 # speed 1.5)) $ sound "~ donk
   # lpf 300 #lpq 0.2
 
 d4 $ jux rev $ chunk 4 (hurry 2) $ chop "<1 4>" $ sound "[~ sr] sd"
+
+d5 $ note "c [~ g]" # sound "dsynth"
+  # legato 0.5
