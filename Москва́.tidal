@@ -1,3 +1,7 @@
+-- this is a test
+-- this is test music
+-- do not enjoy
+
 d1 $ chunk 4 (hurry 2)$ jux (("<0.125 0.25 0.75>" <~) . rev) $ slice "0*2 1*4" 8 $ sound "<cp bd>" # crush 2
 
 d2 $ drumstation $ drum "bd cp"
