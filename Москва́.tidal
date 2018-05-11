@@ -25,7 +25,7 @@ d5 $ degrade $ jux rev $ chunk 4 (hurry 0.5) $ iter 4 $ loopAt 4 $ chop 16 $ sou
 d6 $ jux rev $ off 0.25 (# crush 4) $ sound "<kicklinn>(3,8)"
   # speed (scale 1 1.2 sine)
 
-d5 $ jux rev $ off "<0.125 0.25 0.75>" (# (crush 3 # speed 1.5)) $ sound "~ donk ~ [~ donk]"
+d7 $ jux rev $ off "<0.125 0.25 0.75>" (# (crush 3 # speed 1.5)) $ sound "~ donk ~ [~ donk]"
   # lpf 300 #lpq 0.2
 
 d4 $ jux rev $ chunk 4 (hurry 2) $ chop "<1 4>" $ sound "[~ sr] sd"
