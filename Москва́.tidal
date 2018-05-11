@@ -27,12 +27,14 @@ d6 $ jux rev $ off 0.25 (# crush 4) $ sound "<kicklinn>(3,8)"
 
 d7 $ someCycles (# lpf 500) $ jux rev $ off "<0.125 0.25 0.75>" (# (crush 3 # speed 1.5)) $ sound "~ donk ~ [~ donk]"
   # lpf 300 #lpq 0.2
+  # end 0.01
 
 d4 $ jux rev $ chunk 4 (hurry 2) $ chop "<1 4>" $ sound "[~ sr] sd"
+
 
 d5 $ jux rev $ note (off 0.25 (+7) $ "c [~]") # sound "dsynth"
   # legato 0.5
   #lpf (slow 4 $ scale 600 200 sine) # lpq 0.1
 
-d6 $ loopAt 2$ slice "0 2*2 [4 4*2] 1" 8 $ sound "arc"
+d6 $ loopAt 2$ slice (off "<0.25 0.5>" (+ "<1 2 3>") "0 2*2 [4 4*2] 1") 8 $ sound "arc"
   # legato 1
