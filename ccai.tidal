@@ -17,7 +17,7 @@ let (midicmd, midicmd_p) = pS "midicmd" (Nothing)
 
 x1 $ midicmd "[start/4,midiClock*48]" # s "midi" # nudge 0.09
 
-d1 $ sound "bd*2"
+d1 $ sound "bd(3,8)"
 
 hush
 cps 1.1
