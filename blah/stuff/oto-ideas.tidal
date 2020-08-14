@@ -1,0 +1,78 @@
+d1 $ degrade $ (jux (rev . off 0.25 (# s "rash")) $
+                slow 8 $ off "q" (+ n "<-7 5 12>") $ off "e" (+12)
+                $ n "c7(3,8) c8(3,16) d8(5,16) e7(3,8)"
+  # s "xx")
+  # room 0.5 #sz 0.8
+  # vowel "[<a e i>,p]"
+  # djf 0.8
+
+tam kick snare clap kicklinn micron rash xx jx supermandolin clap
+repetition repeticion paper arc break skip foley donk bees mf hoov
+bh:4 phkick phsnare phhat phride clap *midwob* pulse xx rash dsynth
+dbass da1 da2 da3 jungvox:7/9 modperc *bassneuro* basspower hirave liq
+tam micron bassrave *hits* funky voice bassic hi lo midwob pirate
+wobble hi/lo techhit claus speakspell diphone alphabit acid
+
+fshift krush distort vowel accelerate pan coarse delay delayt delayfb leslie
+
+odiamen (4) odidonk (4) odihey (2) odinote (1) odirepetition (1) 
+
+setcps 0.6
+  
+smash
+stut
+off
+chunk
+slice / splice
+perlin
+spread ($)
+cat / append
+pan sine
+jux / jux'
+arp "<pinkyup thumbup up>"
+spread ($)
+sometimes (|+ n 12)
+splice bassneuro
+repeatCycles 4 rand
+linger "<0.125 0.25 1>"
+ply "<1 2 3 4>"
+sew
+spaceOut [1,0.25,0.5]
+stut
+hush
+inv
+foldEvery
+append / fastAppend
+bite / chew
+stack
+~> / <~
+striate
+interlace
+smash
+striate
+weave
+distrib
+inside / outside
+mask
+palindrome
+randcat
+rot
+scramble / shuffle
+segment
+spread ($)
+soak
+smooth
+perlin
+chew
+soak (|+ note "-5")
+
+d2 $ soak 4 (|+ note "-5") $ stack [jux (rev . (|+ n 12)) $ sound "voice(3,8,<0 2 4>)"
+                                    # gain 1.2
+                                    |+ note "<'maj'4 'min'4>"
+                                    # pF "vowel" "<0 1 2 3 4>",
+                                    off 0.25 (|+ note 7) $
+                                    jux rev $ chop "<8 6>" $ sound "dbass:1" |* speed 4
+                                    # gain 0.8
+                                   ]
+
+

@@ -1,0 +1,21 @@
+
+d1 $ degrade $ (n (scale "minor" $
+                   stack [off (1/6) (|+ "<2 7 4 -5>") $ "0 [3 5] 2"
+                         , "0 3 5 4"
+                         ]
+                  )
+       # sound "midi"
+       # nrpnn 9
+     )
+  # nrpnv (round <$> perlin * 1000)
+  # ccn 1 # ccv (0)
+  # miditouch 50
+
+d3 $ jux rev $ chunk 3 (hurry 2) $
+  chop 32 $ n "0 [[~ 4] 3] 2" # sound "bwe" # speed 1
+  # room 0.3 # sz 0.5 # gain 1.2
+
+d2 $ jux rev $
+  sound "snare:1 [snare:3 ~ snare:1] snare:2" # speed 0.1 # legato 0.25 
+  # crush 4 # gain 1.2
+

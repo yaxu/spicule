@@ -1,0 +1,55 @@
+d1 $ juxBy 0.5 rev $ chunk 8 (fast 8)
+  $ struct "[t*2 t t*3 t . t*4]" $ n "-24"
+  # sound "[soskick ~ sossnare sostoms]/2"
+
+d2 $ off 0.25 (|+ n 12) $ juxBy 0.5 (rev . (|+ n 7)) $
+  n "c'maj ~ f5 ~ c6 ~ c ~" # sound "xx"
+   # voice 0
+   |+ note "[0,0.02]"
+   # amp 0.3
+   # lpf "<200>"
+   # lpq 0.1
+   # delay 0.25
+   # delayt "x"
+   # dfb 0.7
+   # lock 1
+   # djf 0.8 # room 0.6 # sz 0.7
+   |+ n 36
+
+  
+d3 $ sound "bd*2 kick:4:3*2 ~ snare:4" # legato 1 # speed 0.5
+
+all $ splat 2 (chop 8 $ pan (range 0 1 saw)) 
+
+d2 silence
+
+
+d1 $ sound "phkick:5 [~ phsnare:5] [~ phkick:5] phsnare:7"
+  # speed 1.5 # gain 1.2
+
+d2 $ slow 2 $ note "2 [1 1.1]*2 1 [1 1.2]*2" # sound "soshats"
+  # gain 0.9 # room 0.8 # sz 0.2 |+ note "-12"
+
+all $ (|+ note (slow 8 $ range 0 7 sine)) . chunk 4 (hurry 0.5)
+
+all $ chunk 4 (hurry 0.5)
+
+all id
+
+d6 $ mask "t [~ t] [~ t] t" $ splice 16 ("0 .. 7" |+ irand 4)
+  $ sound "<learn:1 ! learn:2 !>"
+  # gain 1.5 # room 0.2 # sz 0.7
+
+setcps 0.715
+
+d3 $ jux rev $ off "<0.125 0.25 0.5>" (|+ n 12)
+  $ n "c7 ~ ~ c8'min" # sound "rash" # lpf 1000 # lpq 0.3
+  # gain 0.9
+
+d4 $ n ("0 [~ 5] [~ 4] 9" + 1) # sound "bassneuro" # legato 1
+  # gain 1.3 # note 12
+
+d5 $ mask (inv "t . f t . f t . t") $ chop 16 $ sound "break:8"
+  # gain 1.4
+
+

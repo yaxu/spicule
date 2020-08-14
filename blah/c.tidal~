@@ -1,0 +1,28 @@
+
+setcps 0.55
+
+d1 $
+  jux (rev . (|+ n 13)) $
+  sometimes (struct (-- chunk 2 (slow 2) $
+                     chunk 4 (fast 2) $ "t [~ t] [t t?] [t ~]")) $
+  sound "break"
+  # legato 1
+  # unit "c"
+  # speed "0.5"
+
+d2 $ off "<3s 5s>" (# speed 0.5) $ struct "f(3,8)" $ sound "clap:9" # legato 0.125
+  # unit "c" # speed 1
+
+d4 $ sound "[<[phkick:4*3] [~ phkick:4*2]> ~, ~ phsnare:10]"
+
+d3 $ jux rev $ splice 16 (rot "<0 1 2 3>" "0 [~ 4] [~ <10 12>] [2 3]") $ sound "fm:13"
+  # vowel "e" # crush 3 |+ legato 0.25
+  # gain 0.9 # delay 0.7 # delayt 0.125 # delayfb 0.7 # lock "1"
+
+
+
+d5 $ cps "<0.7 ! ! <0.35 1.4>>"
+
+hush
+
+d5 silence

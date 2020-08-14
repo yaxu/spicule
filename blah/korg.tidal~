@@ -1,0 +1,8 @@
+
+
+d1 $ splice 8 "0 .. 7" $ sound "learn"
+  # gain 1.1
+
+d2 $ (splice 8 "0 .. 7" $ sound "learn:1")
+  # gain 1.1
+  # pan sine

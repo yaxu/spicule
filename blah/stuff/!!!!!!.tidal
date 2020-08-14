@@ -1,0 +1,20 @@
+setcps 0.75
+
+-- remix of co32pt from memory
+
+d1 $ n "0*3 0*2" # s "hits"
+  |+ note "<1 3 6 8>" # lpf "<3000 5000>" # lpq 0.2
+  # room 0.3 # sz 0.33
+
+
+d3 $ jux (|+ n "-2") $
+  loopAt 1 $ chop 16 $ s "break:8"
+  # gain 1.5
+
+d4 $ jux rev $ iter 4 $ sound "phkick:4 [phsnare:3 phkick:4*2]"
+  # gain 1.4 # crush 5 # speed "[1,2]"
+
+d5 $ jux rev $ n "f9(3,8,<0 2>)" # sound "xx" # legato 1 # lpf 2000 # lpq 0.2
+  |+ n "<0 7>"
+
+

@@ -1,0 +1,12 @@
+
+d1 $ sound "kick:6*4" # delay "1@3 0" # delayt "<t e>" # lock 1 # delayfb 0.9
+  # speed 2
+
+d2 $ n "c7!3 c8" # sound "rash" # delay "0@3 1" # delayt "<t 3s>" # lock 1 # delayfb 0.95
+  # gain 1.1 # room 0.3 # sz 0.9 # lpf 6000 # lpq 0.31 # speed "[1,1.015]" # legato 1
+  |+ n "<c e a f>" # pan rand # djf 0.5
+
+d3 $ stut 8 0.25 "1%16" $ sound (iter 4 "[[~ clap:3] snare:4]*2") # cut 1
+  # gain 1.15
+
+

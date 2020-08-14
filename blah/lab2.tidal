@@ -1,0 +1,21 @@
+
+
+
+d1 $ vowel "a [e o]" # sound "superreese" # n "c3"
+  # legato 0.25
+  -- |+ n "<0 2 5 7>"
+
+d2 $ off "<0.25 0.125>" (# (s "snare" # speed 2 # gain 0.96))
+  $  whenmod 16 12 (|* speed 4) $ struct "[t ~ t ~] [~ t] [~ t*2] t"
+  $ sound "phkick:2"
+
+d3 $ whenmod 16 12 (chunk 4 (hurry 2))
+  $ n "[e8 ~ [ds8 ~]] [c7 ~ ~]"
+  # sound "xx" # legato 1
+  # djf 0.8 # vowel "e"
+  # room 0.2 # sz 0.8
+  -- |+ n "<0 2 5 7>"
+
+d4 $ whenmod 16 12 (iter 4 . (# speed 1))
+  $ sound "~ clap:4 ~ [clap:4*2|clap:4]" # speed 2
+  # vowel "i" # gain 1.1

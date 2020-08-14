@@ -1,0 +1,24 @@
+
+(d1 $ degrade $ chunk 4 (hurry 0.5) $
+  off 0.25 (# s "rash") $
+  jux rev $ 
+  n (off 0.125 (|+ 12) $
+     off 0.25 (|+ 7) $
+     "<c*2 e(3,8) f(3,8,2) g(3,8)>") # sound "xx"
+  |+ n 24
+  # legato 1 # room 0.2 # sz 0.3
+  )
+  
+d2 $ degrade $ chunk 4 (hurry 0.5) $ splice 16 ("[0 .. 15]/4") $ sound "pirate" # gain 1 # djf 0.8 # room 0.3 # sz 0.9
+
+d3 $ jux rev $ iter 4 $ loopAt 2 $ chop 8 $ sound "arc" # gain 1.2
+
+d4 $ splice 8 (slow 2 $ rot "<0 1 2 3>" $ fast 2 "7 4 [2 4] 6") $ sound "break:6"
+  # gain 1.3
+
+d5 $ slow 2 $ chunk 4 (hurry "2")
+  $ jux rev $
+  off "s" (# speed "2") $
+  n "2 [~ 5] 2 4" # sound "clap"
+  -- # delayt "<2t 1t>" # delayfb 0.6 # delay 0.6
+  # gain 0.9

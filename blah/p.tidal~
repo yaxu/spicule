@@ -1,0 +1,28 @@
+setcps 0.45
+
+resetCycles
+
+
+d1 $ degrade $ sometimes (|+ n 12) $ off "<e q t e s t>" (|+ n 12) $
+  juxBy 0.25 rev $ ("<0.9>" <~) $
+  n (scale "minor" $ off "0.5" (|+ "<2 -2 3 5 7>") "<4 3 2 1 0*2 -1>")
+  # sound "xx"  # legato 1 
+  |+ n "c8"
+  |* speed "[1,1.02]"
+  # room 0.5 # sz 0.95
+  # gain 0.85
+
+d3 $ 0.9 <~ (slow 4 $ sound "soskick")
+   # gain 1.2 # note 0
+
+d2 $ ((off (-0.125) (|- n 12)) $ (<~) ("<0.25>") $ n (scale "minor" $ off "<0.5 0.5 0.5 1>" (|+ "<2 -2 3 5 7>") "<4 3 2 1 0 -1>")
+  # s "voice" 
+  # gain 1.4 # legato 0.25
+  # pF "vowel" "[0|1|2]"
+  # room 0.3 # sz 0.9
+  # lpf 3000
+  # lpq 0.2
+  # pF "vibratoDepth" 1)
+  |- n 0
+
+

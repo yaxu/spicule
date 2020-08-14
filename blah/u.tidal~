@@ -1,0 +1,35 @@
+setcps 0.4
+
+d1 $ sound "[clap:4 clap:5]@2t [snare:4 phsnare:5]"
+  # legato 1 # speed 1.5
+  # (delayt "<0.25>" # delayfb 0.2 # delay 0.3)
+
+d2 $ splice 4 (every 2 (|+ 1) $ "[0 3]@2t [1 2]") $ sound "break:12"
+  # legato 1 # gain 1.1
+
+d3 $ superimpose (|+ n "<-5 -5 7 12>") $ sound "[rash:30 rash:33]@2t [rash:42 rash:37]"
+  # (delayt "<0.3333>" # delayfb 0.7 # delay 0.3) |+ n "<-12 -12 0>" 
+
+d4 $ n "[~ fs10!2 ~]@2t ~" # sound "xx" # legato 0.25
+  # (delayt "<0.333333333 0.25>" # delayfb 0.9 # delay 0.3)
+
+-- l 4/4
+
+setcps 0.45
+
+d1 $ fast 2 $ n "7 [6 4 5 5]" # sound "hits" # speed 2
+  # legato 1
+  |+ note "<0 2 -5>" # delay 0.6 # delayt "0.03125" # delayfb 0.7 # lock 1
+  -- # djf 0.85
+  # gain 0.9
+  -- #room 0.6 # sz 0.95
+
+d2 $ off "31%32" ((# speed 2) . (# crush 6)) $ sound "bd*2 clap:2 bd*4 clap:4"
+
+d3 $ jux ((|+ note "7"))
+  $ chunk 4 (hurry 2) $ struct "t(5,16)" $ sound "bip" # n "<0 1 2>"
+  # gain 0.9 
+
+d4 $ splice 8 (rot "<0 1 2 3>" $ fast 2 "7 4 [2 4] 6") $ sound "break:8"
+  # gain 1.5
+

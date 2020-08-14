@@ -1,0 +1,8 @@
+
+
+d1 $ jux (rev . fast 2) $ chop "4 2" $ hurry "2 3 0.5"
+  $ sound "[bd bd bd*2 bd*3, sn:2 sn:4]"
+  # speed (slow 1.1 "1 2")
+  -- # crush "[6 2 3]/3"
+
+d1 $ sound

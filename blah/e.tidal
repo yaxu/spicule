@@ -1,0 +1,16 @@
+
+-- d1 $ slow 2 $ jux rev $ plyWith 3 (|+ note 7) $ n (slow "2 1 4 3" $ "0 1 2 3") # sound "ta" # legato 1
+
+d1 $ splice 64 ("2 2 [~ 3] [1 0]" + "<3 0 10 0>") $ sound "bev2"  # gain 1.2
+
+d3 $ slow 2 $ struct "[[t ~ t ~] ~] t [t ~ t ~] t" $ sound "kick:6"
+  -- # room 0.3 # sz 0.4
+  # delay (0.4) # delayt (1/3) # delayfb 0.1
+  |+ speed "[1 2 1]/4" # legato 1
+
+d4 $ stut 4 0.5 "0.0125" $ sound "kick:3 clap:4 [~ clap:4] clap:5"
+  # legato 1 # cut 1
+  # vowel "a i" # speed 2 # gain 0.9
+
+d2 $ -- stut 6 0.3 "-0.0125" $
+  slow 2 $ sound "phsnare:2 [~ phsnare:4] ~ ~ ~ ~ ~ ~" # speed 2 

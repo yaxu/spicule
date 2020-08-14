@@ -1,0 +1,15 @@
+setcps 0.75
+
+d1 $ inside 4 (someCyclesBy 0.5 (const silence)) $
+  chunk 4 (hurry "[4|2]")
+  $ jux rev $
+  off "s" (# speed "2") $
+  n "2 [~ 5] 2 4" # sound "clap"
+  # delayt "<2t 1t>" # delayfb 0.8 # delay 0.6
+  # gain 0.9
+
+d2 $ inside 4 (someCyclesBy 0.5 (# speed 2)) $
+  sound "bd(3,8,<0 3>)"
+  # gain 1.2
+
+

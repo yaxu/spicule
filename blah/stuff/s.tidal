@@ -1,0 +1,44 @@
+setcps 0.65
+
+d1 $ struct "t@q t*2@h t@t" $ sound "clap:4" # speed 2
+
+d8 $ struct "[t t]@q [t t]@h <[t t] t>@t" $ sound "bd"
+
+d2 $ struct (every 2 inv "t*3@q [t f]@h [t t]@t") $
+  sound "phkick:7 phsnare:4" # speed 2 # legato 1
+
+d6 $ (stut 4 0.8 (1/16) $ struct "t@q t@h t@t" $ sound "xx" # n "<c8'maj'4 ~ [g8'maj'4 ~]>" # legato 0.25)
+  # bpf (slow 2 $ range 1000 2000 sine) # bpq 0.1
+
+d6 $ -- jux ((|+ n 12) . (("<h q t>"/(0.25 + 0.5 + (1/3))) <~)) $
+  n "<c8 e9 f9>@q <c8 g8>@h <c7 f7 e8>@t"
+  # sound "xx"
+  # gain 0.9 # legato 0.5
+
+d7 $ stutWith 2 (1/4) (|* speed 2) $ struct "t@q t*2@h t@t" $ n "<g9 c9 e8 f8>"
+  # sound  "xx"
+  # gain 0.85
+  |+ n "-12"
+  # hpf 500 # hpq 0.2 # legato 0.5
+
+d4 $ splice 8 (rot "<0 1 2 3>" "[0 1]@q [7 6]@h <[6 8] 12>@t") $ sound "break:8"
+  # gain 1.1
+  # room 0.3
+
+
+only = (hush >>)
+
+
+d3 $ struct "t*2@q t*2@h t*2@t" $ n "<[g7 g8] [d7 [e8 f8]]>" #  sound "xx"  # legato 0.25 # begin 0.03 # gain 1
+  # vowel "e"
+  -- # djf 0.8
+
+d3 $ chunk 4 (|+ n 15) $ n "[c7 e7]@q g6@h [c7 c7]@t" # sound "xx"
+  -- # room 0.8 # sz 0.7
+  # legato 0.25 |+ note "[0,7,12]"
+  |* gain 1
+
+
+1/64
+
+-- t@q t*2@h t@t

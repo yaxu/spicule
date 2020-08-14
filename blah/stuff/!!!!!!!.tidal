@@ -1,0 +1,15 @@
+d1 $ n (slow 2 $ scale "ritusen" "<0 3 7 <4 2>>")
+  # sound "midi"
+  # gain 1.2
+
+d2 $ n ((+12) <$> slow 3 $ scale "ritusen" "<0 7 3>")
+  # sound "midi"
+  # gain 1.4
+
+d3 $ slow 12 $ segment 127 $ miditouch (saw * 127) # s "midi"
+
+d4 $ slow 11 $ segment 127 $ nrpnn 33 # nrpnv 0 # s "midi"
+
+d5 $ sound "~ clap:4*2" # delay 0.2 # delayt (1/3) # delayfb 0.98 # lock 1 # room 0.3 # sz 0.9
+
+

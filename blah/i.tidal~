@@ -1,0 +1,16 @@
+d1 $ chew 8 ("[0 .. 3] <4 7> [5 6] 6") $ stack [chop 8 $ sound "break:8",
+                                                n "0 1*2 2 3" # sound "phkick"
+                                               ]
+
+d2 $ fast 2 $ brak $ sound "kick:4 snare:4"
+
+d3 $ gain "[0.8!2 1.05 0.9]*4" # sound "hc" # djf 0.85
+
+d4 $ off "<3s 5s 7s 9s>" (|+ n 12) $
+  sometimes (# crush 5) $ 
+  n (slow 2 $ scale "minor" $ off "<3e 3s 3q>" (|+ 7) $ "0 [1 4] 2 [3 6]")
+  # sound "bassic" # legato 0.2 |+ n "[-12]"
+  -- # lpq 0.24 # lpf 1200
+  # detune 1.02 # pF "ffreq" 2000
+  # room 0.3 # sz 0.6
+

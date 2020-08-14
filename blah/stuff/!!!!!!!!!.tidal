@@ -1,0 +1,31 @@
+d1 $ jux rev $ struct "t(7,16)" $ sound (iter 4 "sossnare sostoms soshats")
+  # gain 1.2 # legato 1
+
+d2 $ (off "[s]" ((|+ n "<'maj>") .(# voice 3) . (|+ n 12)) $
+      struct "t(3,8,<0 1 0 2>)" $
+      sound "superpiano"
+  # gain 0.9
+  # n "<c c f4 a5>"
+  # delay 0.25 # delayt 0.25 # lock 1 # delayfb 0.5
+  # legato 0.5)
+
+d3 $ slow 2 $ n "[f5 ~ ] [~ e5] [~ d5 ~ ~] [c5 ~ ~ ~]" # sound "superreese"
+  # voice 3 # detune 0.4 # vowel "a"
+  |+ n "[-12]"
+  # gain 0.9 # room 0.3 # sz 0.9 
+
+d4 $ jux rev $ iter 4 $
+  splice 8 "0 [1 2] 2 3 4*2 5 6*2 7" $ sound "break:8" # gain 1.5
+  
+----
+
+d1 $ sound "kick:6*4" # delay "1@3 0" # delayt "<t e>" # lock 1 # delayfb 0.9
+  # speed 2
+
+d2 $ n "c7!3 c8" # sound "rash" # delay "0@3 1" # delayt "<t 3s>" # lock 1 # delayfb 0.95
+  # gain 1.1 # room 0.3 # sz 0.9 # lpf 6000 # lpq 0.31 # speed "[1,1.015]" # legato 1
+  |+ n "<c e a f>" # pan rand # djf 0.5
+
+d3 $ stut 8 0.25 "1%16" $ sound (iter 4 "[[~ clap:3] snare:4]*2") # cut 1
+  # gain 1.15
+

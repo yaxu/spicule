@@ -1,0 +1,100 @@
+<!DOCTYPE qjackctlSession>
+<session name="reaper">
+ <client name="PulseAudio JACK Sink">
+  <port name="front-left" type="out">
+   <connect client="system" port="playback_1"/>
+  </port>
+  <port name="front-right" type="out">
+   <connect client="system" port="playback_2"/>
+  </port>
+ </client>
+ <client name="SuperCollider">
+  <port name="in_1" type="in">
+   <connect client="system" port="capture_1"/>
+  </port>
+  <port name="in_2" type="in">
+   <connect client="system" port="capture_2"/>
+  </port>
+  <port name="out_1" type="out">
+   <connect client="system" port="playback_1"/>
+   <connect client="REAPER" port="in1"/>
+  </port>
+  <port name="out_2" type="out">
+   <connect client="system" port="playback_2"/>
+   <connect client="REAPER" port="in2"/>
+  </port>
+ </client>
+ <client name="REAPER">
+  <port name="out1" type="out"/>
+  <port name="out2" type="out"/>
+  <port name="in1" type="in">
+   <connect client="SuperCollider" port="out_1"/>
+  </port>
+  <port name="in2" type="in">
+   <connect client="SuperCollider" port="out_2"/>
+  </port>
+  <port name="in3" type="in">
+   <connect client="system" port="capture_3"/>
+  </port>
+  <port name="in4" type="in">
+   <connect client="system" port="capture_4"/>
+  </port>
+  <port name="in5" type="in"/>
+  <port name="in6" type="in"/>
+  <port name="in7" type="in"/>
+  <port name="in8" type="in"/>
+ </client>
+ <client name="system">
+  <port name="capture_1" type="out">
+   <connect client="SuperCollider" port="in_1"/>
+  </port>
+  <port name="capture_2" type="out">
+   <connect client="SuperCollider" port="in_2"/>
+  </port>
+  <port name="capture_3" type="out">
+   <connect client="REAPER" port="in3"/>
+  </port>
+  <port name="capture_4" type="out">
+   <connect client="REAPER" port="in4"/>
+  </port>
+  <port name="capture_5" type="out"/>
+  <port name="capture_6" type="out"/>
+  <port name="capture_7" type="out"/>
+  <port name="capture_8" type="out"/>
+  <port name="capture_9" type="out"/>
+  <port name="capture_10" type="out"/>
+  <port name="capture_11" type="out"/>
+  <port name="capture_12" type="out"/>
+  <port name="capture_13" type="out"/>
+  <port name="capture_14" type="out"/>
+  <port name="capture_15" type="out"/>
+  <port name="capture_16" type="out"/>
+  <port name="capture_17" type="out"/>
+  <port name="capture_18" type="out"/>
+  <port name="playback_1" type="in">
+   <connect client="SuperCollider" port="out_1"/>
+   <connect client="PulseAudio JACK Sink" port="front-left"/>
+  </port>
+  <port name="playback_2" type="in">
+   <connect client="SuperCollider" port="out_2"/>
+   <connect client="PulseAudio JACK Sink" port="front-right"/>
+  </port>
+  <port name="playback_3" type="in"/>
+  <port name="playback_4" type="in"/>
+  <port name="playback_5" type="in"/>
+  <port name="playback_6" type="in"/>
+  <port name="playback_7" type="in"/>
+  <port name="playback_8" type="in"/>
+  <port name="playback_9" type="in"/>
+  <port name="playback_10" type="in"/>
+  <port name="playback_11" type="in"/>
+  <port name="playback_12" type="in"/>
+  <port name="playback_13" type="in"/>
+  <port name="playback_14" type="in"/>
+  <port name="playback_15" type="in"/>
+  <port name="playback_16" type="in"/>
+  <port name="playback_17" type="in"/>
+  <port name="playback_18" type="in"/>
+ </client>
+</session>
+

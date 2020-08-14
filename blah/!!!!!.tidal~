@@ -1,0 +1,21 @@
+
+d1 $ stut 3 0.24 (1/6) $ n ("[8 ~]*2 [8 ~ 8]") # sound "bassreece"
+   # accelerate "[0,-0.3,0.02]" # legato 0.5
+   # gain 1 
+   |+ note "<0 2 [7 8]>"
+
+d2 $ n "0*2 0*3" # s "phkick:5"
+  # gain 1.2 # legato 0.5 # speed 2
+
+d3 $ mask "t f" $ n (scale "minor" "[0 -1] [-3 ~ ~ ~]") # sound "voice"
+  # pF "vibratoSpeed" 10
+  # pF "vibratoDepth" 10 # pI "vowel" (choose [0,1,3,4])
+  # gain 1.6
+  |+ n "<0 2 7>"
+  # room 0.2 # sz 0.7 
+
+d4 $ off 0.25 (|+ n 2) $
+  splice 8 "0*2 [[~ 4] 8*2]" $ sound "break:6"
+  # gain 1.4
+
+hush

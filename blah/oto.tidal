@@ -1,0 +1,229 @@
+setcps 0.8
+
+notes = repeatCycles 1 $ struct "t*8" $ choose [0,1,2,3,4,5]
+
+d1 $ note notes # sound "arpy"
+
+
+-- S
+
+setcps 0.65
+
+d1 $ struct "t@q t*2@h t@t" $ sound "clap:4" # speed 1 # room 0.2
+  # gain 0.9
+
+d8 $ struct "[t t]@q [t t]@h <[t t] t>@t" $ sound "bd"
+
+d2 $ struct (every 2 inv "t*3@q [t f]@h [t t]@t") $
+  sound "phkick:7 phsnare:4" # speed 2 # legato 1
+
+d8 $ jux rev $ (stut 4 0.8 (1/16) $ struct "t@q t@h t@t" $ sound "xx" # n "<c8'maj'4 ~ [g8'maj'4 ~]>" # legato 0.25)
+  # bpf (slow 2 $ range 1000 3000 sine) # bpq 0.1
+
+d8 $ jux ((|+ n 12) . (("<h q t>"/(0.25 + 0.5 + (1/3))) <~)) $
+  n "<c8 e9 f9>@q <c8 g8>@h <c7 f7 e8>@t"
+  # sound "xx"
+  # gain 0.9 # legato 0.5
+
+d7 $ stutWith 2 (1/4) (|* speed 2) $ struct "t@q t*2@h t@t" $ n "<g9 c9 e8 f8>"
+  # sound  "xx"
+  # gain 0.85
+  |+ n "-12"
+  # hpf 500 # hpq 0.2 # legato 0.5
+
+d4 $ splice 8 (rot "<0 1 2 3>" "[0 1]@q [7 6]@h <[6 8] 12>@t") $ sound "break:8"
+  # gain 1.1
+  # room 0.3
+
+-- P - down
+
+setcps 0.40
+
+d1 $ sometimes (|+ n 12) $ off "<e q t e s t>" (|+ n 12) $
+  juxBy 0.25 rev $ ("<0.9>" <~) $
+  n (scale "minor" $ off "0.5" (|+ "<2 -2 3 5 7>") "<4 3 2 1 0 -1>")
+  # sound "xx"  # legato 1 
+  |+ n "c8"
+  |* speed "[1,1.02]"
+  -- # djf 0.8
+  # room 0.5 # sz 0.95
+
+d2 $ ((off (-0.125) (|- n 12)) $ (<~) ("<0.25>") $ n (scale "minor" $ off "<0.5 0.5 0.5 1>" (|+ "<2 -2 3 5 7>") "<4 3 2 1 0 -1>")
+  # s "voice" 
+  # gain 1.4 # legato 0.25
+  # pF "vowel" "[0|1]"
+  # room 0.3 # sz 0.9
+  -- # lpf 3000
+  -- # lpq 0.2
+  # pF "vibratoDepth" 1)
+  |- n 0
+
+
+-- c - up 4/4
+
+setcps 0.65
+
+d1 $
+  jux (rev . (|+ n 13)) $
+  sometimes (struct (-- chunk 2 (slow 2) $
+                     chunk 4 (fast 2) $ "t [~ t] [t t?] [t ~]")) $
+  sound "break"
+  # legato 1
+  # unit "c"
+  # speed "0.5"
+
+d2 $ off "<3s 5s>" (# speed 0.5) $ struct "f(3,8)" $ sound "clap:9" # legato 0.125
+  # unit "c" # speed 1
+
+d4 $ sound "[<[phkick:4*3] [~ phkick:4*2]> ~, ~ phsnare:10]"
+
+d3 $ jux rev $ splice 16 (rot "<0 1 2 3>" "0 [~ 4] [~ <10 12>] [2 3]") $ sound "fm:13"
+  # vowel "e" # crush 3 |+ legato 0.25
+  # gain 0.9 # delay 0.7 # delayt 0.125 # delayfb 0.7 # lock "1"
+
+-- u
+
+setcps 0.4
+
+d1 $ sound "[clap:4 clap:5]@2t [snare:4 phsnare:5]"
+  # legato 1 # speed 1.5
+  # (delayt "<0.25>" # delayfb 0.2 # delay 0.3)
+
+d2 $ splice 4 (every 2 (|+ 1) $ "[0 3]@2t [1 2]") $ sound "break:12"
+  # legato 1 # gain 1.1
+
+d3 $ superimpose (|+ n "<-5 -5 7 12>") $ sound "[rash:30 rash:33]@2t [rash:42 rash:37]"
+  # (delayt "<0.3333>" # delayfb 0.7 # delay 0.3) |+ n "<-12 -12 0>" 
+
+d4 $ n "[~ fs10!2 ~]@2t ~" # sound "xx" # legato 0.25
+  # (delayt "<0.333333333 0.25>" # delayfb 0.9 # delay 0.3)
+
+
+# !!! - skittery
+
+setcps 0.75
+
+d1 $ inside 4 (someCyclesBy 0.5 (const silence)) $
+  chunk 4 (hurry "[4|2]")
+  $ jux rev $
+  off "s" (# speed "2") $
+  n "2 [~ 5] 2 4" # sound "clap"
+  # delayt "<2t 1t>" # delayfb 0.8 # delay 0.6
+  # gain 0.9
+
+d2 $ inside 4 (someCyclesBy 0.5 (# speed 2)) $
+  sound "bd(3,8,<0 3>)"
+  # gain 1.2
+
+# !!!! - full on
+all id
+
+setcps 0.8
+
+all $ (# djf (range 0.6 0.9 perlin))
+
+all (# crush 4)
+
+d1 $ n ("[8 ~]*2 [8 ~]*1.5") # sound "bassreece"
+  # legato 1
+  # note (superimpose (|+ 12) "[0,<c a [g [e6|e]]>]")
+  # gain 1
+  -- # lock 1 # delay 0.5 # delayt "t" # delayfb 0.5
+
+d2 $ stutWith 3 (pure $ -1%16) (|+ speed 2) $ n "[g8 c9*1.5]" # sound "rash"
+  |+ legato 0.25
+  # djf 0.8
+  # gain 0.9
+  # lock 1 # delay 0.5 # delayt "t" # delayfb 0.5
+
+d2 silence
+
+d3 $ (splice 8 "[0 3|0 1] [3 2|2 0] . [0*2 [1 2]]*1.5" $ sound "break:8")
+  # gain 1.6 # crush 3
+
+all $ (# (hpf (range 100 2000 perlin) # hpq 0.2 # room 0.2 # sz 0.8))
+
++ !!!!!
+
+all $ (# shape 0.5)
+
+all id 
+
+d1 $ stut 3 0.24 (1/6) $ n ("[8 ~]*2 [8 ~ 8]") # sound "bassreece"
+   # accelerate "[0,-0.3,0.02]" # legato 0.5
+   # gain 1 
+   |+ note "<0 2 [7 8]>"
+
+d2 $ chunk 4 (hurry 2) $ n "0*2 0*3" # s "phkick:5"
+  # gain 1.2 # legato 0.5 # speed 2
+
+d3 $ degrade $ mask "t f" $ n (scale "minor" "[0 -1] [-3 ~ ~ ~]") # sound "voice"
+  # pF "vibratoSpeed" 10
+  # pF "vibratoDepth" 10 # pI "vowel" (choose [0,1,3,4])
+  # gain 1.6
+  |+ n "<0 2 7>"
+  # room 0.2 # sz 0.7 
+
+d4 $ jux (|+ n 1) $
+  splice 8 "0*2 [6 <7 5>]" $ sound "break:11"
+  # gain 1.4
+
+
+# !!!!!! - co32pt
+
+d1 $ n "0*3 0*2" # s "hits"
+  |+ note "<1 3 6 8>" # lpf "<3000 5000>" # lpq 0.2
+  # room 0.3 # sz 0.33
+
+d3 $ jux (|+ n "-2") $
+  loopAt 1 $ chop 16 $ s "break:8"
+  # gain 1.5
+
+d4 $ jux rev $ iter 4 $ sound "phkick:4 [phsnare:3 phkick:4*2]"
+  # gain 1.4 # crush 5 # speed "[1,2]"
+
+d5 $ jux rev $ n "f9(3,8,<0 2>)" # sound "xx" # legato 1 # lpf 2000 # lpq 0.2
+  |+ n "<0 7>"
+
+# !!!!!!!!!
+
+setcps 0.7
+
+d1 $ jux rev $ struct "t(7,16)" $ sound (iter 4 "sossnare sostoms soshats")
+  # gain 1.2 # legato 1
+
+d2 $ (off "[s]" ((|+ n "<'maj>") .(# voice 3) . (|+ n 12)) $
+      struct "t(3,8,<0 1 0 2>)" $
+      sound "superpiano"
+  # gain 0.9
+  # n "<c c f4 a5>"
+  # delay 0.25 # delayt 0.25 # lock 1 # delayfb 0.5
+  # legato 0.5)
+
+d3 $ slow 2 $ n "[f5 ~ ] [~ e5] [~ d5 ~ ~] [c5 ~ ~ ~]" # sound "superreese"
+  # voice 3 # detune 0.4 # vowel "a"
+  |+ n "[-12]"
+  # gain 0.9 # room 0.3 # sz 0.9 
+
+d4 $ -- jux rev $
+  iter 4 $
+  splice 8 "0 [1 2] 2 3 4*2 5 6*2 7" $ sound "break:8" # gain 1.5
+  
+----
+
+d1 $ sound "kick:6*4" # delay "1@3 0" # delayt "<t e>" # lock 1 # delayfb 0.2
+  # speed 2
+
+d5 $ n "c7!3 c8" # sound "rash" # delay "0@3 1" # delayt "<t 3s>" # lock 1 # delayfb 0.95
+  # gain 1.1 # room 0.3 # sz 0.9 # lpf 6000 # lpq 0.31 # speed "[1,1.015]" # legato 1
+  |+ n "<c e a f>" # pan rand # djf 0.5
+
+d2 $ segment 16 $ delay 0
+
+d3 $ -- stut 8 0.25 "1%16" $
+  sound (iter 4 "[[~ clap:3] snare:4]*2") # cut 1
+  # gain 1.15
+
+d4 silence
+
+

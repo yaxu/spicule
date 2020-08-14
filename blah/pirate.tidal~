@@ -1,0 +1,7 @@
+
+d1 $
+  n "<c(3,8) e*2 f(3,8) g>" # sound "rash"
+  |+ n 36
+
+
+d1 $ sound "pirate"

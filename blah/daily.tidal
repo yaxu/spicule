@@ -1,0 +1,14 @@
+d1 $ chunk 3 (hurry 0.5) $ n "[0 3?] [~ 2@2] [0 5]" # sound "soshats" # legato 4
+  |+ n "[-12,-5]"
+
+d3 $ chunk 3 (hurry 0.5) $ stut 3 0.6 ("-1%12") $ n "<12 [15 ~ 14]>" # sound "xx"
+  # legato 1 |+ lpf 800 # lpq 0.2
+  |+ n "[c7'maj|c7'min]" # gain 1
+  |* speed "[1,2.01]" # djf 0.8 # room 0.2 # sz 0.3
+
+d2 $ splice 8 (rot "<0 2 4 6>" $ "0*2 [1 2|3 4*2] [5 7]") $ sound "break:6" 
+
+d4 $ splice 8 (rot "<0 2 4 6>" $ "0*4 [1 2 3 4*2] [5 7 5 7]") $ sound "break:6"
+
+d5 $ splice 8 (rot "<0 2 4 6>" $ "0*8 [4 3 2 1 1 2 3 4*2] [5 7 5 7]*2") $ sound "break:6" # djf 0.8 # room 0.4 # sz 0.6
+

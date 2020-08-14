@@ -1,0 +1,27 @@
+<!DOCTYPE patchbay>
+<patchbay name="spicule" version="0.4.5">
+ <output-sockets>
+  <socket name="SuperCollider 1" exclusive="off" client="SuperCollider" type="jack-audio">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket name="Midi Through 1" exclusive="off" client="Midi Through" type="alsa-midi">
+   <plug>Midi Through Port-0</plug>
+  </socket>
+ </output-sockets>
+ <input-sockets>
+  <socket name="X18/XR 1" exclusive="off" client="X18/XR18" type="alsa-midi">
+   <plug>X18/XR18 MIDI 1</plug>
+  </socket>
+  <socket name="obs in 1" exclusive="off" client="obs in" type="jack-audio">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+ </input-sockets>
+ <slots/>
+ <cables>
+  <cable input="obs in 1" type="jack-audio" output="SuperCollider 1"/>
+  <cable input="X18/XR 1" type="alsa-midi" output="Midi Through 1"/>
+ </cables>
+</patchbay>
+

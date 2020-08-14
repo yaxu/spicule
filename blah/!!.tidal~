@@ -1,0 +1,8 @@
+
+d1 $ stack [sound "[bd*4, [snare:5]]"
+           ,
+           off 0.25 (|+ lpf (range 2000 5000 rand)) $
+           sound "~ rash:8"
+           # lpf "<300 [350, 800] 300 350>" #lpq "<0.4 0.3>"
+           ]
+  # delayt "<0.33333 0.125>" # delay "<0.3>" # lock 1 # delayfb 0.9 # gain 1.1

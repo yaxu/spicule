@@ -1,0 +1,21 @@
+setcps 0.45
+
+d1 $ fast 2 $ n "7 [6 4 5 5]" # sound "hits" # speed 2
+  # legato 1
+  |+ note "<0 2 -5>" # delay 0.6 # delayt "0.03125" # delayfb 0.7 # lock 1
+  -- # djf 0.85
+  # gain 0.9
+  -- #room 0.6 # sz 0.95
+
+d2 $ off "31%32" ((# speed 2) . (# crush 6)) $ sound "bd*2 clap:2 bd*4 clap:4"
+
+d3 $ jux ((|+ note "7"))
+  $ chunk 4 (hurry 2) $ struct "t(5,16)" $ sound "bip" # n "<0 1 2>"
+  # gain 0.9 
+
+d4 $ splice 8 (rot "<0 1 2 3>" $ fast 2 "7 4 [2 4] 6") $ sound "break:8"
+  # gain 1.5
+
+hush
+
+
